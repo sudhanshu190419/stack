@@ -58,15 +58,4 @@ export const SERVICES: ServiceItem[] = [
     technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions', 'Datadog'],
     gradient: 'from-teal-500 via-emerald-500 to-green-500',
     glowColor: 'rgba(20,184,166,0.15)',
-  },
-  {
-    id: 6,
-    title: 'Product Strategy',
-    shortTitle: 'Strategy',
-    description:
-      'End-to-end product strategy that aligns business goals with technical execution. From discovery and roadmap planning to launch and iteration, we guide products to market fit.',
-    technologies: ['Strategy', 'Analytics', 'Roadmapping', 'A/B Testing', 'Growth', 'KPIs'],
-    gradient: 'from-amber-500 via-orange-500 to-red-500',
-    glowColor: 'rgba(245,158,11,0.15)',
-  },
-]
+  },]
