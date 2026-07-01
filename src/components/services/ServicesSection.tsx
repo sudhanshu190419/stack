@@ -241,9 +241,14 @@ function ProgressDots({ activeIndex }: { activeIndex: number }) {
 }
 
 export default function ServicesSection() {
+  const [mounted, setMounted] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const pinRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const section = sectionRef.current
@@ -373,7 +378,7 @@ export default function ServicesSection() {
         <LightRays />
 
         {/* Floating particles */}
-        <Particles />
+        {mounted && <Particles />}
       </div>
 
       {/* Pinned container */}

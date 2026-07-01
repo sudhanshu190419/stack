@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 interface Particle {
@@ -30,6 +30,7 @@ function generateParticles(count: number): Particle[] {
 }
 
 export default function ParticleLayer({ count = 60 }: { count?: number }) {
+  const [mounted, setMounted] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -37,7 +38,11 @@ export default function ParticleLayer({ count = 60 }: { count?: number }) {
   })
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
-  const particles = useMemo(() => generateParticles(count), [count])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const particles = useMemo(() => generateParticles(count), [mounted, count])
 
   return (
     <div
@@ -45,8 +50,9 @@ export default function ParticleLayer({ count = 60 }: { count?: number }) {
       className="absolute inset-0 pointer-events-none overflow-hidden"
       style={{ perspective: '1000px' }}
     >
-      <motion.div className="absolute inset-0" style={{ opacity }}>
-        {particles.map((p) => (
+      {mounted && (
+        <motion.div className="absolute inset-0" style={{ opacity }}>
+          {particles.map((p) => (
           <motion.div
             key={p.id}
             className="absolute rounded-full"
@@ -76,8 +82,9 @@ export default function ParticleLayer({ count = 60 }: { count?: number }) {
               delay: p.delay,
             }}
           />
-        ))}
-      </motion.div>
+          ))}
+        </motion.div>
+      )}
     </div>
   )
 }
