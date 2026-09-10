@@ -57,7 +57,7 @@ function splitLine(line: string, highlightWords: string[], lineIndex: number) {
 
 export default function AnimatedHeadline({
   text,
-  highlightWords = ['Ideas', 'Digital', 'Products'],
+  highlightWords = ['stand', 'out', 'businesses'],
 }: HeadlineProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.5 })
@@ -66,23 +66,23 @@ export default function AnimatedHeadline({
   const lines = text.split('|')
 
   return (
-    <div ref={ref} className="relative max-w-md">
+    <div ref={ref} className="relative max-w-xl lg:max-w-2xl">
       {/* Subtle glow behind the heading */}
       <div
         className="absolute -inset-8 pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle, rgba(255,255,255,0.10), transparent 70%)',
+            'radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%)',
         }}
       />
 
       <motion.h1
         className="relative"
         style={{
-          fontSize: 'clamp(2.5rem, 5.5vw, 92px)',
-          lineHeight: 0.95,
+          fontSize: 'clamp(2.4rem, 5vw, 84px)',
+          lineHeight: 1.02,
           fontWeight: 800,
-          letterSpacing: '-3px',
+          letterSpacing: '-2px',
         }}
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}

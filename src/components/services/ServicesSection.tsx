@@ -1,439 +1,467 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SERVICES } from './servicesData'
-import ServiceVisual from './ServiceVisual'
-import ServiceCard from './ServiceCard'
+import { Observer } from 'gsap/Observer'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import { SERVICES, ServiceItem } from './servicesData'
 
-gsap.registerPlugin(ScrollTrigger)
-
-function Particles() {
-  const orangeParticles = Array.from({ length: 20 }).map((_, i) => ({
-    left: `${5 + Math.random() * 35}%`,
-    top: `${5 + Math.random() * 45}%`,
-    size: 2 + Math.random() * 2.5,
-    duration: 5 + Math.random() * 5,
-    delay: Math.random() * 4,
-  }))
-  const blueParticles = Array.from({ length: 20 }).map((_, i) => ({
-    left: `${55 + Math.random() * 40}%`,
-    top: `${40 + Math.random() * 50}%`,
-    size: 2 + Math.random() * 2.5,
-    duration: 5 + Math.random() * 5,
-    delay: Math.random() * 4,
-  }))
-  const dustParticles = Array.from({ length: 15 }).map((_, i) => ({
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    size: 1 + Math.random() * 1.2,
-    duration: 7 + Math.random() * 6,
-    delay: Math.random() * 6,
-  }))
-
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {/* Orange particles - top-left region */}
-      {orangeParticles.map((p, i) => (
-        <motion.div
-          key={`orange-${i}`}
-          className="absolute rounded-full"
-          style={{
-            width: p.size,
-            height: p.size,
-            left: p.left,
-            top: p.top,
-            background: 'radial-gradient(circle, rgba(249,115,22,0.6), transparent)',
-            boxShadow: '0 0 6px rgba(249,115,22,0.3)',
-          }}
-          initial={{ opacity: 0.5 }}
-          animate={{
-            y: [0, -(20 + Math.random() * 25), 0],
-            x: [0, (Math.random() - 0.5) * 30, 0],
-            opacity: [0.3, 0.7, 0.3],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            delay: p.delay,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-      {/* Blue particles - bottom-right region */}
-      {blueParticles.map((p, i) => (
-        <motion.div
-          key={`blue-${i}`}
-          className="absolute rounded-full"
-          style={{
-            width: p.size,
-            height: p.size,
-            left: p.left,
-            top: p.top,
-            background: 'radial-gradient(circle, rgba(59,130,246,0.6), transparent)',
-            boxShadow: '0 0 6px rgba(59,130,246,0.3)',
-          }}
-          initial={{ opacity: 0.4 }}
-          animate={{
-            y: [0, -(15 + Math.random() * 20), 0],
-            x: [0, (Math.random() - 0.5) * 25, 0],
-            opacity: [0.25, 0.6, 0.25],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            delay: p.delay,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-      {/* Tiny glowing dust - scattered */}
-      {dustParticles.map((p, i) => (
-        <motion.div
-          key={`dust-${i}`}
-          className="absolute rounded-full"
-          style={{
-            width: p.size,
-            height: p.size,
-            left: p.left,
-            top: p.top,
-            background: 'radial-gradient(circle, rgba(255,255,255,0.5), transparent)',
-            boxShadow: '0 0 3px rgba(255,255,255,0.15)',
-          }}
-          initial={{ opacity: 0.3, scale: 0.5 }}
-          animate={{
-            opacity: [0.2, 0.5, 0.2],
-            scale: [0.5, 1.3, 0.5],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            delay: p.delay,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
-    </div>
-  )
-}
-
-function GradientBlobs() {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {/* Slow moving orange blob - top left */}
-      <motion.div
-        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(249,115,22,0.15), transparent 70%)',
-        }}
-        animate={{
-          x: [0, 60, -30, 0],
-          y: [0, -40, 50, 0],
-          scale: [1, 1.15, 0.9, 1],
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      {/* Slow moving red blob - center */}
-      <motion.div
-        className="absolute top-1/3 left-1/3 w-[400px] h-[400px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(239,68,68,0.12), transparent 70%)',
-        }}
-        animate={{
-          x: [0, -50, 40, 0],
-          y: [0, 50, -30, 0],
-          scale: [1, 0.9, 1.1, 1],
-        }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      {/* Slow moving purple blob - transition zone */}
-      <motion.div
-        className="absolute top-1/2 right-1/3 w-[350px] h-[350px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(168,85,247,0.10), transparent 70%)',
-        }}
-        animate={{
-          x: [0, 40, -60, 0],
-          y: [0, -30, 40, 0],
-          scale: [1, 1.1, 0.95, 1],
-        }}
-        transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      {/* Slow moving blue blob - bottom right */}
-      <motion.div
-        className="absolute -bottom-32 -right-32 w-[450px] h-[450px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, rgba(59,130,246,0.14), transparent 70%)',
-        }}
-        animate={{
-          x: [0, -40, 50, 0],
-          y: [0, 30, -40, 0],
-          scale: [1, 1.05, 0.95, 1],
-        }}
-        transition={{ duration: 26, repeat: Infinity, ease: 'easeInOut' }}
-      />
-    </div>
-  )
-}
-
-function LightRays() {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <motion.div
-        className="absolute left-1/4 top-0 w-[2px] h-full"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(249,115,22,0.05), rgba(239,68,68,0.02), transparent)',
-        }}
-        animate={{ opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute left-[45%] top-0 w-[1px] h-full"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(239,68,68,0.03), rgba(168,85,247,0.02), transparent)',
-        }}
-        animate={{ opacity: [0.15, 0.3, 0.15] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-      />
-      <motion.div
-        className="absolute left-[55%] top-0 w-[1px] h-full"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(168,85,247,0.03), rgba(59,130,246,0.02), transparent)',
-        }}
-        animate={{ opacity: [0.15, 0.25, 0.15] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-      />
-      <motion.div
-        className="absolute left-[70%] top-0 w-[2px] h-full"
-        style={{
-          background: 'linear-gradient(to bottom, transparent, rgba(59,130,246,0.03), rgba(59,130,246,0.05))',
-        }}
-        animate={{ opacity: [0.15, 0.35, 0.15] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-      />
-    </div>
-  )
-}
-
-function ProgressDots({ activeIndex }: { activeIndex: number }) {
-  return (
-    <div className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-20">
-      {SERVICES.map((_, i) => (
-        <div key={i} className="flex items-center gap-3 group cursor-pointer">
-          <span
-            className={`text-[10px] font-medium transition-all duration-500 ${
-              i === activeIndex ? 'text-white/60' : 'text-white/10'
-            }`}
-          >
-            {String(i + 1).padStart(2, '0')}
-          </span>
-          <div
-            className={`w-[2px] rounded-full transition-all duration-500 ${
-              i === activeIndex ? 'h-8 bg-white/40' : 'h-3 bg-white/10'
-            }`}
-          />
-        </div>
-      ))}
-    </div>
-  )
-}
+gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
 
 export default function ServicesSection() {
-  const [mounted, setMounted] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const pinRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const pinTargetRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  useEffect(() => {
-    setMounted(true)
+  // Tracking refs to manage state across async closures and Observer callbacks
+  const activeIndexRef = useRef(0)
+  activeIndexRef.current = activeIndex
+
+  const isTransitioningRef = useRef(false)
+  const isLockedRef = useRef(false)
+  const observerRef = useRef<Observer | null>(null)
+  const stRef = useRef<ScrollTrigger | null>(null)
+
+  const getStepScrollY = useCallback((index: number, st: ScrollTrigger) => {
+    // 4 services spaced 600px apart:
+    // 01: 0px | 02: 600px | 03: 1200px | 04: 1800px
+    // Service 04 sits at st.start + 1800px.
+    // The remaining range (1800px to st.end) is window.innerHeight where Selected Work
+    // rides up over the pinned Service 04 section.
+    const stepOffsets = [0, 600, 1200, 1800]
+    const offset = stepOffsets[index] ?? index * 600
+    return st.start + offset
+  }, [])
+
+  // Transition to a specific index with a 650ms cooldown lock (ignoring residual inertia)
+  const goToIndex = useCallback((nextIndex: number) => {
+    if (nextIndex === activeIndexRef.current || isTransitioningRef.current) return
+    isTransitioningRef.current = true
+    setActiveIndex(nextIndex)
+    activeIndexRef.current = nextIndex
+
+    // Synchronize the scroll position to the exact step within the pinned range
+    const st = stRef.current
+    if (st) {
+      const targetY = getStepScrollY(nextIndex, st)
+      window.scrollTo({ top: targetY, behavior: 'instant' })
+    }
+
+    // 650ms cooldown lock swallows all trackpad inertia and fast mouse-wheel ticks
+    setTimeout(() => {
+      isTransitioningRef.current = false
+    }, 650)
+  }, [getStepScrollY])
+
+  const handleNext = () => {
+    if (isTransitioningRef.current) return
+    const nextIdx = Math.min(SERVICES.length - 1, activeIndexRef.current + 1)
+    goToIndex(nextIdx)
+  }
+
+  const handlePrev = () => {
+    if (isTransitioningRef.current) return
+    const prevIdx = Math.max(0, activeIndexRef.current - 1)
+    goToIndex(prevIdx)
+  }
+
+  // Natural release into Selected Work:
+  // Disables Observer and unlocks the section so native scrolling allows
+  // Selected Work to ride up smoothly over the pinned Service 04 section.
+  const unlockAndGoToWork = useCallback(() => {
+    isLockedRef.current = false
+    observerRef.current?.disable()
+    isTransitioningRef.current = false
+  }, [])
+
+  // Natural release up into Hero:
+  // Synchronizes scroll position cleanly to the top boundary (st.start) where Hero sits directly above,
+  // then disables Observer so subsequent upward scrolling naturally enters Hero.
+  const unlockAndGoToHero = useCallback(() => {
+    isLockedRef.current = false
+    const st = stRef.current
+    if (st) {
+      window.scrollTo({ top: st.start, behavior: 'instant' })
+    }
+    observerRef.current?.disable()
+    isTransitioningRef.current = false
+  }, [])
+
+  // Lock section and engage Observer
+  const lockSection = useCallback((initialIndex: number, targetScrollY?: number) => {
+    isLockedRef.current = true
+    isTransitioningRef.current = true
+    setActiveIndex(initialIndex)
+    activeIndexRef.current = initialIndex
+
+    if (typeof targetScrollY === 'number') {
+      window.scrollTo({ top: targetScrollY, behavior: 'instant' })
+    }
+
+    observerRef.current?.enable()
+
+    // 450ms buffer absorbs any leftover momentum from the previous section
+    setTimeout(() => {
+      isTransitioningRef.current = false
+    }, 450)
   }, [])
 
   useEffect(() => {
-    const section = sectionRef.current
-    const pin = pinRef.current
-    if (!section || !pin) return
+    const container = containerRef.current
+    const pinTarget = pinTargetRef.current
+    if (!container || !pinTarget) return
 
-    const cards = SERVICES.length
-    const scrollPerCard = 20
-    const totalScroll = cards * scrollPerCard
+    // 1. Create GSAP Observer for discrete gesture interception
+    const obs = Observer.create({
+      target: window,
+      type: 'wheel,touch',
+      tolerance: 15,
+      preventDefault: true,
+      onDown: () => {
+        if (!isLockedRef.current || isTransitioningRef.current) return
 
-    const st = ScrollTrigger.create({
-      trigger: section,
-      start: 'top top',
-      end: `+=${totalScroll}%`,
-      pin: pin,
-      pinSpacing: true,
-      anticipatePin: 1,
-      onUpdate: (self) => {
-        const progress = self.progress
-        const idx = Math.min(Math.floor(progress * cards), cards - 1)
-        setActiveIndex(idx)
+        if (activeIndexRef.current < SERVICES.length - 1) {
+          goToIndex(activeIndexRef.current + 1)
+        } else {
+          // At 04, release downward so Selected Work can ride above
+          unlockAndGoToWork()
+        }
+      },
+      onUp: () => {
+        if (!isLockedRef.current || isTransitioningRef.current) return
+
+        if (activeIndexRef.current > 0) {
+          goToIndex(activeIndexRef.current - 1)
+        } else {
+          // At 01, release upward into Hero
+          unlockAndGoToHero()
+        }
       },
     })
 
+    // Start disabled until section is entered
+    obs.disable()
+    observerRef.current = obs
+
+    // 2. ScrollTrigger lifecycle:
+    // a) pinST pins pinTarget for all 4 services AND during the entire ride-over of Selected Work
+    // b) lockST manages discrete gesture locking for Services 01-04 (0px to 1800px)
+    const ctx = gsap.context(() => {
+      const pinST = ScrollTrigger.create({
+        trigger: container,
+        pin: pinTarget,
+        start: 'top top',
+        end: () => '+=' + (1800 + window.innerHeight),
+        anticipatePin: 1,
+      })
+      stRef.current = pinST
+
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top top',
+        end: '+=1800',
+        onEnter: (self) => {
+          lockSection(0, self.start)
+        },
+        onEnterBack: (self) => {
+          lockSection(SERVICES.length - 1, self.end)
+        },
+        onLeave: () => {
+          isLockedRef.current = false
+          obs.disable()
+        },
+        onLeaveBack: () => {
+          isLockedRef.current = false
+          obs.disable()
+        },
+      })
+    }, container)
+
     return () => {
-      st.kill()
+      obs.kill()
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.vars.trigger === container) st.kill()
+      })
     }
-  }, [])
+  }, [getStepScrollY, goToIndex, lockSection, unlockAndGoToHero, unlockAndGoToWork])
+
+  const activeService = SERVICES[activeIndex] || SERVICES[0]
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative"
-      style={{ height: `${SERVICES.length * 40}vh`, background: '#050816' }}
+    <div
+      id="services"
+      ref={containerRef}
+      className="relative w-full bg-[#FAF7F2] text-neutral-900 border-t border-black/[0.04] z-10"
+      style={{ marginBottom: '-100vh' }}
     >
-      {/* Premium ambient background - seamless continuation of Hero */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Base layer: deep navy/black */}
-        <div className="absolute inset-0" style={{ background: '#050816' }} />
-
-        {/* Subtle animated grid */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-
-        {/* Noise texture overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.012]"
-          style={{
-            backgroundImage:
-              'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.5\'/%3E%3C/svg%3E")',
-            backgroundRepeat: 'repeat',
-            backgroundSize: '256px 256px',
-          }}
-        />
-
-        {/* Faint vignette around edges */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(ellipse at center, transparent 50%, rgba(5,8,22,0.4) 100%)',
-          }}
-        />
-
-        {/* Cinematic layered gradient lighting */}
-        {/* Top-left: soft orange glow */}
-        <div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle at 30% 30%, rgba(249,115,22,0.15), transparent 70%)',
-          }}
-        />
-        {/* Center: warm red ambient glow */}
-        <div
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle at 50% 40%, rgba(239,68,68,0.12), transparent 70%)',
-          }}
-        />
-        {/* Center-right: subtle purple transition between red and blue */}
-        <div
-          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle at 60% 50%, rgba(168,85,247,0.08), transparent 70%)',
-          }}
-        />
-        {/* Bottom-right: soft blue glow */}
-        <div
-          className="absolute -bottom-32 -right-32 w-[550px] h-[550px] pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle at 70% 60%, rgba(59,130,246,0.14), transparent 70%)',
-          }}
-        />
-
-        {/* Depth layer: subtle diagonal light sweep */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              'linear-gradient(135deg, rgba(249,115,22,0.06) 0%, transparent 30%, rgba(59,130,246,0.06) 70%, rgba(59,130,246,0.10) 100%)',
-          }}
-        />
-
-        {/* Soft radial light behind the illustration area */}
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)',
-          }}
-        />
-
-        {/* Slow moving gradient blobs */}
-        <GradientBlobs />
-
-        {/* Subtle light rays */}
-        <LightRays />
-
-        {/* Floating particles */}
-        {mounted && <Particles />}
-      </div>
-
-      {/* Pinned container */}
-      <div
-        ref={pinRef}
-        className="relative z-10 h-screen overflow-hidden pt-[72px] lg:pt-[85px]"
+      {/* Pinned Viewport Container (Physical ScrollTrigger pinning) */}
+      <section
+        ref={pinTargetRef}
+        className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[#FAF7F2] pt-[68px] lg:pt-[76px] pb-5 sm:pb-6"
       >
-        <div className="flex flex-col lg:flex-row h-full max-w-7xl mx-auto">
-          {/* Left column - Visual */}
-          <div className="flex-1 flex items-center justify-center lg:pr-8 relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                className="w-full h-full flex items-center justify-center p-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <ServiceVisual
-                  serviceId={SERVICES[activeIndex].id}
-                  isActive={true}
-                />
-              </motion.div>
-            </AnimatePresence>
+        {/* Top Header Section */}
+        <div className="w-full max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 flex flex-col lg:flex-row lg:items-start justify-between gap-4 sm:gap-6 pt-1 sm:pt-2">
+          {/* Main Title & Subtitle */}
+          <div>
+            <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-950 mb-1.5">
+              WHAT WE DO
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-neutral-900 tracking-tight leading-[1.12]">
+              Everything your website needs.
+              <br />
+              <span className="font-serif italic font-normal text-[#9E6941]">
+                Nothing you don&apos;t.
+              </span>
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed max-w-lg mt-2">
+              From first concept to final launch, we design and develop digital
+              experiences built around your business goals.
+            </p>
           </div>
 
-          {/* Right column - Cards */}
-          <div className="flex-1 relative flex items-center">
-            <AnimatePresence mode="wait">
-              {SERVICES.map(
-                (service, i) =>
-                  i === activeIndex && (
-                    <ServiceCard
-                      key={service.id}
-                      service={service}
-                      isActive={true}
-                      index={i}
+          {/* Top Right Label with Divider Line */}
+          <div className="hidden lg:flex items-center gap-3 self-start pt-2">
+            <div className="w-10 h-[1px] bg-neutral-300" />
+            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-neutral-500">
+              MODERN WEBSITES FOR AMBITIOUS BRANDS
+            </span>
+          </div>
+        </div>
+
+        {/* Center Content Area */}
+        <div className="w-full max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 relative flex-1 flex items-center justify-between my-auto">
+          {/* Left Service List */}
+          <div className="w-full lg:w-[420px] xl:w-[460px] shrink-0 relative z-10 pt-2 sm:pt-3 lg:pt-4">
+            <div className="flex flex-col space-y-5 sm:space-y-6 lg:space-y-7 relative">
+              {SERVICES.map((service, index) => {
+                const isActive = activeIndex === index
+                const isFirst = index === 0
+                const isLast = index === SERVICES.length - 1
+
+                return (
+                  <div
+                    key={service.id}
+                    onClick={() => goToIndex(index)}
+                    className="relative flex items-start gap-2.5 sm:gap-3.5 cursor-pointer group select-none transition-all duration-300"
+                  >
+                    {/* Left: Number */}
+                    <div className="h-7 w-7 shrink-0 flex items-center justify-end">
+                      <span
+                        className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${isActive ? 'text-neutral-900 font-bold' : 'text-neutral-400'
+                          }`}
+                      >
+                        {service.number}
+                      </span>
+                    </div>
+
+                    {/* Center: Timeline Node Column with line passing through exact center of circle */}
+                    <div className="relative w-6 shrink-0 h-7 flex items-center justify-center">
+                      {/* Vertical line through exact center of circle */}
+                      <div
+                        className={`absolute left-1/2 -translate-x-[0.5px] w-[1px] bg-neutral-300/90 z-0 ${isFirst
+                          ? 'top-3.5 -bottom-7 sm:-bottom-8 lg:-bottom-9'
+                          : isLast
+                            ? '-top-7 sm:-top-8 lg:-top-9 bottom-3.5'
+                            : '-top-7 sm:-top-8 lg:-top-9 -bottom-7 sm:-bottom-8 lg:-bottom-9'
+                          }`}
+                      />
+
+                      {/* Circle Dot Indicator - perfectly aligned with number and line */}
+                      <div className="relative z-10 flex items-center justify-center">
+                        {isActive ? (
+                          <motion.div
+                            layoutId="servicesActiveDot"
+                            className="w-3.5 h-3.5 rounded-full bg-neutral-950 ring-2 ring-[#FAF7F2] shadow-xs"
+                            transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                          />
+                        ) : (
+                          <div className="w-3.5 h-3.5 rounded-full border border-neutral-400 bg-[#FAF7F2] group-hover:border-neutral-600 transition-colors" />
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Right: Title, Arrow Button, and Description */}
+                    <div className="flex-1 min-w-0 pl-1.5 sm:pl-2 pr-2">
+                      <div className="h-7 flex items-center justify-between gap-3">
+                        <h3
+                          className={`text-xl sm:text-[22px] lg:text-[24px] tracking-tight transition-all duration-300 leading-none ${isActive
+                            ? 'text-neutral-950 font-bold'
+                            : 'text-neutral-500 font-semibold group-hover:text-neutral-700'
+                            }`}
+                        >
+                          {service.title}
+                        </h3>
+
+                        {/* Active Arrow Button */}
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{ duration: 0.2 }}
+                            className="w-8 sm:w-8.5 h-8 sm:h-8.5 rounded-full border border-neutral-300 bg-white/90 shadow-2xs flex items-center justify-center text-neutral-800 shrink-0"
+                          >
+                            <svg
+                              className="w-3.5 h-3.5"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2.2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                          </motion.div>
+                        )}
+                      </div>
+
+                      {/* Description Text */}
+                      <p
+                        className={`text-xs sm:text-[13.5px] leading-relaxed max-w-[280px] sm:max-w-xs mt-1 transition-colors duration-300 ${isActive ? 'text-neutral-600' : 'text-neutral-400/90'
+                          }`}
+                      >
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Right Visual Display Area (Enlarged and sticking to right edge) */}
+          <div className="relative lg:absolute lg:right-0 lg:top-[48%] lg:-translate-y-[49%] flex items-center justify-end z-0 pointer-events-none lg:pointer-events-auto">
+            {/* Laptop Mockup Presentation with 3-Layer Architecture */}
+            <div className="relative w-auto h-[64vh] sm:h-[76vh] lg:h-[94vh] xl:h-[102vh] 2xl:h-[106vh] max-h-[calc(100vh-80px)] aspect-[1429/975] flex items-center justify-end">
+              {/* Hand-drawn Style Annotation Badge & Curved Arrow placed directly beside laptop screen */}
+              <div className="absolute top-[14%] left-[27%] -translate-x-full z-20 pointer-events-none hidden md:flex flex-col items-start select-none max-w-[150px] pr-2 -rotate-[7deg]">
+                <span
+                  className="font-cursive font-semibold text-xl sm:text-2xl lg:text-[25px] leading-[1.05] text-[#2d2d2d] tracking-wide"
+                  style={{ fontFamily: 'var(--font-caveat), "Caveat", "Kalam", cursive' }}
+                >
+                  {activeService.annotation}
+                </span>
+                <svg
+                  className="w-9 h-9 text-[#444444] mt-1 ml-6 rotate-[10deg]"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                >
+                  <path
+                    d="M8 6 C 10 22, 22 34, 40 36 M 30 30 L 40 36 L 33 42"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {/* Layer 2: Dynamic Screen Content (Behind bezel opening) - Only this layer transitions */}
+              <div className="absolute inset-0 z-0 pointer-events-none">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeService.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35, ease: 'easeInOut' }}
+                    className="relative w-full h-full"
+                  >
+                    <Image
+                      src={activeService.screenSrc}
+                      alt={activeService.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 75vw"
+                      className="object-contain object-right pointer-events-none"
+                      priority
                     />
-                  )
-              )}
-            </AnimatePresence>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Layer 1 & 3: Static Laptop, Rock Table, Books, Plant & Bezel Frame on Top */}
+              <div className="relative w-full h-full z-10 pointer-events-none">
+                <Image
+                  src="/services/base.png"
+                  alt="Laptop on stone table mockup"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 75vw"
+                  className="object-contain object-right drop-shadow-2xl"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Progress indicator */}
-        <ProgressDots activeIndex={activeIndex} />
+        {/* Bottom Bar: Step Counter + Progress Track + Navigation Arrows */}
+        <div className="w-full max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 flex items-center justify-between gap-6 pt-3 border-t border-black/[0.05]">
+          {/* Left Step Counter & Progress Bar */}
+          <div className="flex items-center gap-4">
+            <span className="text-xs font-mono font-semibold text-neutral-900 tracking-wide">
+              {activeService.number} <span className="text-neutral-400">/ 04</span>
+            </span>
 
-        {/* Section label */}
-        <div className="absolute top-[calc(72px+2rem)] lg:top-[calc(85px+2rem)] left-6 lg:left-12 z-20">
-          <span className="text-[10px] font-medium tracking-[0.2em] text-white/20 uppercase">
-            Our Services
-          </span>
+            <div className="w-32 sm:w-44 h-[2px] bg-neutral-300/80 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-neutral-900 rounded-full origin-left"
+                style={{
+                  transform: `scaleX(${Math.max(0.25, (activeIndex + 1) / SERVICES.length)})`,
+                }}
+                transition={{ duration: 0.2 }}
+              />
+            </div>
+          </div>
+
+          {/* Right Navigation Controls */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <span className="hidden sm:inline-block text-[10px] font-semibold tracking-[0.2em] uppercase text-neutral-500">
+              SCROLL TO EXPLORE
+            </span>
+
+            <button
+              onClick={handleNext}
+              className="w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-neutral-300 hover:border-neutral-400 bg-white/70 hover:bg-white flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-all shadow-2xs active:scale-95"
+              aria-label="Next service"
+            >
+              <svg
+                className="w-3.5 h-3.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={handlePrev}
+              className="w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-neutral-300 hover:border-neutral-400 bg-white/70 hover:bg-white flex items-center justify-center text-neutral-700 hover:text-neutral-950 transition-all shadow-2xs active:scale-95"
+              aria-label="Previous service"
+            >
+              <svg
+                className="w-3.5 h-3.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

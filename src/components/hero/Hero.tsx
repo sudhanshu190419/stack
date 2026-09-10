@@ -1,132 +1,253 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import HeroBackground from './HeroBackground'
-import ParticleLayer from './ParticleLayer'
-import AnimatedHeadline from './AnimatedHeadline'
-import HeroButtons from './HeroButtons'
-
+import React, { useRef, useEffect, useState, useCallback } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import HeroCanvas, { HeroCanvasHandle, TOTAL_FRAMES } from './HeroCanvas'
 import ScrollIndicator from './ScrollIndicator'
-import CursorGlow from './CursorGlow'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const CHAPTERS = [
+  { id: 1, range: [0, 0.2], label: 'Studio & Strategy', tag: '01' },
+  { id: 2, range: [0.2, 0.4], label: 'Velora Commerce', tag: '02' },
+  { id: 3, range: [0.4, 0.6], label: 'Mobl Experience', tag: '03' },
+  { id: 4, range: [0.6, 0.8], label: 'Savor Platform', tag: '04' },
+  { id: 5, range: [0.8, 1.0], label: 'Responsive Ecosystem', tag: '05' },
+]
 
 export default function Hero() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [mounted, setMounted] = useState(false)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.95])
-  const y = useTransform(scrollYProgress, [0, 0.8], [0, -40])
+  const containerRef = useRef<HTMLDivElement>(null)
+  const pinTargetRef = useRef<HTMLDivElement>(null)
+  const canvasHandleRef = useRef<HeroCanvasHandle>(null)
 
-  useEffect(() => {
-    setMounted(true)
+  // Direct DOM refs for high-performance scroll updates (no React re-renders)
+  const heroCopyRef = useRef<HTMLDivElement>(null)
+  const hudRef = useRef<HTMLDivElement>(null)
+  const progressBarRef = useRef<HTMLDivElement>(null)
+  const chapterTextRef = useRef<HTMLSpanElement>(null)
+  const frameCounterRef = useRef<HTMLSpanElement>(null)
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null)
+
+  const [initialFrameReady, setInitialFrameReady] = useState(false)
+
+  const updateUIOnScroll = useCallback((progress: number) => {
+    // 0. Hero Copy Fade (Visible on clip-01: 100% visible initially, fades out smoothly on scroll)
+    if (heroCopyRef.current) {
+      if (progress < 0.15) {
+        const copyOpacity = Math.max(0, 1 - progress / 0.10)
+        heroCopyRef.current.style.opacity = copyOpacity.toFixed(3)
+        heroCopyRef.current.style.transform = `translateY(${(-20 * (1 - copyOpacity)).toFixed(1)}px)`
+        heroCopyRef.current.style.pointerEvents = copyOpacity > 0.3 ? 'auto' : 'none'
+      } else {
+        heroCopyRef.current.style.opacity = '0'
+        heroCopyRef.current.style.pointerEvents = 'none'
+      }
+    }
+
+    // 1. Scroll Indicator Fade
+    if (scrollIndicatorRef.current) {
+      const scrollIndOpacity = Math.max(0, 1 - progress / 0.08)
+      scrollIndicatorRef.current.style.opacity = scrollIndOpacity.toFixed(3)
+    }
+
+    // 2. Cinematic HUD visibility and Chapter Updates (active from 10% to 95%)
+    if (hudRef.current) {
+      if (progress > 0.08 && progress < 0.95) {
+        const fadeIn = Math.min(1, (progress - 0.08) / 0.05)
+        const fadeOut = progress > 0.88 ? Math.max(0, 1 - (progress - 0.88) / 0.07) : 1
+        hudRef.current.style.opacity = (fadeIn * fadeOut).toFixed(3)
+        hudRef.current.style.pointerEvents = 'auto'
+      } else {
+        hudRef.current.style.opacity = '0'
+        hudRef.current.style.pointerEvents = 'none'
+      }
+    }
+
+    // 3. Progress Bar & Frame Counter
+    if (progressBarRef.current) {
+      progressBarRef.current.style.transform = `scaleX(${progress})`
+    }
+
+    const currentFrame = Math.min(
+      TOTAL_FRAMES,
+      Math.max(1, Math.round(progress * (TOTAL_FRAMES - 1)) + 1)
+    )
+    if (frameCounterRef.current) {
+      frameCounterRef.current.innerText = `${currentFrame.toString().padStart(3, '0')} / 500`
+    }
+
+    // 4. Chapter Name
+    const activeChapter =
+      CHAPTERS.find((c) => progress >= c.range[0] && progress <= c.range[1]) ||
+      CHAPTERS[0]
+
+    if (chapterTextRef.current) {
+      chapterTextRef.current.innerText = `${activeChapter.tag} · ${activeChapter.label}`
+    }
+
+    // Navbar manages its own sticky and frosted glass states
   }, [])
 
-  // Badge text animation
-  const badgeWords = ['🚀', 'Building', 'Digital', 'Products', 'That', 'Scale']
+  useEffect(() => {
+    const container = containerRef.current
+    const pinTarget = pinTargetRef.current
+    if (!container || !pinTarget) return
+
+    // Create GSAP ScrollTrigger pinning the hero across the continuous sequence
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: container,
+        pin: pinTarget,
+        start: 'top top',
+        end: '+=3500', // Long enough for controllable, cinematic 500-frame scrubbing
+        scrub: 0.1, // Smooth, immediate scrubbing without sluggish easing
+        onUpdate: (self) => {
+          const progress = self.progress
+          canvasHandleRef.current?.setFrameProgress(progress)
+          updateUIOnScroll(progress)
+        },
+      })
+    }, container)
+
+    return () => {
+      ctx.revert()
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.vars.trigger === container) st.kill()
+      })
+    }
+  }, [updateUIOnScroll])
 
   return (
-    <section
-      ref={ref}
-      className="relative h-screen flex flex-col overflow-hidden pt-[72px] lg:pt-[85px]"
-    >
-      {/* Background layers */}
-      <HeroBackground />
-      <ParticleLayer count={50} />
-
-      {/* Continuous dark overlay from viewport top to hero bottom */}
-      <div className="absolute left-0 top-0 h-full w-full lg:w-3/5 bg-gradient-to-r from-black/60 via-black/30 to-transparent pointer-events-none z-[5]" />
-
-      {/* Main content */}
-      <motion.div
-        className="relative z-10 flex-1 flex flex-col"
-        style={{ opacity, scale, y }}
+    <div ref={containerRef} className="relative w-full">
+      {/* Pinned Viewport Container - Full Bleed Screen */}
+      <section
+        ref={pinTargetRef}
+        className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#FAF8F4]"
       >
-        <div className="flex-1 flex flex-col lg:flex-row items-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-0 lg:pb-8 gap-8 lg:gap-16">
-          {/* Left side - Content */}
-          {mounted && (
-            <div className="relative flex-1 flex flex-col justify-center max-w-xl mx-auto lg:mx-0">
-              {/* Animated badge */}
-              <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 mb-6 sm:mb-8 w-fit"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ scale: 1.02, borderColor: 'rgba(99,102,241,0.4)' }}
-              >
-                <span className="flex gap-1">
-                  {badgeWords.map((word, i) => (
-                    <motion.span
-                      key={i}
-                      className="text-[11px] sm:text-xs font-medium text-white/90"
-                      initial={{ opacity: 0, x: -5 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
-                    >
-                      {word}
-                    </motion.span>
-                  ))}
-                </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-hero-success animate-glow-pulse" />
-              </motion.div>
-
-              {/* Headline */}
-              <AnimatedHeadline
-                text="Turning Bold|Ideas Into|Digital Products."
-                highlightWords={['Digital', 'Products']}
-              />
-
-              {/* Supporting text */}
-              <motion.p
-                className="mt-6 sm:mt-8"
-                style={{
-                  maxWidth: '550px',
-                  lineHeight: 1.8,
-                  color: '#E5E7EB',
-                  fontSize: '20px',
-                }}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                From strategy and design to development and launch, we create
-                fast, scalable, and beautiful software that helps businesses
-                grow.
-              </motion.p>
-
-              {/* CTA Buttons */}
-              <div className="mt-6 sm:mt-8">
-                <HeroButtons />
-              </div>
-            </div>
-          )}
-
+        {/* Full-Bleed 16:9 Cinematic Canvas Frame (Cover Presentation, Zero Side Margins) */}
+        <div className="absolute inset-0 w-full h-full z-10">
+          <HeroCanvas
+            ref={canvasHandleRef}
+            onInitialFrameLoaded={() => setInitialFrameReady(true)}
+          />
         </div>
 
-
-
-        {/* Live status badge */}
-        <motion.div
-          className="absolute top-24 sm:top-28 right-4 sm:right-8 flex items-center gap-2 px-3 py-1.5 rounded-full bg-hero-success/10 border border-hero-success/20"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
+        {/* Clip-01 Typography & CTA Overlay (Visible initially, aligns with reference image) */}
+        <div
+          ref={heroCopyRef}
+          className="absolute inset-0 z-20 pointer-events-none flex items-center justify-start transition-transform duration-75"
         >
-          <span className="w-2 h-2 rounded-full bg-hero-success animate-glow-pulse" />
-          <span className="text-[10px] sm:text-xs text-hero-success font-medium">
-            Available for work
-          </span>
-        </motion.div>
-      </motion.div>
+          {/* Soft Left Vignette Shadow for Crystal-Clear Text Legibility */}
+          <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[50%] xl:w-[45%] bg-gradient-to-r from-black/65 via-black/30 to-transparent pointer-events-none" />
 
-      {/* Cursor glow */}
-      <CursorGlow />
+          <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pointer-events-auto">
+            <div className="max-w-lg lg:max-w-[420px] xl:max-w-[460px] pt-12 sm:pt-16 lg:pt-0">
+              {/* Eyebrow */}
+              <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-white/80 mb-3 sm:mb-4 drop-shadow-sm">
+                WEB DESIGN &amp; DEVELOPMENT
+              </p>
 
-      {/* Scroll indicator */}
-      <ScrollIndicator />
-    </section>
+              {/* Main Heading */}
+              <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-bold text-white tracking-tight leading-[1.12] mb-3.5 sm:mb-4 drop-shadow-md">
+                Websites that
+                <br />
+                make businesses
+                <br />
+                <span className="font-serif italic font-normal text-[#D5B28D]">
+                  stand out.
+                </span>
+              </h1>
+
+              {/* Subtitle Paragraph */}
+              <p className="text-sm sm:text-[15px] leading-relaxed text-white/80 mb-6 sm:mb-8 max-w-[380px] drop-shadow-sm">
+                We design and build modern, high-performing
+                <br />
+                websites that turn first impressions into customers.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-wrap items-center gap-3 sm:gap-3.5">
+                <a
+                  href="#work"
+                  className="inline-flex items-center gap-2 px-6 sm:px-6.5 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-100 transition-all duration-200 shadow-md group"
+                >
+                  View Our Work
+                  <svg
+                    className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 px-6 sm:px-6.5 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all duration-200 shadow-sm group"
+                >
+                  Start a Project
+                  <svg
+                    className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Cinematic Scrub HUD (Floating at Bottom Center) */}
+        <div
+          ref={hudRef}
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 w-[90%] max-w-lg px-4 py-2.5 rounded-full bg-neutral-950/85 backdrop-blur-xl border border-white/10 opacity-0 pointer-events-none transition-opacity duration-200 shadow-2xl flex items-center justify-between gap-4"
+        >
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+            <span
+              ref={chapterTextRef}
+              className="text-xs font-medium text-white/90 truncate tracking-wide"
+            >
+              01 · Studio & Strategy
+            </span>
+          </div>
+
+          {/* Mini progress bar & frame counter */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="w-24 sm:w-32 h-1 bg-white/15 rounded-full overflow-hidden">
+              <div
+                ref={progressBarRef}
+                className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full origin-left transition-transform duration-75"
+                style={{ transform: 'scaleX(0)' }}
+              />
+            </div>
+            <span
+              ref={frameCounterRef}
+              className="text-[10px] font-mono text-white/60 tracking-wider"
+            >
+              001 / 500
+            </span>
+          </div>
+        </div>
+
+        {/* Initial Scroll Prompt */}
+        <div
+          ref={scrollIndicatorRef}
+          className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 transition-opacity duration-150"
+        >
+          <ScrollIndicator className="text-neutral-700" />
+        </div>
+      </section>
+    </div>
   )
 }

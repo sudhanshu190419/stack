@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
@@ -23,6 +24,8 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-handwriting: var(--font-caveat), "Caveat", "Kalam", cursive;
 
   --animate-blob: blob 25s ease-in-out infinite;
   --animate-blob-slow: blob 35s ease-in-out infinite;
@@ -39,6 +42,10 @@
   --animate-rotate-ring: rotate-ring 12s linear infinite;
   --animate-rotate-ring-reverse: rotate-ring-reverse 15s linear infinite;
   --animate-cursor-blink: cursor-blink 1s step-end infinite;
+}
+
+.font-cursive {
+  font-family: var(--font-caveat), "Caveat", "Kalam", cursive !important;
 }
 
 @keyframes blob {

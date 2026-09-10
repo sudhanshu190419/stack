@@ -52,6 +52,12 @@ function MagneticButton({
     onClick?.()
     if (!href || href === '#') {
       e.preventDefault()
+    } else if (href.startsWith('#')) {
+      e.preventDefault()
+      const target = document.querySelector(href)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }, [onClick, href])
 
@@ -60,9 +66,9 @@ function MagneticButton({
 
   const variantStyles = {
     primary:
-      'bg-gradient-to-r from-indigo-500 via-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40',
+      'bg-gradient-to-r from-indigo-500 via-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 border border-indigo-400/30',
     secondary:
-      'glass text-hero-text hover:bg-hero-card-hover hover:border-hero-accent/30',
+      'glass text-hero-text hover:bg-hero-card-hover hover:border-hero-accent/30 border border-white/10',
   }
 
   return (
@@ -118,11 +124,11 @@ function MagneticButton({
 }
 
 const TRUST_ITEMS = [
-  'Mobile Apps',
-  'Web Platforms',
-  'AI Integrations',
-  'UI/UX Design',
-  'Cloud Solutions',
+  'Modern Web Apps',
+  'Responsive Systems',
+  'Interactive Motion',
+  'UI/UX Excellence',
+  'Performance First',
 ]
 
 export default function HeroButtons() {
@@ -135,9 +141,24 @@ export default function HeroButtons() {
         className="flex flex-col sm:flex-row gap-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
       >
-        <MagneticButton variant="primary" href="#">
+        <MagneticButton variant="primary" href="#work">
+          <span>View Our Work</span>
+          <svg
+            className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </MagneticButton>
+        <MagneticButton variant="secondary" href="#contact">
+          <span>Start a Project</span>
           <svg
             className="w-4 h-4"
             viewBox="0 0 24 24"
@@ -149,23 +170,6 @@ export default function HeroButtons() {
           >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
-          Book Free Consultation
-        </MagneticButton>
-        <MagneticButton variant="secondary" href="#">
-          <svg
-            className="w-4 h-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-            <path d="M8 21h8" />
-            <path d="M12 17v4" />
-          </svg>
-          View Our Work
         </MagneticButton>
       </motion.div>
 
