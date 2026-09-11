@@ -59,59 +59,115 @@ const PLATFORMS: PlatformItem[] = [
 
 export default function PlatformOptionsTable() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
-      {PLATFORMS.map((platform) => (
-        <div
-          key={platform.name}
-          className="p-6 sm:p-7 rounded-2xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs hover:border-black/[0.2] transition-colors duration-200"
-        >
-          <div>
-            <div className="flex items-center justify-between gap-3 mb-3">
-              <h3 className="text-lg font-bold text-neutral-950 font-mono">
-                {platform.name}
-              </h3>
-            </div>
-            <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal mb-5">
-              {platform.bestFor}
-            </p>
+    <>
+      {/* ─── DESKTOP VIEW (100% UNCHANGED) ─── */}
+      <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
+        {PLATFORMS.map((platform) => (
+          <div
+            key={platform.name}
+            className="p-6 sm:p-7 rounded-2xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs hover:border-black/[0.2] transition-colors duration-200"
+          >
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <h3 className="text-lg font-bold text-neutral-950 font-mono">
+                  {platform.name}
+                </h3>
+              </div>
+              <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal mb-5">
+                {platform.bestFor}
+              </p>
 
-            {/* Spec breakdown */}
-            <div className="space-y-2.5 pt-4 border-t border-black/[0.06] text-xs">
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-neutral-500 font-medium">Timeline:</span>
-                <span className="text-neutral-900 font-semibold text-right">{platform.setupSpeed}</span>
+              {/* Spec breakdown */}
+              <div className="space-y-2.5 pt-4 border-t border-black/[0.06] text-xs">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-neutral-500 font-medium">Timeline:</span>
+                  <span className="text-neutral-900 font-semibold text-right">{platform.setupSpeed}</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-neutral-500 font-medium">Customization:</span>
+                  <span className="text-neutral-900 text-right">{platform.customization}</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-neutral-500 font-medium">Maintenance:</span>
+                  <span className="text-neutral-900 text-right">{platform.maintenance}</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-neutral-500 font-medium">Scalability:</span>
+                  <span className="text-neutral-900 text-right">{platform.scalability}</span>
+                </div>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-neutral-500 font-medium">Cost Profile:</span>
+                  <span className="text-neutral-900 text-right">{platform.costProfile}</span>
+                </div>
               </div>
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-neutral-500 font-medium">Customization:</span>
-                <span className="text-neutral-900 text-right">{platform.customization}</span>
-              </div>
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-neutral-500 font-medium">Maintenance:</span>
-                <span className="text-neutral-900 text-right">{platform.maintenance}</span>
-              </div>
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-neutral-500 font-medium">Scalability:</span>
-                <span className="text-neutral-900 text-right">{platform.scalability}</span>
-              </div>
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-neutral-500 font-medium">Cost Profile:</span>
-                <span className="text-neutral-900 text-right">{platform.costProfile}</span>
+            </div>
+
+            {/* Honest Trade-off Box */}
+            <div className="mt-6 pt-4 border-t border-black/[0.06] bg-[#FAF7F2] -mx-6 -mb-6 p-5 sm:p-6 rounded-b-2xl">
+              <div className="flex items-start gap-2.5 text-xs text-neutral-700 leading-relaxed">
+                <AlertCircle className="w-4 h-4 text-[#9E6941] shrink-0 mt-0.5" />
+                <span>
+                  <strong className="font-semibold text-neutral-900">Trade-off:</strong>{' '}
+                  {platform.tradeoff}
+                </span>
               </div>
             </div>
           </div>
+        ))}
+      </div>
 
-          {/* Honest Trade-off Box */}
-          <div className="mt-6 pt-4 border-t border-black/[0.06] bg-[#FAF7F2] -mx-6 -mb-6 p-5 sm:p-6 rounded-b-2xl">
-            <div className="flex items-start gap-2.5 text-xs text-neutral-700 leading-relaxed">
-              <AlertCircle className="w-4 h-4 text-[#9E6941] shrink-0 mt-0.5" />
+      {/* ─── MOBILE VIEW (STREAMLINED PLATFORM CARDS) ─── */}
+      <div className="block lg:hidden space-y-4">
+        {PLATFORMS.map((platform) => (
+          <div
+            key={platform.name}
+            className="p-4 rounded-xl border border-black/[0.08] bg-white shadow-xs space-y-3"
+          >
+            <div>
+              <div className="flex items-start justify-between gap-2 mb-1.5">
+                <h3 className="text-sm font-bold text-neutral-950 font-mono leading-snug">
+                  {platform.name}
+                </h3>
+              </div>
+              <span className="inline-block text-[11px] font-medium text-[#9E6941] bg-[#FAF7F2] border border-[#9E6941]/20 px-2 py-0.5 rounded mb-2">
+                Timeline: {platform.setupSpeed}
+              </span>
+              <p className="text-xs text-neutral-600 leading-relaxed font-normal">
+                {platform.bestFor}
+              </p>
+            </div>
+
+            {/* Key Specs Mobile Grid */}
+            <div className="pt-3 border-t border-black/[0.06] grid grid-cols-2 gap-2 text-[11px]">
+              <div className="p-2 rounded-lg bg-neutral-50 border border-black/[0.04]">
+                <span className="text-neutral-400 font-medium block text-[10px]">Customization</span>
+                <span className="text-neutral-900 font-medium leading-snug">{platform.customization}</span>
+              </div>
+              <div className="p-2 rounded-lg bg-neutral-50 border border-black/[0.04]">
+                <span className="text-neutral-400 font-medium block text-[10px]">Scalability</span>
+                <span className="text-neutral-900 font-medium leading-snug">{platform.scalability}</span>
+              </div>
+              <div className="p-2 rounded-lg bg-neutral-50 border border-black/[0.04]">
+                <span className="text-neutral-400 font-medium block text-[10px]">Maintenance</span>
+                <span className="text-neutral-900 font-medium leading-snug">{platform.maintenance}</span>
+              </div>
+              <div className="p-2 rounded-lg bg-neutral-50 border border-black/[0.04]">
+                <span className="text-neutral-400 font-medium block text-[10px]">Cost Profile</span>
+                <span className="text-neutral-900 font-medium leading-snug">{platform.costProfile}</span>
+              </div>
+            </div>
+
+            {/* Trade-off */}
+            <div className="p-2.5 rounded-lg bg-[#FAF7F2] border border-black/[0.06] flex items-start gap-2 text-[11px] text-neutral-700 leading-relaxed">
+              <AlertCircle className="w-3.5 h-3.5 text-[#9E6941] shrink-0 mt-0.5" />
               <span>
                 <strong className="font-semibold text-neutral-900">Trade-off:</strong>{' '}
                 {platform.tradeoff}
               </span>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   )
 }

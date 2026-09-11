@@ -122,7 +122,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="relative w-full overflow-hidden bg-[#FAF7F2] text-neutral-900 pt-20 sm:pt-24 lg:pt-28 pb-24 sm:pb-28 lg:pb-32 border-t border-black/[0.04]"
+      className="relative w-full overflow-hidden bg-[#FAF7F2] text-neutral-900 pt-16 sm:pt-20 lg:pt-28 pb-20 sm:pb-24 lg:pb-32 border-t border-black/[0.04]"
     >
       {/* Ambient background subtle lighting */}
       <div
@@ -133,88 +133,168 @@ export default function TestimonialsSection() {
         }}
       />
 
+      {/* Scoped CSS Keyframes for hardware-accelerated infinite horizontal movement */}
+      <style>{`
+        @keyframes marquee {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        @keyframes marquee-left-to-right {
+          0% {
+            transform: translate3d(-50%, 0, 0);
+          }
+          100% {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 38s linear infinite;
+          will-change: transform;
+        }
+        .animate-marquee-reverse {
+          animation: marquee-left-to-right 34s linear infinite;
+          will-change: transform;
+        }
+      `}</style>
+
       {/* Top Header Section */}
-      <div className="relative z-10 max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 mb-8 sm:mb-10 lg:mb-12">
-        {/* Eyebrow with horizontal line */}
-        <div className="flex items-center gap-3.5 mb-4 sm:mb-5">
-          <div className="w-8 sm:w-12 h-[1px] bg-[#9E6941]" />
-          <span className="text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-neutral-600 select-none">
-            WHAT CLIENTS SAY
-          </span>
+      <div className="relative z-10 max-w-[1560px] mx-auto px-5 sm:px-8 lg:px-14 xl:px-16 2xl:px-20 mb-7 sm:mb-10 lg:mb-12">
+        {/* Eyebrow with horizontal line & mobile trust badge */}
+        <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-5">
+          <div className="flex items-center gap-3">
+            <div className="w-8 sm:w-12 h-[1px] bg-[#9E6941]" />
+            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-neutral-600 select-none">
+              WHAT CLIENTS SAY
+            </span>
+          </div>
+
+          {/* Mobile Trust Badge */}
+          <div className="flex lg:hidden items-center gap-1.5 text-[9.5px] sm:text-[10.5px] font-semibold tracking-wider text-neutral-700 bg-black/[0.03] border border-black/[0.05] px-2.5 py-1 rounded-full select-none">
+            <span className="text-[#9E6941] text-xs">★</span>
+            <span>5.0 CLIENT RATED</span>
+          </div>
         </div>
 
         {/* Main Headline */}
-        <h2 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-neutral-950 tracking-tight leading-[1.12] max-w-3xl">
+        <h2 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-neutral-950 tracking-tight leading-[1.12] max-w-3xl">
           Founders and teams that{' '}
           <span className="text-[#9E6941]">stopped guessing</span>.
         </h2>
       </div>
 
-      {/* 2-Line Infinite Auto Carousel Container (Matches ggmtechnologies.com motion) */}
-      <div className="relative w-full overflow-hidden flex flex-col gap-6">
-        {/* Scoped CSS Keyframes to guarantee 100% reliable 60fps/120fps hardware-accelerated movement */}
-        <style>{`
-          @keyframes marquee {
-            0% {
-              transform: translate3d(0, 0, 0);
-            }
-            100% {
-              transform: translate3d(-50%, 0, 0);
-            }
-          }
-          @keyframes marquee-left-to-right {
-            0% {
-              transform: translate3d(-50%, 0, 0);
-            }
-            100% {
-              transform: translate3d(0, 0, 0);
-            }
-          }
-          .animate-marquee {
-            animation: marquee 38s linear infinite;
-            will-change: transform;
-          }
-          .animate-marquee-reverse {
-            animation: marquee-left-to-right 34s linear infinite;
-            will-change: transform;
-          }
-        `}</style>
+      {/* ========================================================================= */}
+      {/* MOBILE COMPOSITION (< lg) - DUAL AUTO-MOVING HORIZONTAL MARQUEE           */}
+      {/* ========================================================================= */}
+      <div className="block lg:hidden relative w-full overflow-hidden flex flex-col gap-4">
+        {/* Soft edge fade masks for mobile (compact width to keep quotes legible) */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-14 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent z-20" />
 
-        {/* Vignette Gradient Edge Masks (Soft fade in/out at viewport boundaries) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 lg:w-40 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent z-20" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 lg:w-40 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent z-20" />
-
-        {/* LINE 1: Moves RIGHT TO LEFT continuously (auto carousel, low speed, offset delay) */}
+        {/* ROW 1: Auto moves Right to Left */}
         <div className="group overflow-hidden">
           <div
-            className="flex w-max animate-marquee gap-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
-            style={{ animationDuration: '38s', animationDelay: '-19s' }}
+            className="flex w-max animate-marquee gap-4 active:[animation-play-state:paused] hover:[animation-play-state:paused] motion-reduce:animate-none"
+            style={{ animationDuration: '34s', animationDelay: '-17s' }}
           >
-            {/* First sequence */}
             {ROW_ONE_TESTIMONIALS.map((t, idx) => (
-              <TestimonialCard key={`r1-a-${idx}`} item={t} />
+              <MobileTestimonialCard key={`m-r1-a-${idx}`} item={t} />
             ))}
-            {/* Duplicated sequence for seamless infinite wrap */}
             {ROW_ONE_TESTIMONIALS.map((t, idx) => (
-              <TestimonialCard key={`r1-b-${idx}`} item={t} />
+              <MobileTestimonialCard key={`m-r1-b-${idx}`} item={t} />
             ))}
           </div>
         </div>
 
-        {/* LINE 2: Moves LEFT TO RIGHT continuously (auto carousel, left-to-right direction, offset delay) */}
+        {/* ROW 2: Auto moves Left to Right */}
         <div className="group overflow-hidden">
           <div
-            className="flex w-max animate-marquee-reverse gap-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
-            style={{ animationDuration: '34s', animationDelay: '-11s' }}
+            className="flex w-max animate-marquee-reverse gap-4 active:[animation-play-state:paused] hover:[animation-play-state:paused] motion-reduce:animate-none"
+            style={{ animationDuration: '30s', animationDelay: '-10s' }}
           >
-            {/* First sequence */}
             {ROW_TWO_TESTIMONIALS.map((t, idx) => (
-              <TestimonialCard key={`r2-a-${idx}`} item={t} />
+              <MobileTestimonialCard key={`m-r2-a-${idx}`} item={t} />
             ))}
-            {/* Duplicated sequence for seamless infinite wrap */}
             {ROW_TWO_TESTIMONIALS.map((t, idx) => (
-              <TestimonialCard key={`r2-b-${idx}`} item={t} />
+              <MobileTestimonialCard key={`m-r2-b-${idx}`} item={t} />
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* DESKTOP COMPOSITION (lg:block) - 100% PRESERVED EXACT ORIGINAL MARQUEE    */}
+      {/* ========================================================================= */}
+      <div className="hidden lg:block">
+        {/* 2-Line Infinite Auto Carousel Container (Matches ggmtechnologies.com motion) */}
+        <div className="relative w-full overflow-hidden flex flex-col gap-6">
+          {/* Scoped CSS Keyframes to guarantee 100% reliable 60fps/120fps hardware-accelerated movement */}
+          <style>{`
+            @keyframes marquee {
+              0% {
+                transform: translate3d(0, 0, 0);
+              }
+              100% {
+                transform: translate3d(-50%, 0, 0);
+              }
+            }
+            @keyframes marquee-left-to-right {
+              0% {
+                transform: translate3d(-50%, 0, 0);
+              }
+              100% {
+                transform: translate3d(0, 0, 0);
+              }
+            }
+            .animate-marquee {
+              animation: marquee 38s linear infinite;
+              will-change: transform;
+            }
+            .animate-marquee-reverse {
+              animation: marquee-left-to-right 34s linear infinite;
+              will-change: transform;
+            }
+          `}</style>
+
+          {/* Vignette Gradient Edge Masks (Soft fade in/out at viewport boundaries) */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 lg:w-40 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent z-20" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 lg:w-40 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent z-20" />
+
+          {/* LINE 1: Moves RIGHT TO LEFT continuously (auto carousel, low speed, offset delay) */}
+          <div className="group overflow-hidden">
+            <div
+              className="flex w-max animate-marquee gap-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+              style={{ animationDuration: '38s', animationDelay: '-19s' }}
+            >
+              {/* First sequence */}
+              {ROW_ONE_TESTIMONIALS.map((t, idx) => (
+                <TestimonialCard key={`r1-a-${idx}`} item={t} />
+              ))}
+              {/* Duplicated sequence for seamless infinite wrap */}
+              {ROW_ONE_TESTIMONIALS.map((t, idx) => (
+                <TestimonialCard key={`r1-b-${idx}`} item={t} />
+              ))}
+            </div>
+          </div>
+
+          {/* LINE 2: Moves LEFT TO RIGHT continuously (auto carousel, left-to-right direction, offset delay) */}
+          <div className="group overflow-hidden">
+            <div
+              className="flex w-max animate-marquee-reverse gap-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+              style={{ animationDuration: '34s', animationDelay: '-11s' }}
+            >
+              {/* First sequence */}
+              {ROW_TWO_TESTIMONIALS.map((t, idx) => (
+                <TestimonialCard key={`r2-a-${idx}`} item={t} />
+              ))}
+              {/* Duplicated sequence for seamless infinite wrap */}
+              {ROW_TWO_TESTIMONIALS.map((t, idx) => (
+                <TestimonialCard key={`r2-b-${idx}`} item={t} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -247,6 +327,46 @@ function TestimonialCard({ item }: { item: Testimonial }) {
             {item.name}
           </p>
           <p className="text-[11px] font-mono uppercase tracking-wider text-neutral-500 truncate mt-0.5">
+            {item.role} &bull; {item.company}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MobileTestimonialCard({ item }: { item: Testimonial }) {
+  return (
+    <div className="w-[280px] sm:w-[320px] shrink-0 rounded-2xl border border-black bg-white p-4 sm:p-5 shadow-sm flex flex-col justify-between select-none min-h-[195px] sm:min-h-[210px] active:scale-[0.99] transition-transform">
+      {/* Top: 5 Stars + Quote */}
+      <div>
+        <div className="flex items-center justify-between mb-2.5">
+          <div className="flex items-center gap-0.5 text-[#9E6941] text-[11px]">
+            {'★'.repeat(5)}
+          </div>
+          <span className="text-[9.5px] font-mono font-semibold tracking-wider uppercase text-neutral-500 bg-black/[0.03] px-2 py-0.5 rounded-md">
+            VERIFIED
+          </span>
+        </div>
+
+        <p className="text-[13px] sm:text-[13.5px] text-neutral-800 leading-relaxed font-normal">
+          &ldquo;{item.quote}&rdquo;
+        </p>
+      </div>
+
+      {/* Bottom: Divider + Author Profile */}
+      <div className="mt-3.5 flex items-center gap-2.5 border-t border-black/[0.06] pt-2.5">
+        <div
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-bold text-xs select-none shadow-2xs ${item.avatarColor} ${item.textColor}`}
+        >
+          {item.initial}
+        </div>
+
+        <div className="flex flex-col min-w-0">
+          <p className="text-[13px] font-bold text-neutral-950 tracking-tight truncate">
+            {item.name}
+          </p>
+          <p className="text-[10px] font-mono uppercase tracking-wider text-neutral-500 truncate mt-0.5">
             {item.role} &bull; {item.company}
           </p>
         </div>
