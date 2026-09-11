@@ -30,8 +30,9 @@ const STATUS_ERROR = 3
 
 // Bounded concurrency & sliding cache window tuning
 const MAX_CONCURRENT_DOWNLOADS = 4
-const CACHE_WINDOW_BACKWARD = 30
-const CACHE_WINDOW_FORWARD = 45
+const CACHE_WINDOW_BACKWARD = 35
+const CACHE_WINDOW_FORWARD = 55
+const INITIAL_WARMUP_FRAMES = 28
 
 export type RenderableFrame = ImageBitmap | HTMLImageElement
 
@@ -99,8 +100,9 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     const activeRafIdRef = useRef<number | null>(null)
     const isDestroyedRef = useRef<boolean>(false)
 
-    // Direction-aware bounded priority scheduler refs
+    // Persistent direction-aware bounded priority scheduler refs
     const priorityQueueRef = useRef<number[]>([])
+    const queuedSetRef = useRef<Set<number>>(new Set())
     const activeWorkersRef = useRef<number>(0)
     const scheduleRafRef = useRef<number | null>(null)
 
@@ -147,7 +149,6 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
      */
     const fetchAndDecodeFrame = useCallback(
       async (url: string, forMobile: boolean): Promise<RenderableFrame> => {
-        // Attempt modern off-thread createImageBitmap
         if (typeof createImageBitmap === 'function' && typeof fetch === 'function') {
           try {
             const res = await fetch(url)
@@ -155,8 +156,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
             const blob = await res.blob()
             const bitmap = await createImageBitmap(blob)
             return bitmap
-          } catch (fetchErr) {
-            // If primary mobile webp fails, try png fallback
+          } catch {
             if (forMobile && url.endsWith('.webp')) {
               try {
                 const pngRes = await fetch(url.replace(/\.webp$/, '.png'))
@@ -307,7 +307,12 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     )
 
     /**
-     * Render the target frame (or closest available decoded fallback frame)
+     * Resilient Monotonic Directional Frame Renderer:
+     * 1. Exact match preferred.
+     * 2. Forward scroll: Clamp to the highest ready frame in (lastRendered, targetFrame].
+     *    Never jump backward to an older frame while scrolling forward!
+     * 3. Backward scroll: Clamp to the lowest ready frame in [targetFrame, lastRendered).
+     *    Never jump forward to a newer frame while scrolling backward!
      */
     const renderFrame = useCallback(
       (targetIndex: number) => {
@@ -319,62 +324,82 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         const clamped = Math.max(0, Math.min(total - 1, targetIndex))
         currentFrameRef.current = clamped
 
-        // 1. Exact match preferred
+        const lastRendered = lastRenderedFrameRef.current
+        const direction = scrollDirectionRef.current // +1 forward, -1 backward
+
         let frameToRender: RenderableFrame | null = null
         let renderedIndex = -1
 
+        // 1. Exact target frame is ready!
         if (status[clamped] === STATUS_READY && cache[clamped]) {
           frameToRender = cache[clamped]
           renderedIndex = clamped
-        } else {
-          // 2. Intelligent direction-biased nearest neighbor search
-          const direction = scrollDirectionRef.current
-          if (direction >= 0) {
-            // Forward scrub: look backward first to prevent jumping ahead into unrevealed sequence
-            for (let i = clamped - 1; i >= Math.max(0, clamped - 30); i--) {
-              if (status[i] === STATUS_READY && cache[i]) {
-                frameToRender = cache[i]
-                renderedIndex = i
-                break
-              }
+        } else if (lastRendered === -1) {
+          // Initial cold start: search nearest ready frame around clamped target
+          for (let offset = 0; offset < total; offset++) {
+            const down = clamped - offset
+            if (down >= 0 && status[down] === STATUS_READY && cache[down]) {
+              frameToRender = cache[down]
+              renderedIndex = down
+              break
             }
-            if (!frameToRender) {
-              for (let i = clamped + 1; i < Math.min(total, clamped + 15); i++) {
-                if (status[i] === STATUS_READY && cache[i]) {
-                  frameToRender = cache[i]
-                  renderedIndex = i
-                  break
-                }
-              }
-            }
-          } else {
-            // Backward scrub: look forward first
-            for (let i = clamped + 1; i < Math.min(total, clamped + 30); i++) {
-              if (status[i] === STATUS_READY && cache[i]) {
-                frameToRender = cache[i]
-                renderedIndex = i
-                break
-              }
-            }
-            if (!frameToRender) {
-              for (let i = clamped - 1; i >= Math.max(0, clamped - 15); i--) {
-                if (status[i] === STATUS_READY && cache[i]) {
-                  frameToRender = cache[i]
-                  renderedIndex = i
-                  break
-                }
-              }
+            const up = clamped + offset
+            if (up < total && status[up] === STATUS_READY && cache[up]) {
+              frameToRender = cache[up]
+              renderedIndex = up
+              break
             }
           }
-
-          // Ultimate fallback to frame 0 or any available frame if cold
-          if (!frameToRender) {
-            for (let i = 0; i < total; i++) {
+        } else if (direction >= 0) {
+          // FORWARD SCROLLING:
+          // Advance monotonically: find highest ready frame <= clamped and > lastRendered
+          if (clamped > lastRendered) {
+            for (let i = clamped; i > lastRendered; i--) {
               if (status[i] === STATUS_READY && cache[i]) {
                 frameToRender = cache[i]
                 renderedIndex = i
                 break
               }
+            }
+            // If genuinely no newer frame is ready yet, keep lastRendered temporarily (NEVER backward jump)
+            if (!frameToRender && cache[lastRendered] && status[lastRendered] === STATUS_READY) {
+              frameToRender = cache[lastRendered]
+              renderedIndex = lastRendered
+            }
+          } else {
+            // Target is <= lastRendered (small forward twitch or equality)
+            if (cache[clamped] && status[clamped] === STATUS_READY) {
+              frameToRender = cache[clamped]
+              renderedIndex = clamped
+            } else if (cache[lastRendered] && status[lastRendered] === STATUS_READY) {
+              frameToRender = cache[lastRendered]
+              renderedIndex = lastRendered
+            }
+          }
+        } else {
+          // BACKWARD SCROLLING:
+          // Retreat monotonically: find lowest ready frame >= clamped and < lastRendered
+          if (clamped < lastRendered) {
+            for (let i = clamped; i < lastRendered; i++) {
+              if (status[i] === STATUS_READY && cache[i]) {
+                frameToRender = cache[i]
+                renderedIndex = i
+                break
+              }
+            }
+            // If genuinely no older frame is ready yet, keep lastRendered temporarily (NEVER forward jump)
+            if (!frameToRender && cache[lastRendered] && status[lastRendered] === STATUS_READY) {
+              frameToRender = cache[lastRendered]
+              renderedIndex = lastRendered
+            }
+          } else {
+            // Target is >= lastRendered (small backward twitch or equality)
+            if (cache[clamped] && status[clamped] === STATUS_READY) {
+              frameToRender = cache[clamped]
+              renderedIndex = clamped
+            } else if (cache[lastRendered] && status[lastRendered] === STATUS_READY) {
+              frameToRender = cache[lastRendered]
+              renderedIndex = lastRendered
             }
           }
         }
@@ -413,7 +438,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
 
     /**
      * Direction-Aware Bounded Priority Scheduler:
-     * Pulls jobs from priorityQueue with a strict concurrency limit (MAX_CONCURRENT_DOWNLOADS).
+     * Pulls jobs from persistent priority queue with a strict concurrency limit (MAX_CONCURRENT_DOWNLOADS).
      */
     const drainSchedulerQueue = useCallback(() => {
       if (isDestroyedRef.current) return
@@ -426,6 +451,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         priorityQueueRef.current.length > 0
       ) {
         const nextIdx = priorityQueueRef.current.shift()!
+        queuedSetRef.current.delete(nextIdx)
 
         // Skip if already in flight or already decoded
         if (status[nextIdx] !== STATUS_UNREQUESTED) continue
@@ -446,22 +472,24 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
             cache[nextIdx] = decodedFrame
             status[nextIdx] = STATUS_READY
 
-            // Redraw Protection:
-            // Only redraw if this loaded frame is the current target, OR is closer to current target than what's on screen,
-            // AND within 2 frames of current position (avoids retroactive jumping back to stale frames!).
+            // Micro-Advancement on Frame Arrival:
+            // When frame nextIdx arrives, if it lies between lastRendered and current target,
+            // render it immediately! This completely eliminates the 1+ second freeze on slower WAN networks.
             const current = currentFrameRef.current
             const lastRendered = lastRenderedFrameRef.current
-            const distFromCurrent = Math.abs(nextIdx - current)
+            const dir = scrollDirectionRef.current
 
-            if (
+            const isDirectionalProgress =
+              (dir >= 0 && nextIdx > lastRendered && nextIdx <= current) ||
+              (dir < 0 && nextIdx < lastRendered && nextIdx >= current) ||
               nextIdx === current ||
-              (distFromCurrent <= 2 &&
-                (lastRendered === -1 || distFromCurrent < Math.abs(lastRendered - current)))
-            ) {
+              lastRendered === -1
+
+            if (isDirectionalProgress) {
               scheduleRender()
             }
 
-            // Evict distant frames to keep memory small and prevent Skia texture purging
+            // Evict distant frames to keep memory clean
             evictDistantBitmaps(current, forMobile)
 
             // Continue worker pump
@@ -476,8 +504,9 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     }, [evictDistantBitmaps, fetchAndDecodeFrame, scheduleRender])
 
     /**
-     * Coalesced Schedule Update:
-     * Builds prioritized frame list based on scroll direction & position, then triggers scheduler.
+     * Persistent Priority Queue Maintenance:
+     * Does NOT wipe the queue. Dynamically re-ranks existing and new frames according to current target.
+     * Preserves the advancing runway between lastRendered and current so the canvas NEVER freezes.
      */
     const requestScheduleUpdate = useCallback(() => {
       if (scheduleRafRef.current) return
@@ -490,42 +519,85 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         const total = forMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
         const status = forMobile ? mobileStatus.current : desktopStatus.current
         const current = currentFrameRef.current
-        const direction = scrollDirectionRef.current
+        const lastRendered =
+          lastRenderedFrameRef.current === -1 ? current : lastRenderedFrameRef.current
+        const dir = scrollDirectionRef.current
 
-        const newQueue: number[] = []
+        // Dynamic scoring function: higher score = earlier download
+        const scoreFrame = (idx: number): number => {
+          if (idx === current) return 10000
 
-        // 1. Current frame has highest priority if not ready
-        if (status[current] === STATUS_UNREQUESTED) {
-          newQueue.push(current)
+          if (dir >= 0) {
+            // FORWARD SCROLL:
+            // 1. Current target and immediate forward lookahead:
+            if (idx > current && idx <= current + 25) {
+              return 9500 - (idx - current) * 30
+            }
+            // 2. Advancing runway from lastRendered towards current (CRITICAL: keeps canvas moving!):
+            if (idx > lastRendered && idx < current) {
+              return 8500 - (idx - lastRendered) * 10
+            }
+            // 3. Extended lookahead beyond current:
+            if (idx > current + 25 && idx <= current + 50) {
+              return 7000 - (idx - current) * 20
+            }
+            // 4. Small backward safety buffer around current:
+            if (idx < current && idx >= current - 6) {
+              return 5000 + (idx - current) * 50
+            }
+            return -1 // Too far, prune
+          } else {
+            // BACKWARD SCROLL:
+            // 1. Current target and immediate backward lookbehind:
+            if (idx < current && idx >= current - 25) {
+              return 9500 + (idx - current) * 30
+            }
+            // 2. Retreating runway from lastRendered down towards current:
+            if (idx < lastRendered && idx > current) {
+              return 8500 + (idx - lastRendered) * 10
+            }
+            // 3. Extended lookbehind:
+            if (idx < current - 25 && idx >= current - 50) {
+              return 7000 + (idx - current) * 20
+            }
+            // 4. Small forward safety buffer:
+            if (idx > current && idx <= current + 6) {
+              return 5000 - (idx - current) * 50
+            }
+            return -1 // Too far, prune
+          }
         }
 
-        if (direction >= 0) {
-          // Forward scroll: prioritize forward window, then small backward buffer
-          for (let i = current + 1; i <= Math.min(total - 1, current + 25); i++) {
-            if (status[i] === STATUS_UNREQUESTED) newQueue.push(i)
-          }
-          for (let i = current - 1; i >= Math.max(0, current - 6); i--) {
-            if (status[i] === STATUS_UNREQUESTED) newQueue.push(i)
-          }
-          // Secondary lookahead
-          for (let i = current + 26; i <= Math.min(total - 1, current + 50); i++) {
-            if (status[i] === STATUS_UNREQUESTED) newQueue.push(i)
-          }
-        } else {
-          // Backward scroll: prioritize backward window, then small forward buffer
-          for (let i = current - 1; i >= Math.max(0, current - 25); i--) {
-            if (status[i] === STATUS_UNREQUESTED) newQueue.push(i)
-          }
-          for (let i = current + 1; i <= Math.min(total - 1, current + 6); i++) {
-            if (status[i] === STATUS_UNREQUESTED) newQueue.push(i)
-          }
-          // Secondary lookbehind
-          for (let i = current - 26; i >= Math.max(0, current - 50); i--) {
-            if (status[i] === STATUS_UNREQUESTED) newQueue.push(i)
+        // 1. Retain existing unrequested items in queue that still have positive priority
+        const survivingQueue = priorityQueueRef.current.filter((idx) => {
+          const score = scoreFrame(idx)
+          return score > 0 && status[idx] === STATUS_UNREQUESTED
+        })
+
+        const activeSet = new Set<number>(survivingQueue)
+
+        // 2. Add candidates spanning the bridge between lastRendered and current, plus lookahead
+        const minBound = Math.min(lastRendered, current)
+        const maxBound = Math.max(lastRendered, current)
+        const scanStart = Math.max(0, minBound - (dir >= 0 ? 6 : 35))
+        const scanEnd = Math.min(total - 1, maxBound + (dir >= 0 ? 35 : 6))
+
+        for (let i = scanStart; i <= scanEnd; i++) {
+          if (status[i] === STATUS_UNREQUESTED && !activeSet.has(i)) {
+            const score = scoreFrame(i)
+            if (score > 0) {
+              survivingQueue.push(i)
+              activeSet.add(i)
+            }
           }
         }
 
-        priorityQueueRef.current = newQueue
+        // 3. Sort descending by priority score
+        survivingQueue.sort((a, b) => scoreFrame(b) - scoreFrame(a))
+
+        priorityQueueRef.current = survivingQueue
+        queuedSetRef.current = activeSet
+
         drainSchedulerQueue()
       })
     }, [drainSchedulerQueue])
@@ -588,7 +660,6 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       const modeChanged = isMobileRef.current !== detectedMobile
       isMobileRef.current = detectedMobile
 
-      // Cap DPR and cap internal buffer width to source asset resolution (1920 desktop, 1080 mobile)
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       const maxSourceWidth = detectedMobile ? MOBILE_FRAME_WIDTH : FRAME_WIDTH
       const targetWidth = Math.min(Math.round(cssWidth * dpr), Math.max(cssWidth, maxSourceWidth))
@@ -659,11 +730,18 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           onInitialFrameLoaded?.()
           renderFrame(0)
 
-          // 2. Controlled forward warmup: enqueue frames 1 to 12 (NO 30-request mount storm)
-          const warmupBurst = Math.min(12, (initialMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES) - 1)
+          // 2. Expanded Initial Warmup Runway: Enqueue frames 1 to INITIAL_WARMUP_FRAMES (28 frames)
+          // Streamed via bounded 4-worker scheduler to give immediate scroll runway
+          const warmupBurst = Math.min(
+            INITIAL_WARMUP_FRAMES,
+            (initialMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES) - 1
+          )
           const warmupQueue: number[] = []
           for (let i = 1; i <= warmupBurst; i++) {
-            if (status[i] === STATUS_UNREQUESTED) warmupQueue.push(i)
+            if (status[i] === STATUS_UNREQUESTED) {
+              warmupQueue.push(i)
+              queuedSetRef.current.add(i)
+            }
           }
           priorityQueueRef.current = warmupQueue
           drainSchedulerQueue()
