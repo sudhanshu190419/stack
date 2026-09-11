@@ -36,6 +36,52 @@ export default function Hero() {
   const [isMobile, setIsMobile] = useState(false)
   const isMobileRef = useRef(false)
 
+  // Desktop Frame-Synchronized Hero Boundary Gate:
+  // Holds the Hero visually full-bleed until Clip 4 (frame 239) has actually rendered to Canvas
+  const isGatedRef = useRef(false)
+
+  const lockHeroBoundary = useCallback(() => {
+    if (isGatedRef.current) return
+    const pinTarget = pinTargetRef.current
+    if (!pinTarget) return
+
+    isGatedRef.current = true
+    pinTarget.style.position = 'fixed'
+    pinTarget.style.top = '0px'
+    pinTarget.style.left = '0px'
+    pinTarget.style.width = '100%'
+    pinTarget.style.height = '100%'
+    pinTarget.style.zIndex = '50'
+  }, [])
+
+  const releaseHeroBoundary = useCallback((targetScrollY?: number) => {
+    if (!isGatedRef.current) return
+    const pinTarget = pinTargetRef.current
+    if (!pinTarget) return
+
+    isGatedRef.current = false
+    pinTarget.style.position = ''
+    pinTarget.style.top = ''
+    pinTarget.style.left = ''
+    pinTarget.style.width = ''
+    pinTarget.style.height = ''
+    pinTarget.style.zIndex = ''
+
+    if (typeof targetScrollY === 'number') {
+      window.scrollTo({ top: targetScrollY, behavior: 'instant' })
+    }
+
+    const heroST = ScrollTrigger.getById('hero-scroll-trigger')
+    heroST?.update()
+  }, [])
+
+  const handleFinalFrameRendered = useCallback(() => {
+    if (isGatedRef.current && !isMobileRef.current) {
+      const heroST = ScrollTrigger.getById('hero-scroll-trigger')
+      const end = heroST ? heroST.end : 3500
+      releaseHeroBoundary(end)
+    }
+  }, [releaseHeroBoundary])
 
   const updateUIOnScroll = useCallback((progress: number) => {
     // 0. Hero Copy Fade (Visible on clip-01: 100% visible initially, fades out smoothly on scroll)
@@ -119,6 +165,34 @@ export default function Hero() {
     setIsMobile(initialMobile)
     isMobileRef.current = initialMobile
 
+    const handleScrollTriggerUpdate = (self: ScrollTrigger) => {
+      const progress = self.progress
+      canvasHandleRef.current?.setFrameProgress(progress)
+      updateUIOnScroll(progress)
+
+      // DESKTOP ONLY: Frame-synchronized boundary gate at Hero end
+      if (!isMobileRef.current) {
+        const isAtEnd = self.scroll() >= self.end || progress >= 1.0
+
+        if (isAtEnd) {
+          const isFinalRendered = canvasHandleRef.current?.isFinalFrameRendered() ?? false
+          if (!isFinalRendered) {
+            // Cold start fast scroll reached end before frame 239 was rendered: activate gate
+            lockHeroBoundary()
+            if (self.scroll() > self.end) {
+              window.scrollTo({ top: self.end, behavior: 'instant' })
+            }
+          } else if (isGatedRef.current) {
+            // Frame 239 is rendered: release
+            releaseHeroBoundary(self.end)
+          }
+        } else if (isGatedRef.current && self.scroll() < self.end) {
+          // User reversed scroll back into Hero: release immediately
+          releaseHeroBoundary()
+        }
+      }
+    }
+
     // 2. Create Hero ScrollTrigger directly with the determined mobile/desktop distance (no +=3500 initial mismatch)
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
@@ -129,11 +203,7 @@ export default function Hero() {
         end: initialMobile ? '+=2500' : '+=3500', // Responsive scrub length (2500px mobile for 2 clips, 3500px desktop)
         scrub: initialMobile ? true : 0.1, // 1:1 instant touch tracking on mobile, 0.1s lerp on desktop
         refreshPriority: 1,
-        onUpdate: (self) => {
-          const progress = self.progress
-          canvasHandleRef.current?.setFrameProgress(progress)
-          updateUIOnScroll(progress)
-        },
+        onUpdate: handleScrollTriggerUpdate,
       })
     }, container)
 
@@ -154,6 +224,8 @@ export default function Hero() {
         setIsMobile(currentMobile)
         isMobileRef.current = currentMobile
 
+        releaseHeroBoundary()
+
         const existingST = ScrollTrigger.getById('hero-scroll-trigger')
         if (existingST) existingST.kill()
 
@@ -166,11 +238,7 @@ export default function Hero() {
             end: currentMobile ? '+=2500' : '+=3500',
             scrub: currentMobile ? true : 0.1,
             refreshPriority: 1,
-            onUpdate: (self) => {
-              const progress = self.progress
-              canvasHandleRef.current?.setFrameProgress(progress)
-              updateUIOnScroll(progress)
-            },
+            onUpdate: handleScrollTriggerUpdate,
           })
         })
         ScrollTrigger.refresh()
@@ -179,18 +247,49 @@ export default function Hero() {
       }
     }
 
+    // Window wheel and scroll listeners for boundary lock containment
+    const handleWheel = (e: WheelEvent) => {
+      if (isGatedRef.current && !isMobileRef.current) {
+        if (e.deltaY > 0) {
+          // Prevent accumulating downward scroll overshoot while frame 239 is pending
+          e.preventDefault()
+        } else if (e.deltaY < 0) {
+          // User is scrolling backwards up into Hero: disengage gate immediately
+          releaseHeroBoundary()
+        }
+      }
+    }
+
+    const handleScroll = () => {
+      if (isGatedRef.current && !isMobileRef.current) {
+        const heroST = ScrollTrigger.getById('hero-scroll-trigger')
+        if (heroST) {
+          if (window.scrollY > heroST.end) {
+            window.scrollTo({ top: heroST.end, behavior: 'instant' })
+          } else if (window.scrollY < heroST.end) {
+            releaseHeroBoundary()
+          }
+        }
+      }
+    }
+
     window.addEventListener('resize', handleResize, { passive: true })
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
       cancelAnimationFrame(rafId)
       window.removeEventListener('resize', handleResize)
+      window.removeEventListener('wheel', handleWheel)
+      window.removeEventListener('scroll', handleScroll)
+      releaseHeroBoundary()
       ctx.revert()
       ScrollTrigger.getAll().forEach((st) => {
         if (st.vars.trigger === container || st.vars.id === 'hero-scroll-trigger') st.kill()
       })
       ScrollTrigger.refresh()
     }
-  }, [updateUIOnScroll])
+  }, [updateUIOnScroll, lockHeroBoundary, releaseHeroBoundary])
 
   return (
     <div ref={containerRef} suppressHydrationWarning className="relative w-full">
@@ -206,6 +305,7 @@ export default function Hero() {
             ref={canvasHandleRef}
             isMobile={isMobile}
             onInitialFrameLoaded={() => setInitialFrameReady(true)}
+            onFinalFrameRendered={handleFinalFrameRendered}
           />
         </div>
 

@@ -72,6 +72,8 @@ export function getMobileFramePath(globalIndex: number): string {
 export interface HeroCanvasHandle {
   setFrameProgress: (progress: number) => void
   getCurrentFrame: () => number
+  getLastRenderedFrame: () => number
+  isFinalFrameRendered: () => boolean
 }
 
 interface HeroCanvasProps {
@@ -79,13 +81,25 @@ interface HeroCanvasProps {
   isMobile?: boolean
   onInitialFrameLoaded?: () => void
   onProgressUpdate?: (frameIndex: number, clipIndex: number) => void
+  onFinalFrameRendered?: () => void
 }
 
 const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
   function HeroCanvas(
-    { className = '', isMobile: isMobileProp, onInitialFrameLoaded, onProgressUpdate },
+    {
+      className = '',
+      isMobile: isMobileProp,
+      onInitialFrameLoaded,
+      onProgressUpdate,
+      onFinalFrameRendered,
+    },
     ref
   ) {
+    const onFinalFrameRenderedRef = useRef(onFinalFrameRendered)
+    useEffect(() => {
+      onFinalFrameRenderedRef.current = onFinalFrameRendered
+    }, [onFinalFrameRendered])
+
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
 
@@ -441,6 +455,11 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           drawFrameToCanvas(frameToRender, renderedIndex, forMobile)
           lastRenderedFrameRef.current = renderedIndex
           lastRenderedMobileRef.current = forMobile
+
+          // Desktop boundary synchronization: frame 239 has been drawn to the Canvas
+          if (!forMobile && renderedIndex === TOTAL_FRAMES - 1) {
+            onFinalFrameRenderedRef.current?.()
+          }
         }
 
         const clipIndex = forMobile
@@ -507,6 +526,16 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
             const current = currentFrameRef.current
             const lastRendered = lastRenderedFrameRef.current
             const dir = scrollDirectionRef.current
+
+            // Prevent late Clip 4 redraws once desktop Hero has already rendered the final frame (239)
+            if (!forMobile && lastRendered === TOTAL_FRAMES - 1 && current === TOTAL_FRAMES - 1) {
+              evictDistantBitmaps(current, forMobile)
+              drainSchedulerQueue()
+              if (priorityQueueRef.current.length === 0 && !isUserScrollingRef.current) {
+                triggerIdlePreloadRef.current()
+              }
+              return
+            }
 
             const isDirectionalProgress =
               (dir >= 0 && nextIdx > lastRendered && nextIdx <= current) ||
@@ -799,6 +828,12 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       () => ({
         setFrameProgress,
         getCurrentFrame: () => currentFrameRef.current,
+        getLastRenderedFrame: () => lastRenderedFrameRef.current,
+        isFinalFrameRendered: () => {
+          const forMobile = isMobileRef.current
+          if (forMobile) return true
+          return lastRenderedFrameRef.current === TOTAL_FRAMES - 1
+        },
       }),
       [setFrameProgress]
     )
