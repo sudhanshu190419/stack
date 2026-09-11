@@ -28,11 +28,20 @@ const STATUS_LOADING = 1
 const STATUS_READY = 2
 const STATUS_ERROR = 3
 
-// Bounded concurrency & sliding cache window tuning (scaled for 240-frame sequence)
-const MAX_CONCURRENT_DOWNLOADS = 4
-const CACHE_WINDOW_BACKWARD = 20
-const CACHE_WINDOW_FORWARD = 35
-const INITIAL_WARMUP_FRAMES = 20
+// Bounded concurrency tuning: 8 workers on desktop for high-throughput HTTP/2 streaming; 4 on mobile
+const DESKTOP_MAX_CONCURRENT = 8
+const MOBILE_MAX_CONCURRENT = 4
+
+// Sliding cache window tuning
+const DESKTOP_CACHE_WINDOW_BACKWARD = 50
+const DESKTOP_CACHE_WINDOW_FORWARD = 70
+
+const MOBILE_CACHE_WINDOW_BACKWARD = 20
+const MOBILE_CACHE_WINDOW_FORWARD = 35
+
+// Initial warmup frames
+const DESKTOP_INITIAL_WARMUP_FRAMES = 30
+const MOBILE_INITIAL_WARMUP_FRAMES = 20
 
 export type RenderableFrame = ImageBitmap | HTMLImageElement
 
@@ -106,6 +115,12 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     const activeWorkersRef = useRef<number>(0)
     const scheduleRafRef = useRef<number | null>(null)
 
+    // Desktop idle progressive preloader & scroll interaction tracking
+    const isUserScrollingRef = useRef<boolean>(false)
+    const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const idlePreloadHandleRef = useRef<number | null>(null)
+    const idlePreloadNextIdxRef = useRef<number>(31)
+
     /**
      * Helper: safely release an uncompressed frame bitmap from GPU memory
      */
@@ -136,8 +151,11 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       const minBound = Math.min(lastRendered, centerFrame)
       const maxBound = Math.max(lastRendered, centerFrame)
 
-      const minRetain = Math.max(0, minBound - CACHE_WINDOW_BACKWARD)
-      const maxRetain = Math.min(total - 1, maxBound + CACHE_WINDOW_FORWARD)
+      const windowBackward = forMobile ? MOBILE_CACHE_WINDOW_BACKWARD : DESKTOP_CACHE_WINDOW_BACKWARD
+      const windowForward = forMobile ? MOBILE_CACHE_WINDOW_FORWARD : DESKTOP_CACHE_WINDOW_FORWARD
+
+      const minRetain = Math.max(0, minBound - windowBackward)
+      const maxRetain = Math.min(total - 1, maxBound + windowForward)
 
       for (let i = 0; i < total; i++) {
         // NEVER evict the currently displayed frame on canvas
@@ -453,11 +471,12 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     const drainSchedulerQueue = useCallback(() => {
       if (isDestroyedRef.current) return
       const forMobile = isMobileRef.current
+      const maxWorkers = forMobile ? MOBILE_MAX_CONCURRENT : DESKTOP_MAX_CONCURRENT
       const cache = forMobile ? mobileFrameCache.current : desktopFrameCache.current
       const status = forMobile ? mobileStatus.current : desktopStatus.current
 
       while (
-        activeWorkersRef.current < MAX_CONCURRENT_DOWNLOADS &&
+        activeWorkersRef.current < maxWorkers &&
         priorityQueueRef.current.length > 0
       ) {
         const nextIdx = priorityQueueRef.current.shift()!
@@ -514,6 +533,77 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     }, [evictDistantBitmaps, fetchAndDecodeFrame, scheduleRender])
 
     /**
+     * Desktop Idle Progressive Preloader:
+     * Continues prefetching and decoding frames ahead in the background using requestIdleCallback
+     * (or setTimeout fallback) while the user is reading the Hero copy or pauses scrolling.
+     * Yields immediately if user starts scrolling (isUserScrollingRef === true).
+     */
+    const triggerIdlePreload = useCallback(() => {
+      if (isDestroyedRef.current || isMobileRef.current) return
+      if (isUserScrollingRef.current) return
+
+      const status = desktopStatus.current
+
+      // Check if there are any unrequested frames remaining
+      let hasUnrequested = false
+      for (let i = 1; i < TOTAL_FRAMES; i++) {
+        if (status[i] === STATUS_UNREQUESTED && !queuedSetRef.current.has(i)) {
+          hasUnrequested = true
+          break
+        }
+      }
+      if (!hasUnrequested) return
+
+      // Don't flood queue if priority queue already has enough active work
+      if (priorityQueueRef.current.length >= DESKTOP_MAX_CONCURRENT) return
+
+      const scheduleIdle =
+        typeof window !== 'undefined' && 'requestIdleCallback' in window
+          ? (cb: () => void) =>
+              (window as unknown as { requestIdleCallback: (fn: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(cb, { timeout: 1000 })
+          : (cb: () => void) => window.setTimeout(cb, 60)
+
+      if (idlePreloadHandleRef.current !== null) return
+
+      idlePreloadHandleRef.current = scheduleIdle(() => {
+        idlePreloadHandleRef.current = null
+        if (isDestroyedRef.current || isMobileRef.current || isUserScrollingRef.current) return
+
+        // Feed a small batch of unrequested frames into the bounded scheduler (4 frames per idle slice)
+        const BATCH_SIZE = 4
+        let count = 0
+        const total = TOTAL_FRAMES
+        let scanIdx = idlePreloadNextIdxRef.current
+
+        for (let tries = 0; tries < total && count < BATCH_SIZE; tries++) {
+          const idx = ((scanIdx - 1 + tries) % (total - 1)) + 1
+          if (status[idx] === STATUS_UNREQUESTED && !queuedSetRef.current.has(idx)) {
+            priorityQueueRef.current.push(idx)
+            queuedSetRef.current.add(idx)
+            count++
+            idlePreloadNextIdxRef.current = (idx % (total - 1)) + 1
+          }
+        }
+
+        if (count > 0) {
+          drainSchedulerQueue()
+        }
+
+        // Schedule next idle batch if unrequested frames still remain
+        let stillHasUnrequested = false
+        for (let i = 1; i < TOTAL_FRAMES; i++) {
+          if (status[i] === STATUS_UNREQUESTED && !queuedSetRef.current.has(i)) {
+            stillHasUnrequested = true
+            break
+          }
+        }
+        if (stillHasUnrequested && !isUserScrollingRef.current) {
+          triggerIdlePreload()
+        }
+      })
+    }, [drainSchedulerQueue])
+
+    /**
      * Persistent Priority Queue Maintenance:
      * Does NOT wipe the queue. Dynamically re-ranks existing and new frames according to current target.
      * Preserves the advancing runway between lastRendered and current so the canvas NEVER freezes.
@@ -537,41 +627,47 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         const scoreFrame = (idx: number): number => {
           if (idx === current) return 10000
 
+          const forwardLookahead = forMobile ? 25 : 50
+          const extendedLookahead = forMobile ? 50 : 80
+          const safetyBuffer = forMobile ? 6 : 15
+
           if (dir >= 0) {
             // FORWARD SCROLL:
-            // 1. Current target and immediate forward lookahead:
-            if (idx > current && idx <= current + 25) {
-              return 9500 - (idx - current) * 30
-            }
-            // 2. Advancing runway from lastRendered towards current (CRITICAL: keeps canvas moving!):
+            // 1. CRITICAL: Advancing runway between lastRendered and current target
+            // Must be prioritized FIRST so the renderer can continuously step forward without freezing!
             if (idx > lastRendered && idx < current) {
-              return 8500 - (idx - lastRendered) * 10
+              return 9800 - (idx - lastRendered) * 5
+            }
+            // 2. Immediate forward lookahead beyond current:
+            if (idx > current && idx <= current + forwardLookahead) {
+              return 9000 - (idx - current) * 30
             }
             // 3. Extended lookahead beyond current:
-            if (idx > current + 25 && idx <= current + 50) {
+            if (idx > current + forwardLookahead && idx <= current + extendedLookahead) {
               return 7000 - (idx - current) * 20
             }
             // 4. Small backward safety buffer around current:
-            if (idx < current && idx >= current - 6) {
+            if (idx < current && idx >= current - safetyBuffer) {
               return 5000 + (idx - current) * 50
             }
             return -1 // Too far, prune
           } else {
             // BACKWARD SCROLL:
-            // 1. Current target and immediate backward lookbehind:
-            if (idx < current && idx >= current - 25) {
-              return 9500 + (idx - current) * 30
-            }
-            // 2. Retreating runway from lastRendered down towards current:
+            // 1. CRITICAL: Retreating runway from lastRendered down towards current
+            // Must be prioritized FIRST so reverse scrolling steps cleanly!
             if (idx < lastRendered && idx > current) {
-              return 8500 + (idx - lastRendered) * 10
+              return 9800 + (idx - lastRendered) * 5
+            }
+            // 2. Immediate backward lookbehind beyond current:
+            if (idx < current && idx >= current - forwardLookahead) {
+              return 9000 + (idx - current) * 30
             }
             // 3. Extended lookbehind:
-            if (idx < current - 25 && idx >= current - 50) {
+            if (idx < current - forwardLookahead && idx >= current - extendedLookahead) {
               return 7000 + (idx - current) * 20
             }
             // 4. Small forward safety buffer:
-            if (idx > current && idx <= current + 6) {
+            if (idx > current && idx <= current + safetyBuffer) {
               return 5000 - (idx - current) * 50
             }
             return -1 // Too far, prune
@@ -589,8 +685,10 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         // 2. Add candidates spanning the bridge between lastRendered and current, plus lookahead
         const minBound = Math.min(lastRendered, current)
         const maxBound = Math.max(lastRendered, current)
-        const scanStart = Math.max(0, minBound - (dir >= 0 ? 6 : 35))
-        const scanEnd = Math.min(total - 1, maxBound + (dir >= 0 ? 35 : 6))
+        const forwardScan = forMobile ? 35 : 70
+        const backwardScan = forMobile ? 6 : 20
+        const scanStart = Math.max(0, minBound - (dir >= 0 ? backwardScan : forwardScan))
+        const scanEnd = Math.min(total - 1, maxBound + (dir >= 0 ? forwardScan : backwardScan))
 
         for (let i = scanStart; i <= scanEnd; i++) {
           if (status[i] === STATUS_UNREQUESTED && !activeSet.has(i)) {
@@ -631,10 +729,22 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           currentFrameRef.current = targetFrame
         }
 
+        // Flag active user scrolling to yield idle preloader
+        if (!forMobile) {
+          isUserScrollingRef.current = true
+          if (scrollTimeoutRef.current) {
+            clearTimeout(scrollTimeoutRef.current)
+          }
+          scrollTimeoutRef.current = setTimeout(() => {
+            isUserScrollingRef.current = false
+            triggerIdlePreload()
+          }, 350)
+        }
+
         scheduleRender()
         requestScheduleUpdate()
       },
-      [scheduleRender, requestScheduleUpdate]
+      [scheduleRender, requestScheduleUpdate, triggerIdlePreload]
     )
 
     useImperativeHandle(
@@ -740,10 +850,11 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           onInitialFrameLoaded?.()
           renderFrame(0)
 
-          // 2. Expanded Initial Warmup Runway: Enqueue frames 1 to INITIAL_WARMUP_FRAMES (28 frames)
-          // Streamed via bounded 4-worker scheduler to give immediate scroll runway
+          // 2. Initial Warmup Runway:
+          // Desktop: frames 1 to 30 (DESKTOP_INITIAL_WARMUP_FRAMES)
+          // Mobile: frames 1 to 20 (MOBILE_INITIAL_WARMUP_FRAMES)
           const warmupBurst = Math.min(
-            INITIAL_WARMUP_FRAMES,
+            initialMobile ? MOBILE_INITIAL_WARMUP_FRAMES : DESKTOP_INITIAL_WARMUP_FRAMES,
             (initialMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES) - 1
           )
           const warmupQueue: number[] = []
@@ -755,6 +866,12 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           }
           priorityQueueRef.current = warmupQueue
           drainSchedulerQueue()
+
+          // 3. Start progressive idle background preloader on desktop
+          if (!initialMobile) {
+            idlePreloadNextIdxRef.current = warmupBurst + 1
+            triggerIdlePreload()
+          }
         })
         .catch(() => {
           status[0] = STATUS_ERROR
@@ -768,6 +885,19 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         if (scheduleRafRef.current) {
           cancelAnimationFrame(scheduleRafRef.current)
         }
+        if (idlePreloadHandleRef.current !== null) {
+          if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
+            (window as unknown as { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(
+              idlePreloadHandleRef.current
+            )
+          } else {
+            clearTimeout(idlePreloadHandleRef.current)
+          }
+          idlePreloadHandleRef.current = null
+        }
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current)
+        }
         window.removeEventListener('resize', handleResize)
         if (resizeObserver) {
           resizeObserver.disconnect()
@@ -779,7 +909,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         mobileFrameCache.current.forEach((f) => releaseFrame(f))
         mobileFrameCache.current.fill(null)
       }
-    }, [fetchAndDecodeFrame, handleResize, onInitialFrameLoaded, renderFrame, drainSchedulerQueue])
+    }, [fetchAndDecodeFrame, handleResize, onInitialFrameLoaded, renderFrame, drainSchedulerQueue, triggerIdlePreload])
 
     return (
       <div
