@@ -11,10 +11,6 @@ import { SERVICES, ServiceItem } from './servicesData'
 
 gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
 
-if (typeof window !== 'undefined') {
-  ;(window as any).ScrollTrigger = ScrollTrigger
-}
-
 export default function ServicesSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const pinTargetRef = useRef<HTMLDivElement>(null)
@@ -62,14 +58,20 @@ export default function ServicesSection() {
 
   const handleNext = () => {
     if (isTransitioningRef.current) return
-    const nextIdx = Math.min(SERVICES.length - 1, activeIndexRef.current + 1)
-    goToIndex(nextIdx)
+    if (activeIndexRef.current < SERVICES.length - 1) {
+      goToIndex(activeIndexRef.current + 1)
+    } else {
+      unlockAndGoToWork()
+    }
   }
 
   const handlePrev = () => {
     if (isTransitioningRef.current) return
-    const prevIdx = Math.max(0, activeIndexRef.current - 1)
-    goToIndex(prevIdx)
+    if (activeIndexRef.current > 0) {
+      goToIndex(activeIndexRef.current - 1)
+    } else {
+      unlockAndGoToHero()
+    }
   }
 
   // Natural release into Selected Work:
@@ -218,15 +220,6 @@ export default function ServicesSection() {
         },
       })
       stRef.current = st
-      ;(window as any).__servicesDebug = {
-        st,
-        obs,
-        isLockedRef,
-        isTransitioningRef,
-        activeIndexRef,
-        lockSection,
-        goToIndex
-      }
       ScrollTrigger.refresh()
     }, container)
 
