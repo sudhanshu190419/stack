@@ -13,11 +13,10 @@ import ScrollIndicator from './ScrollIndicator'
 gsap.registerPlugin(ScrollTrigger)
 
 const CHAPTERS = [
-  { id: 1, range: [0, 0.2], label: 'Studio & Strategy', tag: '01' },
-  { id: 2, range: [0.2, 0.4], label: 'Velora Commerce', tag: '02' },
-  { id: 3, range: [0.4, 0.6], label: 'Mobl Experience', tag: '03' },
-  { id: 4, range: [0.6, 0.8], label: 'Savor Platform', tag: '04' },
-  { id: 5, range: [0.8, 1.0], label: 'Responsive Ecosystem', tag: '05' },
+  { id: 1, range: [0, 0.25], label: 'Studio & Strategy', tag: '01' },
+  { id: 2, range: [0.25, 0.5], label: 'Velora Commerce', tag: '02' },
+  { id: 3, range: [0.5, 0.75], label: 'Mobl Experience', tag: '03' },
+  { id: 4, range: [0.75, 1.0], label: 'Responsive Ecosystem', tag: '04' },
 ]
 
 export default function Hero() {
@@ -84,7 +83,7 @@ export default function Hero() {
     if (frameCounterRef.current) {
       frameCounterRef.current.innerText = isMobileRef.current
         ? `${currentFrame.toString().padStart(3, '0')} / ${MOBILE_TOTAL_FRAMES}`
-        : `${currentFrame.toString().padStart(3, '0')} / 500`
+        : `${currentFrame.toString().padStart(3, '0')} / ${TOTAL_FRAMES}`
     }
 
     // 4. Chapter Name
@@ -194,10 +193,11 @@ export default function Hero() {
   }, [updateUIOnScroll])
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div ref={containerRef} suppressHydrationWarning className="relative w-full">
       {/* Pinned Viewport Container - Full Bleed Screen */}
       <section
         ref={pinTargetRef}
+        suppressHydrationWarning
         className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#FAF8F4]"
       >
         {/* Full-Bleed 16:9 / 9:16 Cinematic Canvas Frame */}
@@ -212,6 +212,7 @@ export default function Hero() {
         {/* Clip-01 Typography & CTA Overlay (Visible initially, aligns with reference image) */}
         <div
           ref={heroCopyRef}
+          suppressHydrationWarning
           className="absolute inset-0 z-20 pointer-events-none flex items-center justify-start transition-transform duration-75"
         >
           {/* Soft Left Vignette Shadow for Crystal-Clear Text Legibility */}
@@ -286,12 +287,14 @@ export default function Hero() {
         {/* Cinematic Scrub HUD (Floating at Bottom Center) */}
         <div
           ref={hudRef}
+          suppressHydrationWarning
           className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 w-[90%] max-w-lg px-4 py-2.5 rounded-full bg-neutral-950/85 backdrop-blur-xl border border-white/10 opacity-0 pointer-events-none transition-opacity duration-200 shadow-2xl flex items-center justify-between gap-4"
         >
           <div className="flex items-center gap-2.5 min-w-0">
             <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
             <span
               ref={chapterTextRef}
+              suppressHydrationWarning
               className="text-xs font-medium text-white/90 truncate tracking-wide"
             >
               01 · Studio & Strategy
@@ -303,15 +306,17 @@ export default function Hero() {
             <div className="w-24 sm:w-32 h-1 bg-white/15 rounded-full overflow-hidden">
               <div
                 ref={progressBarRef}
+                suppressHydrationWarning
                 className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full origin-left transition-transform duration-75"
                 style={{ transform: 'scaleX(0)' }}
               />
             </div>
             <span
               ref={frameCounterRef}
+              suppressHydrationWarning
               className="text-[10px] font-mono text-white/60 tracking-wider"
             >
-              001 / 500
+              001 / 240
             </span>
           </div>
         </div>
@@ -319,6 +324,7 @@ export default function Hero() {
         {/* Initial Scroll Prompt */}
         <div
           ref={scrollIndicatorRef}
+          suppressHydrationWarning
           className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 transition-opacity duration-150"
         >
           <ScrollIndicator className="text-neutral-700" />

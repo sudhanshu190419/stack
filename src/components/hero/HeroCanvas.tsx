@@ -8,9 +8,9 @@ import React, {
   useCallback,
 } from 'react'
 
-export const TOTAL_FRAMES = 500
-export const FRAMES_PER_CLIP = 100
-export const TOTAL_CLIPS = 5
+export const TOTAL_FRAMES = 240
+export const FRAMES_PER_CLIP = 60
+export const TOTAL_CLIPS = 4
 export const FRAME_WIDTH = 1920
 export const FRAME_HEIGHT = 1080
 export const FRAME_ASPECT_RATIO = FRAME_WIDTH / FRAME_HEIGHT // 16:9
@@ -28,16 +28,16 @@ const STATUS_LOADING = 1
 const STATUS_READY = 2
 const STATUS_ERROR = 3
 
-// Bounded concurrency & sliding cache window tuning
+// Bounded concurrency & sliding cache window tuning (scaled for 240-frame sequence)
 const MAX_CONCURRENT_DOWNLOADS = 4
-const CACHE_WINDOW_BACKWARD = 35
-const CACHE_WINDOW_FORWARD = 55
-const INITIAL_WARMUP_FRAMES = 28
+const CACHE_WINDOW_BACKWARD = 20
+const CACHE_WINDOW_FORWARD = 35
+const INITIAL_WARMUP_FRAMES = 20
 
 export type RenderableFrame = ImageBitmap | HTMLImageElement
 
 /**
- * Returns the public path for a given global desktop frame index (0–499)
+ * Returns the public path for a given global desktop frame index (0–239)
  */
 export function getFramePath(globalIndex: number): string {
   const clamped = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.floor(globalIndex)))
@@ -45,7 +45,7 @@ export function getFramePath(globalIndex: number): string {
   const frameIndex = (clamped % FRAMES_PER_CLIP) + 1
   const clipStr = `clip-${clipIndex.toString().padStart(2, '0')}`
   const frameStr = `frame-${frameIndex.toString().padStart(4, '0')}.webp`
-  return `/hero/${clipStr}/${frameStr}`
+  return `/hero/${clipStr}/${frameStr}?v=2`
 }
 
 /**
@@ -122,17 +122,27 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
 
     /**
      * Evict distant decoded bitmaps outside the active sliding window.
-     * Keeps lightweight status and browser HTTP cache intact while freeing hundreds of MBs of VRAM.
+     * Crucial: NEVER evict lastRenderedFrame or frames in the active advancing runway
+     * between lastRendered and centerFrame!
      */
     const evictDistantBitmaps = useCallback((centerFrame: number, forMobile: boolean) => {
       const total = forMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
       const cache = forMobile ? mobileFrameCache.current : desktopFrameCache.current
       const status = forMobile ? mobileStatus.current : desktopStatus.current
 
-      const minRetain = Math.max(0, centerFrame - CACHE_WINDOW_BACKWARD)
-      const maxRetain = Math.min(total - 1, centerFrame + CACHE_WINDOW_FORWARD)
+      const lastRendered =
+        lastRenderedFrameRef.current === -1 ? centerFrame : lastRenderedFrameRef.current
+
+      const minBound = Math.min(lastRendered, centerFrame)
+      const maxBound = Math.max(lastRendered, centerFrame)
+
+      const minRetain = Math.max(0, minBound - CACHE_WINDOW_BACKWARD)
+      const maxRetain = Math.min(total - 1, maxBound + CACHE_WINDOW_FORWARD)
 
       for (let i = 0; i < total; i++) {
+        // NEVER evict the currently displayed frame on canvas
+        if (i === lastRenderedFrameRef.current) continue
+
         if ((i < minRetain || i > maxRetain) && cache[i]) {
           releaseFrame(cache[i])
           cache[i] = null
@@ -774,10 +784,12 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     return (
       <div
         ref={containerRef}
+        suppressHydrationWarning
         className={`relative w-full h-full flex items-center justify-center overflow-hidden ${className}`}
       >
         <canvas
           ref={canvasRef}
+          suppressHydrationWarning
           className="absolute inset-0 w-full h-full block pointer-events-none"
           style={{
             willChange: 'contents',

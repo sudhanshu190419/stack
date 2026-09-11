@@ -10,6 +10,7 @@ interface ScrollIndicatorProps {
 export default function ScrollIndicator({ className = '', style }: ScrollIndicatorProps) {
   return (
     <motion.div
+      suppressHydrationWarning
       className={`absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 pointer-events-none ${className}`}
       style={style}
       initial={{ opacity: 0 }}
@@ -21,6 +22,7 @@ export default function ScrollIndicator({ className = '', style }: ScrollIndicat
       </span>
       <div className="relative w-4 h-7 rounded-full border border-white/50 bg-white/5 flex items-start justify-center p-1 shadow-xs">
         <motion.div
+          suppressHydrationWarning
           className="w-1 h-1.5 rounded-full bg-white"
           animate={{
             y: [0, 10, 0],

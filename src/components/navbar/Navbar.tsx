@@ -73,6 +73,7 @@ export default function Navbar() {
   return (
     <header
       id="main-navbar"
+      suppressHydrationWarning
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
         scrolled
           ? 'bg-[#FAF7F2]/90 border-b border-black/[0.05] shadow-xs'
