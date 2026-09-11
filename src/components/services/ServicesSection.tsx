@@ -146,28 +146,17 @@ export default function ServicesSection() {
     obs.disable()
     observerRef.current = obs
 
-    // 2. ScrollTrigger lifecycle:
-    // a) pinST pins pinTarget for all 4 services AND during the entire ride-over of Selected Work
-    // b) lockST manages discrete gesture locking for Services 01-04 (0px to 1800px)
+    // 2. Single ScrollTrigger lifecycle:
+    // Pins pinTarget for Services 01-04 (0px to 1800px) AND during the ride-over of Selected Work (1800px to 1800px + 100vh)
     const ctx = gsap.context(() => {
-      const pinST = ScrollTrigger.create({
+      const st = ScrollTrigger.create({
         trigger: container,
         pin: pinTarget,
         start: 'top top',
         end: () => '+=' + (1800 + window.innerHeight),
         anticipatePin: 1,
-      })
-      stRef.current = pinST
-
-      ScrollTrigger.create({
-        trigger: container,
-        start: 'top top',
-        end: '+=1800',
         onEnter: (self) => {
           lockSection(0, self.start)
-        },
-        onEnterBack: (self) => {
-          lockSection(SERVICES.length - 1, self.end)
         },
         onLeave: () => {
           isLockedRef.current = false
@@ -177,7 +166,17 @@ export default function ServicesSection() {
           isLockedRef.current = false
           obs.disable()
         },
+        onUpdate: (self) => {
+          const currentY = self.scroll()
+          const service4Y = self.start + 1800
+
+          // When scrolling back up into the service navigation zone (at or below Service 04):
+          if (self.direction === -1 && currentY <= service4Y && !isLockedRef.current && currentY >= self.start) {
+            lockSection(SERVICES.length - 1, service4Y)
+          }
+        },
       })
+      stRef.current = st
     }, container)
 
     return () => {

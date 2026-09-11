@@ -322,3 +322,33 @@ body {
 .magnetic-btn {
   transition: transform 0.15s cubic-bezier(0.33, 1, 0.68, 1);
 }
+
+/* Continuous marquee carousels for Testimonials (matches ggmtechnologies.com) */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 34s linear infinite;
+  will-change: transform;
+}
+

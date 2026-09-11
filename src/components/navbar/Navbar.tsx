@@ -1,18 +1,54 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown, ArrowRight, Sparkles } from 'lucide-react'
+
+const SERVICES_MENU = [
+  {
+    title: 'Web Development',
+    href: '/web-development',
+    description: 'Fast, responsive, custom Next.js websites built to perform.',
+    badge: 'Popular',
+  },
+  {
+    title: 'App Development',
+    href: '/app-development',
+    description: 'Custom iOS & Android mobile applications built with React Native.',
+    badge: 'New',
+  },
+  {
+    title: 'Web Design',
+    href: '/website-design',
+    description: 'Bespoke visual identity, conversion-focused UI/UX interfaces.',
+  },
+  {
+    title: 'E-Commerce',
+    href: '/ecommerce-development',
+    description: 'High-converting online stores built on Shopify, Next.js & modern commerce.',
+  },
+  {
+    title: 'Website Redesign',
+    href: '/#services',
+    description: 'Modernize legacy codebases and elevate brand credibility.',
+  },
+]
 
 const NAV_LINKS = [
-  { label: 'Our Services', href: '#services' },
-  { label: 'Our Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Our Work', href: '/work' },
+  { label: 'Our Process', href: '/#process' },
+  { label: 'Testimonials', href: '/#testimonials' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +58,17 @@ export default function Navbar() {
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setServicesOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setServicesOpen(false)
+    }, 150)
+  }
 
   return (
     <header
@@ -35,31 +82,116 @@ export default function Navbar() {
       <nav className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
         <div className="flex items-center justify-between h-[72px] lg:h-[80px]">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-bold tracking-tight text-neutral-900">
-              Stack
-            </span>
-          </a>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/logo.png"
+              alt="Stack Logo"
+              width={197}
+              height={34}
+              priority
+              className="h-8 sm:h-9 w-auto object-contain"
+            />
+          </Link>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-9">
+            {/* Services Dropdown Item */}
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                type="button"
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="inline-flex items-center gap-1.5 text-[15px] font-medium text-neutral-800 hover:text-black transition-colors duration-200 py-2 cursor-pointer focus-visible:outline-none"
+                aria-expanded={servicesOpen}
+                aria-haspopup="true"
+              >
+                <span>Our Services</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 text-neutral-500 transition-transform duration-200 ${
+                    servicesOpen ? 'rotate-180 text-black' : ''
+                  }`}
+                />
+              </button>
+
+              {/* Desktop Dropdown Popover */}
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                    transition={{ duration: 0.16, ease: 'easeOut' }}
+                    className="absolute top-full -left-4 w-[380px] pt-2 z-50"
+                  >
+                    <div className="p-3 rounded-2xl border border-black/[0.08] bg-[#FAF7F2]/98 backdrop-blur-xl shadow-[0_16px_40px_rgba(0,0,0,0.08)]">
+                      {/* Services List */}
+                      <div className="space-y-1">
+                        {SERVICES_MENU.map((service) => (
+                          <Link
+                            key={service.title}
+                            href={service.href}
+                            onClick={() => setServicesOpen(false)}
+                            className="group flex items-start justify-between p-3 rounded-xl hover:bg-black/[0.04] transition-colors duration-150"
+                          >
+                            <div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-sm font-semibold text-neutral-950 group-hover:text-[#9E6941] transition-colors">
+                                  {service.title}
+                                </span>
+                                {service.badge && (
+                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#9E6941]/10 text-[#9E6941]">
+                                    {service.badge}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="mt-1 text-xs text-neutral-500 leading-relaxed max-w-[280px]">
+                                {service.description}
+                              </p>
+                            </div>
+                            <ArrowRight className="w-3.5 h-3.5 text-neutral-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-150 mt-1 shrink-0" />
+                          </Link>
+                        ))}
+                      </div>
+
+                      {/* Bottom All Services Footer */}
+                      <div className="mt-2 pt-2.5 border-t border-black/[0.06] px-3 flex items-center justify-between text-xs">
+                        <span className="text-neutral-500">Need custom scope?</span>
+                        <Link
+                          href="/#services"
+                          onClick={() => setServicesOpen(false)}
+                          className="font-semibold text-neutral-900 hover:text-[#9E6941] transition-colors flex items-center gap-1"
+                        >
+                          <span>Overview</span>
+                          <span>&rarr;</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Other Desktop Links */}
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-[15px] font-medium text-neutral-800 hover:text-black transition-colors duration-200"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Desktop CTA */}
-          <a
-            href="#contact"
-            className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium text-white bg-neutral-900 hover:bg-black transition-all duration-200 shadow-sm hover:shadow-md"
+          <Link
+            href="/contact"
+            className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium text-white bg-neutral-900 hover:bg-black transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
           >
-            Get in Touch
+            <span>Get in Touch</span>
             <svg
               className="w-3.5 h-3.5 ml-0.5"
               viewBox="0 0 24 24"
@@ -71,12 +203,12 @@ export default function Navbar() {
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden relative w-9 h-9 flex items-center justify-center text-neutral-900"
+            className="lg:hidden relative w-9 h-9 flex items-center justify-center text-neutral-900 cursor-pointer"
             aria-label="Toggle menu"
           >
             <div className="flex flex-col gap-1.5">
@@ -111,19 +243,68 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
           >
             <div className="px-6 py-6 space-y-4">
+              {/* Mobile Services Accordion */}
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="w-full flex items-center justify-between text-base font-medium text-neutral-800 hover:text-black transition-colors py-1.5 cursor-pointer"
+                >
+                  <span>Our Services</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-neutral-500 transition-transform duration-200 ${
+                      mobileServicesOpen ? 'rotate-180 text-black' : ''
+                    }`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {mobileServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="pl-4 pr-2 py-2 space-y-2.5 border-l-2 border-[#9E6941]/30 my-1"
+                    >
+                      {SERVICES_MENU.map((service) => (
+                        <Link
+                          key={service.title}
+                          href={service.href}
+                          className="flex items-center justify-between text-sm text-neutral-700 hover:text-neutral-950 py-1"
+                          onClick={() => {
+                            setMobileOpen(false)
+                            setMobileServicesOpen(false)
+                          }}
+                        >
+                          <span>{service.title}</span>
+                          {service.badge && (
+                            <span className="text-[10px] font-semibold bg-[#9E6941]/10 text-[#9E6941] px-2 py-0.5 rounded-full">
+                              {service.badge}
+                            </span>
+                          )}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Other Mobile Links */}
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="block text-base font-medium text-neutral-800 hover:text-black transition-colors py-1.5"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
+
               <div className="pt-2">
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full text-sm font-medium text-white bg-neutral-900 hover:bg-black transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
@@ -139,7 +320,7 @@ export default function Navbar() {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -148,4 +329,3 @@ export default function Navbar() {
     </header>
   )
 }
-

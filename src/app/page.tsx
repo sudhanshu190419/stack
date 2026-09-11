@@ -1,7 +1,11 @@
 import Hero from "@/components/hero/Hero";
 import ServicesSection from "@/components/services/ServicesSection";
 import WorkSection from "@/components/work/WorkSection";
-import ContactSection from "@/components/contact/ContactSection";
+import WorkProcessDivider from "@/components/ui/WorkProcessDivider";
+import ProcessSection from "@/components/process/ProcessSection";
+import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
+import CtaSection from "@/components/cta/CtaSection";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (
@@ -9,7 +13,12 @@ export default function Home() {
       <Hero />
       <ServicesSection />
       <WorkSection />
-      <ContactSection />
+      <WorkProcessDivider />
+      <ProcessSection />
+      <TestimonialsSection />
+      <CtaSection />
+      <Footer />
     </main>
   );
 }
+
