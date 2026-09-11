@@ -129,6 +129,7 @@ export default function Hero() {
         start: 'top top',
         end: initialMobile ? '+=5000' : '+=3500', // Responsive scrub length (5000px mobile for 2 clips, 3500px desktop)
         scrub: 0.1, // Smooth, immediate scrubbing without sluggish easing
+        refreshPriority: 1,
         onUpdate: (self) => {
           const progress = self.progress
           canvasHandleRef.current?.setFrameProgress(progress)
@@ -165,6 +166,7 @@ export default function Hero() {
             start: 'top top',
             end: currentMobile ? '+=5000' : '+=3500',
             scrub: 0.1,
+            refreshPriority: 1,
             onUpdate: (self) => {
               const progress = self.progress
               canvasHandleRef.current?.setFrameProgress(progress)

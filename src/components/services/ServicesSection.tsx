@@ -11,6 +11,10 @@ import { SERVICES, ServiceItem } from './servicesData'
 
 gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
 
+if (typeof window !== 'undefined') {
+  ;(window as any).ScrollTrigger = ScrollTrigger
+}
+
 export default function ServicesSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const pinTargetRef = useRef<HTMLDivElement>(null)
@@ -27,11 +31,11 @@ export default function ServicesSection() {
 
   const getStepScrollY = useCallback((index: number, st: ScrollTrigger) => {
     // 4 services spaced 600px apart:
-    // 01: 0px | 02: 600px | 03: 1200px | 04: 1800px
+    // 01: 20px | 02: 600px | 03: 1200px | 04: 1800px
     // Service 04 sits at st.start + 1800px.
     // The remaining range (1800px to st.end) is window.innerHeight where Selected Work
     // rides up over the pinned Service 04 section.
-    const stepOffsets = [0, 600, 1200, 1800]
+    const stepOffsets = [20, 600, 1200, 1800]
     const offset = stepOffsets[index] ?? index * 600
     return st.start + offset
   }, [])
@@ -75,19 +79,23 @@ export default function ServicesSection() {
     isLockedRef.current = false
     observerRef.current?.disable()
     isTransitioningRef.current = false
+    const st = stRef.current
+    if (st) {
+      window.scrollTo({ top: st.start + 1820, behavior: 'instant' })
+    }
   }, [])
 
   // Natural release up into Hero:
-  // Synchronizes scroll position cleanly to the top boundary (st.start) where Hero sits directly above,
+  // Synchronizes scroll position cleanly to just above the top boundary (st.start - 20) where Hero sits,
   // then disables Observer so subsequent upward scrolling naturally enters Hero.
   const unlockAndGoToHero = useCallback(() => {
     isLockedRef.current = false
-    const st = stRef.current
-    if (st) {
-      window.scrollTo({ top: st.start, behavior: 'instant' })
-    }
     observerRef.current?.disable()
     isTransitioningRef.current = false
+    const st = stRef.current
+    if (st) {
+      window.scrollTo({ top: Math.max(0, st.start - 20), behavior: 'instant' })
+    }
   }, [])
 
   // Lock section and engage Observer
@@ -114,30 +122,52 @@ export default function ServicesSection() {
     const pinTarget = pinTargetRef.current
     if (!container || !pinTarget) return
 
+    const handleForward = () => {
+      if (!isLockedRef.current || isTransitioningRef.current) return
+
+      if (activeIndexRef.current < SERVICES.length - 1) {
+        goToIndex(activeIndexRef.current + 1)
+      } else {
+        // At 04, release downward so Selected Work can ride above
+        unlockAndGoToWork()
+      }
+    }
+
+    const handleBackward = () => {
+      if (!isLockedRef.current || isTransitioningRef.current) return
+
+      if (activeIndexRef.current > 0) {
+        goToIndex(activeIndexRef.current - 1)
+      } else {
+        // At 01, release upward into Hero
+        unlockAndGoToHero()
+      }
+    }
+
     // 1. Create GSAP Observer for discrete gesture interception
     const obs = Observer.create({
       target: window,
       type: 'wheel,touch',
       tolerance: 15,
       preventDefault: true,
-      onDown: () => {
-        if (!isLockedRef.current || isTransitioningRef.current) return
-
-        if (activeIndexRef.current < SERVICES.length - 1) {
-          goToIndex(activeIndexRef.current + 1)
+      onDown: (self) => {
+        // onDown (positive deltaY):
+        // - Mouse wheel down -> Forward (next service)
+        // - Touch swipe down (finger moves down) -> Backward (previous service / hero)
+        if (self.isDragging) {
+          handleBackward()
         } else {
-          // At 04, release downward so Selected Work can ride above
-          unlockAndGoToWork()
+          handleForward()
         }
       },
-      onUp: () => {
-        if (!isLockedRef.current || isTransitioningRef.current) return
-
-        if (activeIndexRef.current > 0) {
-          goToIndex(activeIndexRef.current - 1)
+      onUp: (self) => {
+        // onUp (negative deltaY):
+        // - Mouse wheel up -> Backward (previous service / hero)
+        // - Touch swipe up (finger moves up) -> Forward (next service)
+        if (self.isDragging) {
+          handleForward()
         } else {
-          // At 01, release upward into Hero
-          unlockAndGoToHero()
+          handleBackward()
         }
       },
     })
@@ -153,18 +183,16 @@ export default function ServicesSection() {
         id: 'services-scroll-trigger',
         trigger: container,
         pin: pinTarget,
-        start: () => {
-          const heroST = ScrollTrigger.getById('hero-scroll-trigger')
-          return heroST ? heroST.end : 'top top'
-        },
+        start: 'top top',
         end: () => '+=' + (1800 + window.innerHeight),
+        refreshPriority: 0,
         onEnter: (self) => {
           // Safety guard: ensure the Hero pin animation has fully completed before activating ServicesSection
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
-          if ((heroST && heroST.progress < 0.98) || self.start < 2000) {
+          if (heroST && heroST.progress < 0.98) {
             return
           }
-          lockSection(0, self.start)
+          lockSection(0, self.start + 20)
         },
         onLeave: () => {
           isLockedRef.current = false
@@ -173,6 +201,7 @@ export default function ServicesSection() {
         onLeaveBack: () => {
           isLockedRef.current = false
           obs.disable()
+          isTransitioningRef.current = false
         },
         onUpdate: (self) => {
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
@@ -183,12 +212,21 @@ export default function ServicesSection() {
           const service4Y = self.start + 1800
 
           // When scrolling back up into the service navigation zone (at or below Service 04):
-          if (self.direction === -1 && currentY <= service4Y && !isLockedRef.current && currentY >= self.start) {
+          if (self.direction === -1 && currentY <= service4Y && !isLockedRef.current && currentY > self.start + 50) {
             lockSection(SERVICES.length - 1, service4Y)
           }
         },
       })
       stRef.current = st
+      ;(window as any).__servicesDebug = {
+        st,
+        obs,
+        isLockedRef,
+        isTransitioningRef,
+        activeIndexRef,
+        lockSection,
+        goToIndex
+      }
       ScrollTrigger.refresh()
     }, container)
 
