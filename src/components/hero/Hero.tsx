@@ -3,7 +3,11 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import HeroCanvas, { HeroCanvasHandle, TOTAL_FRAMES } from './HeroCanvas'
+import HeroCanvas, {
+  HeroCanvasHandle,
+  TOTAL_FRAMES,
+  MOBILE_TOTAL_FRAMES,
+} from './HeroCanvas'
 import ScrollIndicator from './ScrollIndicator'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -30,6 +34,21 @@ export default function Hero() {
   const scrollIndicatorRef = useRef<HTMLDivElement>(null)
 
   const [initialFrameReady, setInitialFrameReady] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const isMobileRef = useRef(false)
+
+  useEffect(() => {
+    const handleCheckMobile = () => {
+      const mobile =
+        window.innerWidth < 768 ||
+        (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+      setIsMobile(mobile)
+      isMobileRef.current = mobile
+    }
+    handleCheckMobile()
+    window.addEventListener('resize', handleCheckMobile, { passive: true })
+    return () => window.removeEventListener('resize', handleCheckMobile)
+  }, [])
 
   const updateUIOnScroll = useCallback((progress: number) => {
     // 0. Hero Copy Fade (Visible on clip-01: 100% visible initially, fades out smoothly on scroll)
@@ -69,21 +88,27 @@ export default function Hero() {
       progressBarRef.current.style.transform = `scaleX(${progress})`
     }
 
+    const currentTotal = isMobileRef.current ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
     const currentFrame = Math.min(
-      TOTAL_FRAMES,
-      Math.max(1, Math.round(progress * (TOTAL_FRAMES - 1)) + 1)
+      currentTotal,
+      Math.max(1, Math.round(progress * (currentTotal - 1)) + 1)
     )
     if (frameCounterRef.current) {
-      frameCounterRef.current.innerText = `${currentFrame.toString().padStart(3, '0')} / 500`
+      frameCounterRef.current.innerText = isMobileRef.current
+        ? `${currentFrame.toString().padStart(3, '0')} / 100`
+        : `${currentFrame.toString().padStart(3, '0')} / 500`
     }
 
     // 4. Chapter Name
-    const activeChapter =
-      CHAPTERS.find((c) => progress >= c.range[0] && progress <= c.range[1]) ||
-      CHAPTERS[0]
-
     if (chapterTextRef.current) {
-      chapterTextRef.current.innerText = `${activeChapter.tag} · ${activeChapter.label}`
+      if (isMobileRef.current) {
+        chapterTextRef.current.innerText = '01 · Studio & Strategy'
+      } else {
+        const activeChapter =
+          CHAPTERS.find((c) => progress >= c.range[0] && progress <= c.range[1]) ||
+          CHAPTERS[0]
+        chapterTextRef.current.innerText = `${activeChapter.tag} · ${activeChapter.label}`
+      }
     }
 
     // Navbar manages its own sticky and frosted glass states
@@ -100,7 +125,7 @@ export default function Hero() {
         trigger: container,
         pin: pinTarget,
         start: 'top top',
-        end: '+=3500', // Long enough for controllable, cinematic 500-frame scrubbing
+        end: isMobile ? '+=2500' : '+=3500', // Responsive scrub length
         scrub: 0.1, // Smooth, immediate scrubbing without sluggish easing
         onUpdate: (self) => {
           const progress = self.progress
@@ -116,7 +141,7 @@ export default function Hero() {
         if (st.vars.trigger === container) st.kill()
       })
     }
-  }, [updateUIOnScroll])
+  }, [isMobile, updateUIOnScroll])
 
   return (
     <div ref={containerRef} className="relative w-full">
@@ -125,10 +150,11 @@ export default function Hero() {
         ref={pinTargetRef}
         className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#FAF8F4]"
       >
-        {/* Full-Bleed 16:9 Cinematic Canvas Frame (Cover Presentation, Zero Side Margins) */}
+        {/* Full-Bleed 16:9 / 9:16 Cinematic Canvas Frame */}
         <div className="absolute inset-0 w-full h-full z-10">
           <HeroCanvas
             ref={canvasHandleRef}
+            isMobile={isMobile}
             onInitialFrameLoaded={() => setInitialFrameReady(true)}
           />
         </div>
