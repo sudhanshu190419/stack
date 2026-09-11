@@ -126,8 +126,8 @@ export default function Hero() {
         trigger: container,
         pin: pinTarget,
         start: 'top top',
-        end: initialMobile ? '+=5000' : '+=3500', // Responsive scrub length (5000px mobile for 2 clips, 3500px desktop)
-        scrub: 0.1, // Smooth, immediate scrubbing without sluggish easing
+        end: initialMobile ? '+=2500' : '+=3500', // Responsive scrub length (2500px mobile for 2 clips, 3500px desktop)
+        scrub: initialMobile ? true : 0.1, // 1:1 instant touch tracking on mobile, 0.1s lerp on desktop
         refreshPriority: 1,
         onUpdate: (self) => {
           const progress = self.progress
@@ -163,8 +163,8 @@ export default function Hero() {
             trigger: container,
             pin: pinTarget,
             start: 'top top',
-            end: currentMobile ? '+=5000' : '+=3500',
-            scrub: 0.1,
+            end: currentMobile ? '+=2500' : '+=3500',
+            scrub: currentMobile ? true : 0.1,
             refreshPriority: 1,
             onUpdate: (self) => {
               const progress = self.progress
@@ -213,20 +213,21 @@ export default function Hero() {
         <div
           ref={heroCopyRef}
           suppressHydrationWarning
-          className="absolute inset-0 z-20 pointer-events-none flex items-center justify-start transition-transform duration-75"
+          className="absolute inset-0 z-20 pointer-events-none flex items-start lg:items-center justify-start transition-transform duration-75"
         >
-          {/* Soft Left Vignette Shadow for Crystal-Clear Text Legibility */}
-          <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[50%] xl:w-[45%] bg-gradient-to-r from-black/65 via-black/30 to-transparent pointer-events-none" />
+          {/* Soft Vignette Shadow for Crystal-Clear Text Legibility */}
+          <div className="absolute inset-x-0 top-0 h-[48vh] sm:h-full sm:inset-y-0 sm:left-0 sm:right-auto sm:w-[65%] lg:w-[50%] xl:w-[45%] bg-gradient-to-b from-black/80 via-black/40 to-transparent sm:bg-gradient-to-r sm:from-black/65 sm:via-black/30 sm:to-transparent pointer-events-none" />
 
-          <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pointer-events-auto">
-            <div className="max-w-lg lg:max-w-[420px] xl:max-w-[460px] pt-12 sm:pt-16 lg:pt-0">
+          <div className="relative z-10 w-full max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pointer-events-auto h-full flex flex-col justify-start">
+            {/* Top Text Block (Eyebrow, Heading, Subtitle) */}
+            <div className="max-w-[350px] xs:max-w-[370px] sm:max-w-lg lg:max-w-[420px] xl:max-w-[460px] pt-[120px] sm:pt-24 lg:pt-0">
               {/* Eyebrow */}
-              <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-white/80 mb-3 sm:mb-4 drop-shadow-sm">
+              <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-white/90 sm:text-white/80 mb-2 sm:mb-4 drop-shadow-sm">
                 WEB DESIGN &amp; DEVELOPMENT
               </p>
 
               {/* Main Heading */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-bold text-white tracking-tight leading-[1.12] mb-3.5 sm:mb-4 drop-shadow-md">
+              <h1 className="text-[29px] xs:text-[32px] sm:text-4xl lg:text-[44px] xl:text-[50px] font-bold text-white tracking-tight leading-[1.12] mb-2.5 sm:mb-4 drop-shadow-md">
                 Websites that
                 <br />
                 make businesses
@@ -237,14 +238,13 @@ export default function Hero() {
               </h1>
 
               {/* Subtitle Paragraph */}
-              <p className="text-sm sm:text-[15px] leading-relaxed text-white/80 mb-6 sm:mb-8 max-w-[380px] drop-shadow-sm">
+              <p className="text-[12.5px] xs:text-[13px] sm:text-[15px] leading-relaxed text-white/85 sm:text-white/80 mb-0 sm:mb-8 max-w-[330px] sm:max-w-[380px] drop-shadow-sm">
                 We design and build modern, high-performing
-                <br />
-                websites that turn first impressions into customers.
+                <br className="hidden sm:inline" /> websites that turn first impressions into customers.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-3.5">
+              {/* Desktop CTA Buttons (Visible inside column on sm and above, completely unchanged) */}
+              <div className="hidden sm:flex items-center gap-3.5 mt-8">
                 <a
                   href="#work"
                   className="inline-flex items-center gap-2 px-6 sm:px-6.5 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-100 transition-all duration-200 shadow-md group"
@@ -280,6 +280,44 @@ export default function Hero() {
                   </svg>
                 </a>
               </div>
+            </div>
+
+            {/* Mobile Bottom CTA Buttons (Placed exactly below the laptop keyboard, above stone ledge) */}
+            <div className="sm:hidden absolute left-5 right-5 bottom-[15%] xs:bottom-[15%] flex items-center justify-start gap-3 pointer-events-auto">
+              <a
+                href="#work"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-neutral-950 bg-white hover:bg-neutral-100 transition-all duration-200 shadow-md group flex-shrink-0"
+              >
+                View Our Work
+                <svg
+                  className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-white bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/40 transition-all duration-200 shadow-sm group flex-shrink-0"
+              >
+                Start a Project
+                <svg
+                  className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>

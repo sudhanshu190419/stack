@@ -459,7 +459,7 @@ export default function ServicesSection() {
           </div>
 
           {/* 3. Large Static Laptop Visual with Dynamic Screen Content */}
-          <div className="relative w-full max-w-[460px] mx-auto aspect-[1429/975] shrink-0 flex items-center justify-center mt-auto pb-1">
+          <div className="relative w-full max-w-[480px] sm:max-w-[460px] mx-auto aspect-[1429/975] shrink-0 flex items-center justify-center mt-auto pb-1 scale-[1.12] sm:scale-100 origin-bottom transition-transform duration-200">
             <div className="relative w-full h-full">
               {/* Layer 2: Dynamic Screen Content (Behind transparent bezel opening) */}
               <div className="absolute inset-0 z-0 pointer-events-none">
