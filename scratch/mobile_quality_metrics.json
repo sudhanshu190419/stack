@@ -1,0 +1,242 @@
+[
+  {
+    "frame": "c1_f001",
+    "targetKB": 120,
+    "actualKB": "119.0",
+    "quality": 87,
+    "psnr_dB": "44.83",
+    "rmse": "1.46",
+    "mae": "0.81",
+    "maxDiff": 18
+  },
+  {
+    "frame": "c1_f001",
+    "targetKB": 100,
+    "actualKB": "97.4",
+    "quality": 83,
+    "psnr_dB": "42.64",
+    "rmse": "1.88",
+    "mae": "1.08",
+    "maxDiff": 29
+  },
+  {
+    "frame": "c1_f001",
+    "targetKB": 90,
+    "actualKB": "90.4",
+    "quality": 81,
+    "psnr_dB": "42.11",
+    "rmse": "2.00",
+    "mae": "1.15",
+    "maxDiff": 27
+  },
+  {
+    "frame": "c1_f001",
+    "targetKB": 80,
+    "actualKB": "80.6",
+    "quality": 77,
+    "psnr_dB": "41.22",
+    "rmse": "2.21",
+    "mae": "1.28",
+    "maxDiff": 35
+  },
+  {
+    "frame": "c1_f001",
+    "targetKB": 70,
+    "actualKB": "70.3",
+    "quality": 67,
+    "psnr_dB": "40.06",
+    "rmse": "2.53",
+    "mae": "1.46",
+    "maxDiff": 35
+  },
+  {
+    "frame": "c1_f001",
+    "targetKB": 60,
+    "actualKB": "60.0",
+    "quality": 52,
+    "psnr_dB": "38.75",
+    "rmse": "2.95",
+    "mae": "1.71",
+    "maxDiff": 46
+  },
+  {
+    "frame": "c1_f099",
+    "targetKB": 120,
+    "actualKB": "119.7",
+    "quality": 84,
+    "psnr_dB": "42.54",
+    "rmse": "1.90",
+    "mae": "1.17",
+    "maxDiff": 21
+  },
+  {
+    "frame": "c1_f099",
+    "targetKB": 100,
+    "actualKB": "101.0",
+    "quality": 80,
+    "psnr_dB": "41.24",
+    "rmse": "2.21",
+    "mae": "1.35",
+    "maxDiff": 26
+  },
+  {
+    "frame": "c1_f099",
+    "targetKB": 90,
+    "actualKB": "89.1",
+    "quality": 76,
+    "psnr_dB": "40.27",
+    "rmse": "2.47",
+    "mae": "1.52",
+    "maxDiff": 28
+  },
+  {
+    "frame": "c1_f099",
+    "targetKB": 80,
+    "actualKB": "80.1",
+    "quality": 67,
+    "psnr_dB": "39.38",
+    "rmse": "2.74",
+    "mae": "1.68",
+    "maxDiff": 31
+  },
+  {
+    "frame": "c1_f099",
+    "targetKB": 70,
+    "actualKB": "70.2",
+    "quality": 54,
+    "psnr_dB": "38.28",
+    "rmse": "3.11",
+    "mae": "1.90",
+    "maxDiff": 41
+  },
+  {
+    "frame": "c1_f099",
+    "targetKB": 60,
+    "actualKB": "60.0",
+    "quality": 39,
+    "psnr_dB": "36.96",
+    "rmse": "3.62",
+    "mae": "2.19",
+    "maxDiff": 51
+  },
+  {
+    "frame": "c2_f026",
+    "targetKB": 120,
+    "actualKB": "117.3",
+    "quality": 81,
+    "psnr_dB": "40.34",
+    "rmse": "2.45",
+    "mae": "1.55",
+    "maxDiff": 31
+  },
+  {
+    "frame": "c2_f026",
+    "targetKB": 100,
+    "actualKB": "100.5",
+    "quality": 76,
+    "psnr_dB": "39.08",
+    "rmse": "2.83",
+    "mae": "1.76",
+    "maxDiff": 35
+  },
+  {
+    "frame": "c2_f026",
+    "targetKB": 90,
+    "actualKB": "89.0",
+    "quality": 67,
+    "psnr_dB": "38.28",
+    "rmse": "3.11",
+    "mae": "1.94",
+    "maxDiff": 38
+  },
+  {
+    "frame": "c2_f026",
+    "targetKB": 80,
+    "actualKB": "80.4",
+    "quality": 57,
+    "psnr_dB": "37.43",
+    "rmse": "3.43",
+    "mae": "2.12",
+    "maxDiff": 44
+  },
+  {
+    "frame": "c2_f026",
+    "targetKB": 70,
+    "actualKB": "70.0",
+    "quality": 44,
+    "psnr_dB": "36.36",
+    "rmse": "3.88",
+    "mae": "2.38",
+    "maxDiff": 46
+  },
+  {
+    "frame": "c2_f026",
+    "targetKB": 60,
+    "actualKB": "60.1",
+    "quality": 32,
+    "psnr_dB": "35.16",
+    "rmse": "4.45",
+    "mae": "2.69",
+    "maxDiff": 66
+  },
+  {
+    "frame": "c2_f100",
+    "targetKB": 120,
+    "actualKB": "121.4",
+    "quality": 89,
+    "psnr_dB": "46.38",
+    "rmse": "1.22",
+    "mae": "0.68",
+    "maxDiff": 14
+  },
+  {
+    "frame": "c2_f100",
+    "targetKB": 100,
+    "actualKB": "98.6",
+    "quality": 85,
+    "psnr_dB": "43.84",
+    "rmse": "1.64",
+    "mae": "1.00",
+    "maxDiff": 20
+  },
+  {
+    "frame": "c2_f100",
+    "targetKB": 90,
+    "actualKB": "87.7",
+    "quality": 83,
+    "psnr_dB": "42.80",
+    "rmse": "1.85",
+    "mae": "1.12",
+    "maxDiff": 27
+  },
+  {
+    "frame": "c2_f100",
+    "targetKB": 80,
+    "actualKB": "80.8",
+    "quality": 81,
+    "psnr_dB": "42.19",
+    "rmse": "1.98",
+    "mae": "1.20",
+    "maxDiff": 26
+  },
+  {
+    "frame": "c2_f100",
+    "targetKB": 70,
+    "actualKB": "69.0",
+    "quality": 77,
+    "psnr_dB": "41.08",
+    "rmse": "2.25",
+    "mae": "1.37",
+    "maxDiff": 32
+  },
+  {
+    "frame": "c2_f100",
+    "targetKB": 60,
+    "actualKB": "59.7",
+    "quality": 66,
+    "psnr_dB": "40.03",
+    "rmse": "2.54",
+    "mae": "1.55",
+    "maxDiff": 39
+  }
+]

@@ -1,0 +1,178 @@
+{
+  "c1_f001": [
+    {
+      "targetKB": 120,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f001_target120kb_q87.webp",
+      "quality": 87,
+      "actualKB": "119.0",
+      "actualBytes": 121890
+    },
+    {
+      "targetKB": 100,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f001_target100kb_q83.webp",
+      "quality": 83,
+      "actualKB": "97.4",
+      "actualBytes": 99768
+    },
+    {
+      "targetKB": 90,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f001_target90kb_q81.webp",
+      "quality": 81,
+      "actualKB": "90.4",
+      "actualBytes": 92584
+    },
+    {
+      "targetKB": 80,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f001_target80kb_q77.webp",
+      "quality": 77,
+      "actualKB": "80.6",
+      "actualBytes": 82584
+    },
+    {
+      "targetKB": 70,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f001_target70kb_q67.webp",
+      "quality": 67,
+      "actualKB": "70.3",
+      "actualBytes": 71974
+    },
+    {
+      "targetKB": 60,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f001_target60kb_q52.webp",
+      "quality": 52,
+      "actualKB": "60.0",
+      "actualBytes": 61432
+    }
+  ],
+  "c1_f099": [
+    {
+      "targetKB": 120,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f099_target120kb_q84.webp",
+      "quality": 84,
+      "actualKB": "119.7",
+      "actualBytes": 122536
+    },
+    {
+      "targetKB": 100,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f099_target100kb_q80.webp",
+      "quality": 80,
+      "actualKB": "101.0",
+      "actualBytes": 103466
+    },
+    {
+      "targetKB": 90,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f099_target90kb_q76.webp",
+      "quality": 76,
+      "actualKB": "89.1",
+      "actualBytes": 91250
+    },
+    {
+      "targetKB": 80,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f099_target80kb_q67.webp",
+      "quality": 67,
+      "actualKB": "80.1",
+      "actualBytes": 82056
+    },
+    {
+      "targetKB": 70,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f099_target70kb_q54.webp",
+      "quality": 54,
+      "actualKB": "70.2",
+      "actualBytes": 71872
+    },
+    {
+      "targetKB": 60,
+      "outPath": "scratch\\mobile_test_encodes\\c1_f099_target60kb_q39.webp",
+      "quality": 39,
+      "actualKB": "60.0",
+      "actualBytes": 61402
+    }
+  ],
+  "c2_f026": [
+    {
+      "targetKB": 120,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f026_target120kb_q81.webp",
+      "quality": 81,
+      "actualKB": "117.3",
+      "actualBytes": 120160
+    },
+    {
+      "targetKB": 100,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f026_target100kb_q76.webp",
+      "quality": 76,
+      "actualKB": "100.5",
+      "actualBytes": 102930
+    },
+    {
+      "targetKB": 90,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f026_target90kb_q67.webp",
+      "quality": 67,
+      "actualKB": "89.0",
+      "actualBytes": 91186
+    },
+    {
+      "targetKB": 80,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f026_target80kb_q57.webp",
+      "quality": 57,
+      "actualKB": "80.4",
+      "actualBytes": 82348
+    },
+    {
+      "targetKB": 70,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f026_target70kb_q44.webp",
+      "quality": 44,
+      "actualKB": "70.0",
+      "actualBytes": 71676
+    },
+    {
+      "targetKB": 60,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f026_target60kb_q32.webp",
+      "quality": 32,
+      "actualKB": "60.1",
+      "actualBytes": 61512
+    }
+  ],
+  "c2_f100": [
+    {
+      "targetKB": 120,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f100_target120kb_q89.webp",
+      "quality": 89,
+      "actualKB": "121.4",
+      "actualBytes": 124278
+    },
+    {
+      "targetKB": 100,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f100_target100kb_q85.webp",
+      "quality": 85,
+      "actualKB": "98.6",
+      "actualBytes": 100918
+    },
+    {
+      "targetKB": 90,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f100_target90kb_q83.webp",
+      "quality": 83,
+      "actualKB": "87.7",
+      "actualBytes": 89796
+    },
+    {
+      "targetKB": 80,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f100_target80kb_q81.webp",
+      "quality": 81,
+      "actualKB": "80.8",
+      "actualBytes": 82700
+    },
+    {
+      "targetKB": 70,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f100_target70kb_q77.webp",
+      "quality": 77,
+      "actualKB": "69.0",
+      "actualBytes": 70678
+    },
+    {
+      "targetKB": 60,
+      "outPath": "scratch\\mobile_test_encodes\\c2_f100_target60kb_q66.webp",
+      "quality": 66,
+      "actualKB": "59.7",
+      "actualBytes": 61110
+    }
+  ]
+}
