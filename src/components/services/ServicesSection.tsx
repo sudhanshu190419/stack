@@ -150,12 +150,19 @@ export default function ServicesSection() {
     // Pins pinTarget for Services 01-04 (0px to 1800px) AND during the ride-over of Selected Work (1800px to 1800px + 100vh)
     const ctx = gsap.context(() => {
       const st = ScrollTrigger.create({
+        id: 'services-scroll-trigger',
         trigger: container,
         pin: pinTarget,
         start: 'top top',
         end: () => '+=' + (1800 + window.innerHeight),
         anticipatePin: 1,
         onEnter: (self) => {
+          // Safety guard: ensure the Hero pin animation has fully completed before activating ServicesSection
+          const heroST = ScrollTrigger.getById('hero-scroll-trigger')
+          if ((heroST && heroST.progress < 0.98) || self.start < 2000) {
+            ScrollTrigger.refresh()
+            return
+          }
           lockSection(0, self.start)
         },
         onLeave: () => {

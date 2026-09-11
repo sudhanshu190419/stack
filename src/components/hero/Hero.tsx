@@ -37,18 +37,6 @@ export default function Hero() {
   const [isMobile, setIsMobile] = useState(false)
   const isMobileRef = useRef(false)
 
-  useEffect(() => {
-    const handleCheckMobile = () => {
-      const mobile =
-        window.innerWidth < 768 ||
-        (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
-      setIsMobile(mobile)
-      isMobileRef.current = mobile
-    }
-    handleCheckMobile()
-    window.addEventListener('resize', handleCheckMobile, { passive: true })
-    return () => window.removeEventListener('resize', handleCheckMobile)
-  }, [])
 
   const updateUIOnScroll = useCallback((progress: number) => {
     // 0. Hero Copy Fade (Visible on clip-01: 100% visible initially, fades out smoothly on scroll)
@@ -119,13 +107,23 @@ export default function Hero() {
     const pinTarget = pinTargetRef.current
     if (!container || !pinTarget) return
 
-    // Create GSAP ScrollTrigger pinning the hero across the continuous sequence
+    // 1. Determine mobile breakpoint synchronously on client mount before creating ScrollTrigger
+    const checkMobile = () =>
+      window.innerWidth < 768 ||
+      (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+
+    const initialMobile = checkMobile()
+    setIsMobile(initialMobile)
+    isMobileRef.current = initialMobile
+
+    // 2. Create Hero ScrollTrigger directly with the determined mobile/desktop distance (no +=3500 initial mismatch)
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
+        id: 'hero-scroll-trigger',
         trigger: container,
         pin: pinTarget,
         start: 'top top',
-        end: isMobile ? '+=2500' : '+=3500', // Responsive scrub length
+        end: initialMobile ? '+=2500' : '+=3500', // Responsive scrub length (2500px mobile, 3500px desktop)
         scrub: 0.1, // Smooth, immediate scrubbing without sluggish easing
         onUpdate: (self) => {
           const progress = self.progress
@@ -135,13 +133,54 @@ export default function Hero() {
       })
     }, container)
 
+    // 3. Immediately refresh ScrollTrigger so downstream sections calculate correct pin offsets
+    ScrollTrigger.refresh()
+    const rafId = requestAnimationFrame(() => {
+      ScrollTrigger.refresh()
+    })
+
+    const handleResize = () => {
+      const currentMobile = checkMobile()
+      if (currentMobile !== isMobileRef.current) {
+        setIsMobile(currentMobile)
+        isMobileRef.current = currentMobile
+
+        const existingST = ScrollTrigger.getById('hero-scroll-trigger')
+        if (existingST) existingST.kill()
+
+        ctx.add(() => {
+          ScrollTrigger.create({
+            id: 'hero-scroll-trigger',
+            trigger: container,
+            pin: pinTarget,
+            start: 'top top',
+            end: currentMobile ? '+=2500' : '+=3500',
+            scrub: 0.1,
+            onUpdate: (self) => {
+              const progress = self.progress
+              canvasHandleRef.current?.setFrameProgress(progress)
+              updateUIOnScroll(progress)
+            },
+          })
+        })
+        ScrollTrigger.refresh()
+      } else {
+        ScrollTrigger.refresh()
+      }
+    }
+
+    window.addEventListener('resize', handleResize, { passive: true })
+
     return () => {
+      cancelAnimationFrame(rafId)
+      window.removeEventListener('resize', handleResize)
       ctx.revert()
       ScrollTrigger.getAll().forEach((st) => {
-        if (st.vars.trigger === container) st.kill()
+        if (st.vars.trigger === container || st.vars.id === 'hero-scroll-trigger') st.kill()
       })
+      ScrollTrigger.refresh()
     }
-  }, [isMobile, updateUIOnScroll])
+  }, [updateUIOnScroll])
 
   return (
     <div ref={containerRef} className="relative w-full">
