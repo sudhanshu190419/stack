@@ -213,14 +213,14 @@ export default function Hero() {
         <div
           ref={heroCopyRef}
           suppressHydrationWarning
-          className="absolute inset-0 z-20 pointer-events-none flex items-start lg:items-center justify-start transition-transform duration-75"
+          className="absolute inset-0 z-20 pointer-events-none flex items-start sm:items-center justify-start transition-transform duration-75"
         >
           {/* Soft Vignette Shadow for Crystal-Clear Text Legibility */}
           <div className="absolute inset-x-0 top-0 h-[48vh] sm:h-full sm:inset-y-0 sm:left-0 sm:right-auto sm:w-[65%] lg:w-[50%] xl:w-[45%] bg-gradient-to-b from-black/80 via-black/40 to-transparent sm:bg-gradient-to-r sm:from-black/65 sm:via-black/30 sm:to-transparent pointer-events-none" />
 
-          <div className="relative z-10 w-full max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pointer-events-auto h-full flex flex-col justify-start">
+          <div className="relative z-10 w-full max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pointer-events-auto h-full sm:h-auto flex flex-col sm:block justify-start">
             {/* Top Text Block (Eyebrow, Heading, Subtitle) */}
-            <div className="max-w-[350px] xs:max-w-[370px] sm:max-w-lg lg:max-w-[420px] xl:max-w-[460px] pt-[120px] sm:pt-24 lg:pt-0">
+            <div className="max-w-[350px] xs:max-w-[370px] sm:max-w-lg lg:max-w-[420px] xl:max-w-[460px] pt-[120px] sm:pt-0 lg:pt-0">
               {/* Eyebrow */}
               <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-white/90 sm:text-white/80 mb-2 sm:mb-4 drop-shadow-sm">
                 WEB DESIGN &amp; DEVELOPMENT
@@ -244,7 +244,7 @@ export default function Hero() {
               </p>
 
               {/* Desktop CTA Buttons (Visible inside column on sm and above, completely unchanged) */}
-              <div className="hidden sm:flex items-center gap-3.5 mt-8">
+              <div className="hidden sm:flex flex-wrap items-center gap-3 sm:gap-3.5">
                 <a
                   href="#work"
                   className="inline-flex items-center gap-2 px-6 sm:px-6.5 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-100 transition-all duration-200 shadow-md group"
