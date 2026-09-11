@@ -153,14 +153,15 @@ export default function ServicesSection() {
         id: 'services-scroll-trigger',
         trigger: container,
         pin: pinTarget,
-        start: 'top top',
+        start: () => {
+          const heroST = ScrollTrigger.getById('hero-scroll-trigger')
+          return heroST ? heroST.end : 'top top'
+        },
         end: () => '+=' + (1800 + window.innerHeight),
-        anticipatePin: 1,
         onEnter: (self) => {
           // Safety guard: ensure the Hero pin animation has fully completed before activating ServicesSection
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
           if ((heroST && heroST.progress < 0.98) || self.start < 2000) {
-            ScrollTrigger.refresh()
             return
           }
           lockSection(0, self.start)
@@ -174,6 +175,10 @@ export default function ServicesSection() {
           obs.disable()
         },
         onUpdate: (self) => {
+          const heroST = ScrollTrigger.getById('hero-scroll-trigger')
+          if (heroST && heroST.progress < 0.98) {
+            return
+          }
           const currentY = self.scroll()
           const service4Y = self.start + 1800
 
@@ -184,6 +189,7 @@ export default function ServicesSection() {
         },
       })
       stRef.current = st
+      ScrollTrigger.refresh()
     }, container)
 
     return () => {

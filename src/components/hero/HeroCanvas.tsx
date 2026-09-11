@@ -15,7 +15,9 @@ export const FRAME_WIDTH = 1920
 export const FRAME_HEIGHT = 1080
 export const FRAME_ASPECT_RATIO = FRAME_WIDTH / FRAME_HEIGHT // 16:9 (1.7777777778)
 
-export const MOBILE_TOTAL_FRAMES = 100
+export const MOBILE_TOTAL_FRAMES = 200
+export const MOBILE_FRAMES_PER_CLIP = 100
+export const MOBILE_TOTAL_CLIPS = 2
 export const MOBILE_FRAME_WIDTH = 1080
 export const MOBILE_FRAME_HEIGHT = 1920
 export const MOBILE_FRAME_ASPECT_RATIO = MOBILE_FRAME_WIDTH / MOBILE_FRAME_HEIGHT // 9:16 (0.5625)
@@ -38,14 +40,17 @@ export function getFramePath(globalIndex: number): string {
 }
 
 /**
- * Returns the public path for a given mobile frame index (0–99)
- * Maps 0..99 => /hero_mobile/clip-01/frame-001.png -> frame-100.png
+ * Returns the public path for a given mobile frame index (0–199)
+ * Maps 0..99   => /hero_mobile/clip-01/frame-001.webp -> frame-100.webp
+ * Maps 100..199 => /hero_mobile/clip-02/frame-001.webp -> frame-100.webp
  */
-export function getMobileFramePath(index: number): string {
-  const clamped = Math.max(0, Math.min(MOBILE_TOTAL_FRAMES - 1, Math.floor(index)))
-  const frameIndex = clamped + 1
-  const frameStr = `frame-${frameIndex.toString().padStart(3, '0')}.png`
-  return `/hero_mobile/clip-01/${frameStr}`
+export function getMobileFramePath(globalIndex: number): string {
+  const clamped = Math.max(0, Math.min(MOBILE_TOTAL_FRAMES - 1, Math.floor(globalIndex)))
+  const clipIndex = Math.floor(clamped / MOBILE_FRAMES_PER_CLIP) + 1
+  const frameIndex = (clamped % MOBILE_FRAMES_PER_CLIP) + 1
+  const clipStr = `clip-${clipIndex.toString().padStart(2, '0')}`
+  const frameStr = `frame-${frameIndex.toString().padStart(3, '0')}.webp`
+  return `/hero_mobile/${clipStr}/${frameStr}`
 }
 
 export interface HeroCanvasHandle {
@@ -115,8 +120,9 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         ctx.imageSmoothingQuality = 'high'
 
         if (forMobile) {
-          // MOBILE CONTAIN LOGIC (Zero stretch, Zero crop)
-          const imgAspect = nw / nh // 1080 / 1920 = 0.5625
+          // MOBILE CONTAIN LOGIC (Zero stretch, Zero crop, unified scale and anchor across clips)
+          // Reference aspect 926 / 1920 ensures Clip 2 phone size, centering, and bottom anchor match Clip 1 exactly
+          const refAspect = 926 / 1920
           const canvasAspect = cw / ch
 
           let dw: number
@@ -124,19 +130,19 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           let dx: number
           let dy: number
 
-          if (canvasAspect > imgAspect) {
-            // Canvas is wider than 9:16 (tablet/landscape phone):
-            // Fill vertical height completely, center horizontally
+          if (canvasAspect > refAspect) {
+            // Canvas is wider than phone portrait (tablet/landscape phone):
             dh = ch
-            dw = Math.round(ch * imgAspect)
+            const scale = ch / 1920
+            dw = Math.round(nw * scale)
             dx = Math.round((cw - dw) / 2)
             dy = 0
           } else {
-            // Canvas is narrower/taller than 9:16 (standard smartphone portrait):
-            // Fill full screen width, anchor flush to bottom so podium is grounded
-            dw = cw
-            dh = Math.round(cw / imgAspect)
-            dx = 0
+            // Canvas is narrower/taller than phone portrait (standard smartphone):
+            const scale = cw / 926
+            dw = Math.round(nw * scale)
+            dh = Math.round(nh * scale)
+            dx = Math.round((cw - dw) / 2)
             dy = ch - dh
           }
 
@@ -232,7 +238,9 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           lastRenderedMobileRef.current = forMobile
         }
 
-        const clipIndex = forMobile ? 1 : Math.floor(clamped / FRAMES_PER_CLIP) + 1
+        const clipIndex = forMobile
+          ? Math.floor(clamped / MOBILE_FRAMES_PER_CLIP) + 1
+          : Math.floor(clamped / FRAMES_PER_CLIP) + 1
         onProgressUpdate?.(clamped, clipIndex)
       },
       [drawImageToCanvas, onProgressUpdate]
@@ -280,6 +288,44 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
               cache[index] = img
               status[index] = 2
             } else {
+              // Graceful fallback for mobile if .webp fails
+              const primarySrc = img.src
+              if (forMobile && primarySrc.endsWith('.webp')) {
+                const fallbackImg = new Image()
+                fallbackImg.decoding = 'async'
+                fallbackImg.onload = () => {
+                  if (isDestroyedRef.current) {
+                    resolve()
+                    onLoaded?.()
+                    return
+                  }
+                  cache[index] = fallbackImg
+                  status[index] = 2
+                  if (isMobileRef.current === forMobile) {
+                    const current = currentFrameRef.current
+                    const last = lastRenderedFrameRef.current
+                    if (
+                      index === current ||
+                      last === -1 ||
+                      Math.abs(index - current) < Math.abs(last - current)
+                    ) {
+                      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
+                      rafIdRef.current = requestAnimationFrame(() => {
+                        renderFrame(currentFrameRef.current)
+                      })
+                    }
+                  }
+                  resolve()
+                  onLoaded?.()
+                }
+                fallbackImg.onerror = () => {
+                  status[index] = 3
+                  resolve()
+                  onLoaded?.()
+                }
+                fallbackImg.src = primarySrc.replace(/\.webp$/, '.png')
+                return
+              }
               status[index] = 3
             }
 

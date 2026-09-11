@@ -83,14 +83,18 @@ export default function Hero() {
     )
     if (frameCounterRef.current) {
       frameCounterRef.current.innerText = isMobileRef.current
-        ? `${currentFrame.toString().padStart(3, '0')} / 100`
+        ? `${currentFrame.toString().padStart(3, '0')} / ${MOBILE_TOTAL_FRAMES}`
         : `${currentFrame.toString().padStart(3, '0')} / 500`
     }
 
     // 4. Chapter Name
     if (chapterTextRef.current) {
       if (isMobileRef.current) {
-        chapterTextRef.current.innerText = '01 · Studio & Strategy'
+        if (progress < 0.5) {
+          chapterTextRef.current.innerText = '01 · Studio & Strategy'
+        } else {
+          chapterTextRef.current.innerText = '02 · Velora Commerce'
+        }
       } else {
         const activeChapter =
           CHAPTERS.find((c) => progress >= c.range[0] && progress <= c.range[1]) ||
@@ -123,7 +127,7 @@ export default function Hero() {
         trigger: container,
         pin: pinTarget,
         start: 'top top',
-        end: initialMobile ? '+=2500' : '+=3500', // Responsive scrub length (2500px mobile, 3500px desktop)
+        end: initialMobile ? '+=5000' : '+=3500', // Responsive scrub length (5000px mobile for 2 clips, 3500px desktop)
         scrub: 0.1, // Smooth, immediate scrubbing without sluggish easing
         onUpdate: (self) => {
           const progress = self.progress
@@ -139,7 +143,12 @@ export default function Hero() {
       ScrollTrigger.refresh()
     })
 
+    let lastWidth = typeof window !== 'undefined' ? window.innerWidth : 0
     const handleResize = () => {
+      // Ignore mobile URL bar height fluctuations while scrolling
+      if (window.innerWidth === lastWidth) return
+      lastWidth = window.innerWidth
+
       const currentMobile = checkMobile()
       if (currentMobile !== isMobileRef.current) {
         setIsMobile(currentMobile)
@@ -154,7 +163,7 @@ export default function Hero() {
             trigger: container,
             pin: pinTarget,
             start: 'top top',
-            end: currentMobile ? '+=2500' : '+=3500',
+            end: currentMobile ? '+=5000' : '+=3500',
             scrub: 0.1,
             onUpdate: (self) => {
               const progress = self.progress
