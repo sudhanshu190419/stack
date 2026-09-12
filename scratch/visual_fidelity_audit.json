@@ -1,0 +1,112 @@
+[
+  {
+    "filename": "frame-0001.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "4.820",
+    "psnr": "41.30",
+    "maxDiff": 29,
+    "origKb": "146.7",
+    "compKb": "86.8"
+  },
+  {
+    "filename": "frame-0005.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "4.972",
+    "psnr": "41.17",
+    "maxDiff": 40,
+    "origKb": "148.2",
+    "compKb": "86.8"
+  },
+  {
+    "filename": "frame-0010.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "4.888",
+    "psnr": "41.24",
+    "maxDiff": 27,
+    "origKb": "155.6",
+    "compKb": "85.8"
+  },
+  {
+    "filename": "frame-0015.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "4.076",
+    "psnr": "42.03",
+    "maxDiff": 28,
+    "origKb": "146.9",
+    "compKb": "86.6"
+  },
+  {
+    "filename": "frame-0020.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "3.211",
+    "psnr": "43.06",
+    "maxDiff": 21,
+    "origKb": "134.7",
+    "compKb": "86.5"
+  },
+  {
+    "filename": "frame-0025.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "2.028",
+    "psnr": "45.06",
+    "maxDiff": 21,
+    "origKb": "111.8",
+    "compKb": "84.0"
+  },
+  {
+    "filename": "frame-0030.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "1.818",
+    "psnr": "45.53",
+    "maxDiff": 20,
+    "origKb": "104.6",
+    "compKb": "76.0"
+  },
+  {
+    "filename": "frame-0040.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "1.058",
+    "psnr": "47.88",
+    "maxDiff": 14,
+    "origKb": "86.7",
+    "compKb": "74.0"
+  },
+  {
+    "filename": "frame-0050.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "2.305",
+    "psnr": "44.50",
+    "maxDiff": 21,
+    "origKb": "112.4",
+    "compKb": "77.1"
+  },
+  {
+    "filename": "frame-0060.webp",
+    "width": 1920,
+    "height": 884,
+    "channels": 3,
+    "mse": "2.816",
+    "psnr": "43.63",
+    "maxDiff": 21,
+    "origKb": "126.3",
+    "compKb": "77.7"
+  }
+]

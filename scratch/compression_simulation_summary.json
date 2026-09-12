@@ -1,0 +1,309 @@
+{
+  "original": [
+    {
+      "frameName": "frame-0001.webp",
+      "sizeKb": 146.666015625,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0001.webp"
+    },
+    {
+      "frameName": "frame-0005.webp",
+      "sizeKb": 148.244140625,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0005.webp"
+    },
+    {
+      "frameName": "frame-0010.webp",
+      "sizeKb": 155.591796875,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0010.webp"
+    },
+    {
+      "frameName": "frame-0015.webp",
+      "sizeKb": 146.87890625,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0015.webp"
+    },
+    {
+      "frameName": "frame-0020.webp",
+      "sizeKb": 134.681640625,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0020.webp"
+    },
+    {
+      "frameName": "frame-0025.webp",
+      "sizeKb": 111.76953125,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0025.webp"
+    },
+    {
+      "frameName": "frame-0030.webp",
+      "sizeKb": 104.6328125,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0030.webp"
+    },
+    {
+      "frameName": "frame-0035.webp",
+      "sizeKb": 88.49609375,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0035.webp"
+    },
+    {
+      "frameName": "frame-0040.webp",
+      "sizeKb": 86.705078125,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0040.webp"
+    },
+    {
+      "frameName": "frame-0045.webp",
+      "sizeKb": 101.435546875,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0045.webp"
+    },
+    {
+      "frameName": "frame-0050.webp",
+      "sizeKb": 112.35546875,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0050.webp"
+    },
+    {
+      "frameName": "frame-0055.webp",
+      "sizeKb": 119.123046875,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0055.webp"
+    },
+    {
+      "frameName": "frame-0060.webp",
+      "sizeKb": 126.287109375,
+      "path": "C:\\Projects\\stack\\public\\hero\\clip-04\\frame-0060.webp"
+    }
+  ],
+  "100kb": [
+    {
+      "frameName": "frame-0001.webp",
+      "sizeKb": 100.658203125,
+      "quality": 83,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0001.webp"
+    },
+    {
+      "frameName": "frame-0005.webp",
+      "sizeKb": 98.58984375,
+      "quality": 82,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0005.webp"
+    },
+    {
+      "frameName": "frame-0010.webp",
+      "sizeKb": 100.431640625,
+      "quality": 83,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0010.webp"
+    },
+    {
+      "frameName": "frame-0015.webp",
+      "sizeKb": 99.28125,
+      "quality": 84,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0015.webp"
+    },
+    {
+      "frameName": "frame-0020.webp",
+      "sizeKb": 97.791015625,
+      "quality": 86,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0020.webp"
+    },
+    {
+      "frameName": "frame-0025.webp",
+      "sizeKb": 101.939453125,
+      "quality": 90,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0025.webp"
+    },
+    {
+      "frameName": "frame-0030.webp",
+      "sizeKb": 100.37109375,
+      "quality": 92,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0030.webp"
+    },
+    {
+      "frameName": "frame-0035.webp",
+      "sizeKb": 103.85546875,
+      "quality": 95,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0035.webp"
+    },
+    {
+      "frameName": "frame-0040.webp",
+      "sizeKb": 99.38671875,
+      "quality": 95,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0040.webp"
+    },
+    {
+      "frameName": "frame-0045.webp",
+      "sizeKb": 98.810546875,
+      "quality": 92,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0045.webp"
+    },
+    {
+      "frameName": "frame-0050.webp",
+      "sizeKb": 98.3515625,
+      "quality": 89,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0050.webp"
+    },
+    {
+      "frameName": "frame-0055.webp",
+      "sizeKb": 102.3515625,
+      "quality": 89,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0055.webp"
+    },
+    {
+      "frameName": "frame-0060.webp",
+      "sizeKb": 99.607421875,
+      "quality": 88,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\100kb\\frame-0060.webp"
+    }
+  ],
+  "90kb": [
+    {
+      "frameName": "frame-0001.webp",
+      "sizeKb": 89.021484375,
+      "quality": 79,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0001.webp"
+    },
+    {
+      "frameName": "frame-0005.webp",
+      "sizeKb": 89.21875,
+      "quality": 79,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0005.webp"
+    },
+    {
+      "frameName": "frame-0010.webp",
+      "sizeKb": 88.2265625,
+      "quality": 79,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0010.webp"
+    },
+    {
+      "frameName": "frame-0015.webp",
+      "sizeKb": 90.98828125,
+      "quality": 82,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0015.webp"
+    },
+    {
+      "frameName": "frame-0020.webp",
+      "sizeKb": 88.578125,
+      "quality": 84,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0020.webp"
+    },
+    {
+      "frameName": "frame-0025.webp",
+      "sizeKb": 88.90234375,
+      "quality": 88,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0025.webp"
+    },
+    {
+      "frameName": "frame-0030.webp",
+      "sizeKb": 91.328125,
+      "quality": 90,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0030.webp"
+    },
+    {
+      "frameName": "frame-0035.webp",
+      "sizeKb": 93.10546875,
+      "quality": 93,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0035.webp"
+    },
+    {
+      "frameName": "frame-0040.webp",
+      "sizeKb": 92.177734375,
+      "quality": 93,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0040.webp"
+    },
+    {
+      "frameName": "frame-0045.webp",
+      "sizeKb": 91.66796875,
+      "quality": 90,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0045.webp"
+    },
+    {
+      "frameName": "frame-0050.webp",
+      "sizeKb": 87.552734375,
+      "quality": 87,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0050.webp"
+    },
+    {
+      "frameName": "frame-0055.webp",
+      "sizeKb": 90.673828125,
+      "quality": 87,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0055.webp"
+    },
+    {
+      "frameName": "frame-0060.webp",
+      "sizeKb": 90.326171875,
+      "quality": 86,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\90kb\\frame-0060.webp"
+    }
+  ],
+  "80kb": [
+    {
+      "frameName": "frame-0001.webp",
+      "sizeKb": 79.82421875,
+      "quality": 74,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0001.webp"
+    },
+    {
+      "frameName": "frame-0005.webp",
+      "sizeKb": 80.001953125,
+      "quality": 74,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0005.webp"
+    },
+    {
+      "frameName": "frame-0010.webp",
+      "sizeKb": 80.1484375,
+      "quality": 75,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0010.webp"
+    },
+    {
+      "frameName": "frame-0015.webp",
+      "sizeKb": 80.103515625,
+      "quality": 78,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0015.webp"
+    },
+    {
+      "frameName": "frame-0020.webp",
+      "sizeKb": 79.44140625,
+      "quality": 82,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0020.webp"
+    },
+    {
+      "frameName": "frame-0025.webp",
+      "sizeKb": 78.623046875,
+      "quality": 86,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0025.webp"
+    },
+    {
+      "frameName": "frame-0030.webp",
+      "sizeKb": 81.0390625,
+      "quality": 88,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0030.webp"
+    },
+    {
+      "frameName": "frame-0035.webp",
+      "sizeKb": 80.611328125,
+      "quality": 91,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0035.webp"
+    },
+    {
+      "frameName": "frame-0040.webp",
+      "sizeKb": 81.173828125,
+      "quality": 91,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0040.webp"
+    },
+    {
+      "frameName": "frame-0045.webp",
+      "sizeKb": 78.169921875,
+      "quality": 87,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0045.webp"
+    },
+    {
+      "frameName": "frame-0050.webp",
+      "sizeKb": 81.26171875,
+      "quality": 86,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0050.webp"
+    },
+    {
+      "frameName": "frame-0055.webp",
+      "sizeKb": 78.41796875,
+      "quality": 84,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0055.webp"
+    },
+    {
+      "frameName": "frame-0060.webp",
+      "sizeKb": 78.77734375,
+      "quality": 83,
+      "path": "C:\\Projects\\stack\\scratch\\compression_simulation\\80kb\\frame-0060.webp"
+    }
+  ]
+}

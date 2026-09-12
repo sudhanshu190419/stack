@@ -1,0 +1,1290 @@
+{
+  "summary": {
+    "Clip 1 (0-59)": {
+      "fetch": {
+        "avg": 2.7183333333581685,
+        "median": 2.4000000059604645,
+        "p95": 4.699999995529652,
+        "max": 6.699999995529652,
+        "min": 1.7000000029802322
+      },
+      "decode": {
+        "avg": 20.31666666691502,
+        "median": 19.900000005960464,
+        "p95": 25.80000000447035,
+        "max": 34.399999998509884,
+        "min": 15.399999998509884
+      },
+      "draw": {
+        "avg": 0.031666666145126025,
+        "median": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.20000000298023224,
+        "min": 0
+      },
+      "total": {
+        "avg": 23.066666666418314,
+        "median": 22.799999997019768,
+        "p95": 30.899999998509884,
+        "max": 36.30000000447035,
+        "min": 17.5
+      },
+      "sizeKb": {
+        "avg": 102.05677083333333,
+        "median": 105.6640625,
+        "p95": 107.705078125,
+        "max": 107.93359375,
+        "min": 90.302734375
+      }
+    },
+    "Clip 2 (60-119)": {
+      "fetch": {
+        "avg": 36.22500000024835,
+        "median": 5.600000001490116,
+        "p95": 88.29999999701977,
+        "max": 152.79999999701977,
+        "min": 1.7999999970197678
+      },
+      "decode": {
+        "avg": 19.718333333109815,
+        "median": 19.799999997019768,
+        "p95": 28.700000002980232,
+        "max": 32,
+        "min": 9.300000004470348
+      },
+      "draw": {
+        "avg": 0.021666666865348815,
+        "median": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.20000000298023224,
+        "min": 0
+      },
+      "total": {
+        "avg": 55.96500000022352,
+        "median": 32,
+        "p95": 107.10000000149012,
+        "max": 184.79999999701977,
+        "min": 11.400000005960464
+      },
+      "sizeKb": {
+        "avg": 80.91002604166667,
+        "median": 76.603515625,
+        "p95": 107.720703125,
+        "max": 107.873046875,
+        "min": 38.732421875
+      }
+    },
+    "Clip 3 (120-179)": {
+      "fetch": {
+        "avg": 1308.763333333408,
+        "median": 66.60000000149012,
+        "p95": 2023.6000000014901,
+        "max": 62094.09999999404,
+        "min": 36.099999994039536
+      },
+      "decode": {
+        "avg": 18.613333333532015,
+        "median": 16.900000005960464,
+        "p95": 27.700000002980232,
+        "max": 33.399999998509884,
+        "min": 12.600000001490116
+      },
+      "draw": {
+        "avg": 0.02666666656732559,
+        "median": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.10000000149011612,
+        "min": 0
+      },
+      "total": {
+        "avg": 1327.4033333335071,
+        "median": 85.30000000447035,
+        "p95": 2037.3999999985099,
+        "max": 62110.69999999553,
+        "min": 50.100000001490116
+      },
+      "sizeKb": {
+        "avg": 81.19677734375,
+        "median": 77.216796875,
+        "p95": 93.375,
+        "max": 93.990234375,
+        "min": 71.462890625
+      }
+    },
+    "Clip 4 (180-239)": {
+      "fetch": {
+        "avg": 51.81333333278696,
+        "median": 40.79999999701977,
+        "p95": 75.89999999850988,
+        "max": 307.70000000298023,
+        "min": 35.600000001490116
+      },
+      "decode": {
+        "avg": 19.716666667039195,
+        "median": 19.100000001490116,
+        "p95": 28.80000000447035,
+        "max": 36.100000001490116,
+        "min": 13.799999997019768
+      },
+      "draw": {
+        "avg": 0.030000000074505807,
+        "median": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.10000000149011612,
+        "min": 0
+      },
+      "total": {
+        "avg": 71.55999999990065,
+        "median": 59.899999998509884,
+        "p95": 104.19999999552965,
+        "max": 330,
+        "min": 49.69999999552965
+      },
+      "sizeKb": {
+        "avg": 120.14453125,
+        "median": 119.123046875,
+        "p95": 153.921875,
+        "max": 156.240234375,
+        "min": 85.703125
+      }
+    }
+  },
+  "clip4Subranges": {
+    "180-190": [
+      {
+        "globalIndex": 180,
+        "clipIdx": 4,
+        "frameIdx": 1,
+        "url": "/hero/clip-04/frame-0001.webp?v=2",
+        "sizeBytes": 150186,
+        "sizeKb": 146.666015625,
+        "fetchDurMs": 64.39999999850988,
+        "decodeDurMs": 17.400000005960464,
+        "drawDurMs": 0,
+        "totalDurMs": 81.80000000447035
+      },
+      {
+        "globalIndex": 181,
+        "clipIdx": 4,
+        "frameIdx": 2,
+        "url": "/hero/clip-04/frame-0002.webp?v=2",
+        "sizeBytes": 151102,
+        "sizeKb": 147.560546875,
+        "fetchDurMs": 67.59999999403954,
+        "decodeDurMs": 19.5,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 87.19999999552965
+      },
+      {
+        "globalIndex": 182,
+        "clipIdx": 4,
+        "frameIdx": 3,
+        "url": "/hero/clip-04/frame-0003.webp?v=2",
+        "sizeBytes": 151282,
+        "sizeKb": 147.736328125,
+        "fetchDurMs": 69.20000000298023,
+        "decodeDurMs": 17.69999999552965,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 87
+      },
+      {
+        "globalIndex": 183,
+        "clipIdx": 4,
+        "frameIdx": 4,
+        "url": "/hero/clip-04/frame-0004.webp?v=2",
+        "sizeBytes": 151494,
+        "sizeKb": 147.943359375,
+        "fetchDurMs": 65,
+        "decodeDurMs": 17.700000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 82.70000000298023
+      },
+      {
+        "globalIndex": 184,
+        "clipIdx": 4,
+        "frameIdx": 5,
+        "url": "/hero/clip-04/frame-0005.webp?v=2",
+        "sizeBytes": 151802,
+        "sizeKb": 148.244140625,
+        "fetchDurMs": 63.899999998509884,
+        "decodeDurMs": 19.100000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 83
+      },
+      {
+        "globalIndex": 185,
+        "clipIdx": 4,
+        "frameIdx": 6,
+        "url": "/hero/clip-04/frame-0006.webp?v=2",
+        "sizeBytes": 152900,
+        "sizeKb": 149.31640625,
+        "fetchDurMs": 63,
+        "decodeDurMs": 21.899999998509884,
+        "drawDurMs": 0,
+        "totalDurMs": 84.89999999850988
+      },
+      {
+        "globalIndex": 186,
+        "clipIdx": 4,
+        "frameIdx": 7,
+        "url": "/hero/clip-04/frame-0007.webp?v=2",
+        "sizeBytes": 153856,
+        "sizeKb": 150.25,
+        "fetchDurMs": 65.10000000149012,
+        "decodeDurMs": 18.600000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 83.70000000298023
+      },
+      {
+        "globalIndex": 187,
+        "clipIdx": 4,
+        "frameIdx": 8,
+        "url": "/hero/clip-04/frame-0008.webp?v=2",
+        "sizeBytes": 157616,
+        "sizeKb": 153.921875,
+        "fetchDurMs": 71,
+        "decodeDurMs": 20.799999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 91.79999999701977
+      },
+      {
+        "globalIndex": 188,
+        "clipIdx": 4,
+        "frameIdx": 9,
+        "url": "/hero/clip-04/frame-0009.webp?v=2",
+        "sizeBytes": 155120,
+        "sizeKb": 151.484375,
+        "fetchDurMs": 41.79999999701977,
+        "decodeDurMs": 17.700000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 59.5
+      },
+      {
+        "globalIndex": 189,
+        "clipIdx": 4,
+        "frameIdx": 10,
+        "url": "/hero/clip-04/frame-0010.webp?v=2",
+        "sizeBytes": 159326,
+        "sizeKb": 155.591796875,
+        "fetchDurMs": 45.79999999701977,
+        "decodeDurMs": 17.900000005960464,
+        "drawDurMs": 0,
+        "totalDurMs": 63.70000000298023
+      },
+      {
+        "globalIndex": 190,
+        "clipIdx": 4,
+        "frameIdx": 11,
+        "url": "/hero/clip-04/frame-0011.webp?v=2",
+        "sizeBytes": 159990,
+        "sizeKb": 156.240234375,
+        "fetchDurMs": 39.099999994039536,
+        "decodeDurMs": 19.900000005960464,
+        "drawDurMs": 0,
+        "totalDurMs": 59
+      }
+    ],
+    "190-200": [
+      {
+        "globalIndex": 191,
+        "clipIdx": 4,
+        "frameIdx": 12,
+        "url": "/hero/clip-04/frame-0012.webp?v=2",
+        "sizeBytes": 156072,
+        "sizeKb": 152.4140625,
+        "fetchDurMs": 36.19999999552965,
+        "decodeDurMs": 22.600000001490116,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 58.899999998509884
+      },
+      {
+        "globalIndex": 192,
+        "clipIdx": 4,
+        "frameIdx": 13,
+        "url": "/hero/clip-04/frame-0013.webp?v=2",
+        "sizeBytes": 153236,
+        "sizeKb": 149.64453125,
+        "fetchDurMs": 39.600000001490116,
+        "decodeDurMs": 20.299999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 59.899999998509884
+      },
+      {
+        "globalIndex": 193,
+        "clipIdx": 4,
+        "frameIdx": 14,
+        "url": "/hero/clip-04/frame-0014.webp?v=2",
+        "sizeBytes": 150910,
+        "sizeKb": 147.373046875,
+        "fetchDurMs": 47.399999998509884,
+        "decodeDurMs": 24.600000001490116,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 72.10000000149012
+      },
+      {
+        "globalIndex": 194,
+        "clipIdx": 4,
+        "frameIdx": 15,
+        "url": "/hero/clip-04/frame-0015.webp?v=2",
+        "sizeBytes": 150404,
+        "sizeKb": 146.87890625,
+        "fetchDurMs": 38.5,
+        "decodeDurMs": 21.19999999552965,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 59.79999999701977
+      },
+      {
+        "globalIndex": 195,
+        "clipIdx": 4,
+        "frameIdx": 16,
+        "url": "/hero/clip-04/frame-0016.webp?v=2",
+        "sizeBytes": 148722,
+        "sizeKb": 145.236328125,
+        "fetchDurMs": 37.70000000298023,
+        "decodeDurMs": 20,
+        "drawDurMs": 0,
+        "totalDurMs": 57.70000000298023
+      },
+      {
+        "globalIndex": 196,
+        "clipIdx": 4,
+        "frameIdx": 17,
+        "url": "/hero/clip-04/frame-0017.webp?v=2",
+        "sizeBytes": 143088,
+        "sizeKb": 139.734375,
+        "fetchDurMs": 58.79999999701977,
+        "decodeDurMs": 21.899999998509884,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 80.79999999701977
+      },
+      {
+        "globalIndex": 197,
+        "clipIdx": 4,
+        "frameIdx": 18,
+        "url": "/hero/clip-04/frame-0018.webp?v=2",
+        "sizeBytes": 141164,
+        "sizeKb": 137.85546875,
+        "fetchDurMs": 41.20000000298023,
+        "decodeDurMs": 16.799999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 58
+      },
+      {
+        "globalIndex": 198,
+        "clipIdx": 4,
+        "frameIdx": 19,
+        "url": "/hero/clip-04/frame-0019.webp?v=2",
+        "sizeBytes": 137972,
+        "sizeKb": 134.73828125,
+        "fetchDurMs": 40.399999998509884,
+        "decodeDurMs": 17.80000000447035,
+        "drawDurMs": 0.09999999403953552,
+        "totalDurMs": 58.29999999701977
+      },
+      {
+        "globalIndex": 199,
+        "clipIdx": 4,
+        "frameIdx": 20,
+        "url": "/hero/clip-04/frame-0020.webp?v=2",
+        "sizeBytes": 137914,
+        "sizeKb": 134.681640625,
+        "fetchDurMs": 63.5,
+        "decodeDurMs": 16.80000000447035,
+        "drawDurMs": 0,
+        "totalDurMs": 80.30000000447035
+      },
+      {
+        "globalIndex": 200,
+        "clipIdx": 4,
+        "frameIdx": 21,
+        "url": "/hero/clip-04/frame-0021.webp?v=2",
+        "sizeBytes": 136194,
+        "sizeKb": 133.001953125,
+        "fetchDurMs": 53,
+        "decodeDurMs": 19.19999999552965,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 72.29999999701977
+      }
+    ],
+    "200-210": [
+      {
+        "globalIndex": 201,
+        "clipIdx": 4,
+        "frameIdx": 22,
+        "url": "/hero/clip-04/frame-0022.webp?v=2",
+        "sizeBytes": 129716,
+        "sizeKb": 126.67578125,
+        "fetchDurMs": 41.5,
+        "decodeDurMs": 17.799999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 59.29999999701977
+      },
+      {
+        "globalIndex": 202,
+        "clipIdx": 4,
+        "frameIdx": 23,
+        "url": "/hero/clip-04/frame-0023.webp?v=2",
+        "sizeBytes": 126358,
+        "sizeKb": 123.396484375,
+        "fetchDurMs": 38.20000000298023,
+        "decodeDurMs": 22.69999999552965,
+        "drawDurMs": 0,
+        "totalDurMs": 60.899999998509884
+      },
+      {
+        "globalIndex": 203,
+        "clipIdx": 4,
+        "frameIdx": 24,
+        "url": "/hero/clip-04/frame-0024.webp?v=2",
+        "sizeBytes": 122222,
+        "sizeKb": 119.357421875,
+        "fetchDurMs": 36.20000000298023,
+        "decodeDurMs": 19.399999998509884,
+        "drawDurMs": 0,
+        "totalDurMs": 55.600000001490116
+      },
+      {
+        "globalIndex": 204,
+        "clipIdx": 4,
+        "frameIdx": 25,
+        "url": "/hero/clip-04/frame-0025.webp?v=2",
+        "sizeBytes": 114452,
+        "sizeKb": 111.76953125,
+        "fetchDurMs": 39.5,
+        "decodeDurMs": 15.5,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 55.100000001490116
+      },
+      {
+        "globalIndex": 205,
+        "clipIdx": 4,
+        "frameIdx": 26,
+        "url": "/hero/clip-04/frame-0026.webp?v=2",
+        "sizeBytes": 116526,
+        "sizeKb": 113.794921875,
+        "fetchDurMs": 41,
+        "decodeDurMs": 14.600000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 55.600000001490116
+      },
+      {
+        "globalIndex": 206,
+        "clipIdx": 4,
+        "frameIdx": 27,
+        "url": "/hero/clip-04/frame-0027.webp?v=2",
+        "sizeBytes": 110698,
+        "sizeKb": 108.103515625,
+        "fetchDurMs": 38.19999999552965,
+        "decodeDurMs": 14.900000005960464,
+        "drawDurMs": 0,
+        "totalDurMs": 53.100000001490116
+      },
+      {
+        "globalIndex": 207,
+        "clipIdx": 4,
+        "frameIdx": 28,
+        "url": "/hero/clip-04/frame-0028.webp?v=2",
+        "sizeBytes": 109442,
+        "sizeKb": 106.876953125,
+        "fetchDurMs": 36.399999998509884,
+        "decodeDurMs": 13.799999997019768,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 50.29999999701977
+      },
+      {
+        "globalIndex": 208,
+        "clipIdx": 4,
+        "frameIdx": 29,
+        "url": "/hero/clip-04/frame-0029.webp?v=2",
+        "sizeBytes": 107278,
+        "sizeKb": 104.763671875,
+        "fetchDurMs": 36,
+        "decodeDurMs": 18,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 54.100000001490116
+      },
+      {
+        "globalIndex": 209,
+        "clipIdx": 4,
+        "frameIdx": 30,
+        "url": "/hero/clip-04/frame-0030.webp?v=2",
+        "sizeBytes": 107144,
+        "sizeKb": 104.6328125,
+        "fetchDurMs": 38.79999999701977,
+        "decodeDurMs": 16.80000000447035,
+        "drawDurMs": 0,
+        "totalDurMs": 55.600000001490116
+      },
+      {
+        "globalIndex": 210,
+        "clipIdx": 4,
+        "frameIdx": 31,
+        "url": "/hero/clip-04/frame-0031.webp?v=2",
+        "sizeBytes": 101714,
+        "sizeKb": 99.330078125,
+        "fetchDurMs": 35.899999998509884,
+        "decodeDurMs": 15.299999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 51.19999999552965
+      }
+    ],
+    "210-220": [
+      {
+        "globalIndex": 211,
+        "clipIdx": 4,
+        "frameIdx": 32,
+        "url": "/hero/clip-04/frame-0032.webp?v=2",
+        "sizeBytes": 99438,
+        "sizeKb": 97.107421875,
+        "fetchDurMs": 36.30000000447035,
+        "decodeDurMs": 17.799999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 54.100000001490116
+      },
+      {
+        "globalIndex": 212,
+        "clipIdx": 4,
+        "frameIdx": 33,
+        "url": "/hero/clip-04/frame-0033.webp?v=2",
+        "sizeBytes": 97644,
+        "sizeKb": 95.35546875,
+        "fetchDurMs": 43,
+        "decodeDurMs": 21.600000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 64.60000000149012
+      },
+      {
+        "globalIndex": 213,
+        "clipIdx": 4,
+        "frameIdx": 34,
+        "url": "/hero/clip-04/frame-0034.webp?v=2",
+        "sizeBytes": 93918,
+        "sizeKb": 91.716796875,
+        "fetchDurMs": 39.5,
+        "decodeDurMs": 16.100000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 55.600000001490116
+      },
+      {
+        "globalIndex": 214,
+        "clipIdx": 4,
+        "frameIdx": 35,
+        "url": "/hero/clip-04/frame-0035.webp?v=2",
+        "sizeBytes": 90620,
+        "sizeKb": 88.49609375,
+        "fetchDurMs": 39.100000001490116,
+        "decodeDurMs": 18.100000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 57.20000000298023
+      },
+      {
+        "globalIndex": 215,
+        "clipIdx": 4,
+        "frameIdx": 36,
+        "url": "/hero/clip-04/frame-0036.webp?v=2",
+        "sizeBytes": 87826,
+        "sizeKb": 85.767578125,
+        "fetchDurMs": 39.20000000298023,
+        "decodeDurMs": 14,
+        "drawDurMs": 0,
+        "totalDurMs": 53.20000000298023
+      },
+      {
+        "globalIndex": 216,
+        "clipIdx": 4,
+        "frameIdx": 37,
+        "url": "/hero/clip-04/frame-0037.webp?v=2",
+        "sizeBytes": 87836,
+        "sizeKb": 85.77734375,
+        "fetchDurMs": 43.69999999552965,
+        "decodeDurMs": 14.899999998509884,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 58.69999999552965
+      },
+      {
+        "globalIndex": 217,
+        "clipIdx": 4,
+        "frameIdx": 38,
+        "url": "/hero/clip-04/frame-0038.webp?v=2",
+        "sizeBytes": 87760,
+        "sizeKb": 85.703125,
+        "fetchDurMs": 40.79999999701977,
+        "decodeDurMs": 17.900000005960464,
+        "drawDurMs": 0,
+        "totalDurMs": 58.70000000298023
+      },
+      {
+        "globalIndex": 218,
+        "clipIdx": 4,
+        "frameIdx": 39,
+        "url": "/hero/clip-04/frame-0039.webp?v=2",
+        "sizeBytes": 88352,
+        "sizeKb": 86.28125,
+        "fetchDurMs": 35.69999999552965,
+        "decodeDurMs": 14,
+        "drawDurMs": 0,
+        "totalDurMs": 49.69999999552965
+      },
+      {
+        "globalIndex": 219,
+        "clipIdx": 4,
+        "frameIdx": 40,
+        "url": "/hero/clip-04/frame-0040.webp?v=2",
+        "sizeBytes": 88786,
+        "sizeKb": 86.705078125,
+        "fetchDurMs": 49.20000000298023,
+        "decodeDurMs": 24.099999994039536,
+        "drawDurMs": 0,
+        "totalDurMs": 73.29999999701977
+      },
+      {
+        "globalIndex": 220,
+        "clipIdx": 4,
+        "frameIdx": 41,
+        "url": "/hero/clip-04/frame-0041.webp?v=2",
+        "sizeBytes": 91864,
+        "sizeKb": 89.7109375,
+        "fetchDurMs": 37,
+        "decodeDurMs": 19.700000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 56.70000000298023
+      }
+    ],
+    "220-230": [
+      {
+        "globalIndex": 221,
+        "clipIdx": 4,
+        "frameIdx": 42,
+        "url": "/hero/clip-04/frame-0042.webp?v=2",
+        "sizeBytes": 90850,
+        "sizeKb": 88.720703125,
+        "fetchDurMs": 36.600000001490116,
+        "decodeDurMs": 21.099999994039536,
+        "drawDurMs": 0,
+        "totalDurMs": 57.69999999552965
+      },
+      {
+        "globalIndex": 222,
+        "clipIdx": 4,
+        "frameIdx": 43,
+        "url": "/hero/clip-04/frame-0043.webp?v=2",
+        "sizeBytes": 96232,
+        "sizeKb": 93.9765625,
+        "fetchDurMs": 39.80000000447035,
+        "decodeDurMs": 31.600000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 71.40000000596046
+      },
+      {
+        "globalIndex": 223,
+        "clipIdx": 4,
+        "frameIdx": 44,
+        "url": "/hero/clip-04/frame-0044.webp?v=2",
+        "sizeBytes": 98322,
+        "sizeKb": 96.017578125,
+        "fetchDurMs": 41.099999994039536,
+        "decodeDurMs": 25.200000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 66.29999999701977
+      },
+      {
+        "globalIndex": 224,
+        "clipIdx": 4,
+        "frameIdx": 45,
+        "url": "/hero/clip-04/frame-0045.webp?v=2",
+        "sizeBytes": 103870,
+        "sizeKb": 101.435546875,
+        "fetchDurMs": 43.70000000298023,
+        "decodeDurMs": 14.5,
+        "drawDurMs": 0,
+        "totalDurMs": 58.20000000298023
+      },
+      {
+        "globalIndex": 225,
+        "clipIdx": 4,
+        "frameIdx": 46,
+        "url": "/hero/clip-04/frame-0046.webp?v=2",
+        "sizeBytes": 105200,
+        "sizeKb": 102.734375,
+        "fetchDurMs": 37.19999999552965,
+        "decodeDurMs": 14.300000004470348,
+        "drawDurMs": 0.09999999403953552,
+        "totalDurMs": 51.599999994039536
+      },
+      {
+        "globalIndex": 226,
+        "clipIdx": 4,
+        "frameIdx": 47,
+        "url": "/hero/clip-04/frame-0047.webp?v=2",
+        "sizeBytes": 107446,
+        "sizeKb": 104.927734375,
+        "fetchDurMs": 36,
+        "decodeDurMs": 15.300000004470348,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 51.400000005960464
+      },
+      {
+        "globalIndex": 227,
+        "clipIdx": 4,
+        "frameIdx": 48,
+        "url": "/hero/clip-04/frame-0048.webp?v=2",
+        "sizeBytes": 111444,
+        "sizeKb": 108.83203125,
+        "fetchDurMs": 39.69999999552965,
+        "decodeDurMs": 20.700000002980232,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 60.5
+      },
+      {
+        "globalIndex": 228,
+        "clipIdx": 4,
+        "frameIdx": 49,
+        "url": "/hero/clip-04/frame-0049.webp?v=2",
+        "sizeBytes": 112828,
+        "sizeKb": 110.18359375,
+        "fetchDurMs": 37,
+        "decodeDurMs": 20.299999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 57.29999999701977
+      },
+      {
+        "globalIndex": 229,
+        "clipIdx": 4,
+        "frameIdx": 50,
+        "url": "/hero/clip-04/frame-0050.webp?v=2",
+        "sizeBytes": 115052,
+        "sizeKb": 112.35546875,
+        "fetchDurMs": 35.600000001490116,
+        "decodeDurMs": 18.19999999552965,
+        "drawDurMs": 0,
+        "totalDurMs": 53.79999999701977
+      },
+      {
+        "globalIndex": 230,
+        "clipIdx": 4,
+        "frameIdx": 51,
+        "url": "/hero/clip-04/frame-0051.webp?v=2",
+        "sizeBytes": 117864,
+        "sizeKb": 115.1015625,
+        "fetchDurMs": 37.30000000447035,
+        "decodeDurMs": 26.899999998509884,
+        "drawDurMs": 0,
+        "totalDurMs": 64.20000000298023
+      }
+    ],
+    "230-239": [
+      {
+        "globalIndex": 231,
+        "clipIdx": 4,
+        "frameIdx": 52,
+        "url": "/hero/clip-04/frame-0052.webp?v=2",
+        "sizeBytes": 116846,
+        "sizeKb": 114.107421875,
+        "fetchDurMs": 39.69999999552965,
+        "decodeDurMs": 27.30000000447035,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 67.10000000149012
+      },
+      {
+        "globalIndex": 232,
+        "clipIdx": 4,
+        "frameIdx": 53,
+        "url": "/hero/clip-04/frame-0053.webp?v=2",
+        "sizeBytes": 119922,
+        "sizeKb": 117.111328125,
+        "fetchDurMs": 40.399999998509884,
+        "decodeDurMs": 22.299999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 62.69999999552965
+      },
+      {
+        "globalIndex": 233,
+        "clipIdx": 4,
+        "frameIdx": 54,
+        "url": "/hero/clip-04/frame-0054.webp?v=2",
+        "sizeBytes": 120972,
+        "sizeKb": 118.13671875,
+        "fetchDurMs": 307.70000000298023,
+        "decodeDurMs": 22.299999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 330
+      },
+      {
+        "globalIndex": 234,
+        "clipIdx": 4,
+        "frameIdx": 55,
+        "url": "/hero/clip-04/frame-0055.webp?v=2",
+        "sizeBytes": 121982,
+        "sizeKb": 119.123046875,
+        "fetchDurMs": 69.70000000298023,
+        "decodeDurMs": 19.799999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 89.5
+      },
+      {
+        "globalIndex": 235,
+        "clipIdx": 4,
+        "frameIdx": 56,
+        "url": "/hero/clip-04/frame-0056.webp?v=2",
+        "sizeBytes": 125150,
+        "sizeKb": 122.216796875,
+        "fetchDurMs": 75.89999999850988,
+        "decodeDurMs": 28.80000000447035,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 104.80000000447035
+      },
+      {
+        "globalIndex": 236,
+        "clipIdx": 4,
+        "frameIdx": 57,
+        "url": "/hero/clip-04/frame-0057.webp?v=2",
+        "sizeBytes": 123892,
+        "sizeKb": 120.98828125,
+        "fetchDurMs": 68.09999999403954,
+        "decodeDurMs": 36.100000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 104.19999999552965
+      },
+      {
+        "globalIndex": 237,
+        "clipIdx": 4,
+        "frameIdx": 58,
+        "url": "/hero/clip-04/frame-0058.webp?v=2",
+        "sizeBytes": 129112,
+        "sizeKb": 126.0859375,
+        "fetchDurMs": 71.39999999850988,
+        "decodeDurMs": 18.200000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 89.60000000149012
+      },
+      {
+        "globalIndex": 238,
+        "clipIdx": 4,
+        "frameIdx": 59,
+        "url": "/hero/clip-04/frame-0059.webp?v=2",
+        "sizeBytes": 125434,
+        "sizeKb": 122.494140625,
+        "fetchDurMs": 70.89999999850988,
+        "decodeDurMs": 25.30000000447035,
+        "drawDurMs": 0.09999999403953552,
+        "totalDurMs": 96.29999999701977
+      },
+      {
+        "globalIndex": 239,
+        "clipIdx": 4,
+        "frameIdx": 60,
+        "url": "/hero/clip-04/frame-0060.webp?v=2",
+        "sizeBytes": 129318,
+        "sizeKb": 126.287109375,
+        "fetchDurMs": 83.60000000149012,
+        "decodeDurMs": 18.399999998509884,
+        "drawDurMs": 0,
+        "totalDurMs": 102
+      }
+    ]
+  },
+  "controlClip3Subrange": {
+    "120-130": [
+      {
+        "globalIndex": 120,
+        "clipIdx": 3,
+        "frameIdx": 1,
+        "url": "/hero/clip-03/frame-0001.webp?v=2",
+        "sizeBytes": 79634,
+        "sizeKb": 77.767578125,
+        "fetchDurMs": 64,
+        "decodeDurMs": 20.799999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 84.79999999701977
+      },
+      {
+        "globalIndex": 121,
+        "clipIdx": 3,
+        "frameIdx": 2,
+        "url": "/hero/clip-03/frame-0002.webp?v=2",
+        "sizeBytes": 76302,
+        "sizeKb": 74.513671875,
+        "fetchDurMs": 61.20000000298023,
+        "decodeDurMs": 17.5,
+        "drawDurMs": 0,
+        "totalDurMs": 78.70000000298023
+      },
+      {
+        "globalIndex": 122,
+        "clipIdx": 3,
+        "frameIdx": 3,
+        "url": "/hero/clip-03/frame-0003.webp?v=2",
+        "sizeBytes": 78996,
+        "sizeKb": 77.14453125,
+        "fetchDurMs": 64.20000000298023,
+        "decodeDurMs": 21.100000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 85.30000000447035
+      },
+      {
+        "globalIndex": 123,
+        "clipIdx": 3,
+        "frameIdx": 4,
+        "url": "/hero/clip-03/frame-0004.webp?v=2",
+        "sizeBytes": 78972,
+        "sizeKb": 77.12109375,
+        "fetchDurMs": 65,
+        "decodeDurMs": 19.19999999552965,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 84.29999999701977
+      },
+      {
+        "globalIndex": 124,
+        "clipIdx": 3,
+        "frameIdx": 5,
+        "url": "/hero/clip-03/frame-0005.webp?v=2",
+        "sizeBytes": 77660,
+        "sizeKb": 75.83984375,
+        "fetchDurMs": 145.60000000149012,
+        "decodeDurMs": 24.799999997019768,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 170.5
+      },
+      {
+        "globalIndex": 125,
+        "clipIdx": 3,
+        "frameIdx": 6,
+        "url": "/hero/clip-03/frame-0006.webp?v=2",
+        "sizeBytes": 79816,
+        "sizeKb": 77.9453125,
+        "fetchDurMs": 41.899999998509884,
+        "decodeDurMs": 17,
+        "drawDurMs": 0,
+        "totalDurMs": 58.899999998509884
+      },
+      {
+        "globalIndex": 126,
+        "clipIdx": 3,
+        "frameIdx": 7,
+        "url": "/hero/clip-03/frame-0007.webp?v=2",
+        "sizeBytes": 79656,
+        "sizeKb": 77.7890625,
+        "fetchDurMs": 520.5,
+        "decodeDurMs": 15.399999998509884,
+        "drawDurMs": 0,
+        "totalDurMs": 535.8999999985099
+      },
+      {
+        "globalIndex": 127,
+        "clipIdx": 3,
+        "frameIdx": 8,
+        "url": "/hero/clip-03/frame-0008.webp?v=2",
+        "sizeBytes": 76320,
+        "sizeKb": 74.53125,
+        "fetchDurMs": 66.5,
+        "decodeDurMs": 15.700000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 82.20000000298023
+      },
+      {
+        "globalIndex": 128,
+        "clipIdx": 3,
+        "frameIdx": 9,
+        "url": "/hero/clip-03/frame-0009.webp?v=2",
+        "sizeBytes": 76738,
+        "sizeKb": 74.939453125,
+        "fetchDurMs": 40.600000001490116,
+        "decodeDurMs": 16.100000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 56.70000000298023
+      },
+      {
+        "globalIndex": 129,
+        "clipIdx": 3,
+        "frameIdx": 10,
+        "url": "/hero/clip-03/frame-0010.webp?v=2",
+        "sizeBytes": 76016,
+        "sizeKb": 74.234375,
+        "fetchDurMs": 49.20000000298023,
+        "decodeDurMs": 16.799999997019768,
+        "drawDurMs": 0,
+        "totalDurMs": 66
+      },
+      {
+        "globalIndex": 130,
+        "clipIdx": 3,
+        "frameIdx": 11,
+        "url": "/hero/clip-03/frame-0011.webp?v=2",
+        "sizeBytes": 75760,
+        "sizeKb": 73.984375,
+        "fetchDurMs": 92.30000000447035,
+        "decodeDurMs": 16.099999994039536,
+        "drawDurMs": 0,
+        "totalDurMs": 108.39999999850988
+      }
+    ],
+    "140-150": [
+      {
+        "globalIndex": 140,
+        "clipIdx": 3,
+        "frameIdx": 21,
+        "url": "/hero/clip-03/frame-0021.webp?v=2",
+        "sizeBytes": 75804,
+        "sizeKb": 74.02734375,
+        "fetchDurMs": 152.39999999850988,
+        "decodeDurMs": 15.200000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 167.60000000149012
+      },
+      {
+        "globalIndex": 141,
+        "clipIdx": 3,
+        "frameIdx": 22,
+        "url": "/hero/clip-03/frame-0022.webp?v=2",
+        "sizeBytes": 77072,
+        "sizeKb": 75.265625,
+        "fetchDurMs": 132.29999999701977,
+        "decodeDurMs": 14.900000005960464,
+        "drawDurMs": 0,
+        "totalDurMs": 147.20000000298023
+      },
+      {
+        "globalIndex": 142,
+        "clipIdx": 3,
+        "frameIdx": 23,
+        "url": "/hero/clip-03/frame-0023.webp?v=2",
+        "sizeBytes": 75914,
+        "sizeKb": 74.134765625,
+        "fetchDurMs": 156.29999999701977,
+        "decodeDurMs": 27.5,
+        "drawDurMs": 0,
+        "totalDurMs": 183.79999999701977
+      },
+      {
+        "globalIndex": 143,
+        "clipIdx": 3,
+        "frameIdx": 24,
+        "url": "/hero/clip-03/frame-0024.webp?v=2",
+        "sizeBytes": 73178,
+        "sizeKb": 71.462890625,
+        "fetchDurMs": 94.20000000298023,
+        "decodeDurMs": 26.19999999552965,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 120.5
+      },
+      {
+        "globalIndex": 144,
+        "clipIdx": 3,
+        "frameIdx": 25,
+        "url": "/hero/clip-03/frame-0025.webp?v=2",
+        "sizeBytes": 75598,
+        "sizeKb": 73.826171875,
+        "fetchDurMs": 93.89999999850988,
+        "decodeDurMs": 22.80000000447035,
+        "drawDurMs": 0,
+        "totalDurMs": 116.70000000298023
+      },
+      {
+        "globalIndex": 145,
+        "clipIdx": 3,
+        "frameIdx": 26,
+        "url": "/hero/clip-03/frame-0026.webp?v=2",
+        "sizeBytes": 75606,
+        "sizeKb": 73.833984375,
+        "fetchDurMs": 102.10000000149012,
+        "decodeDurMs": 22.80000000447035,
+        "drawDurMs": 0.09999999403953552,
+        "totalDurMs": 125
+      },
+      {
+        "globalIndex": 146,
+        "clipIdx": 3,
+        "frameIdx": 27,
+        "url": "/hero/clip-03/frame-0027.webp?v=2",
+        "sizeBytes": 79174,
+        "sizeKb": 77.318359375,
+        "fetchDurMs": 104,
+        "decodeDurMs": 25.100000001490116,
+        "drawDurMs": 0,
+        "totalDurMs": 129.10000000149012
+      },
+      {
+        "globalIndex": 147,
+        "clipIdx": 3,
+        "frameIdx": 28,
+        "url": "/hero/clip-03/frame-0028.webp?v=2",
+        "sizeBytes": 79110,
+        "sizeKb": 77.255859375,
+        "fetchDurMs": 66.60000000149012,
+        "decodeDurMs": 14,
+        "drawDurMs": 0,
+        "totalDurMs": 80.60000000149012
+      },
+      {
+        "globalIndex": 148,
+        "clipIdx": 3,
+        "frameIdx": 29,
+        "url": "/hero/clip-03/frame-0029.webp?v=2",
+        "sizeBytes": 78100,
+        "sizeKb": 76.26953125,
+        "fetchDurMs": 69.39999999850988,
+        "decodeDurMs": 27.80000000447035,
+        "drawDurMs": 0,
+        "totalDurMs": 97.20000000298023
+      },
+      {
+        "globalIndex": 149,
+        "clipIdx": 3,
+        "frameIdx": 30,
+        "url": "/hero/clip-03/frame-0030.webp?v=2",
+        "sizeBytes": 77892,
+        "sizeKb": 76.06640625,
+        "fetchDurMs": 67.29999999701977,
+        "decodeDurMs": 33.399999998509884,
+        "drawDurMs": 0,
+        "totalDurMs": 100.69999999552965
+      },
+      {
+        "globalIndex": 150,
+        "clipIdx": 3,
+        "frameIdx": 31,
+        "url": "/hero/clip-03/frame-0031.webp?v=2",
+        "sizeBytes": 79070,
+        "sizeKb": 77.216796875,
+        "fetchDurMs": 63.899999998509884,
+        "decodeDurMs": 23.30000000447035,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 87.30000000447035
+      }
+    ],
+    "160-170": [
+      {
+        "globalIndex": 160,
+        "clipIdx": 3,
+        "frameIdx": 41,
+        "url": "/hero/clip-03/frame-0041.webp?v=2",
+        "sizeBytes": 91756,
+        "sizeKb": 89.60546875,
+        "fetchDurMs": 62.899999998509884,
+        "decodeDurMs": 20.80000000447035,
+        "drawDurMs": 0,
+        "totalDurMs": 83.70000000298023
+      },
+      {
+        "globalIndex": 161,
+        "clipIdx": 3,
+        "frameIdx": 42,
+        "url": "/hero/clip-03/frame-0042.webp?v=2",
+        "sizeBytes": 95540,
+        "sizeKb": 93.30078125,
+        "fetchDurMs": 65.29999999701977,
+        "decodeDurMs": 16.200000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 81.5
+      },
+      {
+        "globalIndex": 162,
+        "clipIdx": 3,
+        "frameIdx": 43,
+        "url": "/hero/clip-03/frame-0043.webp?v=2",
+        "sizeBytes": 92604,
+        "sizeKb": 90.43359375,
+        "fetchDurMs": 81.5,
+        "decodeDurMs": 15,
+        "drawDurMs": 0,
+        "totalDurMs": 96.5
+      },
+      {
+        "globalIndex": 163,
+        "clipIdx": 3,
+        "frameIdx": 44,
+        "url": "/hero/clip-03/frame-0044.webp?v=2",
+        "sizeBytes": 91360,
+        "sizeKb": 89.21875,
+        "fetchDurMs": 37.100000001490116,
+        "decodeDurMs": 15.800000004470348,
+        "drawDurMs": 0.09999999403953552,
+        "totalDurMs": 53
+      },
+      {
+        "globalIndex": 164,
+        "clipIdx": 3,
+        "frameIdx": 45,
+        "url": "/hero/clip-03/frame-0045.webp?v=2",
+        "sizeBytes": 91776,
+        "sizeKb": 89.625,
+        "fetchDurMs": 36.100000001490116,
+        "decodeDurMs": 15.700000002980232,
+        "drawDurMs": 0,
+        "totalDurMs": 51.80000000447035
+      },
+      {
+        "globalIndex": 165,
+        "clipIdx": 3,
+        "frameIdx": 46,
+        "url": "/hero/clip-03/frame-0046.webp?v=2",
+        "sizeBytes": 93154,
+        "sizeKb": 90.970703125,
+        "fetchDurMs": 39.69999999552965,
+        "decodeDurMs": 23,
+        "drawDurMs": 0.10000000149011612,
+        "totalDurMs": 62.79999999701977
+      },
+      {
+        "globalIndex": 166,
+        "clipIdx": 3,
+        "frameIdx": 47,
+        "url": "/hero/clip-03/frame-0047.webp?v=2",
+        "sizeBytes": 92620,
+        "sizeKb": 90.44921875,
+        "fetchDurMs": 37.30000000447035,
+        "decodeDurMs": 15.399999998509884,
+        "drawDurMs": 0,
+        "totalDurMs": 52.70000000298023
+      },
+      {
+        "globalIndex": 167,
+        "clipIdx": 3,
+        "frameIdx": 48,
+        "url": "/hero/clip-03/frame-0048.webp?v=2",
+        "sizeBytes": 92236,
+        "sizeKb": 90.07421875,
+        "fetchDurMs": 39.5,
+        "decodeDurMs": 23,
+        "drawDurMs": 0,
+        "totalDurMs": 62.5
+      },
+      {
+        "globalIndex": 168,
+        "clipIdx": 3,
+        "frameIdx": 49,
+        "url": "/hero/clip-03/frame-0049.webp?v=2",
+        "sizeBytes": 92376,
+        "sizeKb": 90.2109375,
+        "fetchDurMs": 51,
+        "decodeDurMs": 16.19999999552965,
+        "drawDurMs": 0,
+        "totalDurMs": 67.19999999552965
+      },
+      {
+        "globalIndex": 169,
+        "clipIdx": 3,
+        "frameIdx": 50,
+        "url": "/hero/clip-03/frame-0050.webp?v=2",
+        "sizeBytes": 95616,
+        "sizeKb": 93.375,
+        "fetchDurMs": 462.3999999985099,
+        "decodeDurMs": 18.80000000447035,
+        "drawDurMs": 0,
+        "totalDurMs": 481.20000000298023
+      },
+      {
+        "globalIndex": 170,
+        "clipIdx": 3,
+        "frameIdx": 51,
+        "url": "/hero/clip-03/frame-0051.webp?v=2",
+        "sizeBytes": 92664,
+        "sizeKb": 90.4921875,
+        "fetchDurMs": 75.39999999850988,
+        "decodeDurMs": 17,
+        "drawDurMs": 0,
+        "totalDurMs": 92.39999999850988
+      }
+    ]
+  }
+}

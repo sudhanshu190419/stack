@@ -1,0 +1,493 @@
+{
+  "totalFiles": 60,
+  "totalOrigMb": 7.0397186279296875,
+  "totalNewMb": 4.717512130737305,
+  "avgKb": 80.51220703125,
+  "medianKb": 78.953125,
+  "p95Kb": 87.408203125,
+  "maxKb": 88.8984375,
+  "minKb": 70.375,
+  "reductionPercent": 32.98720616445037,
+  "results": [
+    {
+      "filename": "frame-0001.webp",
+      "origKb": 146.666015625,
+      "newKb": 86.76171875,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0002.webp",
+      "origKb": 147.560546875,
+      "newKb": 86.6484375,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0003.webp",
+      "origKb": 147.736328125,
+      "newKb": 86.931640625,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0004.webp",
+      "origKb": 147.943359375,
+      "newKb": 87.162109375,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0005.webp",
+      "origKb": 148.244140625,
+      "newKb": 86.84375,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0006.webp",
+      "origKb": 149.31640625,
+      "newKb": 87.205078125,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0007.webp",
+      "origKb": 150.25,
+      "newKb": 87.36328125,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0008.webp",
+      "origKb": 153.921875,
+      "newKb": 86.888671875,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0009.webp",
+      "origKb": 151.484375,
+      "newKb": 85.919921875,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0010.webp",
+      "origKb": 155.591796875,
+      "newKb": 85.751953125,
+      "quality": 78,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0011.webp",
+      "origKb": 156.240234375,
+      "newKb": 86.61328125,
+      "quality": 79,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0012.webp",
+      "origKb": 152.4140625,
+      "newKb": 87.291015625,
+      "quality": 80,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0013.webp",
+      "origKb": 149.64453125,
+      "newKb": 87.18359375,
+      "quality": 80,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0014.webp",
+      "origKb": 147.373046875,
+      "newKb": 84.423828125,
+      "quality": 80,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0015.webp",
+      "origKb": 146.87890625,
+      "newKb": 86.6171875,
+      "quality": 81,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0016.webp",
+      "origKb": 145.236328125,
+      "newKb": 84.65625,
+      "quality": 81,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0017.webp",
+      "origKb": 139.734375,
+      "newKb": 87.94140625,
+      "quality": 83,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0018.webp",
+      "origKb": 137.85546875,
+      "newKb": 86.541015625,
+      "quality": 83,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0019.webp",
+      "origKb": 134.73828125,
+      "newKb": 87.408203125,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0020.webp",
+      "origKb": 134.681640625,
+      "newKb": 86.4921875,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0021.webp",
+      "origKb": 133.001953125,
+      "newKb": 86.01171875,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0022.webp",
+      "origKb": 126.67578125,
+      "newKb": 85.181640625,
+      "quality": 85,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0023.webp",
+      "origKb": 123.396484375,
+      "newKb": 87.259765625,
+      "quality": 86,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0024.webp",
+      "origKb": 119.357421875,
+      "newKb": 88.8984375,
+      "quality": 87,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0025.webp",
+      "origKb": 111.76953125,
+      "newKb": 84.017578125,
+      "quality": 87,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0026.webp",
+      "origKb": 113.794921875,
+      "newKb": 75.984375,
+      "quality": 85,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0027.webp",
+      "origKb": 108.103515625,
+      "newKb": 77.94140625,
+      "quality": 86,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0028.webp",
+      "origKb": 106.876953125,
+      "newKb": 75.630859375,
+      "quality": 86,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0029.webp",
+      "origKb": 104.763671875,
+      "newKb": 80.083984375,
+      "quality": 87,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0030.webp",
+      "origKb": 104.6328125,
+      "newKb": 76.04296875,
+      "quality": 87,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0031.webp",
+      "origKb": 99.330078125,
+      "newKb": 78.654296875,
+      "quality": 88,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0032.webp",
+      "origKb": 97.107421875,
+      "newKb": 70.943359375,
+      "quality": 87,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0033.webp",
+      "origKb": 95.35546875,
+      "newKb": 72.392578125,
+      "quality": 87,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0034.webp",
+      "origKb": 91.716796875,
+      "newKb": 74.546875,
+      "quality": 89,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0035.webp",
+      "origKb": 88.49609375,
+      "newKb": 72.607421875,
+      "quality": 89,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0036.webp",
+      "origKb": 85.767578125,
+      "newKb": 73.43359375,
+      "quality": 90,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0037.webp",
+      "origKb": 85.77734375,
+      "newKb": 74.208984375,
+      "quality": 89,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0038.webp",
+      "origKb": 85.703125,
+      "newKb": 73.24609375,
+      "quality": 89,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0039.webp",
+      "origKb": 86.28125,
+      "newKb": 74.916015625,
+      "quality": 89,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0040.webp",
+      "origKb": 86.705078125,
+      "newKb": 73.97265625,
+      "quality": 89,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0041.webp",
+      "origKb": 89.7109375,
+      "newKb": 70.71875,
+      "quality": 88,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0042.webp",
+      "origKb": 88.720703125,
+      "newKb": 70.375,
+      "quality": 88,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0043.webp",
+      "origKb": 93.9765625,
+      "newKb": 76.529296875,
+      "quality": 88,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0044.webp",
+      "origKb": 96.017578125,
+      "newKb": 78.119140625,
+      "quality": 88,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0045.webp",
+      "origKb": 101.435546875,
+      "newKb": 77.88671875,
+      "quality": 87,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0046.webp",
+      "origKb": 102.734375,
+      "newKb": 75.35546875,
+      "quality": 86,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0047.webp",
+      "origKb": 104.927734375,
+      "newKb": 76.666015625,
+      "quality": 86,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0048.webp",
+      "origKb": 108.83203125,
+      "newKb": 77.8203125,
+      "quality": 86,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0049.webp",
+      "origKb": 110.18359375,
+      "newKb": 76.771484375,
+      "quality": 85,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0050.webp",
+      "origKb": 112.35546875,
+      "newKb": 77.140625,
+      "quality": 85,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0051.webp",
+      "origKb": 115.1015625,
+      "newKb": 77.115234375,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0052.webp",
+      "origKb": 114.107421875,
+      "newKb": 78.953125,
+      "quality": 85,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0053.webp",
+      "origKb": 117.111328125,
+      "newKb": 78.900390625,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0054.webp",
+      "origKb": 118.13671875,
+      "newKb": 79.326171875,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0055.webp",
+      "origKb": 119.123046875,
+      "newKb": 77.951171875,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0056.webp",
+      "origKb": 122.216796875,
+      "newKb": 78.74609375,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0057.webp",
+      "origKb": 120.98828125,
+      "newKb": 79.30078125,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0058.webp",
+      "origKb": 126.0859375,
+      "newKb": 77.373046875,
+      "quality": 83,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0059.webp",
+      "origKb": 122.494140625,
+      "newKb": 79.31640625,
+      "quality": 84,
+      "width": 1920,
+      "height": 884
+    },
+    {
+      "filename": "frame-0060.webp",
+      "origKb": 126.287109375,
+      "newKb": 77.748046875,
+      "quality": 83,
+      "width": 1920,
+      "height": 884
+    }
+  ]
+}

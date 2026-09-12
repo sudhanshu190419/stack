@@ -1,0 +1,426 @@
+{
+  "Original Clip 4": {
+    "avgSizeKb": 121.38167317708333,
+    "maxSizeKb": 155.591796875,
+    "avgDecodeMs": 20.85833333370586,
+    "p95DecodeMs": 28.80000000447035,
+    "avgDrawMs": 0.07499999925494194,
+    "avgTotalMs": 27.38333333407839,
+    "frames": [
+      {
+        "fname": "frame-0001.webp",
+        "sizeKb": 146.666015625,
+        "fetchMs": 7.299999997019768,
+        "decodeMs": 28.80000000447035,
+        "drawMs": 0.6999999955296516,
+        "totalMs": 36.79999999701977
+      },
+      {
+        "fname": "frame-0005.webp",
+        "sizeKb": 148.244140625,
+        "fetchMs": 9.300000004470348,
+        "decodeMs": 23.399999998509884,
+        "drawMs": 0,
+        "totalMs": 32.70000000298023
+      },
+      {
+        "fname": "frame-0010.webp",
+        "sizeKb": 155.591796875,
+        "fetchMs": 5.799999997019768,
+        "decodeMs": 18.700000002980232,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 24.600000001490116
+      },
+      {
+        "fname": "frame-0015.webp",
+        "sizeKb": 146.87890625,
+        "fetchMs": 4.5,
+        "decodeMs": 23.200000002980232,
+        "drawMs": 0,
+        "totalMs": 27.700000002980232
+      },
+      {
+        "fname": "frame-0020.webp",
+        "sizeKb": 134.681640625,
+        "fetchMs": 5.5,
+        "decodeMs": 20.799999997019768,
+        "drawMs": 0,
+        "totalMs": 26.299999997019768
+      },
+      {
+        "fname": "frame-0025.webp",
+        "sizeKb": 111.76953125,
+        "fetchMs": 7.600000001490116,
+        "decodeMs": 22.799999997019768,
+        "drawMs": 0,
+        "totalMs": 30.399999998509884
+      },
+      {
+        "fname": "frame-0030.webp",
+        "sizeKb": 104.6328125,
+        "fetchMs": 5.700000002980232,
+        "decodeMs": 15.899999998509884,
+        "drawMs": 0,
+        "totalMs": 21.600000001490116
+      },
+      {
+        "fname": "frame-0035.webp",
+        "sizeKb": 88.49609375,
+        "fetchMs": 4.700000002980232,
+        "decodeMs": 16.100000001490116,
+        "drawMs": 0,
+        "totalMs": 20.80000000447035
+      },
+      {
+        "fname": "frame-0040.webp",
+        "sizeKb": 86.705078125,
+        "fetchMs": 8.400000005960464,
+        "decodeMs": 19.099999994039536,
+        "drawMs": 0,
+        "totalMs": 27.5
+      },
+      {
+        "fname": "frame-0045.webp",
+        "sizeKb": 101.435546875,
+        "fetchMs": 6.800000004470348,
+        "decodeMs": 19.600000001490116,
+        "drawMs": 0.09999999403953552,
+        "totalMs": 26.5
+      },
+      {
+        "fname": "frame-0050.webp",
+        "sizeKb": 112.35546875,
+        "fetchMs": 5.100000001490116,
+        "decodeMs": 18.80000000447035,
+        "drawMs": 0,
+        "totalMs": 23.900000005960464
+      },
+      {
+        "fname": "frame-0055.webp",
+        "sizeKb": 119.123046875,
+        "fetchMs": 6.699999995529652,
+        "decodeMs": 23.100000001490116,
+        "drawMs": 0,
+        "totalMs": 29.799999997019768
+      }
+    ]
+  },
+  "100 KB Target": {
+    "avgSizeKb": 100.15152994791667,
+    "maxSizeKb": 103.85546875,
+    "avgDecodeMs": 17.458333333954215,
+    "p95DecodeMs": 22.599999994039536,
+    "avgDrawMs": 0.04166666604578495,
+    "avgTotalMs": 21.14166666629414,
+    "frames": [
+      {
+        "fname": "frame-0001.webp",
+        "sizeKb": 100.658203125,
+        "fetchMs": 4,
+        "decodeMs": 16.5,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 20.600000001490116
+      },
+      {
+        "fname": "frame-0005.webp",
+        "sizeKb": 98.58984375,
+        "fetchMs": 4.899999998509884,
+        "decodeMs": 13.600000001490116,
+        "drawMs": 0.09999999403953552,
+        "totalMs": 18.599999994039536
+      },
+      {
+        "fname": "frame-0010.webp",
+        "sizeKb": 100.431640625,
+        "fetchMs": 3.5,
+        "decodeMs": 16.100000001490116,
+        "drawMs": 0,
+        "totalMs": 19.600000001490116
+      },
+      {
+        "fname": "frame-0015.webp",
+        "sizeKb": 99.28125,
+        "fetchMs": 2.899999998509884,
+        "decodeMs": 14.900000005960464,
+        "drawMs": 0,
+        "totalMs": 17.80000000447035
+      },
+      {
+        "fname": "frame-0020.webp",
+        "sizeKb": 97.791015625,
+        "fetchMs": 3.0999999940395355,
+        "decodeMs": 21.80000000447035,
+        "drawMs": 0,
+        "totalMs": 24.899999998509884
+      },
+      {
+        "fname": "frame-0025.webp",
+        "sizeKb": 101.939453125,
+        "fetchMs": 4,
+        "decodeMs": 21.600000001490116,
+        "drawMs": 0,
+        "totalMs": 25.600000001490116
+      },
+      {
+        "fname": "frame-0030.webp",
+        "sizeKb": 100.37109375,
+        "fetchMs": 3,
+        "decodeMs": 22.599999994039536,
+        "drawMs": 0,
+        "totalMs": 25.599999994039536
+      },
+      {
+        "fname": "frame-0035.webp",
+        "sizeKb": 103.85546875,
+        "fetchMs": 3.3000000044703484,
+        "decodeMs": 17.19999999552965,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 20.600000001490116
+      },
+      {
+        "fname": "frame-0040.webp",
+        "sizeKb": 99.38671875,
+        "fetchMs": 3.600000001490116,
+        "decodeMs": 17.899999998509884,
+        "drawMs": 0,
+        "totalMs": 21.5
+      },
+      {
+        "fname": "frame-0045.webp",
+        "sizeKb": 98.810546875,
+        "fetchMs": 3.3000000044703484,
+        "decodeMs": 13.399999998509884,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 16.80000000447035
+      },
+      {
+        "fname": "frame-0050.webp",
+        "sizeKb": 98.3515625,
+        "fetchMs": 3.6999999955296516,
+        "decodeMs": 13.700000002980232,
+        "drawMs": 0,
+        "totalMs": 17.399999998509884
+      },
+      {
+        "fname": "frame-0055.webp",
+        "sizeKb": 102.3515625,
+        "fetchMs": 4.399999998509884,
+        "decodeMs": 20.200000002980232,
+        "drawMs": 0.09999999403953552,
+        "totalMs": 24.69999999552965
+      }
+    ]
+  },
+  "90 KB Target": {
+    "avgSizeKb": 90.1201171875,
+    "maxSizeKb": 93.10546875,
+    "avgDecodeMs": 15.874999999379119,
+    "p95DecodeMs": 18.799999997019768,
+    "avgDrawMs": 0.016666666294137638,
+    "avgTotalMs": 19.99166666654249,
+    "frames": [
+      {
+        "fname": "frame-0001.webp",
+        "sizeKb": 89.021484375,
+        "fetchMs": 4.100000001490116,
+        "decodeMs": 17.5,
+        "drawMs": 0.09999999403953552,
+        "totalMs": 21.69999999552965
+      },
+      {
+        "fname": "frame-0005.webp",
+        "sizeKb": 89.21875,
+        "fetchMs": 2.899999998509884,
+        "decodeMs": 18,
+        "drawMs": 0,
+        "totalMs": 20.899999998509884
+      },
+      {
+        "fname": "frame-0010.webp",
+        "sizeKb": 88.2265625,
+        "fetchMs": 4.200000002980232,
+        "decodeMs": 16,
+        "drawMs": 0,
+        "totalMs": 20.200000002980232
+      },
+      {
+        "fname": "frame-0015.webp",
+        "sizeKb": 90.98828125,
+        "fetchMs": 4.899999998509884,
+        "decodeMs": 16.799999997019768,
+        "drawMs": 0,
+        "totalMs": 21.69999999552965
+      },
+      {
+        "fname": "frame-0020.webp",
+        "sizeKb": 88.578125,
+        "fetchMs": 4.4000000059604645,
+        "decodeMs": 13.899999998509884,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 18.400000005960464
+      },
+      {
+        "fname": "frame-0025.webp",
+        "sizeKb": 88.90234375,
+        "fetchMs": 3.5,
+        "decodeMs": 15.099999994039536,
+        "drawMs": 0,
+        "totalMs": 18.599999994039536
+      },
+      {
+        "fname": "frame-0030.webp",
+        "sizeKb": 91.328125,
+        "fetchMs": 3.600000001490116,
+        "decodeMs": 16,
+        "drawMs": 0,
+        "totalMs": 19.600000001490116
+      },
+      {
+        "fname": "frame-0035.webp",
+        "sizeKb": 93.10546875,
+        "fetchMs": 5.800000004470348,
+        "decodeMs": 17,
+        "drawMs": 0,
+        "totalMs": 22.80000000447035
+      },
+      {
+        "fname": "frame-0040.webp",
+        "sizeKb": 92.177734375,
+        "fetchMs": 3.899999998509884,
+        "decodeMs": 18.799999997019768,
+        "drawMs": 0,
+        "totalMs": 22.69999999552965
+      },
+      {
+        "fname": "frame-0045.webp",
+        "sizeKb": 91.66796875,
+        "fetchMs": 5.800000004470348,
+        "decodeMs": 14,
+        "drawMs": 0,
+        "totalMs": 19.80000000447035
+      },
+      {
+        "fname": "frame-0050.webp",
+        "sizeKb": 87.552734375,
+        "fetchMs": 3.1999999955296516,
+        "decodeMs": 13.200000002980232,
+        "drawMs": 0,
+        "totalMs": 16.399999998509884
+      },
+      {
+        "fname": "frame-0055.webp",
+        "sizeKb": 90.673828125,
+        "fetchMs": 2.899999998509884,
+        "decodeMs": 14.200000002980232,
+        "drawMs": 0,
+        "totalMs": 17.100000001490116
+      }
+    ]
+  },
+  "80 KB Target": {
+    "avgSizeKb": 79.9013671875,
+    "maxSizeKb": 81.26171875,
+    "avgDecodeMs": 13.208333331470689,
+    "p95DecodeMs": 16,
+    "avgDrawMs": 0.033333333830038704,
+    "avgTotalMs": 16.208333333333332,
+    "frames": [
+      {
+        "fname": "frame-0001.webp",
+        "sizeKb": 79.82421875,
+        "fetchMs": 3.100000001490116,
+        "decodeMs": 13.299999997019768,
+        "drawMs": 0,
+        "totalMs": 16.399999998509884
+      },
+      {
+        "fname": "frame-0005.webp",
+        "sizeKb": 80.001953125,
+        "fetchMs": 3,
+        "decodeMs": 12.700000002980232,
+        "drawMs": 0,
+        "totalMs": 15.700000002980232
+      },
+      {
+        "fname": "frame-0010.webp",
+        "sizeKb": 80.1484375,
+        "fetchMs": 2.5999999940395355,
+        "decodeMs": 13.400000005960464,
+        "drawMs": 0,
+        "totalMs": 16
+      },
+      {
+        "fname": "frame-0015.webp",
+        "sizeKb": 80.103515625,
+        "fetchMs": 3,
+        "decodeMs": 13.099999994039536,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 16.19999999552965
+      },
+      {
+        "fname": "frame-0020.webp",
+        "sizeKb": 79.44140625,
+        "fetchMs": 3.100000001490116,
+        "decodeMs": 12.799999997019768,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 16
+      },
+      {
+        "fname": "frame-0025.webp",
+        "sizeKb": 78.623046875,
+        "fetchMs": 2.8000000044703484,
+        "decodeMs": 13.199999995529652,
+        "drawMs": 0,
+        "totalMs": 16
+      },
+      {
+        "fname": "frame-0030.webp",
+        "sizeKb": 81.0390625,
+        "fetchMs": 3.2000000029802322,
+        "decodeMs": 13.399999998509884,
+        "drawMs": 0,
+        "totalMs": 16.600000001490116
+      },
+      {
+        "fname": "frame-0035.webp",
+        "sizeKb": 80.611328125,
+        "fetchMs": 3,
+        "decodeMs": 12.299999997019768,
+        "drawMs": 0,
+        "totalMs": 15.299999997019768
+      },
+      {
+        "fname": "frame-0040.webp",
+        "sizeKb": 81.173828125,
+        "fetchMs": 3.7000000029802322,
+        "decodeMs": 12.899999998509884,
+        "drawMs": 0,
+        "totalMs": 16.600000001490116
+      },
+      {
+        "fname": "frame-0045.webp",
+        "sizeKb": 78.169921875,
+        "fetchMs": 2.7000000029802322,
+        "decodeMs": 12.699999995529652,
+        "drawMs": 0,
+        "totalMs": 15.399999998509884
+      },
+      {
+        "fname": "frame-0050.webp",
+        "sizeKb": 81.26171875,
+        "fetchMs": 2.4000000059604645,
+        "decodeMs": 12.699999995529652,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 15.200000002980232
+      },
+      {
+        "fname": "frame-0055.webp",
+        "sizeKb": 78.41796875,
+        "fetchMs": 3,
+        "decodeMs": 16,
+        "drawMs": 0.10000000149011612,
+        "totalMs": 19.100000001490116
+      }
+    ]
+  }
+}

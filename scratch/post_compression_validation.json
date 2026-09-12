@@ -1,0 +1,178 @@
+{
+  "trials": [
+    {
+      "trial": 1,
+      "mode": "slow",
+      "data": {
+        "uniqueFrames": 102,
+        "fps": 28.499580888516345,
+        "avgIntervalMs": 31.933663366380895,
+        "p95IntervalMs": 63.100000001490116,
+        "maxIntervalMs": 63.5,
+        "stalls40ms": 37,
+        "stalls100ms": 0,
+        "avgLag": 7.200787401574803,
+        "p95Lag": 56,
+        "maxLag": 77
+      }
+    },
+    {
+      "trial": 2,
+      "mode": "normal",
+      "data": {
+        "uniqueFrames": 35,
+        "fps": 26.135005973657492,
+        "avgIntervalMs": 45.251428571343425,
+        "p95IntervalMs": 35.79999999701977,
+        "maxIntervalMs": 528.8999999985099,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.30927835051546393,
+        "p95Lag": 2,
+        "maxLag": 2
+      }
+    },
+    {
+      "trial": 3,
+      "mode": "normal",
+      "data": {
+        "uniqueFrames": 35,
+        "fps": 26.280222255652742,
+        "avgIntervalMs": 43.27142857142857,
+        "p95IntervalMs": 35.19999999552965,
+        "maxIntervalMs": 466.29999999701977,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.31088082901554404,
+        "p95Lag": 2,
+        "maxLag": 2
+      }
+    },
+    {
+      "trial": 4,
+      "mode": "fast",
+      "data": {
+        "uniqueFrames": 15,
+        "fps": 21.198417184805557,
+        "avgIntervalMs": 58.793333333233996,
+        "p95IntervalMs": 457.20000000298023,
+        "maxIntervalMs": 457.20000000298023,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.5825242718446602,
+        "p95Lag": 4,
+        "maxLag": 5
+      }
+    },
+    {
+      "trial": 5,
+      "mode": "rapid",
+      "data": {
+        "uniqueFrames": 9,
+        "fps": 16.923655509684913,
+        "avgIntervalMs": 78.65555555538998,
+        "p95IntervalMs": 459.20000000298023,
+        "maxIntervalMs": 459.20000000298023,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.7692307692307693,
+        "p95Lag": 7,
+        "maxLag": 7
+      }
+    },
+    {
+      "trial": 6,
+      "mode": "rapid_3_to_4",
+      "data": {
+        "uniqueFrames": 19,
+        "fps": 22.795440911817636,
+        "avgIntervalMs": 52.97894736849948,
+        "p95IntervalMs": 464.80000000447035,
+        "maxIntervalMs": 464.80000000447035,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.8429752066115702,
+        "p95Lag": 6,
+        "maxLag": 6
+      }
+    },
+    {
+      "trial": 7,
+      "mode": "continuous_full",
+      "data": {
+        "uniqueFrames": 29,
+        "fps": 24.74402730375427,
+        "avgIntervalMs": 45.04827586201758,
+        "p95IntervalMs": 36.099999994039536,
+        "maxIntervalMs": 444.80000000447035,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.35294117647058826,
+        "p95Lag": 2,
+        "maxLag": 3
+      }
+    },
+    {
+      "trial": 8,
+      "mode": "reverse",
+      "data": {
+        "uniqueFrames": 35,
+        "fps": 26.297993838785175,
+        "avgIntervalMs": 43.822857142984866,
+        "p95IntervalMs": 35.79999999701977,
+        "maxIntervalMs": 486.30000000447035,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.31088082901554404,
+        "p95Lag": 2,
+        "maxLag": 2
+      }
+    },
+    {
+      "trial": 9,
+      "mode": "reverse_fast",
+      "data": {
+        "uniqueFrames": 15,
+        "fps": 20.967291026043114,
+        "avgIntervalMs": 58.806666666766006,
+        "p95IntervalMs": 459,
+        "maxIntervalMs": 459,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLag": 0.5769230769230769,
+        "p95Lag": 4,
+        "maxLag": 5
+      }
+    },
+    {
+      "trial": 10,
+      "mode": "oscillating",
+      "data": {
+        "uniqueFrames": 2,
+        "fps": 2.035002035008206,
+        "avgIntervalMs": 71.68124999990687,
+        "p95IntervalMs": 467.09999999403954,
+        "maxIntervalMs": 467.09999999403954,
+        "stalls40ms": 16,
+        "stalls100ms": 1,
+        "avgLag": 2.7132867132867133,
+        "p95Lag": 25,
+        "maxLag": 25
+      }
+    }
+  ],
+  "boundaryStatus": {
+    "scrollY": 3500,
+    "lastRendered": 239,
+    "heroProgress": 1,
+    "isAtOrPastEnd": true
+  },
+  "summary": {
+    "normalFps": [
+      26.135005973657492,
+      26.280222255652742
+    ],
+    "avgP95Interval": 251.3299999989569,
+    "totalStalls100ms": 9
+  }
+}

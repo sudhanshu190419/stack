@@ -1,0 +1,54 @@
+{
+  "175->185": {
+    "totalSamples": 7,
+    "hitRate": 0,
+    "missRate": 1,
+    "uniqueDraws": 0,
+    "expectedFrames": 11,
+    "avgIntervalMs": 0,
+    "p95IntervalMs": 0,
+    "maxIntervalMs": 0,
+    "stalls40ms": 0,
+    "avgQueueLength": 204.14285714285714,
+    "avgActiveWorkers": 8
+  },
+  "185->200": {
+    "totalSamples": 9,
+    "hitRate": 0,
+    "missRate": 1,
+    "uniqueDraws": 0,
+    "expectedFrames": 16,
+    "avgIntervalMs": 0,
+    "p95IntervalMs": 0,
+    "maxIntervalMs": 0,
+    "stalls40ms": 0,
+    "avgQueueLength": 200.22222222222223,
+    "avgActiveWorkers": 8
+  },
+  "200->220": {
+    "totalSamples": 12,
+    "hitRate": 0,
+    "missRate": 1,
+    "uniqueDraws": 0,
+    "expectedFrames": 21,
+    "avgIntervalMs": 0,
+    "p95IntervalMs": 0,
+    "maxIntervalMs": 0,
+    "stalls40ms": 0,
+    "avgQueueLength": 192.75,
+    "avgActiveWorkers": 8
+  },
+  "220->239": {
+    "totalSamples": 11,
+    "hitRate": 0,
+    "missRate": 1,
+    "uniqueDraws": 0,
+    "expectedFrames": 20,
+    "avgIntervalMs": 0,
+    "p95IntervalMs": 0,
+    "maxIntervalMs": 0,
+    "stalls40ms": 0,
+    "avgQueueLength": 184.0909090909091,
+    "avgActiveWorkers": 8
+  }
+}
