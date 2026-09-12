@@ -27,6 +27,7 @@ import WebDesignFaqAccordion from '@/components/webdesign/WebDesignFaqAccordion'
 import { WEBDESIGN_FAQ_DATA } from '@/components/webdesign/webDesignFaqData'
 import DesignVsTemplateTable from '@/components/webdesign/DesignVsTemplateTable'
 import ResponsiveDeviceShowcase from '@/components/webdesign/ResponsiveDeviceShowcase'
+import WorkSection from '@/components/work/WorkSection'
 
 export const metadata: Metadata = {
   title: 'Website Design & UI/UX Studio Services | Stack',
@@ -145,221 +146,76 @@ const FAQ_SCHEMA = {
 const PILLARS_DATA = [
   {
     icon: ShieldCheck,
-    title: 'Instant Brand Trust',
-    desc: 'Clean typography, balanced margins, and premium visual restraint reassure prospective clients that your business is legitimate, established, and detail-oriented.',
+    title: 'Builds Trust',
+    desc: 'Clean, professional design helps visitors feel confident in your business from the moment they arrive.',
   },
   {
     icon: Compass,
-    title: 'Effortless Information Clarity',
-    desc: 'Logical visual hierarchy ensures visitors immediately comprehend what you offer, who you serve, and why your solution is the superior choice.',
+    title: 'Makes Your Message Clear',
+    desc: 'A clear visual structure helps visitors quickly understand what you offer, who you serve, and why it matters.',
   },
   {
     icon: Layout,
-    title: 'Friction-Free Usability (UX)',
-    desc: 'Predictable navigation paths, intuitive page layouts, and readable content chunks eliminate the cognitive fatigue that causes visitors to bounce.',
+    title: 'Easy to Navigate',
+    desc: 'Simple navigation and thoughtful layouts help visitors find information without getting frustrated.',
   },
   {
     icon: Smartphone,
-    title: 'Cross-Device Responsiveness',
-    desc: 'Adapting the spatial relationship of every container, image, and text block so that the mobile experience is as authoritative as desktop.',
+    title: 'Works on Every Device',
+    desc: 'Your website should provide a smooth, consistent experience across phones, tablets, laptops, and desktops.',
   },
   {
     icon: Target,
-    title: 'Conversion Architecture',
-    desc: 'Placing strategic proof points, scannable summaries, and low-friction call-to-action triggers precisely where intent peaks.',
+    title: 'Guides Visitors to Act',
+    desc: 'Clear calls to action and well-structured pages help visitors know what to do next.',
   },
   {
     icon: Sparkles,
-    title: 'Enduring Brand Perception',
-    desc: 'Crafting bespoke art direction that elevates your market valuation rather than looking like an off-the-shelf commercial template.',
+    title: 'Looks Like Your Brand',
+    desc: 'A custom visual style makes your business feel distinctive instead of looking like another template-based website.',
   },
 ]
 
 const SERVICES_DATA = [
   {
     icon: Palette,
-    title: 'UI Design',
-    desc: 'Crafting bespoke visual aesthetics: refined typography pairings, harmonious color tokens, elevation layers, and custom interface components.',
+    title: 'Visual Website Design',
+    desc: 'Creating clean, professional page designs that match your brand and make your business look its best.',
   },
   {
     icon: Users,
-    title: 'UX Design',
-    desc: 'Architecting intuitive user journeys, customer journey maps, card sorting, and navigation wireframes that remove friction.',
+    title: 'User Experience Design',
+    desc: 'Planning simple, intuitive layouts that help visitors find what they need and move through your website easily.',
   },
   {
     icon: Smartphone,
     title: 'Responsive Web Design',
-    desc: 'Designing fluid layouts engineered to adapt seamlessly across desktop, tablet, and mobile screens with thumb-friendly touch targets.',
+    desc: 'Designing websites that look and work smoothly across phones, tablets, laptops, and desktop screens.',
   },
   {
     icon: Target,
     title: 'Landing Page Design',
-    desc: 'High-impact, focused campaign pages designed to maximize ad spend ROI through clear value propositions and distraction-free funnels.',
+    desc: 'Creating focused pages for specific products, services, campaigns, or marketing goals.',
   },
   {
     icon: RefreshCw,
     title: 'Website Redesign',
-    desc: 'Modernizing outdated visual frameworks, fixing cluttered navigation, and repositioning legacy websites to reflect your true scale.',
+    desc: 'Updating outdated websites with a cleaner design, better structure, and a more modern experience.',
   },
   {
     icon: Layers,
-    title: 'Design Systems',
-    desc: 'Building comprehensive Figma token libraries—standardized buttons, form inputs, typography hierarchies, and card modules.',
+    title: 'Consistent Website Design',
+    desc: 'Creating reusable visual styles for buttons, forms, layouts, typography, and other website elements.',
   },
   {
     icon: Zap,
-    title: 'Conversion-Focused Design',
-    desc: 'Structuring page elements based on real cognitive reading patterns (F-patterns, Z-patterns), social proof, and decision triggers.',
+    title: 'Clear Calls to Action',
+    desc: 'Structuring pages and content so visitors clearly understand what to do next.',
   },
   {
     icon: Sparkles,
-    title: 'Interactive / Motion Design',
-    desc: 'Designing subtle micro-interactions, smooth scroll state reveals, and polished hover feedback that give the website a living feel.',
-  },
-]
-
-const PROCESS_STAGES = [
-  {
-    step: '01',
-    title: 'Discovery & Research',
-    body: 'We audit your existing digital footprint, research competitor positioning, analyze target personas, and define clear conversion benchmarks.',
-  },
-  {
-    step: '02',
-    title: 'Information Architecture',
-    body: 'We map out the site map, URL taxonomy, content hierarchy, and page relationships to ensure critical pages are reachable in 3 clicks or fewer.',
-  },
-  {
-    step: '03',
-    title: 'Wireframes & User Journeys',
-    body: 'We build structural layouts focused strictly on information priority, content density, and user flow before introducing styling.',
-  },
-  {
-    step: '04',
-    title: 'Visual Design & Styling',
-    body: 'We develop bespoke art direction: typography scales, customized color palettes, micro-spacing grids, and high-fidelity mockups.',
-  },
-  {
-    step: '05',
-    title: 'Interactive Prototype',
-    body: 'We connect screens in Figma into a clickable prototype, allowing your team to experience realistic navigation transitions before coding.',
-  },
-  {
-    step: '06',
-    title: 'Development Handoff',
-    body: 'We organize component tokens, export production-optimized assets, document breakpoint rules, and provide interactive engineering specs.',
-  },
-  {
-    step: '07',
-    title: 'Refinement & QA Signoff',
-    body: 'We conduct collaborative review sessions, gather stakeholder feedback, refine edge cases, and inspect the final live build.',
-  },
-  {
-    step: '→',
-    title: 'Ready for Next.js Build',
-    body: 'Stack seamlessly transitions approved designs directly into production Next.js engineering with zero loss of visual fidelity.',
-    highlight: true,
-  },
-]
-
-const BUSINESS_GOALS = [
-  {
-    title: 'Message Comprehension',
-    desc: 'Distilling dense service offerings into clear, scannable headlines that allow decision-makers to evaluate your capability in under 10 seconds.',
-  },
-  {
-    title: 'Pricing Authority',
-    desc: 'Elevated aesthetics position your company as a tier-one provider, removing price resistance from high-value prospects.',
-  },
-  {
-    title: 'Intuitive Navigation',
-    desc: 'Eliminating dead ends and convoluted menus so prospects find case studies, pricing, and contact links without friction.',
-  },
-  {
-    title: 'User Confidence & Trust',
-    desc: 'Integrating verified client work, clear security assurances, and polished typography that reduce perceived risk.',
-  },
-  {
-    title: 'Action-Oriented CTAs',
-    desc: 'High-contrast buttons, contextual inquiry triggers, and unambiguous next steps that turn passive readers into active leads.',
-  },
-  {
-    title: 'Streamlined Inquiries',
-    desc: 'Replacing overwhelming multi-field forms with focused, conversational intake flows that improve form completion rates.',
-  },
-  {
-    title: 'Product Discovery',
-    desc: 'Visual feature callouts, interactive tabs, and side-by-side spec sheets that make technical features immediately understandable.',
-  },
-  {
-    title: 'Mobile Accessibility',
-    desc: 'Ensuring on-the-go buyers, executives, and clients reading on smartphones receive an uncompromised, professional presentation.',
-  },
-]
-
-const DESIGN_SYSTEM_ELEMENTS = [
-  {
-    title: 'Typography Scale',
-    detail:
-      'Strict hierarchical type rules balancing display serif headlines with ultra-legible body sans.',
-  },
-  {
-    title: 'Color & Contrast Tokens',
-    detail:
-      'Semantic color tokens (Primary, Surface, Text, Accent) calibrated for WCAG AA/AAA accessibility compliance.',
-  },
-  {
-    title: 'Button & Action States',
-    detail:
-      'Universal button styles with defined default, hover, active, focus-visible, and disabled micro-states.',
-  },
-  {
-    title: 'Form & Input Controls',
-    detail:
-      'Clean text fields, dropdown selectors, checkboxes, and inline validation states designed to minimize user error.',
-  },
-  {
-    title: 'Card & Container Modules',
-    detail:
-      'Reusable surface containers with standardized padding, border-radius, and subtle drop-shadow tokens.',
-  },
-  {
-    title: '8pt Baseline Spacing Grid',
-    detail:
-      'Mathematical rhythm governing paddings, margins, and gaps to ensure visual harmony across every viewport.',
-  },
-]
-
-const REDESIGN_ROADMAP = [
-  {
-    step: '01',
-    label: 'Website Audit',
-    desc: 'Evaluating current bounce rates, SEO rankings, and layout friction.',
-  },
-  {
-    step: '02',
-    label: 'UX Overhaul',
-    desc: 'Restructuring navigation menus and decluttering customer journeys.',
-  },
-  {
-    step: '03',
-    label: 'Visual Redesign',
-    desc: 'Applying premium typography, modern colors, and bespoke imagery.',
-  },
-  {
-    step: '04',
-    label: 'Responsive Fixes',
-    desc: 'Eliminating mobile layout bugs and improving thumb interactions.',
-  },
-  {
-    step: '05',
-    label: 'Content Hierarchy',
-    desc: 'Rewriting key headlines and organizing scannable proof blocks.',
-  },
-  {
-    step: '06',
-    label: 'Launch & Handoff',
-    desc: 'Executing seamless redirect mappings and verified deployment.',
+    title: 'Interactive Website Design',
+    desc: 'Adding thoughtful animations and interactions that make the website feel polished without getting in the way.',
   },
 ]
 
@@ -441,40 +297,6 @@ const CLIENT_PARTNERS = [
   },
 ]
 
-const FEATURED_PROJECTS = [
-  {
-    name: 'SAVOR',
-    type: 'Hospitality & Culinary Experience',
-    desc: 'A rich culinary digital platform featuring warm typography, dark mode ambience, menu discovery, and online table reservations.',
-    image: '/projects/project1.png',
-    alt: 'Savor Culinary Experience Website Design by Stack',
-    disciplines: 'UI/UX Design · Typography System',
-  },
-  {
-    name: 'VELORA',
-    type: 'Direct-to-Consumer Lifestyle Platform',
-    desc: 'A minimalist e-commerce storefront engineered with clean product grids, refined editorial photography layout, and seamless cart drawer.',
-    image: '/projects/project2.png',
-    alt: 'Velora Modern E-Commerce Platform Design by Stack',
-    disciplines: 'E-Commerce UI · Mobile Design',
-  },
-  {
-    name: 'MOBL',
-    type: 'Hardware & Tech Product Showcase',
-    desc: 'A bold, technical product website built to showcase engineering innovation, accessory specifications, and international distribution.',
-    image: '/projects/project3.png',
-    alt: 'Mobl Product & Hardware Website Design by Stack',
-    disciplines: 'Product UI/UX · Motion Design',
-  },
-  {
-    name: 'AnimalSathi',
-    type: 'Community Animal Rescue Platform',
-    desc: 'A welcoming, high-trust rescue platform designed to connect citizens with verified veterinary care, emergency reporting, and foster volunteers.',
-    image: '/projects/animalsathi-banner.png',
-    alt: 'AnimalSathi Rescue & Care Community Platform Design by Stack',
-    disciplines: 'Brand UI/UX · Mobile-First System',
-  },
-]
 
 const HANDOFF_STEPS = [
   {
@@ -531,15 +353,12 @@ export default function WebsiteDesignPage() {
             </div>
 
             <h1 className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
-              Websites designed to make the{' '}
-              <span className="font-serif italic font-normal text-[#9E6941]">right first impression.</span>
+              Websites designed for<br />
+              <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
             </h1>
 
             <p className="mt-3.5 sm:mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
-              Stack creates custom website designs focused on visual identity,
-              effortless usability, responsive layouts, clear messaging, and
-              business goals. We shape how people perceive your company and guide
-              them smoothly toward taking action.
+              We create modern website designs that clearly communicate your brand, make it easy for customers to find what they need, and guide them toward taking action.
             </p>
 
             {/* Visual Artboard Showcase */}
@@ -563,24 +382,23 @@ export default function WebsiteDesignPage() {
                 href="#design-portfolio"
                 className="w-full inline-flex items-center justify-center gap-1.5 px-6 py-3 rounded-full border border-black/[0.12] bg-white/70 active:bg-white text-neutral-900 font-medium text-sm transition-all duration-150"
               >
-                <span>View Our Work</span>
-                <span className="text-xs">↓</span>
+                <span>See Our Work</span>
               </Link>
             </div>
 
-            {/* Trust Pill Strip */}
-            <div className="mt-5 pt-4 border-t border-black/[0.06] grid grid-cols-3 gap-2 text-center select-none">
-              <div className="p-2 rounded-lg bg-black/[0.02] border border-black/[0.04]">
-                <span className="block text-[11px] font-bold text-neutral-900 leading-tight">Tailored</span>
-                <span className="block text-[10px] text-neutral-500 font-normal">UI/UX Systems</span>
+            {/* Trust Meta Strip */}
+            <div className="mt-5 pt-4 border-t border-black/[0.06] flex flex-wrap items-center justify-between gap-y-2 text-[11px] sm:text-xs text-neutral-700 font-medium select-none">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
+                <span>Clear &amp; Modern Design</span>
               </div>
-              <div className="p-2 rounded-lg bg-black/[0.02] border border-black/[0.04]">
-                <span className="block text-[11px] font-bold text-neutral-900 leading-tight">Mobile-First</span>
-                <span className="block text-[10px] text-neutral-500 font-normal">Responsive</span>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
+                <span>Responsive on Every Device</span>
               </div>
-              <div className="p-2 rounded-lg bg-black/[0.02] border border-black/[0.04]">
-                <span className="block text-[11px] font-bold text-neutral-900 leading-tight">Figma-to-Code</span>
-                <span className="block text-[10px] text-neutral-500 font-normal">Precision</span>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
+                <span>Built Around Your Brand</span>
               </div>
             </div>
           </div>
@@ -601,17 +419,14 @@ export default function WebsiteDesignPage() {
                 </div>
 
                 {/* Main Headline */}
-                <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
-                  Websites designed to make the{' '}
-                  <span className="font-serif italic font-normal text-[#9E6941]">right first impression.</span>
+                <h1 className="text-4xl sm:text-5xl lg:text-[48px] xl:text-[54px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
+                  Websites designed for<br />
+                  <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
                 </h1>
 
                 {/* Supporting Copy */}
                 <p className="mt-5 sm:mt-6 text-neutral-600 text-base sm:text-lg lg:text-[19px] leading-relaxed max-w-xl font-normal">
-                  Stack creates custom website designs focused on visual identity,
-                  effortless usability, responsive layouts, clear messaging, and
-                  business goals. We shape how people perceive your company and
-                  guide them smoothly toward taking action.
+                  We create modern website designs that clearly communicate your brand, make it easy for customers to find what they need, and guide them toward taking action.
                 </p>
 
                 {/* CTAs */}
@@ -628,8 +443,7 @@ export default function WebsiteDesignPage() {
                     href="#design-portfolio"
                     className="inline-flex items-center gap-1.5 text-neutral-800 hover:text-black font-medium text-sm sm:text-[15px] underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
                   >
-                    <span>View Our Work</span>
-                    <span className="text-xs">↓</span>
+                    <span>See Our Work</span>
                   </Link>
                 </div>
 
@@ -637,15 +451,15 @@ export default function WebsiteDesignPage() {
                 <div className="mt-12 pt-6 border-t border-black/[0.06] flex flex-wrap items-center gap-6 sm:gap-8 text-xs text-neutral-600 font-medium">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Tailored UI/UX Systems</span>
+                    <span>Clear &amp; Modern Design</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Mobile-First Responsive Grids</span>
+                    <span>Responsive on Every Device</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Figma-to-Code Precision</span>
+                    <span>Built Around Your Brand</span>
                   </div>
                 </div>
               </div>
@@ -672,22 +486,17 @@ export default function WebsiteDesignPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Website design is more than making a page look attractive.
+                Good website design does more than look beautiful.
               </h2>
               <p className="mt-3.5 text-neutral-600 text-sm leading-relaxed font-normal">
-                True website design is the deliberate orchestration of visual
-                direction, user psychology, information hierarchy, and layout
-                mechanics. It is how your business establishes trust within the
-                first three seconds of a visit.
+                A well-designed website helps people understand your business, find what they need, trust your brand, and take the next step.
               </p>
               <div className="my-4 p-4 rounded-xl border border-black/[0.08] bg-white/70">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-[#9E6941] mb-1">
-                  Strategic Impact
+                  STRATEGIC IMPACT
                 </p>
                 <p className="text-xs text-neutral-700 leading-relaxed">
-                  Great design directly determines how clearly your value proposition
-                  is understood, how effortlessly visitors navigate your services,
-                  and how credible your pricing feels.
+                  Great design makes your message clearer, your business easier to understand, and it easier for visitors to become customers.
                 </p>
               </div>
             </div>
@@ -708,7 +517,7 @@ export default function WebsiteDesignPage() {
                       <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
                         {pillar.title}
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-none">
+                      <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
                         {pillar.desc}
                       </p>
                     </div>
@@ -732,23 +541,17 @@ export default function WebsiteDesignPage() {
                   <div className="w-8 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-neutral-950 tracking-tight leading-tight">
-                  Website design is more than making a page look attractive.
+                  Good website design does more than look beautiful.
                 </h2>
                 <p className="mt-4 sm:mt-5 text-neutral-600 text-base sm:text-lg leading-relaxed font-normal">
-                  True website design is the deliberate orchestration of visual
-                  direction, user psychology, information hierarchy, and layout
-                  mechanics. It is how your business establishes trust within the
-                  first three seconds of a visit and gives customers the confidence
-                  to reach out.
+                  A well-designed website helps people understand your business, find what they need, trust your brand, and take the next step.
                 </p>
                 <div className="mt-6 sm:mt-8 p-5 sm:p-6 rounded-2xl border border-black/[0.08] bg-white/70">
                   <p className="text-xs font-semibold uppercase tracking-wider text-[#9E6941] mb-2">
-                    Strategic Impact
+                    STRATEGIC IMPACT
                   </p>
                   <p className="text-sm text-neutral-700 leading-relaxed">
-                    Great design directly determines how clearly your value proposition
-                    is understood, how effortlessly visitors navigate your services,
-                    and how credible your pricing feels.
+                    Great design makes your message clearer, your business easier to understand, and it easier for visitors to become customers.
                   </p>
                 </div>
               </div>
@@ -790,17 +593,15 @@ export default function WebsiteDesignPage() {
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  SPECIALIZED SCOPE
+                  WEBSITE DESIGN SERVICES
                 </span>
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Our website design services.
+                Website design services for your business.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Whether creating a flagship corporate platform from the ground up
-                or elevating high-converting landing pages, we provide focused
-                design disciplines tailored to real commercial needs.
+                We design websites that are clear, professional, easy to use, and built around your brand, customers, and business goals.
               </p>
             </div>
 
@@ -818,12 +619,12 @@ export default function WebsiteDesignPage() {
                         <IconComponent className="w-4 h-4" />
                       </div>
                       <span className="text-[10px] font-mono font-semibold text-[#9E6941] uppercase tracking-wider block mb-1">
-                        Service 0{idx + 1}
+                        SERVICE 0{idx + 1}
                       </span>
                       <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
                         {service.title}
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-none">
+                      <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
                         {service.desc}
                       </p>
                     </div>
@@ -841,17 +642,15 @@ export default function WebsiteDesignPage() {
             <div className="max-w-2xl mb-12 sm:mb-16">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  SPECIALIZED SCOPE
+                  WEBSITE DESIGN SERVICES
                 </span>
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Our website design services.
+                Website design services for your business.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Whether creating a flagship corporate platform from the ground up
-                or elevating high-converting landing pages, we provide focused
-                design disciplines tailored to real commercial needs.
+                We design websites that are clear, professional, easy to use, and built around your brand, customers, and business goals.
               </p>
             </div>
 
@@ -869,7 +668,7 @@ export default function WebsiteDesignPage() {
                         <IconComponent className="w-5 h-5 text-[#9E6941]" />
                       </div>
                       <span className="text-[10.5px] font-mono font-semibold text-[#9E6941] uppercase tracking-wider block mb-1">
-                        Service 0{idx + 1}
+                        SERVICE 0{idx + 1}
                       </span>
                       <h3 className="text-base font-bold text-neutral-950 mb-2">
                         {service.title}
@@ -885,215 +684,7 @@ export default function WebsiteDesignPage() {
           </div>
         </section>
 
-        {/* ─── 4. OUR DESIGN PROCESS ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]">
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  METHODOLOGY
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Our collaborative design process.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                A structured, 7-stage roadmap that eliminates guesswork. We align
-                on information architecture, user journeys, and brand tone before
-                designing final pixel-perfect mockups.
-              </p>
-            </div>
 
-            {/* 8 Process Stages 2-Column Grid */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-              {PROCESS_STAGES.map((stage) => (
-                <div
-                  key={stage.title}
-                  className={`p-3.5 sm:p-4 rounded-xl border flex flex-col justify-between shadow-xs ${
-                    stage.highlight
-                      ? 'bg-neutral-950 text-white border-neutral-900'
-                      : 'bg-white border-black/[0.08]'
-                  }`}
-                >
-                  <div>
-                    <span
-                      className={`text-sm font-mono font-bold block mb-1.5 ${
-                        stage.highlight ? 'text-[#D79A6D]' : 'text-[#9E6941]'
-                      }`}
-                    >
-                      {stage.step}
-                    </span>
-                    <h3
-                      className={`text-xs sm:text-sm font-bold leading-snug mb-1 ${
-                        stage.highlight ? 'text-white' : 'text-neutral-950'
-                      }`}
-                    >
-                      {stage.title}
-                    </h3>
-                    <p
-                      className={`text-[11px] sm:text-xs leading-relaxed font-normal line-clamp-4 ${
-                        stage.highlight ? 'text-neutral-300' : 'text-neutral-600'
-                      }`}
-                    >
-                      {stage.body}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            {/* Header */}
-            <div className="max-w-2xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  METHODOLOGY
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Our collaborative design process.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                A structured, 7-stage roadmap that eliminates guesswork. We align
-                on information architecture, user journeys, and brand tone before
-                designing final pixel-perfect mockups.
-              </p>
-            </div>
-
-            {/* 7 Process Stages Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
-              {PROCESS_STAGES.map((stage) => (
-                <div
-                  key={stage.title}
-                  className={`p-6 sm:p-7 rounded-2xl border flex flex-col justify-between transition-all duration-200 ${
-                    stage.highlight
-                      ? 'bg-neutral-950 text-white border-neutral-900 shadow-md'
-                      : 'bg-white border-black/[0.08] shadow-2xs hover:border-black/[0.2]'
-                  }`}
-                >
-                  <div>
-                    <span
-                      className={`text-xl font-mono font-bold block mb-4 ${
-                        stage.highlight ? 'text-[#D79A6D]' : 'text-[#9E6941]'
-                      }`}
-                    >
-                      {stage.step}
-                    </span>
-                    <h3
-                      className={`text-lg font-bold mb-2.5 ${
-                        stage.highlight ? 'text-white' : 'text-neutral-950'
-                      }`}
-                    >
-                      {stage.title}
-                    </h3>
-                    <p
-                      className={`text-xs sm:text-[13px] leading-relaxed font-normal ${
-                        stage.highlight ? 'text-neutral-300' : 'text-neutral-600'
-                      }`}
-                    >
-                      {stage.body}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 5. DESIGN THAT SUPPORTS BUSINESS GOALS ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40">
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  COMMERCIAL OBJECTIVES
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Design engineered to support real business outcomes.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Design cannot exist in a vacuum. Every typographic hierarchy,
-                whitespace ratio, and button placement is chosen to remove doubt,
-                strengthen buyer confidence, and drive qualified inquiries.
-              </p>
-            </div>
-
-            {/* 8 Business Drivers 2-Column Grid */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-              {BUSINESS_GOALS.map((goal) => (
-                <div
-                  key={goal.title}
-                  className="p-3.5 sm:p-4 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
-                      {goal.title}
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-4">
-                      {goal.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            {/* Header */}
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  COMMERCIAL OBJECTIVES
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Design engineered to support real business outcomes.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Design cannot exist in a vacuum. Every typographic hierarchy,
-                whitespace ratio, and button placement is chosen to remove doubt,
-                strengthen buyer confidence, and drive qualified inquiries.
-              </p>
-            </div>
-
-            {/* 8 Business Drivers Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {BUSINESS_GOALS.map((goal) => (
-                <div
-                  key={goal.title}
-                  className="p-5 sm:p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {goal.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal">
-                      {goal.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ─── 6. RESPONSIVE WEBSITE DESIGN ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]">
@@ -1147,218 +738,7 @@ export default function WebsiteDesignPage() {
           </div>
         </section>
 
-        {/* ─── 7. UI / DESIGN SYSTEM ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-5">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  SCALABLE ARCHITECTURE
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Design systems built for consistency and longevity.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Instead of designing isolated one-off pages, Stack builds
-                comprehensive design systems with mathematical spacing scales,
-                tokenized color palettes, and modular UI components.
-              </p>
-            </div>
 
-            {/* Benefits Strip */}
-            <div className="my-4 space-y-2">
-              {[
-                'Guaranteed visual consistency across hundreds of pages',
-                'Dramatically faster engineering handoffs and QA cycles',
-                'Effortless future updates without redesigning from scratch',
-                'Shared token vocabulary between designers and developers',
-              ].map((benefit) => (
-                <div key={benefit} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0 mt-0.5" />
-                  <span className="text-xs text-neutral-800 font-medium">
-                    {benefit}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* 6 Design System Elements 2-Column Grid */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 mt-5">
-              {DESIGN_SYSTEM_ELEMENTS.map((item) => (
-                <div
-                  key={item.title}
-                  className="p-3.5 sm:p-4 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-4">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              {/* Left Column */}
-              <div className="lg:col-span-5">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                    SCALABLE ARCHITECTURE
-                  </span>
-                  <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-tight">
-                  Design systems built for consistency and longevity.
-                </h2>
-                <p className="mt-4 text-neutral-600 text-base leading-relaxed">
-                  Instead of designing isolated one-off pages, Stack builds
-                  comprehensive design systems. We establish mathematical
-                  spacing scales, tokenized color palettes, typography hierarchies,
-                  and modular UI components.
-                </p>
-
-                <div className="mt-8 space-y-3">
-                  {[
-                    'Guaranteed visual consistency across hundreds of pages',
-                    'Dramatically faster engineering handoffs and QA cycles',
-                    'Effortless future updates without redesigning from scratch',
-                    'Shared token vocabulary between designers and developers',
-                  ].map((benefit) => (
-                    <div key={benefit} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-[#9E6941] shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-neutral-800 font-medium">
-                        {benefit}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right Column: 6 System Anatomy Elements */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {DESIGN_SYSTEM_ELEMENTS.map((item) => (
-                  <div
-                    key={item.title}
-                    className="p-5 sm:p-6 rounded-xl border border-black/[0.08] bg-white"
-                  >
-                    <h3 className="text-sm sm:text-base font-bold text-neutral-950 mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-neutral-600 leading-relaxed">
-                      {item.detail}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 8. WEBSITE REDESIGN ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]">
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  MODERNIZING LEGACY PLATFORMS
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Website redesign for businesses ready to elevate.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                If your business has outgrown its current website, an outdated
-                appearance is actively undermining sales. A redesign preserves
-                what converts, fixes what confuses, and modernizes visual authority.
-              </p>
-            </div>
-
-            {/* 6 Redesign Roadmap Stages 2-Column Grid */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-              {REDESIGN_ROADMAP.map((stage) => (
-                <div
-                  key={stage.step}
-                  className="p-3.5 sm:p-4 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <span className="text-[10px] font-mono font-bold text-[#9E6941] mb-1.5 block">
-                    Phase {stage.step}
-                  </span>
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
-                      {stage.label}
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-3">
-                      {stage.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            {/* Header */}
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  MODERNIZING LEGACY PLATFORMS
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Website redesign for businesses ready to elevate.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                If your business has outgrown its current website, an outdated
-                appearance is actively undermining your sales conversations.
-                A redesign does not mean tearing everything down—we preserve what
-                converts, fix what confuses, and modernize your visual authority.
-              </p>
-            </div>
-
-            {/* Redesign Roadmap Stages */}
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
-              {REDESIGN_ROADMAP.map((stage) => (
-                <div
-                  key={stage.step}
-                  className="p-5 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <span className="text-xs font-mono font-bold text-[#9E6941] mb-2 block">
-                    Phase {stage.step}
-                  </span>
-                  <div>
-                    <h3 className="text-sm font-bold text-neutral-950 mb-1">
-                      {stage.label}
-                    </h3>
-                    <p className="text-[11.5px] text-neutral-600 leading-relaxed">
-                      {stage.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ─── 9. DESIGN VS TEMPLATE ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40">
@@ -1374,12 +754,10 @@ export default function WebsiteDesignPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Custom website design vs. template themes.
+                Custom website or template?
               </h2>
               <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Template themes can be an acceptable short-term option for micro-budgets,
-                but they quickly hit creative and technical ceilings. Here is an
-                objective comparison.
+                Both can work, but the right choice depends on your goals, budget, and how much flexibility your business needs.
               </p>
             </div>
 
@@ -1398,12 +776,10 @@ export default function WebsiteDesignPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Custom website design vs. template themes.
+                Custom website or template?
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Template themes can be an acceptable short-term option for micro-budgets,
-                but they quickly hit creative and technical ceilings. Here is an
-                objective comparison to help you evaluate the right strategic investment.
+                Both can work, but the right choice depends on your goals, budget, and how much flexibility your business needs.
               </p>
             </div>
 
@@ -1583,168 +959,9 @@ export default function WebsiteDesignPage() {
           </div>
         </section>
 
-        {/* ─── 12. REAL PORTFOLIO ─── */}
-        <section
-          id="design-portfolio"
-          className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]"
-        >
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  FEATURED STUDIO WORK
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Real client websites designed by Stack.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                A selection of custom digital platforms designed with precise
-                typography, purposeful whitespace, and conversion-minded architecture.
-              </p>
-            </div>
-
-            {/* Stacked Project Cards */}
-            <div className="space-y-4">
-              {FEATURED_PROJECTS.map((project) => (
-                <div
-                  key={project.name}
-                  className="rounded-2xl border border-black/[0.08] bg-white overflow-hidden shadow-xs"
-                >
-                  <div className="relative aspect-[16/10] w-full bg-neutral-100 overflow-hidden border-b border-black/[0.06]">
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, 450px"
-                    />
-                  </div>
-
-                  <div className="p-4 sm:p-5">
-                    <span className="text-[10px] font-semibold tracking-wider uppercase text-[#9E6941] mb-1 block">
-                      {project.type}
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-neutral-950 mb-1.5">
-                      {project.name}
-                    </h3>
-                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                      {project.desc}
-                    </p>
-                    <div className="mt-4 pt-3.5 border-t border-black/[0.06] flex items-center justify-between">
-                      <Link
-                        href="/#work"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 active:text-[#9E6941]"
-                      >
-                        <span>View Project</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                      <span className="text-[10.5px] font-mono text-neutral-400">
-                        {project.disciplines}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Studio link */}
-            <div className="mt-6 text-center">
-              <Link
-                href="/#work"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-900 underline underline-offset-4 decoration-neutral-300"
-              >
-                <span>View all studio work</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-              <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                    FEATURED STUDIO WORK
-                  </span>
-                  <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                  Real client websites designed by Stack.
-                </h2>
-                <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                  A selection of custom digital platforms designed with precise
-                  typography, purposeful whitespace, and conversion-minded architecture.
-                </p>
-              </div>
-
-              <Link
-                href="/#work"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-900 hover:text-black underline underline-offset-4 decoration-neutral-300 transition-colors"
-              >
-                <span>View all studio work</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* 4 Real Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-              {FEATURED_PROJECTS.map((project) => (
-                <div
-                  key={project.name}
-                  className="group flex flex-col justify-between rounded-2xl border border-black/[0.08] bg-white overflow-hidden shadow-xs hover:border-black/[0.25] transition-all duration-300"
-                >
-                  {/* Real Project Image */}
-                  <div className="relative aspect-[16/10] w-full bg-neutral-100 overflow-hidden border-b border-black/[0.06]">
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 650px"
-                    />
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
-                    <div>
-                      <span className="text-[11px] font-semibold tracking-wider uppercase text-[#9E6941] mb-2 block">
-                        {project.type}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-neutral-950 mb-2">
-                        {project.name}
-                      </h3>
-                      <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal">
-                        {project.desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-6 pt-5 border-t border-black/[0.06] flex items-center justify-between">
-                      <Link
-                        href="/#work"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#9E6941] transition-colors"
-                      >
-                        <span>View Project</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                      </Link>
-                      <span className="text-[11px] font-mono text-neutral-400">
-                        {project.disciplines}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* ─── 12. OUR RECENT WORK (MATCHES HOMEPAGE & WEB-DEV) ─── */}
+        <div id="design-portfolio" className="sr-only" />
+        <WorkSection id="portfolio" />
 
         {/* ─── 13. TECHNOLOGY / DESIGN HANDOFF ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">

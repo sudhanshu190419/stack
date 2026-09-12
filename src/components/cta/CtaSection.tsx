@@ -42,24 +42,24 @@ export default function CtaSection() {
           {/* Eyebrow with horizontal line */}
           <div className="flex items-center gap-3 mb-4 sm:mb-6">
             <span className="text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-neutral-800 select-none">
-              LET&apos;S BUILD TOGETHER
+              LET&apos;S WORK TOGETHER
             </span>
             <div className="w-12 sm:w-16 h-[1.5px] bg-[#9E6941]/40" />
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
-            Have a website{' '}
+          <h2 className="text-[28px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
+            Ready to build something{' '}
             <span className="block text-[#9E6941] font-bold">
-              worth scrolling for?
+              for your business?
             </span>
           </h2>
 
           {/* Subtitle / Description */}
           <p className="mt-4 sm:mt-5 text-neutral-600 text-sm sm:text-base leading-relaxed max-w-md font-normal">
-            Tell us what you&apos;re building. We&apos;ll turn your ideas into a
-            website that looks amazing, works seamlessly, and helps your
-            business grow.
+            Tell us what you need. From websites and online stores to mobile apps,
+            we&apos;ll help turn your idea into a digital product that works for
+            your business.
           </p>
 
           {/* Tablet Mockup & Handwritten Note on Mobile */}
@@ -106,31 +106,8 @@ export default function CtaSection() {
             </div>
           </div>
 
-          {/* Trust Features Row - Placed directly below the image */}
-          <div className="mt-8 pt-5 border-t border-neutral-200/80 flex flex-wrap items-center justify-between gap-y-2.5 gap-x-3 text-xs text-neutral-700 font-medium">
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-[#9E6941] shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-              </svg>
-              <span>Fast Response</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-[#9E6941] shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-              </svg>
-              <span>Clear Communication</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-[#9E6941] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-              <span>No Obligations</span>
-            </div>
-          </div>
-
-          {/* CTA Buttons Row - Placed below the trust badges */}
-          <div className="mt-7 pb-14 sm:pb-16 flex flex-wrap items-center gap-4 sm:gap-6">
+          {/* CTA Buttons Row - Placed directly below the image */}
+          <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
             <a
               href="mailto:hello@stack.studio?subject=Start%20a%20Project"
               className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm shadow-sm transition-all duration-200 active:scale-[0.98]"
@@ -157,6 +134,35 @@ export default function CtaSection() {
               Or just say hello
             </a>
           </div>
+
+          {/* Trust Features Row - Placed below the buttons with dividers, matching desktop */}
+          <div className="mt-7 pt-5 border-t border-neutral-200/80 pb-14 sm:pb-16 flex items-center justify-between text-[10px] min-[360px]:text-[11px] min-[390px]:text-xs text-neutral-700 font-medium">
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 whitespace-nowrap">
+              <svg className="w-3.5 h-3.5 text-[#9E6941] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+              <span>Fast Response</span>
+            </div>
+
+            <div className="h-3 w-[1px] bg-neutral-300 shrink-0" />
+
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 whitespace-nowrap">
+              <svg className="w-3.5 h-3.5 text-[#9E6941] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+              </svg>
+              <span>Clear Communication</span>
+            </div>
+
+            <div className="h-3 w-[1px] bg-neutral-300 shrink-0" />
+
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 whitespace-nowrap">
+              <svg className="w-3.5 h-3.5 text-[#9E6941] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              <span>No Obligations</span>
+            </div>
+          </div>
         </div>
 
         {/* ========================================================================= */}
@@ -168,24 +174,24 @@ export default function CtaSection() {
             {/* Top Eyebrow with horizontal line */}
             <div className="flex items-center gap-3.5 mb-8">
               <span className="text-xs font-semibold tracking-[0.25em] uppercase text-neutral-800 select-none">
-                LET&apos;S BUILD TOGETHER
+                LET&apos;S WORK TOGETHER
               </span>
               <div className="w-14 sm:w-20 h-[1.5px] bg-neutral-300" />
             </div>
 
             {/* Main Headline */}
             <h2 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
-              Have a website{' '}
+              Ready to build something{' '}
               <span className="block text-[#9E6941] font-bold">
-                worth scrolling for?
+                for your business?
               </span>
             </h2>
 
             {/* Subtitle / Description */}
             <p className="mt-6 text-neutral-600 text-lg leading-relaxed max-w-lg font-normal">
-              Tell us what you&apos;re building. We&apos;ll turn your ideas into a
-              website that looks amazing, works seamlessly, and helps your
-              business grow.
+              Tell us what you need. From websites and online stores to mobile apps,
+              we&apos;ll help turn your idea into a digital product that works for
+              your business.
             </p>
 
             {/* CTA Buttons Row */}

@@ -37,6 +37,7 @@ export const metadata: Metadata = {
 };
 
 import Navbar from "@/components/navbar/Navbar";
+import ScrollToTop from "@/components/common/ScrollToTop";
 
 export default function RootLayout({
   children,
@@ -50,6 +51,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full" suppressHydrationWarning>
+        <ScrollToTop />
         <Navbar />
         {children}
       </body>

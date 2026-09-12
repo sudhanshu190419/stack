@@ -5,25 +5,6 @@ import Link from 'next/link'
 import {
   ArrowRight,
   CheckCircle2,
-  Cpu,
-  CreditCard,
-  Database,
-  Eye,
-  Filter,
-  Layers,
-  LineChart,
-  Lock,
-  Package,
-  Search,
-  ShieldCheck,
-  ShoppingBag,
-  ShoppingCart,
-  Smartphone,
-  Sparkles,
-  Tag,
-  Truck,
-  Users,
-  Zap,
 } from 'lucide-react'
 import Footer from '@/components/footer/Footer'
 import EcomHeroVisual from '@/components/ecommerce/EcomHeroVisual'
@@ -142,248 +123,79 @@ const FAQ_SCHEMA = {
 const OFFERINGS_DATA = [
   {
     title: 'New Online Stores',
-    desc: 'Complete turnkey storefronts configured with branded design, catalog structure, payment gateways, shipping rules, and tax compliance.',
+    desc: 'Complete online stores built around your products, brand, and customers.',
   },
   {
-    title: 'Custom E-Commerce Websites',
-    desc: 'Bespoke shopping experiences designed without template boundaries, tailored specifically to high-end brands and unique product lines.',
+    title: 'Custom E-commerce Websites',
+    desc: 'Unique shopping experiences designed around your brand and how your customers shop.',
   },
   {
-    title: 'E-Commerce Store Redesigns',
-    desc: 'Modernizing outdated storefronts to improve conversion rates, speed up mobile purchasing, and reduce checkout drop-offs.',
+    title: 'E-commerce Redesigns',
+    desc: 'Modernize an existing store with a cleaner design, better structure, and easier shopping experience.',
   },
   {
-    title: 'Product Catalog Architecture',
-    desc: 'Organizing complex product lines with intuitive multi-level categories, variant selectors, custom filters, and instant search.',
+    title: 'Product Catalogs',
+    desc: 'Organize products into clear categories with useful search, filters, and product options.',
   },
   {
-    title: 'Subscription & Recurring Billing',
-    desc: 'Seamless recurring delivery and subscription clubs configured via Shopify Subscriptions or Stripe Billing for predictable MRR.',
+    title: 'Subscriptions & Recurring Payments',
+    desc: 'Set up subscription-based products and recurring payments for businesses that sell on a repeat basis.',
   },
   {
-    title: 'Custom Shopping Experiences',
-    desc: 'Interactive product configurators, bundle builders, and tailored gift-box workflows that increase average order value (AOV).',
+    title: 'Custom Shopping Features',
+    desc: 'Build useful shopping features such as product bundles, custom options, wish lists, and other tailored experiences.',
   },
   {
-    title: 'Responsive Mobile Commerce',
-    desc: 'Mobile-first storefronts with one-tap express payments (Apple Pay, Google Pay) and touch-optimized image galleries.',
+    title: 'Mobile-Friendly Commerce',
+    desc: 'Create a smooth shopping experience that works naturally across phones, tablets, and desktop.',
   },
   {
-    title: 'Business Tool Integrations',
-    desc: 'Direct synchronization with your ERP, warehouse fulfillment, CRM (Klaviyo), accounting software, and inventory management.',
+    title: 'Business Integrations',
+    desc: 'Connect your store with payments, shipping, inventory, CRM, email, and other tools your business uses.',
   },
 ]
 
-const PRINCIPLES_DATA = [
-  {
-    title: 'Clear Product Discovery',
-    detail:
-      'Predictive search and logical category filtering help shoppers locate the exact item they want within seconds.',
-  },
-  {
-    title: 'High-Impact Product Pages',
-    detail:
-      'High-resolution imagery, zoom capabilities, clear pricing, variant selectors, and transparent inventory indicators.',
-  },
-  {
-    title: 'Mobile-First Ergonomics',
-    detail:
-      'Sticky Add-to-Cart bars, swipeable photo carousels, and thumb-accessible navigation designed for on-the-go buying.',
-  },
-  {
-    title: 'Sub-Second Page Speed',
-    detail:
-      'Fast loading times directly prevent bounce rates; every 100ms delay costs conversion and lowers organic search ranking.',
-  },
-  {
-    title: 'Visible Trust Signals',
-    detail:
-      'Clear return policies, secure payment badges, verified customer reviews, and transparent delivery estimates build confidence.',
-  },
-  {
-    title: 'Intuitive Navigation',
-    detail:
-      'Clean mega-menus, breadcrumb trails, and curated collection links that never leave shoppers at dead-end pages.',
-  },
-  {
-    title: 'Frictionless Slide-Out Cart',
-    detail:
-      'Instant cart slide-outs with free shipping progress meters and one-click upsells without interrupting the shopping flow.',
-  },
-  {
-    title: 'Single-Page Checkout',
-    detail:
-      'Minimal required form fields, auto-address completion, guest checkout options, and zero surprise shipping costs at the end.',
-  },
-  {
-    title: 'Facet & Attribute Filters',
-    detail:
-      'Real-time filtering by size, color, price range, and availability without tedious page reloads.',
-  },
-  {
-    title: 'Unmistakable Calls to Action',
-    detail:
-      'High-contrast, prominent primary buttons that clearly guide the shopper through each stage of the transaction.',
-  },
-]
 
-const CAPABILITIES_DATA = [
-  {
-    iconName: 'ShoppingBag',
-    title: 'Bespoke Store Design',
-    desc: 'Custom UI/UX layout crafted in Figma, ensuring your store stands out from generic template competitors.',
-  },
-  {
-    iconName: 'Tag',
-    title: 'Product Display & Variants',
-    desc: 'Dynamic color swatches, size selectors, real-time stock status, and downloadable product documentation.',
-  },
-  {
-    iconName: 'Layers',
-    title: 'Collections & Categories',
-    desc: 'Automated and manual merchandising rules, sort-by filters, and curated seasonal campaign pages.',
-  },
-  {
-    iconName: 'ShoppingCart',
-    title: 'Cart & Checkout Funnels',
-    desc: 'Slide-out carts, dynamic free-shipping threshold calculators, discount validation, and express payment buttons.',
-  },
-  {
-    iconName: 'CreditCard',
-    title: 'Global Payment Gateways',
-    desc: 'Stripe, Shopify Payments, Apple Pay, Google Pay, PayPal, and flexible Buy Now Pay Later (Klarna/Afterpay) options.',
-  },
-  {
-    iconName: 'Truck',
-    title: 'Shipping & Fulfillment',
-    desc: 'Real-time carrier rates (UPS/FedEx/DHL), flat-rate rules, local pickup options, and automated order tracking.',
-  },
-  {
-    iconName: 'Package',
-    title: 'Inventory & Stock Sync',
-    desc: 'Multi-location inventory tracking, out-of-stock backorders, and real-time synchronization with physical POS systems.',
-  },
-  {
-    iconName: 'Users',
-    title: 'Customer Accounts',
-    desc: 'Self-service customer portals for order history tracking, reordering, saved shipping addresses, and wishlist management.',
-  },
-  {
-    iconName: 'LineChart',
-    title: 'E-Commerce Analytics',
-    desc: 'Enhanced e-commerce telemetry in Google Analytics 4, tracking product impressions, add-to-cart ratios, and drop-offs.',
-  },
-  {
-    iconName: 'Sparkles',
-    title: 'Marketing & CRM Integration',
-    desc: 'Klaviyo email flows, abandoned cart automated sequences, Meta Pixel, and Google Merchant Center product feed sync.',
-  },
-  {
-    iconName: 'Search',
-    title: 'E-Commerce SEO Foundations',
-    desc: 'Structured Product Schema (pricing, stock, ratings), canonical variant management, and optimized category hierarchy.',
-  },
-  {
-    iconName: 'Zap',
-    title: 'Performance & Edge Speed',
-    desc: 'Modern WebP/AVIF image delivery, pre-rendered collections, and global CDN caching to maintain rapid browsing during peak sales.',
-  },
-]
-
-function renderCapIcon(iconName: string, className = 'w-5 h-5 text-[#9E6941]') {
-  switch (iconName) {
-    case 'ShoppingBag':
-      return <ShoppingBag className={className} />
-    case 'Tag':
-      return <Tag className={className} />
-    case 'Layers':
-      return <Layers className={className} />
-    case 'ShoppingCart':
-      return <ShoppingCart className={className} />
-    case 'CreditCard':
-      return <CreditCard className={className} />
-    case 'Truck':
-      return <Truck className={className} />
-    case 'Package':
-      return <Package className={className} />
-    case 'Users':
-      return <Users className={className} />
-    case 'LineChart':
-      return <LineChart className={className} />
-    case 'Sparkles':
-      return <Sparkles className={className} />
-    case 'Search':
-      return <Search className={className} />
-    case 'Zap':
-    default:
-      return <Zap className={className} />
-  }
-}
 
 const PROCESS_STAGES = [
   {
     step: '01',
-    title: 'Strategy & Commercial Scoping',
-    body: 'We audit your catalog structure, shipping rules, payment methods, target demographics, and required third-party business integrations.',
+    title: 'Discovery & Planning',
+    body: 'We learn about your products, customers, goals, and store requirements to create a clear plan for the project.',
   },
   {
     step: '02',
-    title: 'UX & Store Architecture',
-    body: 'We map out the shopping journey: navigation hierarchy, category taxonomy, product filtering logic, and cart-to-checkout flows.',
+    title: 'Shopping Experience',
+    body: 'We plan the store structure, navigation, categories, product pages, and checkout experience so customers can shop easily.',
   },
   {
     step: '03',
-    title: 'Custom Storefront Design',
-    body: 'We create high-fidelity Figma mockups of the homepage, collection grids, product pages, and slide-out cart, incorporating your visual identity.',
+    title: 'Store Design',
+    body: 'We create the visual design for your store and refine it with your feedback before development begins.',
   },
   {
     step: '04',
-    title: 'Frontend & Backend Engineering',
-    body: 'We develop custom Liquid themes or Next.js storefront components, configure API endpoints, and wire up payment systems.',
+    title: 'Store Development',
+    body: 'We build the store, add the features you need, and connect the services required to run your business.',
   },
   {
     step: '05',
     title: 'Product & Catalog Setup',
-    body: 'We import product variants, SKUs, photography, sizing charts, and inventory counts, verifying formatting consistency.',
+    body: 'We organize your products, categories, images, prices, and other store content so everything is ready for launch.',
   },
   {
     step: '06',
-    title: 'Rigorous Transactional QA',
-    body: 'We run live test transactions on multiple mobile devices, test automated tax calculation, verify discount codes, and audit shipping rates.',
+    title: 'Testing & Refinement',
+    body: 'We test browsing, cart, checkout, payments, and the store experience across different devices before launch.',
   },
   {
     step: '07',
-    title: 'Launch & Team Training',
-    body: 'We switch DNS, configure SSL security, verify analytics and pixel tracking, and guide your team on processing orders and updating products.',
+    title: 'Launch & Training',
+    body: 'We take your store live, complete the final checks, and show your team how to manage products, orders, and store content.',
   },
 ]
 
-const CONVERSION_POINTS = [
-  {
-    area: 'Product Discovery',
-    how: 'Visual collection headers, instant facet filters, and smart search reduce time-to-product, preventing shopper frustration.',
-  },
-  {
-    area: 'Visual Hierarchy & Clarity',
-    how: 'Uncluttered product pages lead the eye naturally from price and variant selection down to the primary Add to Cart button.',
-  },
-  {
-    area: 'Friction-Free Mobile Cart',
-    how: 'Slide-out carts show current totals, shipping thresholds, and express checkout shortcuts without navigating away from the page.',
-  },
-  {
-    area: 'Transparent Shipping Rules',
-    how: 'Displaying estimated delivery timeframes and clear return guidelines upfront eliminates surprise drop-offs on the final payment screen.',
-  },
-  {
-    area: 'Streamlined Checkout Form',
-    how: 'Auto-fill address lookup, clear error states, and guest checkout eliminate the friction of forced account creation.',
-  },
-  {
-    area: 'Retention & Repeat Buying',
-    how: 'Automated post-purchase transactional emails, easy order tracking pages, and integrated loyalty rewards encourage repeat orders.',
-  },
-]
+
 
 const SEO_CARDS = [
   {
@@ -404,38 +216,7 @@ const SEO_CARDS = [
   },
 ]
 
-const COST_DRIVERS = [
-  {
-    driver: 'Catalog Size & Variants',
-    detail:
-      'A boutique store with 15 products takes less migration effort than a catalog with 2,000 SKUs and complex multi-attribute matrices.',
-  },
-  {
-    driver: 'Platform Selection',
-    detail:
-      'Turnkey Shopify setups require lower initial configuration. Bespoke headless architectures require dedicated frontend engineering.',
-  },
-  {
-    driver: 'Custom Storefront Design',
-    detail:
-      'Tailoring an approved Shopify theme is faster than producing a bespoke Figma design system with unique animations from scratch.',
-  },
-  {
-    driver: 'ERP & Inventory Sync',
-    detail:
-      'Connecting to warehouse management systems or physical POS inventory requires custom API plumbing and webhook testing.',
-  },
-  {
-    driver: 'Subscriptions & Recurring',
-    detail:
-      'Integrating recurring billing engines, custom customer delivery schedules, and automated renewal emails adds workflow logic.',
-  },
-  {
-    driver: 'Legacy Data Migration',
-    detail:
-      'Migrating historical customer accounts, past orders, and SEO redirect maps from an older platform requires diligent QA.',
-  },
-]
+
 
 const PORTFOLIO_PROJECTS = [
   {
@@ -498,14 +279,11 @@ export default function EcommerceDevelopmentPage() {
                   <div className="w-12 sm:w-16 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[60px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
-                  Online stores built to turn{' '}
-                  <span className="font-serif italic font-normal text-[#9E6941]">browsers into buyers.</span>
+                  Online stores built for<br />
+                  <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
                 </h1>
                 <p className="mt-5 sm:mt-6 text-neutral-600 text-base sm:text-lg lg:text-[19px] leading-relaxed max-w-xl font-normal">
-                  Stack designs and develops modern e-commerce experiences that
-                  make products easy to discover, trust, and purchase across
-                  desktop and mobile. Fast load speeds, effortless navigation,
-                  and friction-free checkout engineered for growth.
+                  We design and build modern online stores that make it easy for customers to discover products, shop confidently, and complete their purchase on any device.
                 </p>
                 <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
                   <a
@@ -519,22 +297,21 @@ export default function EcommerceDevelopmentPage() {
                     href="#ecom-portfolio"
                     className="inline-flex items-center gap-1.5 text-neutral-800 hover:text-black font-medium text-sm sm:text-[15px] underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
                   >
-                    <span>View Our Work</span>
-                    <span className="text-xs">↓</span>
+                    <span>See Our Work</span>
                   </Link>
                 </div>
                 <div className="mt-12 pt-6 border-t border-black/[0.06] flex flex-wrap items-center gap-6 sm:gap-8 text-xs text-neutral-600 font-medium">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Frictionless Mobile Checkout</span>
+                    <span>Easy Shopping Experience</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Shopify & Custom Headless</span>
+                    <span>Mobile-Friendly Store</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Fast Product Discovery</span>
+                    <span>Secure Checkout</span>
                   </div>
                 </div>
               </div>
@@ -551,14 +328,12 @@ export default function EcommerceDevelopmentPage() {
             </div>
 
             <h1 className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
-              Online stores built to turn{' '}
-              <span className="font-serif italic font-normal text-[#9E6941]">browsers into buyers.</span>
+              Online stores built for<br />
+              <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
             </h1>
 
             <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-              Stack designs and develops modern e-commerce experiences that
-              make products easy to discover, trust, and purchase across
-              desktop and mobile. Fast load speeds and friction-free checkout.
+              We design and build modern online stores that make it easy for customers to discover products, shop confidently, and complete their purchase on any device.
             </p>
 
             {/* Mobile Hero Visual */}
@@ -580,21 +355,23 @@ export default function EcommerceDevelopmentPage() {
                 href="#ecom-portfolio"
                 className="w-full flex items-center justify-center gap-1.5 py-3 rounded-full border border-black/[0.1] bg-white text-neutral-900 font-medium text-sm active:bg-neutral-50 transition-colors"
               >
-                <span>View Our Work</span>
-                <span className="text-xs">↓</span>
+                <span>See Our Work</span>
               </Link>
             </div>
 
             {/* Mobile Trust Strip */}
-            <div className="mt-5 pt-4 border-t border-black/[0.06] grid grid-cols-3 gap-1.5 text-center text-[10.5px] text-neutral-700 font-medium">
-              <div className="p-2 rounded-lg bg-white/80 border border-black/[0.04]">
-                <span>Frictionless Checkout</span>
+            <div className="mt-5 pt-4 border-t border-black/[0.06] flex flex-wrap items-center justify-between gap-y-2 text-[11px] sm:text-xs text-neutral-700 font-medium select-none">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
+                <span>Easy Shopping Experience</span>
               </div>
-              <div className="p-2 rounded-lg bg-white/80 border border-black/[0.04]">
-                <span>Shopify & Headless</span>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
+                <span>Mobile-Friendly Store</span>
               </div>
-              <div className="p-2 rounded-lg bg-white/80 border border-black/[0.04]">
-                <span>Fast Discovery</span>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
+                <span>Secure Checkout</span>
               </div>
             </div>
           </div>
@@ -608,25 +385,22 @@ export default function EcommerceDevelopmentPage() {
               <div className="lg:col-span-5">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                    OUR OFFERINGS
+                    OUR E-COMMERCE SERVICES
                   </span>
                   <div className="w-8 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-neutral-950 tracking-tight leading-tight">
-                  E-commerce experiences engineered to sell.
+                  Online stores built for your business.
                 </h2>
                 <p className="mt-4 sm:mt-5 text-neutral-600 text-base sm:text-lg leading-relaxed font-normal">
-                  Whether launching your first direct-to-consumer store or
-                  migrating an established catalog to a modern headless
-                  architecture, we tailor each storefront to your brand identity,
-                  operational requirements, and commercial targets.
+                  We design and build online stores that make it easy for customers to discover products, shop confidently, and complete purchases across every device.
                 </p>
                 <div className="mt-6 sm:mt-8">
                   <Link
                     href="/#contact"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                   >
-                    <span>Discuss your store requirements</span>
+                    <span>Tell us about your store</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -657,22 +431,22 @@ export default function EcommerceDevelopmentPage() {
           <div className="block lg:hidden px-4">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                OUR OFFERINGS
+                OUR E-COMMERCE SERVICES
               </span>
               <div className="w-6 h-[1.5px] bg-[#9E6941]" />
             </div>
             <h2 className="text-2xl font-bold text-neutral-950 tracking-tight leading-tight">
-              E-commerce experiences engineered to sell.
+              Online stores built for your business.
             </h2>
             <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Turnkey Shopify setups or custom headless stores tailored to your catalog and commercial targets.
+              We design and build online stores that make it easy for customers to discover products, shop confidently, and complete purchases across every device.
             </p>
             <div className="mt-3 mb-6">
               <Link
                 href="/#contact"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9E6941]"
               >
-                <span>Discuss store requirements</span>
+                <span>Tell us about your store</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -700,170 +474,7 @@ export default function EcommerceDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 3. WHAT MAKES A GOOD E-COMMERCE WEBSITE ─── */}
-        <section className="relative w-full py-12 sm:py-20 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">
-          {/* DESKTOP VIEW (100% UNCHANGED) */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-2xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  PRINCIPLES OF SUCCESS
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                What makes an online store succeed?
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Great e-commerce is not just about attractive visuals. It is
-                about removing every microscopic point of friction between product
-                curiosity and confirmed purchase.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
-              {PRINCIPLES_DATA.map((item, idx) => (
-                <div
-                  key={item.title}
-                  className="p-5 sm:p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs hover:border-black/[0.2] transition-colors duration-200"
-                >
-                  <div>
-                    <span className="text-xs font-mono font-bold text-[#9E6941] mb-2 block">
-                      #{idx + 1}
-                    </span>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* MOBILE VIEW (COMPACT 2-COLUMN GRID) */}
-          <div className="block lg:hidden px-4">
-            <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  PRINCIPLES OF SUCCESS
-                </span>
-                <div className="w-6 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl font-bold text-neutral-950 tracking-tight">
-                What makes an online store succeed?
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                Removing friction between product curiosity and confirmed purchase.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {PRINCIPLES_DATA.map((item, idx) => (
-                <div
-                  key={item.title}
-                  className="p-3 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-[#9E6941] mb-1 block">
-                      #{idx + 1}
-                    </span>
-                    <h3 className="text-xs font-bold text-neutral-950 leading-snug mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] text-neutral-600 leading-relaxed">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 4. CAPABILITIES SECTION ─── */}
-        <section className="relative w-full py-12 sm:py-20 lg:py-24 border-b border-black/[0.06]">
-          {/* DESKTOP VIEW (100% UNCHANGED) */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-2xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  FULL-STACK SCOPE
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Our complete e-commerce capabilities.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                From visual storefront branding to complex back-office
-                inventory plumbing, we provide complete technical execution.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {CAPABILITIES_DATA.map((cap) => (
-                <div
-                  key={cap.title}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs hover:border-black/[0.2] transition-colors duration-200"
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] border border-black/[0.06] flex items-center justify-center mb-4">
-                      {renderCapIcon(cap.iconName, 'w-5 h-5 text-[#9E6941]')}
-                    </div>
-                    <h3 className="text-base font-semibold text-neutral-950 mb-2">
-                      {cap.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal">
-                      {cap.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* MOBILE VIEW (COMPACT 2-COLUMN GRID) */}
-          <div className="block lg:hidden px-4">
-            <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  FULL-STACK SCOPE
-                </span>
-                <div className="w-6 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl font-bold text-neutral-950 tracking-tight">
-                Our complete e-commerce capabilities.
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                From storefront branding to checkout and inventory sync.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {CAPABILITIES_DATA.map((cap) => (
-                <div
-                  key={cap.title}
-                  className="p-3 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <div className="w-7 h-7 rounded-md bg-[#FAF7F2] border border-black/[0.06] flex items-center justify-center mb-2">
-                      {renderCapIcon(cap.iconName, 'w-4 h-4 text-[#9E6941]')}
-                    </div>
-                    <h3 className="text-xs font-bold text-neutral-950 leading-snug mb-1">
-                      {cap.title}
-                    </h3>
-                    <p className="text-[11px] text-neutral-600 leading-relaxed">
-                      {cap.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ─── 5. PLATFORM OPTIONS & TRADE-OFFS ─── */}
         <section className="relative w-full py-12 sm:py-20 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40">
@@ -871,7 +482,7 @@ export default function EcommerceDevelopmentPage() {
             <div className="max-w-3xl mb-8 sm:mb-12 lg:mb-16">
               <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                 <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  TECHNICAL PLATFORMS
+                  CHOOSING THE RIGHT PLATFORM
                 </span>
                 <div className="w-6 sm:w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
@@ -879,8 +490,7 @@ export default function EcommerceDevelopmentPage() {
                 Choosing the right e-commerce platform.
               </h2>
               <p className="mt-2 sm:mt-3 text-neutral-600 text-xs sm:text-base leading-relaxed">
-                There is no universal best e-commerce platform. We evaluate your
-                product volume, operational staff, and growth targets to select the most cost-effective and scalable foundation.
+                There is no one-size-fits-all solution. We help you choose the right platform based on your products, budget, features, and plans for growth.
               </p>
             </div>
 
@@ -904,9 +514,7 @@ export default function EcommerceDevelopmentPage() {
                 Our e-commerce development process.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                A structured, milestone-driven approach that ensures your store
-                is thoroughly tested, legally compliant, and ready to accept live
-                transactions from day one.
+                From planning and design to testing and launch, we keep the process clear, organized, and focused on building a store that works for your business.
               </p>
             </div>
 
@@ -942,10 +550,10 @@ export default function EcommerceDevelopmentPage() {
                 <div className="w-6 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl font-bold text-neutral-950 tracking-tight">
-                Our e-commerce process.
+                Our e-commerce development process.
               </h2>
               <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                A milestone-driven approach ensuring your store is tested and transaction-ready from day one.
+                From planning and design to testing and launch, we keep the process clear, organized, and focused on building a store that works for your business.
               </p>
             </div>
 
@@ -974,82 +582,7 @@ export default function EcommerceDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 7. CONVERSION-FOCUSED SHOPPING EXPERIENCE ─── */}
-        <section className="relative w-full py-12 sm:py-20 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">
-          {/* DESKTOP VIEW (100% UNCHANGED) */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  REDUCING FRICTION
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Engineered for higher conversion at every step.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Getting visitors to your store is only half the battle. We focus
-                intensely on the psychological and technical details that guide
-                curious shoppers into confident purchasers.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-              {CONVERSION_POINTS.map((item) => (
-                <div
-                  key={item.area}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {item.area}
-                    </h3>
-                    <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal">
-                      {item.how}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* MOBILE VIEW (COMPACT 2-COLUMN GRID) */}
-          <div className="block lg:hidden px-4">
-            <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  REDUCING FRICTION
-                </span>
-                <div className="w-6 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl font-bold text-neutral-950 tracking-tight">
-                Engineered for higher conversion.
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                Guiding curious shoppers into confident purchasers with reduced friction.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {CONVERSION_POINTS.map((item) => (
-                <div
-                  key={item.area}
-                  className="p-3 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <h3 className="text-xs font-bold text-neutral-950 leading-snug mb-1">
-                      {item.area}
-                    </h3>
-                    <p className="text-[11px] text-neutral-600 leading-relaxed">
-                      {item.how}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ─── 8. MOBILE E-COMMERCE ─── */}
         <section className="relative w-full py-12 sm:py-20 lg:py-24 border-b border-black/[0.06]">
@@ -1064,36 +597,28 @@ export default function EcommerceDevelopmentPage() {
                   <div className="w-8 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-tight">
-                  Over 70% of online shopping happens on smartphones.
+                  Your online store needs to work beautifully on mobile.
                 </h2>
                 <p className="mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
-                  If your store is slow, clumsy, or difficult to navigate on a
-                  phone, you are losing more than half of your potential sales.
-                  We treat mobile not as an afterthought or secondary view, but as
-                  the primary sales channel.
+                  For many customers, their phone is the first place they discover and shop from your store. We design mobile experiences that are simple to browse, easy to navigate, and built to make checkout straightforward.
                 </p>
                 <div className="mt-6 space-y-3 text-xs sm:text-[13.5px] text-neutral-700">
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941] shrink-0 mt-0.5" />
                     <span>
-                      <strong>Sticky Action Bars:</strong> The Add-to-Cart button
-                      remains instantly accessible regardless of page scroll depth.
+                      <strong>Easy Navigation:</strong> Clear menus, categories, and product pages that help customers find what they need quickly.
                     </span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941] shrink-0 mt-0.5" />
                     <span>
-                      <strong>One-Tap Express Checkout:</strong> Direct Apple Pay,
-                      Google Pay, and Shop Pay integration bypasses cumbersome credit
-                      card typing.
+                      <strong>Simple Checkout:</strong> A focused checkout experience with convenient payment options and as few unnecessary steps as possible.
                     </span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941] shrink-0 mt-0.5" />
                     <span>
-                      <strong>Thumb-Friendly Touch Targets:</strong> Sizing
-                      selectors and quantity toggles sized specifically to prevent
-                      accidental mis-taps.
+                      <strong>Touch-Friendly Design:</strong> Buttons, filters, product options, and other controls designed to work comfortably on smaller screens.
                     </span>
                   </div>
                 </div>
@@ -1101,39 +626,39 @@ export default function EcommerceDevelopmentPage() {
 
               <div className="lg:col-span-6 p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-[#FAF7F2] space-y-4">
                 <h3 className="text-lg font-bold text-neutral-950 mb-1">
-                  Mobile Experience Standards:
+                  Mobile Experience
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                   <div className="p-4 rounded-xl bg-white border border-black/[0.06]">
                     <span className="font-bold text-neutral-900 block mb-1">
-                      Adaptive Image Quality
+                      Fast &amp; Clear
                     </span>
                     <span className="text-neutral-500 leading-relaxed">
-                      Serves compressed WebP/AVIF formats formatted for retina phone screens.
+                      Optimized images and layouts for a smooth mobile browsing experience.
                     </span>
                   </div>
                   <div className="p-4 rounded-xl bg-white border border-black/[0.06]">
                     <span className="font-bold text-neutral-900 block mb-1">
-                      Accordion Specifications
+                      Easy to Browse
                     </span>
                     <span className="text-neutral-500 leading-relaxed">
-                      Collapsible technical details and sizing guides prevent infinite scrolling.
+                      Simple menus, categories, search, and filters that work naturally on smaller screens.
                     </span>
                   </div>
                   <div className="p-4 rounded-xl bg-white border border-black/[0.06]">
                     <span className="font-bold text-neutral-900 block mb-1">
-                      Smooth Drawer Navigation
+                      Comfortable to Use
                     </span>
                     <span className="text-neutral-500 leading-relaxed">
-                      Instant slide-in category menus with sub-collection drill-downs.
+                      Touch-friendly controls and readable content throughout the store.
                     </span>
                   </div>
                   <div className="p-4 rounded-xl bg-white border border-black/[0.06]">
                     <span className="font-bold text-neutral-900 block mb-1">
-                      Zero Accidental Zoom
+                      Simple Checkout
                     </span>
                     <span className="text-neutral-500 leading-relaxed">
-                      Input fields styled at native 16px to prevent intrusive browser auto-zooming.
+                      A focused purchasing experience designed to reduce unnecessary steps.
                     </span>
                   </div>
                 </div>
@@ -1150,66 +675,71 @@ export default function EcommerceDevelopmentPage() {
               <div className="w-6 h-[1.5px] bg-[#9E6941]" />
             </div>
             <h2 className="text-2xl font-bold text-neutral-950 tracking-tight leading-tight">
-              Over 70% of online shopping happens on smartphones.
+              Your online store needs to work beautifully on mobile.
             </h2>
             <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed font-normal">
-              We treat mobile as your primary sales channel, engineering fast load speeds and seamless checkout ergonomics.
+              For many customers, their phone is the first place they discover and shop from your store. We design mobile experiences that are simple to browse, easy to navigate, and built to make checkout straightforward.
             </p>
 
             <div className="mt-4 space-y-2 text-xs text-neutral-700">
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0 mt-0.5" />
                 <span>
-                  <strong>Sticky Action Bars:</strong> Instant Add-to-Cart access regardless of scroll.
+                  <strong>Easy Navigation:</strong> Clear menus, categories, and product pages that help customers find what they need quickly.
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0 mt-0.5" />
                 <span>
-                  <strong>One-Tap Express Checkout:</strong> Apple Pay, Google Pay, and Shop Pay.
+                  <strong>Simple Checkout:</strong> A focused checkout experience with convenient payment options and as few unnecessary steps as possible.
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0 mt-0.5" />
                 <span>
-                  <strong>Thumb-Friendly Targets:</strong> Sizing toggles designed to prevent mis-taps.
+                  <strong>Touch-Friendly Design:</strong> Buttons, filters, product options, and other controls designed to work comfortably on smaller screens.
                 </span>
               </div>
             </div>
 
             {/* Mobile Standards Grid */}
-            <div className="mt-5 grid grid-cols-2 gap-2.5">
-              <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
-                <span className="font-bold text-neutral-900 block text-xs mb-1">
-                  Adaptive Images
-                </span>
-                <span className="text-neutral-500 leading-relaxed text-[11px]">
-                  Compressed WebP/AVIF formats formatted for retina screens.
-                </span>
-              </div>
-              <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
-                <span className="font-bold text-neutral-900 block text-xs mb-1">
-                  Accordion Specs
-                </span>
-                <span className="text-neutral-500 leading-relaxed text-[11px]">
-                  Collapsible details prevent infinite scrolling.
-                </span>
-              </div>
-              <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
-                <span className="font-bold text-neutral-900 block text-xs mb-1">
-                  Drawer Navigation
-                </span>
-                <span className="text-neutral-500 leading-relaxed text-[11px]">
-                  Slide-in category menus with sub-collection drill-downs.
-                </span>
-              </div>
-              <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
-                <span className="font-bold text-neutral-900 block text-xs mb-1">
-                  Zero Mis-Zooming
-                </span>
-                <span className="text-neutral-500 leading-relaxed text-[11px]">
-                  Native 16px inputs prevent annoying auto-zooms.
-                </span>
+            <div className="mt-5">
+              <h3 className="text-sm font-bold text-neutral-950 mb-2">
+                Mobile Experience
+              </h3>
+              <div className="grid grid-cols-2 gap-2.5">
+                <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
+                  <span className="font-bold text-neutral-900 block text-xs mb-1">
+                    Fast &amp; Clear
+                  </span>
+                  <span className="text-neutral-500 leading-relaxed text-[11px]">
+                    Optimized images and layouts for a smooth mobile browsing experience.
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
+                  <span className="font-bold text-neutral-900 block text-xs mb-1">
+                    Easy to Browse
+                  </span>
+                  <span className="text-neutral-500 leading-relaxed text-[11px]">
+                    Simple menus, categories, search, and filters that work naturally on smaller screens.
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
+                  <span className="font-bold text-neutral-900 block text-xs mb-1">
+                    Comfortable to Use
+                  </span>
+                  <span className="text-neutral-500 leading-relaxed text-[11px]">
+                    Touch-friendly controls and readable content throughout the store.
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-white border border-black/[0.06]">
+                  <span className="font-bold text-neutral-900 block text-xs mb-1">
+                    Simple Checkout
+                  </span>
+                  <span className="text-neutral-500 leading-relaxed text-[11px]">
+                    A focused purchasing experience designed to reduce unnecessary steps.
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1293,118 +823,7 @@ export default function EcommerceDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 10. WHAT AFFECTS E-COMMERCE COST ─── */}
-        <section className="relative w-full py-12 sm:py-20 lg:py-24 border-b border-black/[0.06]">
-          {/* DESKTOP VIEW (100% UNCHANGED) */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  BUDGET TRANSPARENCY
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                What determines the cost of an e-commerce website?
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Building an online store involves both visual design and transactional
-                engineering. Here are the genuine commercial and technical drivers
-                behind project estimates.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {COST_DRIVERS.map((item) => (
-                <div
-                  key={item.driver}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {item.driver}
-                    </h3>
-                    <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-[#FAF7F2] max-w-4xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div>
-                <h3 className="text-lg font-bold text-neutral-950 mb-1">
-                  Ready to calculate your store investment?
-                </h3>
-                <p className="text-xs sm:text-sm text-neutral-600">
-                  Tell us about your product range, current platform, and commercial goals.
-                  We provide itemized, fixed-fee proposals.
-                </p>
-              </div>
-              <a
-                href="mailto:hello@stack.studio?subject=E-Commerce%20Store%20Quote"
-                className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#111111] hover:bg-black text-white text-xs sm:text-sm font-medium transition-colors"
-              >
-                <span>Request a Store Proposal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
-          {/* MOBILE VIEW (COMPACT 2-COLUMN GRID + PROPOSAL CTA) */}
-          <div className="block lg:hidden px-4">
-            <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  BUDGET TRANSPARENCY
-                </span>
-                <div className="w-6 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl font-bold text-neutral-950 tracking-tight">
-                What affects store cost?
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                Genuine technical and operational drivers behind project estimates.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {COST_DRIVERS.map((item) => (
-                <div
-                  key={item.driver}
-                  className="p-3 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <h3 className="text-xs font-bold text-neutral-950 leading-snug mb-1">
-                      {item.driver}
-                    </h3>
-                    <p className="text-[11px] text-neutral-600 leading-relaxed">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile Quote Card */}
-            <div className="mt-6 p-4 rounded-xl border border-black/[0.08] bg-[#FAF7F2] space-y-3">
-              <h3 className="text-sm font-bold text-neutral-950 leading-snug">
-                Ready to calculate your store investment?
-              </h3>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Tell us about your product range and current platform. We provide itemized, fixed-fee proposals.
-              </p>
-              <a
-                href="mailto:hello@stack.studio?subject=E-Commerce%20Store%20Quote"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#111111] active:bg-black text-white text-xs font-medium transition-colors shadow-xs"
-              >
-                <span>Request a Store Proposal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </section>
 
         {/* ─── 11. E-COMMERCE VS REGULAR BUSINESS WEBSITE ─── */}
         <section className="relative w-full py-12 sm:py-20 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40">

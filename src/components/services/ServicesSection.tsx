@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -33,6 +34,7 @@ export default function ServicesSection() {
   const goToIndexRef = useRef<(idx: number) => void>(() => {})
   const unlockAndGoToWorkRef = useRef<() => void>(() => {})
   const unlockAndGoToHeroRef = useRef<() => void>(() => {})
+  const lockSectionRef = useRef<(idx: number, scrollY?: number) => void>(() => {})
 
   const handleNext = () => {
     if (isTransitioningRef.current) return
@@ -130,6 +132,7 @@ export default function ServicesSection() {
       goToIndexRef.current = desktopGoToIndex
       unlockAndGoToWorkRef.current = desktopUnlockToWork
       unlockAndGoToHeroRef.current = desktopUnlockToHero
+      lockSectionRef.current = desktopLockSection
 
       const obs = Observer.create({
         target: window,
@@ -184,6 +187,7 @@ export default function ServicesSection() {
         onEnter: (self) => {
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
           if (heroST && heroST.progress < 0.98) return
+          if (isLockedRef.current) return
           desktopLockSection(0, self.start + 20)
         },
         onLeave: () => {
@@ -213,6 +217,7 @@ export default function ServicesSection() {
         isLockedRef.current = false
         observerRef.current = null
         stRef.current = null
+        lockSectionRef.current = () => {}
       }
     })
 
@@ -285,6 +290,7 @@ export default function ServicesSection() {
       goToIndexRef.current = mobileGoToIndex
       unlockAndGoToWorkRef.current = mobileUnlockToWork
       unlockAndGoToHeroRef.current = mobileUnlockToHero
+      lockSectionRef.current = mobileLockSection
 
       const obs = Observer.create({
         target: window,
@@ -343,6 +349,7 @@ export default function ServicesSection() {
         onEnter: (self) => {
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
           if (heroST && heroST.progress < 0.98) return
+          if (isLockedRef.current) return
           mobileLockSection(0, self.start + 20)
         },
         onLeave: () => {
@@ -372,12 +379,93 @@ export default function ServicesSection() {
         isLockedRef.current = false
         observerRef.current = null
         stRef.current = null
+        lockSectionRef.current = () => {}
       }
     })
 
     ScrollTrigger.refresh()
 
+    const restoreToServicesIfNeeded = () => {
+      if (typeof window === 'undefined') return false
+      const isReturning =
+        sessionStorage.getItem('stack_return_to_services') === 'true' ||
+        window.location.hash === '#services'
+
+      if (!isReturning) return false
+
+      const savedIdxStr = sessionStorage.getItem('stack_return_service_idx')
+      const targetIdx = savedIdxStr !== null ? parseInt(savedIdxStr, 10) : 0
+      const safeIdx = isNaN(targetIdx) ? 0 : Math.max(0, Math.min(targetIdx, SERVICES.length - 1))
+
+      const isDesktop = window.innerWidth >= 1024
+      const st =
+        stRef.current ||
+        (isDesktop
+          ? ScrollTrigger.getById('services-scroll-trigger-desktop')
+          : ScrollTrigger.getById('services-scroll-trigger-mobile'))
+
+      if (st && st.start > 0) {
+        setTimeout(() => {
+          sessionStorage.removeItem('stack_return_to_services')
+          sessionStorage.removeItem('stack_return_service_idx')
+        }, 1200)
+
+        const desktopStepOffsets = [20, 600, 1200, 1800]
+        const mobileStepOffsets = [20, 400, 800, 1200]
+        const targetY = isDesktop
+          ? st.start + (desktopStepOffsets[safeIdx] ?? safeIdx * 600)
+          : st.start + (mobileStepOffsets[safeIdx] ?? safeIdx * 400)
+
+        lockSectionRef.current(safeIdx, targetY)
+
+        window.scrollTo({ top: targetY, behavior: 'instant' })
+        document.documentElement.scrollTop = targetY
+        document.body.scrollTop = targetY
+
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: targetY, behavior: 'instant' })
+          document.documentElement.scrollTop = targetY
+          document.body.scrollTop = targetY
+        })
+
+        setTimeout(() => {
+          window.scrollTo({ top: targetY, behavior: 'instant' })
+          document.documentElement.scrollTop = targetY
+          document.body.scrollTop = targetY
+        }, 80)
+
+        return true
+      }
+      return false
+    }
+
+    // Attempt restoration immediately, with RAF and micro-delay fallbacks for layout stability
+    if (!restoreToServicesIfNeeded()) {
+      requestAnimationFrame(() => {
+        if (!restoreToServicesIfNeeded()) {
+          setTimeout(() => {
+            restoreToServicesIfNeeded()
+          }, 60)
+        }
+      })
+    }
+
+    const handlePopState = () => {
+      restoreToServicesIfNeeded()
+    }
+
+    const handleHashChange = () => {
+      restoreToServicesIfNeeded()
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    window.addEventListener('pageshow', handlePopState)
+    window.addEventListener('hashchange', handleHashChange)
+
     return () => {
+      window.removeEventListener('popstate', handlePopState)
+      window.removeEventListener('pageshow', handlePopState)
+      window.removeEventListener('hashchange', handleHashChange)
       mm.revert()
     }
   }, [])
@@ -406,15 +494,14 @@ export default function ServicesSection() {
               WHAT WE DO
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 tracking-tight leading-[1.12]">
-              Everything your website needs.
+              From websites to apps,
               <br />
               <span className="font-serif italic font-normal text-[#9E6941]">
-                Nothing you don&apos;t.
+                we build it all.
               </span>
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mt-1.5 line-clamp-2 sm:line-clamp-none">
-              From first concept to final launch, we design and develop digital
-              experiences built around your business goals.
+              We design and develop digital products that look great, work smoothly, and help your business move forward.
             </p>
           </div>
 
@@ -447,9 +534,51 @@ export default function ServicesSection() {
                   exit={{ opacity: 0, y: -5 }}
                   transition={{ duration: 0.22 }}
                 >
-                  <h3 className="text-xl sm:text-2xl font-bold text-neutral-950 tracking-tight leading-snug">
-                    {activeService.title}
-                  </h3>
+                  <div className="flex items-center justify-between gap-3">
+                    <Link
+                      href={activeService.href}
+                      scroll={true}
+                      onClick={() => {
+                        if (typeof window !== 'undefined') {
+                          sessionStorage.setItem('stack_return_to_services', 'true')
+                          sessionStorage.setItem('stack_return_service_idx', String(activeIndex))
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+                        }
+                      }}
+                      className="group/title inline-flex items-center gap-2"
+                    >
+                      <h3 className="text-xl sm:text-2xl font-bold text-neutral-950 tracking-tight leading-snug group-hover/title:text-[#9E6941] transition-colors">
+                        {activeService.title}
+                      </h3>
+                    </Link>
+
+                    {/* Mobile Arrow Button to open specific service page */}
+                    <Link
+                      href={activeService.href}
+                      scroll={true}
+                      onClick={() => {
+                        if (typeof window !== 'undefined') {
+                          sessionStorage.setItem('stack_return_to_services', 'true')
+                          sessionStorage.setItem('stack_return_service_idx', String(activeIndex))
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+                        }
+                      }}
+                      aria-label={`Open ${activeService.title} service page`}
+                      className="w-8 sm:w-8.5 h-8 sm:h-8.5 rounded-full border border-neutral-300 bg-white/90 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 shadow-2xs flex items-center justify-center text-neutral-800 shrink-0 transition-all cursor-pointer active:scale-95"
+                    >
+                      <svg
+                        className="w-3.5 h-3.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </div>
                   <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed mt-0.5 max-w-md">
                     {activeService.description}
                   </p>
@@ -511,15 +640,14 @@ export default function ServicesSection() {
                 WHAT WE DO
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-neutral-900 tracking-tight leading-[1.12]">
-                Everything your website needs.
+                From websites to apps,
                 <br />
                 <span className="font-serif italic font-normal text-[#9E6941]">
-                  Nothing you don&apos;t.
+                  we build it all.
                 </span>
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed max-w-lg mt-2">
-                From first concept to final launch, we design and develop digital
-                experiences built around your business goals.
+                We design and develop digital products that look great, work smoothly, and help your business move forward.
               </p>
             </div>
 
@@ -527,7 +655,7 @@ export default function ServicesSection() {
             <div className="hidden lg:flex items-center gap-3 self-start pt-2">
               <div className="w-10 h-[1px] bg-neutral-300" />
               <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-neutral-500">
-                MODERN WEBSITES FOR AMBITIOUS BRANDS
+                COMPLETE WEB SOLUTIONS
               </span>
             </div>
           </div>
@@ -603,19 +731,33 @@ export default function ServicesSection() {
                               animate={{ opacity: 1, scale: 1 }}
                               exit={{ opacity: 0, scale: 0.8 }}
                               transition={{ duration: 0.2 }}
-                              className="w-8 sm:w-8.5 h-8 sm:h-8.5 rounded-full border border-neutral-300 bg-white/90 shadow-2xs flex items-center justify-center text-neutral-800 shrink-0"
                             >
-                              <svg
-                                className="w-3.5 h-3.5"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2.2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
+                              <Link
+                                href={service.href}
+                                scroll={true}
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  if (typeof window !== 'undefined') {
+                                    sessionStorage.setItem('stack_return_to_services', 'true')
+                                    sessionStorage.setItem('stack_return_service_idx', String(index))
+                                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+                                  }
+                                }}
+                                aria-label={`Open ${service.title} service page`}
+                                className="w-8 sm:w-8.5 h-8 sm:h-8.5 rounded-full border border-neutral-300 bg-white/90 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 shadow-2xs flex items-center justify-center text-neutral-800 shrink-0 transition-all cursor-pointer group/btn active:scale-95"
                               >
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                              </svg>
+                                <svg
+                                  className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                              </Link>
                             </motion.div>
                           )}
                         </div>

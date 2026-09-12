@@ -8,7 +8,7 @@ export default function OfficeMapCard() {
     <div className="w-full bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-black/[0.06] shadow-xs flex flex-col sm:flex-row items-center gap-5">
       {/* Map Graphic Preview */}
       <div className="relative w-full sm:w-[220px] h-[130px] rounded-xl overflow-hidden bg-[#ECE8E1] border border-black/[0.06] shrink-0">
-        {/* Styled SVG Map of Bengaluru */}
+        {/* Styled SVG Map of Delhi */}
         <svg
           className="w-full h-full object-cover"
           viewBox="0 0 220 130"
@@ -28,10 +28,12 @@ export default function OfficeMapCard() {
             fill="#D5E4CE"
           />
 
-          {/* Water lake */}
+          {/* Water river */}
           <path
-            d="M 60 95 C 80 85, 100 105, 90 125 C 75 130, 60 115, 60 95 Z"
-            fill="#BCD6EE"
+            d="M 140 0 C 130 40, 150 70, 135 130"
+            stroke="#BCD6EE"
+            strokeWidth="8"
+            strokeLinecap="round"
           />
 
           {/* Primary & Secondary Road network */}
@@ -61,23 +63,38 @@ export default function OfficeMapCard() {
 
           {/* Pin Label Tooltip */}
           <div className="bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-md border border-black/[0.08] shadow-sm leading-tight">
-            <span className="block text-[10px] font-bold text-neutral-900">Our Office</span>
-            <span className="block text-[8.5px] text-neutral-500 lowercase">bengaluru, india</span>
+            <span className="block text-[10px] font-bold text-neutral-900">Our Studio</span>
+            <span className="block text-[8.5px] text-neutral-500 lowercase">delhi, india</span>
           </div>
         </div>
       </div>
 
       {/* Meet Details & CTA */}
       <div className="flex-1">
-        <h4 className="text-base sm:text-lg font-bold text-neutral-950 tracking-tight">
-          Let&apos;s Meet
-        </h4>
-        <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed mt-1">
-          We&apos;re based in Bengaluru, but we work with clients worldwide. Whether online or in person, we&apos;re always happy to connect.
+        <div className="flex items-center justify-between gap-2">
+          <h4 className="text-base sm:text-lg font-bold text-neutral-950 tracking-tight">
+            Let&apos;s Meet
+          </h4>
+          <span className="text-[10.5px] font-semibold text-[#9E6941] bg-[#9E6941]/10 px-2.5 py-0.5 rounded-full">
+            Delhi Studio
+          </span>
+        </div>
+
+        {/* Studio Address */}
+        <div className="mt-2 flex items-start gap-2 text-xs text-neutral-700">
+          <MapPin className="w-3.5 h-3.5 text-[#9E6941] shrink-0 mt-0.5" />
+          <p className="font-medium leading-relaxed">
+            C 319 Street No 11 Ganga Vihar, Delhi 110094
+          </p>
+        </div>
+
+        <p className="text-xs sm:text-[12.5px] text-neutral-500 leading-relaxed mt-1.5">
+          We&apos;re based in Delhi, but we work with clients worldwide. Whether online or in person, we&apos;re always happy to connect.
         </p>
+
         <div className="mt-3">
           <a
-            href="https://maps.google.com/?q=Bengaluru,+Karnataka,+India"
+            href="https://maps.google.com/?q=C+319+Street+No+11+Ganga+Vihar+Delhi+110094"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-black/[0.12] bg-white hover:bg-neutral-50 text-neutral-800 text-xs font-semibold transition-all hover:shadow-2xs active:scale-[0.98]"

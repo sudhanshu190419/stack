@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -137,27 +136,27 @@ const FAQ_SCHEMA = {
 const APP_CATEGORIES = [
   {
     title: 'Customer-Facing Apps',
-    desc: 'Dedicated mobile flagships providing loyal customers with rapid account access, repeat orders, loyalty rewards, and direct support.',
+    desc: 'Mobile apps that help your customers browse, buy, book, manage accounts, and stay connected with your business.',
   },
   {
-    title: 'Internal Operations & Field Tools',
-    desc: 'Custom workflows that empower field technicians, logistics drivers, and on-site staff with fast offline data logging and barcode scanning.',
+    title: 'Internal Business Apps',
+    desc: 'Apps that help your team manage tasks, operations, field work, and everyday business processes.',
   },
   {
     title: 'Booking & Scheduling Apps',
-    desc: 'Mobile-first reservation engines featuring interactive calendars, real-time availability sync, automatic push alerts, and deposits.',
+    desc: 'Make it easy for customers to book appointments, services, reservations, and other time-based activities.',
   },
   {
     title: 'Startup MVPs',
-    desc: 'Cost-effective, rapid-to-market applications engineered on scalable foundations, allowing founders to validate user retention and raise capital.',
+    desc: 'Launch a focused first version of your app to test your idea, gather feedback, and learn what your users need.',
   },
   {
-    title: 'Customer Self-Service Portals',
-    desc: 'Secure mobile hubs where clients manage subscriptions, submit service requests, download invoices, and receive status updates.',
+    title: 'Customer Portals',
+    desc: 'Give customers an easy way to manage their accounts, requests, subscriptions, orders, and updates.',
   },
   {
-    title: 'Hardware & Companion Apps',
-    desc: 'Mobile interfaces that connect via Bluetooth Low Energy (BLE) or Wi-Fi to configure, monitor, and control physical IoT hardware.',
+    title: 'Connected Apps',
+    desc: 'Apps that connect with devices and other systems to monitor, control, or exchange information.',
   },
 ]
 
@@ -166,231 +165,126 @@ const CAPABILITIES_DATA = [
     icon: Smartphone,
     title: 'Mobile UI/UX Design',
     summary:
-      'Interface design built specifically for thumb ergonomics, platform-specific navigation bars, and fluid 60fps gesture animations.',
+      'Clear, intuitive app interfaces designed to make everyday tasks simple and enjoyable.',
   },
   {
     icon: Layers,
-    title: 'Cross-Platform Engineering',
+    title: 'Cross-Platform Development',
     summary:
-      'Unified React Native codebases that compile directly to native iOS and Android primitives, halving time-to-market and maintenance overhead.',
+      'Build for iOS and Android with a consistent experience across both platforms.',
   },
   {
     icon: Fingerprint,
-    title: 'Biometrics & Security',
+    title: 'Security & User Protection',
     summary:
-      'Instant authentication using Face ID, Touch ID, or Android BiometricPrompt with encrypted keychain storage for sensitive credentials.',
+      'Secure login, user data, and app interactions with appropriate protection built into the experience.',
   },
   {
     icon: Bell,
     title: 'Push Notifications',
     summary:
-      'Reliable event-triggered and broadcast messaging via APNs and Firebase, equipped with deep-linking to specific in-app views.',
+      'Keep users informed with useful notifications for updates, reminders, orders, bookings, and other important events.',
   },
   {
     icon: CreditCard,
     title: 'In-App Payments',
     summary:
-      'Native Apple Pay and Google Pay integration, combined with secure Stripe checkout flows for seamless mobile transactions.',
+      'Accept payments securely with convenient options such as cards and supported digital wallets.',
   },
   {
     icon: RefreshCw,
-    title: 'Offline Data Sync',
+    title: 'Offline & Data Sync',
     summary:
-      'Local device database caching (SQLite / MMKV) that allows continuous app usage offline, with automatic background synchronization.',
+      'Let users continue using important app features even with limited connectivity, with data synced when they are back online.',
   },
   {
     icon: Cloud,
-    title: 'Backend & API Integration',
+    title: 'App Integrations',
     summary:
-      'High-speed REST and GraphQL API plumbing connecting your app to existing databases, web portals, and microservices.',
+      'Connect your app with websites, payment systems, business tools, databases, and other services you already use.',
   },
   {
     icon: CheckCircle2,
-    title: 'Store Publishing & QA',
+    title: 'App Store Launch & Testing',
     summary:
-      'Complete management of Apple App Store Connect and Google Play Console requirements, handling compliance and reviewer updates.',
+      'Test your app thoroughly and prepare it for release on the Apple App Store and Google Play.',
   },
 ]
 
 const PROCESS_STAGES = [
   {
     step: '01',
-    title: 'Discovery & Feasibility',
-    body: 'We define the core user personas, map out technical constraints, evaluate hardware integration needs, and select the optimal platform architecture.',
+    title: 'Discovery & Planning',
+    body: 'We learn about your business, users, goals, and app requirements to create a clear plan for the project.',
   },
   {
     step: '02',
-    title: 'Mobile UX & Interactive Flow',
-    body: 'We create clickable Figma prototypes that simulate thumb interactions, screen transitions, bottom sheets, and platform-specific navigation hierarchies.',
+    title: 'UX & App Design',
+    body: 'We plan the screens and user experience, then refine the design with your feedback before development begins.',
   },
   {
     step: '03',
-    title: 'Frontend & API Engineering',
-    body: 'We build modular React Native components, implement state management, configure offline caching databases, and wire up secure backend endpoints.',
+    title: 'App Development',
+    body: 'We turn the approved designs into a reliable mobile app with the features your business needs.',
   },
   {
     step: '04',
-    title: 'Hardware & Device Lab Testing',
-    body: 'We test across real physical iOS and Android devices, verifying battery impact, poor network handling, background push alerts, and screen sizes.',
+    title: 'Testing & Refinement',
+    body: 'We test the app across different devices and real-world situations, fix issues, and refine the experience.',
   },
   {
     step: '05',
-    title: 'Beta Testing & Store Approval',
-    body: 'We distribute private TestFlight and Google Play Internal builds to your team, complete store listing assets, and oversee store certification.',
+    title: 'Beta Testing & Launch Preparation',
+    body: 'We prepare the app for testing, complete the required store materials, and get everything ready for release.',
   },
   {
     step: '06',
-    title: 'Launch & OS Maintenance',
-    body: 'We monitor production crash telemetry, verify live telemetry, and provide ongoing updates to maintain compatibility with new iOS and Android releases.',
+    title: 'Launch & Ongoing Updates',
+    body: 'We help launch your app and provide updates and improvements as your needs and mobile platforms evolve.',
   },
 ]
 
-const USE_CASES = [
-  {
-    type: 'Service & Booking Platforms',
-    reason:
-      'Customers who schedule recurring appointments, personal training, dining reservations, or wellness visits benefit from instant one-tap booking.',
-  },
-  {
-    type: 'High-Repeat E-Commerce',
-    reason:
-      'Brands with loyal customers where repeat purchasers generate the majority of revenue. An app keeps your store on their home screen.',
-  },
-  {
-    type: 'Field Staff & Operations',
-    reason:
-      'Businesses with mobile workers who need to log site inspections, capture photos, record signatures, and view job sheets with or without signal.',
-  },
-  {
-    type: 'SaaS Mobile Companions',
-    reason:
-      'Software platforms where users need to approve requests, check real-time metrics, receive critical alerts, or communicate on the go.',
-  },
-  {
-    type: 'Member & Client Portals',
-    reason:
-      'Exclusive member networks, fitness communities, and private client portals requiring secure authentication and direct messaging.',
-  },
-  {
-    type: 'Hardware & Device Controllers',
-    reason:
-      'Connected consumer electronics and industrial equipment that require Bluetooth pairing and real-time sensor dashboards.',
-  },
-]
 
 const TECH_STACK = [
   {
     tech: 'React Native',
-    tagline: 'Native Mobile Compilation',
+    tagline: 'ONE CODEBASE, TWO PLATFORMS',
     benefit:
-      'Renders real native iOS and Android UI views, ensuring fluid 60fps animations and natural platform gesture response.',
+      'Build consistent iOS and Android experiences while keeping development efficient.',
   },
   {
     tech: 'TypeScript',
-    tagline: 'Type-Safe Architecture',
+    tagline: 'RELIABLE DEVELOPMENT',
     benefit:
-      'Prevents runtime crashes by strictly validating data models, API payloads, and state transitions before code ever ships.',
+      'Helps us catch errors early and keep your app easier to maintain.',
   },
   {
     tech: 'Expo Framework',
-    tagline: 'Streamlined Build Pipeline',
+    tagline: 'FASTER DEVELOPMENT',
     benefit:
-      'Accelerates mobile compilation, simplifies cloud build management, and enables rapid over-the-air bug fixes for critical issues.',
+      'Simplifies development and testing so new features can be built and improved efficiently.',
   },
   {
     tech: 'Node.js & Serverless APIs',
-    tagline: 'Scalable Backend Plumbing',
+    tagline: 'BACKEND & INTEGRATIONS',
     benefit:
-      'Provides lightweight, secure microservices for authentication, push notification dispatch, and real-time database sync.',
+      'Powers features such as accounts, notifications, payments, and connections to other services.',
   },
   {
     tech: 'PostgreSQL / Supabase',
-    tagline: 'Reliable Cloud Database',
+    tagline: 'SECURE DATA STORAGE',
     benefit:
-      'Enterprise-grade relational storage with built-in row-level security, real-time subscriptions, and rapid query speeds.',
+      "Stores and manages your app's data reliably, with the flexibility to support growing needs.",
   },
   {
     tech: 'NativeWind & Tailwind',
-    tagline: 'Consistent Design Systems',
+    tagline: 'CONSISTENT APP DESIGN',
     benefit:
-      'Maintains pixel-perfect design token parity between your mobile app interface and web platform without redundant styling.',
+      'Helps us create clean, consistent interfaces across your app and digital products.',
   },
 ]
 
-const COST_FACTORS = [
-  {
-    factor: 'Target Platforms',
-    detail:
-      'Unified cross-platform development (iOS + Android) provides dramatic cost efficiencies compared to contracting two isolated native engineering teams.',
-  },
-  {
-    factor: 'Backend & Database Architecture',
-    detail:
-      'Apps with existing APIs are simpler to build. If we are engineering a secure cloud backend, database schemas, and admin panels from scratch, scope expands.',
-  },
-  {
-    factor: 'Authentication & Security',
-    detail:
-      'Simple email login is straightforward. Biometric Face ID/Touch ID, Apple Sign-In compliance, and enterprise single sign-on (SSO) require additional security hardening.',
-  },
-  {
-    factor: 'In-App Purchasing vs Payment Gateways',
-    detail:
-      'Digital goods require Apple and Google in-app purchase systems with subscription lifecycle handling. Physical goods integrate with Stripe or Apple Pay.',
-  },
-  {
-    factor: 'Push Notification Logic',
-    detail:
-      'Basic broadcast announcements are simple. Automated transactional alerts, dynamic user segmentation, and deep-link routing require custom backend triggers.',
-  },
-  {
-    factor: 'Offline Data Synchronization',
-    detail:
-      'Offline-first apps require complex conflict resolution and on-device caching databases to ensure data integrity when multiple devices sync simultaneously.',
-  },
-  {
-    factor: 'Hardware & Sensor Integration',
-    detail:
-      'Interfacing with Bluetooth hardware, GPS geofencing, camera scanners, or background audio playback requires lower-level mobile driver integration.',
-  },
-  {
-    factor: 'Custom UI/UX & Micro-Interactions',
-    detail:
-      'High-end tactile haptics, physics-based dragging, and bespoke custom design systems take more iteration time than standardized mobile component libraries.',
-  },
-  {
-    factor: 'App Store Submission & Maintenance',
-    detail:
-      'Apple and Google privacy manifest audits, annual OS compatibility upgrades, and certificate rotations represent required ongoing operational support.',
-  },
-]
 
-const FEATURED_PROJECTS = [
-  {
-    name: 'MOBL Experience',
-    type: 'Mobile Application & Companion',
-    desc: 'A cross-platform mobile application engineered for live telemetry, product interaction, and seamless device synchronization.',
-    image: '/projects/project3.png',
-    alt: 'Mobl Mobile Application Engineering by Stack',
-    tech: 'React Native',
-  },
-  {
-    name: 'Stack Mobile Architecture',
-    type: 'Cross-Platform Client Framework',
-    desc: 'Our proprietary mobile engineering framework featuring modular navigation, biometric security, and offline cache synchronization.',
-    image: '/app.png',
-    alt: 'Stack Cross-Platform Mobile Client Architecture',
-    tech: 'iOS & Android',
-  },
-  {
-    name: 'SAVOR Mobile Booking Hub',
-    type: 'Mobile-First Guest Platform',
-    desc: 'A mobile-optimized culinary platform tailored for rapid on-the-go reservations, table management, and instant confirmation push alerts.',
-    image: '/projects/project1.png',
-    alt: 'Savor Mobile Platform by Stack',
-    tech: 'Mobile Web App',
-  },
-]
 
 export default function AppDevelopmentPage() {
   return (
@@ -426,14 +320,13 @@ export default function AppDevelopmentPage() {
 
             {/* Main Headline */}
             <h1 className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
-              Apps built around the way your customers use your{' '}
-              <span className="font-serif italic font-normal text-[#9E6941]">business.</span>
+              Mobile apps built for<br />
+              <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
             </h1>
 
             {/* Supporting Copy */}
             <p className="mt-3.5 sm:mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
-              We design and develop intuitive, high-performance mobile applications
-              for iOS and Android that turn your ideas into seamless mobile experiences.
+              We design and build mobile apps for iOS and Android that are easy to use, reliable, and built around your business goals.
             </p>
 
             {/* Visual Asset (App phones showcase) */}
@@ -457,7 +350,7 @@ export default function AppDevelopmentPage() {
                 href="/#work"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-black/[0.12] bg-white/70 active:bg-white text-neutral-900 font-medium text-sm transition-all duration-150"
               >
-                <span>View Our Work</span>
+                <span>See Our Work</span>
               </Link>
             </div>
 
@@ -465,15 +358,15 @@ export default function AppDevelopmentPage() {
             <div className="mt-5 pt-4 border-t border-black/[0.06] grid grid-cols-3 gap-2 text-center select-none">
               <div className="p-2 rounded-lg bg-black/[0.02] border border-black/[0.04]">
                 <span className="block text-[11px] font-bold text-neutral-900 leading-tight">iOS & Android</span>
-                <span className="block text-[10px] text-neutral-500 font-normal">Native</span>
+                <span className="block text-[10px] text-neutral-500 font-normal">Built for both platforms</span>
               </div>
               <div className="p-2 rounded-lg bg-black/[0.02] border border-black/[0.04]">
-                <span className="block text-[11px] font-bold text-neutral-900 leading-tight">Scalable</span>
-                <span className="block text-[10px] text-neutral-500 font-normal">Architecture</span>
+                <span className="block text-[11px] font-bold text-neutral-900 leading-tight">Easy to Use</span>
+                <span className="block text-[10px] text-neutral-500 font-normal">Clear, intuitive experiences</span>
               </div>
               <div className="p-2 rounded-lg bg-black/[0.02] border border-black/[0.04]">
-                <span className="block text-[11px] font-bold text-neutral-900 leading-tight">Secure &amp;</span>
-                <span className="block text-[10px] text-neutral-500 font-normal">Reliable</span>
+                <span className="block text-[11px] font-bold text-neutral-900 leading-tight">Secure &amp; Reliable</span>
+                <span className="block text-[10px] text-neutral-500 font-normal">Built for everyday use</span>
               </div>
             </div>
           </div>
@@ -495,17 +388,15 @@ export default function AppDevelopmentPage() {
 
                 {/* Main Headline */}
                 <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-[68px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
-                  Apps built around the way your customers use your{' '}
+                  Mobile apps built for<br />
                   <span className="font-serif italic font-normal text-[#9E6941]">
-                    business.
+                    your business.
                   </span>
                 </h1>
 
                 {/* Supporting Copy */}
                 <p className="mt-5 sm:mt-6 text-neutral-600 text-base sm:text-lg lg:text-lg xl:text-xl leading-relaxed max-w-xl font-normal">
-                  We design and develop intuitive, high-performance mobile
-                  applications for iOS and Android that turn your ideas into seamless
-                  mobile experiences.
+                  We design and build mobile apps for iOS and Android that are easy to use, reliable, and built around your business goals.
                 </p>
 
                 {/* Action Buttons */}
@@ -522,7 +413,7 @@ export default function AppDevelopmentPage() {
                     href="/#work"
                     className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-black/[0.12] hover:border-black/[0.25] bg-transparent text-neutral-900 font-medium text-sm sm:text-base hover:bg-black/[0.02] transition-colors"
                   >
-                    <span>View Our Work</span>
+                    <span>See Our Work</span>
                   </Link>
                 </div>
 
@@ -532,21 +423,21 @@ export default function AppDevelopmentPage() {
                     <Smartphone className="w-5 h-5 text-[#9E6941] shrink-0" strokeWidth={1.5} />
                     <div className="leading-tight">
                       <span className="block text-xs font-semibold text-neutral-800">iOS &amp; Android</span>
-                      <span className="block text-[11px] text-neutral-500 font-normal">Native</span>
+                      <span className="block text-[11px] text-neutral-500 font-normal">Built for both platforms</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Zap className="w-5 h-5 text-[#9E6941] shrink-0" strokeWidth={1.5} />
+                    <Sparkles className="w-5 h-5 text-[#9E6941] shrink-0" strokeWidth={1.5} />
                     <div className="leading-tight">
-                      <span className="block text-xs font-semibold text-neutral-800">Scalable</span>
-                      <span className="block text-[11px] text-neutral-500 font-normal">Architecture</span>
+                      <span className="block text-xs font-semibold text-neutral-800">Easy to Use</span>
+                      <span className="block text-[11px] text-neutral-500 font-normal">Clear, intuitive experiences</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <ShieldCheck className="w-5 h-5 text-[#9E6941] shrink-0" strokeWidth={1.5} />
                     <div className="leading-tight">
-                      <span className="block text-xs font-semibold text-neutral-800">Secure &amp;</span>
-                      <span className="block text-[11px] text-neutral-500 font-normal">Reliable</span>
+                      <span className="block text-xs font-semibold text-neutral-800">Secure &amp; Reliable</span>
+                      <span className="block text-[11px] text-neutral-500 font-normal">Built for everyday use</span>
                     </div>
                   </div>
                 </div>
@@ -574,20 +465,17 @@ export default function AppDevelopmentPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Mobile applications tailored to your exact operational workflow.
+                Mobile apps built around your business.
               </h2>
               <p className="mt-3.5 text-neutral-600 text-sm leading-relaxed font-normal">
-                A successful mobile app is not simply a website crammed into a
-                mobile wrapper. We engineer dedicated software solutions that
-                leverage on-device capabilities, deliver instant response times,
-                and simplify daily actions for users on the move.
+                We design and develop mobile apps that are easy to use, reliable, and built around the needs of your customers and your team.
               </p>
               <div className="mt-4 mb-7">
                 <Link
                   href="/#contact"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                 >
-                  <span>Discuss your app concept</span>
+                  <span>Tell us about your app</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -607,7 +495,7 @@ export default function AppDevelopmentPage() {
                     <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1.5">
                       {item.title}
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-none">
+                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
                       {item.desc}
                     </p>
                   </div>
@@ -630,20 +518,17 @@ export default function AppDevelopmentPage() {
                   <div className="w-8 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-neutral-950 tracking-tight leading-tight">
-                  Mobile applications tailored to your exact operational workflow.
+                  Mobile apps built around your business.
                 </h2>
                 <p className="mt-4 sm:mt-5 text-neutral-600 text-base sm:text-lg leading-relaxed font-normal">
-                  A successful mobile app is not simply a website crammed into a
-                  mobile wrapper. We engineer dedicated software solutions that
-                  leverage on-device capabilities, deliver instant response times,
-                  and simplify daily actions for users on the move.
+                  We design and develop mobile apps that are easy to use, reliable, and built around the needs of your customers and your team.
                 </p>
                 <div className="mt-6 sm:mt-8">
                   <Link
                     href="/#contact"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                   >
-                    <span>Discuss your app concept</span>
+                    <span>Tell us about your app</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -681,16 +566,15 @@ export default function AppDevelopmentPage() {
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  TECHNICAL CAPABILITIES
+                  APP CAPABILITIES
                 </span>
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Full-stack mobile engineering standards.
+                Everything your app needs to work well.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                From initial touch-screen interaction design to App Store approval
-                and cloud telemetry, we handle every layer of the mobile stack.
+                From design and development to testing and launch, we handle everything needed to build a reliable mobile app.
               </p>
             </div>
 
@@ -710,7 +594,7 @@ export default function AppDevelopmentPage() {
                       <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
                         {cap.title}
                       </h3>
-                      <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-none">
+                      <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
                         {cap.summary}
                       </p>
                     </div>
@@ -728,16 +612,15 @@ export default function AppDevelopmentPage() {
             <div className="max-w-2xl mb-12 sm:mb-16">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  TECHNICAL CAPABILITIES
+                  APP CAPABILITIES
                 </span>
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Full-stack mobile engineering standards.
+                Everything your app needs to work well.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                From initial touch-screen interaction design to App Store approval
-                and cloud telemetry, we handle every layer of the mobile stack.
+                From design and development to testing and launch, we handle everything needed to build a reliable mobile app.
               </p>
             </div>
 
@@ -777,7 +660,7 @@ export default function AppDevelopmentPage() {
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  DEVELOPMENT TIMELINE
+                  DEVELOPMENT PROCESS
                 </span>
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
@@ -785,9 +668,7 @@ export default function AppDevelopmentPage() {
                 Our app development process.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Building a mobile app requires strict platform discipline. We
-                guide you through six milestone-driven phases from concept to
-                storefront feature.
+                From the first idea to launch, we keep the process clear, collaborative, and easy to follow.
               </p>
             </div>
 
@@ -805,7 +686,7 @@ export default function AppDevelopmentPage() {
                     <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
                       {stage.title}
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-4">
+                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
                       {stage.body}
                     </p>
                   </div>
@@ -822,7 +703,7 @@ export default function AppDevelopmentPage() {
             <div className="max-w-2xl mb-12 sm:mb-16">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  DEVELOPMENT TIMELINE
+                  DEVELOPMENT PROCESS
                 </span>
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
@@ -830,9 +711,7 @@ export default function AppDevelopmentPage() {
                 Our app development process.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Building a mobile app requires strict platform discipline. We
-                guide you through six milestone-driven phases from concept to
-                storefront feature.
+                From the first idea to launch, we keep the process clear, collaborative, and easy to follow.
               </p>
             </div>
 
@@ -860,94 +739,8 @@ export default function AppDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 5. WHO IT'S FOR ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40">
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  PRACTICAL USE CASES
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                When does your business need a dedicated mobile app?
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Not every company needs an app. We advise clients to invest in a
-                mobile application when customer convenience, repeat interactions,
-                or operational efficiency make native mobile software
-                demonstrably superior.
-              </p>
-            </div>
 
-            {/* Compact 2-column mobile use cases */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-              {USE_CASES.map((item) => (
-                <div
-                  key={item.type}
-                  className="p-3.5 sm:p-4 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1.5">
-                      {item.type}
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-4">
-                      {item.reason}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  PRACTICAL USE CASES
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                When does your business need a dedicated mobile app?
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Not every company needs an app. We advise clients to invest in a
-                mobile application when customer convenience, repeat interactions,
-                or operational efficiency make native mobile software
-                demonstrably superior.
-              </p>
-            </div>
-
-            {/* Use Cases Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {USE_CASES.map((item) => (
-                <div
-                  key={item.type}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {item.type}
-                    </h3>
-                    <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal">
-                      {item.reason}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. TECHNOLOGY ─── */}
+        {/* ─── 5. TECHNOLOGY ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]">
           {/* ========================================================================= */}
           {/* MOBILE COMPOSITION (< lg)                                                 */}
@@ -961,24 +754,20 @@ export default function AppDevelopmentPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Proven mobile technologies that save time and eliminate technical debt.
+                Modern technology for reliable mobile apps.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                We specialize in modern React Native and cloud architectures.
-                Instead of building two completely separate development teams
-                for iOS and Android, our approach gives you a single, unified,
-                high-speed codebase that runs natively across both platforms.
+                We use modern, reliable technology to build mobile apps that are easier to maintain, ready to grow, and consistent across iOS and Android.
               </p>
             </div>
 
             {/* Commercial Benefits Callout Banner */}
             <div className="my-5 p-3.5 rounded-xl border border-black/[0.06] bg-[#F2EDE4]/60">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-700 mb-1">
-                Commercial Benefits:
+                WHAT THIS MEANS FOR YOU:
               </p>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                50% lower maintenance overhead, simultaneous feature
-                releases on both app stores, and shared business logic with your web dashboard.
+                A solid technical foundation that makes your app easier to maintain, improve, and expand over time.
               </p>
             </div>
 
@@ -996,7 +785,7 @@ export default function AppDevelopmentPage() {
                     <span className="text-[10px] sm:text-[11px] font-semibold text-[#9E6941] tracking-tight uppercase block mt-0.5 mb-1.5">
                       {item.tagline}
                     </span>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-none">
+                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
                       {item.benefit}
                     </p>
                   </div>
@@ -1019,22 +808,17 @@ export default function AppDevelopmentPage() {
                   <div className="w-8 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-tight">
-                  Proven mobile technologies that save time and eliminate technical debt.
+                  Modern technology for reliable mobile apps.
                 </h2>
                 <p className="mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
-                  We specialize in modern React Native and cloud architectures.
-                  Instead of building two completely separate development teams
-                  for iOS and Android, our approach gives you a single, unified,
-                  high-speed codebase that runs natively across both platforms.
+                  We use modern, reliable technology to build mobile apps that are easier to maintain, ready to grow, and consistent across iOS and Android.
                 </p>
                 <div className="mt-6 pt-6 border-t border-black/[0.06]">
                   <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
-                    Commercial Benefits:
+                    WHAT THIS MEANS FOR YOU:
                   </p>
                   <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed">
-                    50% lower maintenance overhead, simultaneous feature
-                    releases on both app stores, and shared business logic that
-                    can also power your web dashboard.
+                    A solid technical foundation that makes your app easier to maintain, improve, and expand over time.
                   </p>
                 </div>
               </div>
@@ -1066,7 +850,7 @@ export default function AppDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 7. APP VS WEBSITE (HONEST COMPARISON) ─── */}
+        {/* ─── 6. APP VS WEBSITE (HONEST COMPARISON) ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">
           {/* ========================================================================= */}
           {/* MOBILE COMPOSITION (< lg)                                                 */}
@@ -1080,12 +864,10 @@ export default function AppDevelopmentPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Mobile application vs. responsive website.
+                Do you need an app or a website?
               </h2>
               <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Before committing to an app build, it is vital to know whether a
-                mobile app is truly justified. Here is an honest evaluation of
-                where each medium excels.
+                Not every business needs a mobile app. We help you choose the right option based on how your customers use your business.
               </p>
             </div>
 
@@ -1105,12 +887,10 @@ export default function AppDevelopmentPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Mobile application vs. responsive website.
+                Do you need an app or a website?
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Before committing to an app build, it is vital to know whether a
-                mobile app is truly justified. Here is an honest evaluation of
-                where each medium excels.
+                Not every business needs a mobile app. We help you choose the right option based on how your customers use your business.
               </p>
             </div>
 
@@ -1119,295 +899,7 @@ export default function AppDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 8. COST FACTORS ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]">
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  REALISTIC BUDGETING
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                What influences mobile app development cost?
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                App budgets vary based on engineering depth rather than arbitrary
-                page counts. We provide transparent estimates rooted in concrete
-                architectural specifications.
-              </p>
-            </div>
 
-            {/* Compact 2-column mobile cost factors */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-              {COST_FACTORS.map((item, idx) => (
-                <div
-                  key={item.factor}
-                  className="p-3.5 sm:p-4 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-[#9E6941] bg-[#9E6941]/10 px-1.5 py-0.5 rounded inline-block mb-1.5">
-                      0{idx + 1}
-                    </span>
-                    <h3 className="text-xs sm:text-sm font-bold text-neutral-950 leading-snug mb-1">
-                      {item.factor}
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal line-clamp-4">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile Proposal CTA Banner */}
-            <div className="mt-6 p-4 sm:p-5 rounded-2xl border border-black/[0.08] bg-[#F5F1EA]/60">
-              <h3 className="text-sm sm:text-base font-bold text-neutral-950 mb-1">
-                Planning a mobile app for your business?
-              </h3>
-              <p className="text-xs text-neutral-600 leading-relaxed mb-4">
-                Share your feature list and commercial objectives. We provide
-                honest feasibility assessments and phased budget roadmaps.
-              </p>
-              <a
-                href="mailto:hello@stack.studio?subject=Mobile%20App%20Estimate"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#111111] active:bg-black text-white text-xs font-medium transition-colors"
-              >
-                <span>Request an App Proposal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  REALISTIC BUDGETING
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                What influences mobile app development cost?
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                App budgets vary based on engineering depth rather than arbitrary
-                page counts. We provide transparent estimates rooted in concrete
-                architectural specifications.
-              </p>
-            </div>
-
-            {/* Cost Factors Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {COST_FACTORS.map((item) => (
-                <div
-                  key={item.factor}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {item.factor}
-                    </h3>
-                    <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Proposal CTA Banner */}
-            <div className="mt-12 p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-[#F5F1EA]/50 max-w-4xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div>
-                <h3 className="text-lg font-bold text-neutral-950 mb-1">
-                  Planning a mobile app for your business?
-                </h3>
-                <p className="text-xs sm:text-sm text-neutral-600">
-                  Share your feature list and commercial objectives. We provide
-                  honest feasibility assessments, technology recommendations, and
-                  phased budget roadmaps.
-                </p>
-              </div>
-              <a
-                href="mailto:hello@stack.studio?subject=Mobile%20App%20Estimate"
-                className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#111111] hover:bg-black text-white text-xs sm:text-sm font-medium transition-colors"
-              >
-                <span>Request an App Proposal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 9. PORTFOLIO ─── */}
-        <section
-          id="app-portfolio"
-          className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40"
-        >
-          {/* ========================================================================= */}
-          {/* MOBILE COMPOSITION (< lg)                                                 */}
-          {/* ========================================================================= */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  REAL APPLICATION WORK
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Mobile products and application ecosystems.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
-                Explore mobile applications, companion software, and
-                high-utility digital tools engineered by Stack.
-              </p>
-            </div>
-
-            {/* Mobile Stacked Project Cards */}
-            <div className="space-y-4">
-              {FEATURED_PROJECTS.map((project) => (
-                <div
-                  key={project.name}
-                  className="rounded-2xl border border-black/[0.08] bg-white overflow-hidden shadow-xs"
-                >
-                  <div className="relative aspect-[16/10] w-full bg-neutral-100 overflow-hidden border-b border-black/[0.06]">
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, 450px"
-                    />
-                  </div>
-
-                  <div className="p-4 sm:p-5">
-                    <span className="text-[10px] font-semibold tracking-wider uppercase text-[#9E6941] mb-1 block">
-                      {project.type}
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-neutral-950 mb-1.5">
-                      {project.name}
-                    </h3>
-                    <p className="text-xs text-neutral-600 leading-relaxed font-normal">
-                      {project.desc}
-                    </p>
-                    <div className="mt-4 pt-3.5 border-t border-black/[0.06] flex items-center justify-between">
-                      <Link
-                        href="/#work"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 active:text-[#9E6941]"
-                      >
-                        <span>View Project</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                      <span className="text-[11px] font-mono text-neutral-400">
-                        {project.tech}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Studio link */}
-            <div className="mt-6 text-center">
-              <Link
-                href="/#work"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-900 underline underline-offset-4 decoration-neutral-300"
-              >
-                <span>View all studio work</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* ========================================================================= */}
-          {/* DESKTOP COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT       */}
-          {/* ========================================================================= */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-              <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                    REAL APPLICATION WORK
-                  </span>
-                  <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                  Mobile products and application ecosystems.
-                </h2>
-                <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                  Explore mobile applications, companion software, and
-                  high-utility digital tools engineered by Stack.
-                </p>
-              </div>
-
-              <Link
-                href="/#work"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-900 hover:text-black underline underline-offset-4 decoration-neutral-300 transition-colors"
-              >
-                <span>View all studio work</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* 3 Real Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-              {FEATURED_PROJECTS.map((project) => (
-                <div
-                  key={project.name}
-                  className="group flex flex-col justify-between rounded-2xl border border-black/[0.08] bg-white overflow-hidden shadow-xs hover:border-black/[0.25] transition-all duration-300"
-                >
-                  {/* Real Project Image */}
-                  <div className="relative aspect-[16/10] w-full bg-neutral-100 overflow-hidden border-b border-black/[0.06]">
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 450px"
-                    />
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
-                    <div>
-                      <span className="text-[11px] font-semibold tracking-wider uppercase text-[#9E6941] mb-2 block">
-                        {project.type}
-                      </span>
-                      <h3 className="text-xl font-bold text-neutral-950 mb-2">
-                        {project.name}
-                      </h3>
-                      <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed">
-                        {project.desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-6 pt-5 border-t border-black/[0.06] flex items-center justify-between">
-                      <Link
-                        href="/#work"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#9E6941] transition-colors"
-                      >
-                        <span>View Project</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                      </Link>
-                      <span className="text-[11px] font-mono text-neutral-400">
-                        {project.tech}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ─── 10. FAQ SECTION ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">

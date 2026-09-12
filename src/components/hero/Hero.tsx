@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect, useState, useCallback } from 'react'
+import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import HeroCanvas, {
@@ -39,6 +40,7 @@ export default function Hero() {
   // Desktop Frame-Synchronized Hero Boundary Gate:
   // Holds the Hero visually full-bleed until Clip 4 (frame 239) has actually rendered to Canvas
   const isGatedRef = useRef(false)
+  const savedTransformRef = useRef<string | null>(null)
 
   const lockHeroBoundary = useCallback(() => {
     if (isGatedRef.current) return
@@ -46,6 +48,10 @@ export default function Hero() {
     if (!pinTarget) return
 
     isGatedRef.current = true
+    const previousTransform = pinTarget.style.transform
+    savedTransformRef.current = previousTransform
+
+    pinTarget.style.transform = 'none'
     pinTarget.style.position = 'fixed'
     pinTarget.style.top = '0px'
     pinTarget.style.left = '0px'
@@ -60,6 +66,10 @@ export default function Hero() {
     if (!pinTarget) return
 
     isGatedRef.current = false
+    const previousTransform = savedTransformRef.current
+    savedTransformRef.current = null
+    pinTarget.style.transform = previousTransform || ''
+
     pinTarget.style.position = ''
     pinTarget.style.top = ''
     pinTarget.style.left = ''
@@ -172,9 +182,14 @@ export default function Hero() {
 
       // DESKTOP ONLY: Frame-synchronized boundary gate at Hero end
       if (!isMobileRef.current) {
+        const isReturningToServices =
+          typeof window !== 'undefined' &&
+          (sessionStorage.getItem('stack_return_to_services') === 'true' ||
+            window.location.hash === '#services')
+
         const isAtEnd = self.scroll() >= self.end || progress >= 1.0
 
-        if (isAtEnd) {
+        if (isAtEnd && !isReturningToServices && self.scroll() <= self.end + 50) {
           const isFinalRendered = canvasHandleRef.current?.isFinalFrameRendered() ?? false
           if (!isFinalRendered) {
             // Cold start fast scroll reached end before frame 239 was rendered: activate gate
@@ -186,8 +201,8 @@ export default function Hero() {
             // Frame 239 is rendered: release
             releaseHeroBoundary(self.end)
           }
-        } else if (isGatedRef.current && self.scroll() < self.end) {
-          // User reversed scroll back into Hero: release immediately
+        } else if (isGatedRef.current) {
+          // User reversed scroll back into Hero or returned to downstream section: release immediately
           releaseHeroBoundary()
         }
       }
@@ -292,7 +307,7 @@ export default function Hero() {
   }, [updateUIOnScroll, lockHeroBoundary, releaseHeroBoundary])
 
   return (
-    <div ref={containerRef} suppressHydrationWarning className="relative w-full">
+    <div ref={containerRef} suppressHydrationWarning className="relative w-full bg-[#FAF8F4]">
       {/* Pinned Viewport Container - Full Bleed Screen */}
       <section
         ref={pinTargetRef}
@@ -320,7 +335,7 @@ export default function Hero() {
 
           <div className="relative z-10 w-full max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pointer-events-auto h-full sm:h-auto flex flex-col sm:block justify-start">
             {/* Top Text Block (Eyebrow, Heading, Subtitle) */}
-            <div className="max-w-[350px] xs:max-w-[370px] sm:max-w-lg lg:max-w-[420px] xl:max-w-[460px] pt-[120px] sm:pt-0 lg:pt-0">
+            <div className="max-w-[350px] xs:max-w-[370px] sm:max-w-lg lg:max-w-[420px] xl:max-w-[460px] pt-[92px] sm:pt-0 lg:pt-0 -translate-x-2 sm:-translate-x-6 lg:-translate-x-10 sm:-translate-y-7 lg:-translate-y-10">
               {/* Eyebrow */}
               <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-white/90 sm:text-white/80 mb-2 sm:mb-4 drop-shadow-sm">
                 WEB DESIGN &amp; DEVELOPMENT
@@ -328,13 +343,13 @@ export default function Hero() {
 
               {/* Main Heading */}
               <h1 className="text-[29px] xs:text-[32px] sm:text-4xl lg:text-[44px] xl:text-[50px] font-bold text-white tracking-tight leading-[1.12] mb-2.5 sm:mb-4 drop-shadow-md">
-                Websites that
-                <br />
-                make businesses
+                Custom websites,
                 <br />
                 <span className="font-serif italic font-normal text-[#D5B28D]">
-                  stand out.
+                  perfectly stitched
                 </span>
+                <br />
+                for your business.
               </h1>
 
               {/* Subtitle Paragraph */}
@@ -345,8 +360,8 @@ export default function Hero() {
 
               {/* Desktop CTA Buttons (Visible inside column on sm and above, completely unchanged) */}
               <div className="hidden sm:flex flex-wrap items-center gap-3 sm:gap-3.5">
-                <a
-                  href="#work"
+                <Link
+                  href="/work"
                   className="inline-flex items-center gap-2 px-6 sm:px-6.5 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-neutral-950 bg-white hover:bg-neutral-100 transition-all duration-200 shadow-md group"
                 >
                   View Our Work
@@ -361,9 +376,9 @@ export default function Hero() {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-6 sm:px-6.5 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 transition-all duration-200 shadow-sm group"
                 >
                   Start a Project
@@ -378,14 +393,14 @@ export default function Hero() {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Mobile Bottom CTA Buttons (Placed exactly below the laptop keyboard, above stone ledge) */}
-            <div className="sm:hidden absolute left-5 right-5 bottom-[15%] xs:bottom-[15%] flex items-center justify-start gap-3 pointer-events-auto">
-              <a
-                href="#work"
+            <div className="sm:hidden absolute left-5 right-5 bottom-[15%] xs:bottom-[15%] flex items-center justify-start gap-3 pointer-events-auto -translate-x-2">
+              <Link
+                href="/work"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-neutral-950 bg-white hover:bg-neutral-100 transition-all duration-200 shadow-md group flex-shrink-0"
               >
                 View Our Work
@@ -400,9 +415,9 @@ export default function Hero() {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-white bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/40 transition-all duration-200 shadow-sm group flex-shrink-0"
               >
                 Start a Project
@@ -417,7 +432,7 @@ export default function Hero() {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

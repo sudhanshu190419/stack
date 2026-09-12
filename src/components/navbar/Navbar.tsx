@@ -29,17 +29,11 @@ const SERVICES_MENU = [
     href: '/ecommerce-development',
     description: 'High-converting online stores built on Shopify, Next.js & modern commerce.',
   },
-  {
-    title: 'Website Redesign',
-    href: '/#services',
-    description: 'Modernize legacy codebases and elevate brand credibility.',
-  },
 ]
 
 const NAV_LINKS = [
   { label: 'Our Work', href: '/work' },
   { label: 'Our Process', href: '/#process' },
-  { label: 'Testimonials', href: '/#testimonials' },
   { label: 'Contact', href: '/contact' },
 ]
 

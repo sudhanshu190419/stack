@@ -62,11 +62,11 @@ export default function WorkFilterBar({
   }, [])
 
   return (
-    <section className="w-full bg-[#FAF7F2] pt-8 sm:pt-10 pb-3 sm:pb-4">
+    <section className="w-full bg-[#FAF7F2] pt-6 sm:pt-10 pb-3 sm:pb-4">
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 max-w-[1700px] mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 lg:gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 lg:gap-6">
           {/* Left: Category Pill Filter Buttons */}
-          <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+          <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-1.5 sm:pb-0 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
             {CATEGORIES.map((category) => {
               const isActive = activeCategory === category
               return (
@@ -74,7 +74,7 @@ export default function WorkFilterBar({
                   key={category}
                   type="button"
                   onClick={() => handleCategoryClick(category)}
-                  className={`cursor-pointer shrink-0 rounded-full px-5 py-2 text-[13px] sm:text-sm font-medium transition-all duration-200 select-none ${
+                  className={`cursor-pointer shrink-0 rounded-full px-4 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-medium transition-all duration-200 select-none ${
                     isActive
                       ? 'bg-neutral-950 text-white shadow-xs'
                       : 'bg-white text-neutral-700 hover:text-neutral-950 border border-black/[0.08] shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-black/[0.16] hover:bg-neutral-50/80'

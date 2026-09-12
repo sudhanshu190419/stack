@@ -14,11 +14,10 @@ const NAVIGATION_LINKS = [
 ]
 
 const SERVICES_LINKS = [
-  { label: 'Website Design', href: '#services' },
-  { label: 'Website Development', href: '#services' },
-  { label: 'Branding', href: '#services' },
-  { label: 'SEO & Growth', href: '#services' },
-  { label: 'Maintenance', href: '#services' },
+  { label: 'Web Development', href: '/web-development' },
+  { label: 'App Development', href: '/app-development' },
+  { label: 'Web Design', href: '/website-design' },
+  { label: 'E-Commerce', href: '/ecommerce-development' },
 ]
 
 export default function Footer() {
@@ -43,10 +42,10 @@ export default function Footer() {
             />
           </Link>
           <p className="mt-2 text-neutral-700 text-sm font-normal">
-            Websites for what&apos;s next.
+            Websites, stores &amp; apps, perfectly stitched.
           </p>
           <p className="mt-4 text-neutral-600 text-sm leading-relaxed max-w-sm font-normal">
-            We design and build modern websites that help ambitious businesses grow.
+            We design and build websites, online stores, and mobile apps that help businesses grow.
           </p>
 
           {/* Social Icons */}
@@ -230,13 +229,12 @@ export default function Footer() {
 
               {/* Tagline */}
               <p className="mt-2 text-neutral-700 text-[15px] sm:text-base font-normal">
-                Websites for what&apos;s next.
+                Websites, stores &amp; apps, perfectly stitched.
               </p>
 
               {/* Description */}
-              <p className="mt-7 text-neutral-500 text-[14px] sm:text-[15px] leading-relaxed max-w-[310px] font-normal">
-                We design and build modern websites that help ambitious businesses
-                grow.
+              <p className="mt-7 text-neutral-500 text-[14px] sm:text-[15px] leading-relaxed max-w-[340px] font-normal">
+                We design and build websites, online stores, and mobile apps that help businesses grow.
               </p>
             </div>
 

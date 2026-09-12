@@ -143,7 +143,7 @@ export default function HeroButtons() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
       >
-        <MagneticButton variant="primary" href="#work">
+        <MagneticButton variant="primary" href="/work">
           <span>View Our Work</span>
           <svg
             className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
@@ -157,7 +157,7 @@ export default function HeroButtons() {
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </MagneticButton>
-        <MagneticButton variant="secondary" href="#contact">
+        <MagneticButton variant="secondary" href="/contact">
           <span>Start a Project</span>
           <svg
             className="w-4 h-4"

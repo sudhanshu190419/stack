@@ -168,7 +168,7 @@ export default function TestimonialsSection() {
           <div className="flex items-center gap-3">
             <div className="w-8 sm:w-12 h-[1px] bg-[#9E6941]" />
             <span className="text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-neutral-600 select-none">
-              WHAT CLIENTS SAY
+              WHAT OUR CLIENTS SAY
             </span>
           </div>
 
@@ -180,9 +180,10 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Main Headline */}
-        <h2 className="text-2xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-neutral-950 tracking-tight leading-[1.12] max-w-3xl">
-          Founders and teams that{' '}
-          <span className="text-[#9E6941]">stopped guessing</span>.
+        <h2 className="text-[clamp(14.5px,3.8vw,16px)] sm:text-3xl lg:text-[38px] xl:text-[42px] font-normal text-neutral-900 tracking-tight leading-[1.3] sm:leading-[1.25] max-w-5xl">
+          Honest feedback from businesses that chose
+          <br />
+          <span className="font-bold text-[#9E6941]">StackStich</span> for their digital projects.
         </h2>
       </div>
 

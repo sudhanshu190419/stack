@@ -23,16 +23,17 @@ import HeroVisual from '@/components/webdev/HeroVisual'
 import FaqAccordion from '@/components/webdev/FaqAccordion'
 import { FAQ_DATA } from '@/components/webdev/faqData'
 import ComparisonTable from '@/components/webdev/ComparisonTable'
+import WorkSection from '@/components/work/WorkSection'
 
 export const metadata: Metadata = {
-  title: 'Web Development Services — Websites Built to Perform | Stack',
+  title: 'Web Development Services — Websites Built to Work for Your Business | Stack',
   description:
     'Stack designs and develops fast, responsive, scalable custom websites for growing businesses. Engineered with Next.js, TypeScript, modern CMS platforms, and Core Web Vitals excellence.',
   alternates: {
     canonical: 'https://stack.studio/web-development',
   },
   openGraph: {
-    title: 'Web Development Services — Websites Built to Perform | Stack',
+    title: 'Web Development Services — Websites Built to Work for Your Business | Stack',
     description:
       'Stack designs and develops fast, responsive, scalable custom websites for growing businesses. Engineered with Next.js, modern CMS platforms, and Core Web Vitals excellence.',
     url: 'https://stack.studio/web-development',
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web Development Services — Websites Built to Perform | Stack',
+    title: 'Web Development Services — Websites Built to Work for Your Business | Stack',
     description:
       'Fast, responsive, and scalable custom websites for modern businesses. Built by Stack.',
   },
@@ -96,21 +97,35 @@ const SERVICE_SCHEMA = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Responsive Frontend Engineering',
+          name: 'Marketing & Landing Pages',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Performance & Core Web Vitals Optimization',
+          name: 'Responsive Websites',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'CMS Architecture & Integration',
+          name: 'Easy-to-Manage Websites',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Custom Website Features',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Business Integrations',
         },
       },
     ],
@@ -133,86 +148,86 @@ const FAQ_SCHEMA = {
 const SCOPE_ITEMS = [
   {
     title: 'Custom Business Websites',
-    desc: 'Tailored digital flagships built to communicate credibility, present your services clearly, and convert prospective clients.',
+    desc: 'Professional websites designed around your business, services, and customers.',
   },
   {
     title: 'Marketing & Landing Pages',
-    desc: 'High-converting campaign landing pages optimized for search visibility, targeted paid traffic, and fast lead generation.',
+    desc: 'Focused landing pages built to promote your business, products, services, or campaigns.',
   },
   {
-    title: 'Responsive Cross-Device Layouts',
-    desc: 'Fluid user interfaces designed to look sharp, load quickly, and function intuitively on phones, tablets, and large displays.',
+    title: 'Responsive Websites',
+    desc: 'Websites that look and work smoothly on phones, tablets, laptops, and larger screens.',
   },
   {
-    title: 'CMS-Powered Content Hubs',
-    desc: 'Intuitive publishing setups that let your marketing team edit text, upload media, and launch blog posts without engineering help.',
+    title: 'Easy-to-Manage Websites',
+    desc: 'Manage your pages, images, blogs, and other content without needing a developer.',
   },
   {
-    title: 'Custom Frontend Development',
-    desc: 'Clean, modern interfaces engineered using React and Next.js, eliminating legacy bloat and sluggish script execution.',
+    title: 'Custom Website Features',
+    desc: 'Interactive features and custom experiences built specifically around your business needs.',
   },
   {
-    title: 'API & Third-Party Integrations',
-    desc: 'Direct connections to your CRM, booking engines, payment gateways (Stripe), email providers, and custom databases.',
-  },
-  {
-    title: 'Performance & Speed Optimization',
-    desc: 'Fine-tuned asset loading and server-side rendering that achieve top Google Core Web Vitals scores and reduce bounce rates.',
-  },
-  {
-    title: 'Deployment, DNS & Launch',
-    desc: 'Thorough pre-flight checks, secure domain setup, automated SSL, and cloud deployment with zero business disruption.',
+    title: 'Business Integrations',
+    desc: 'Connect your website with payments, bookings, CRM systems, email, forms, and other tools you use.',
   },
 ]
 
 const CAPABILITIES_DATA = [
   {
+    number: '01',
     icon: Smartphone,
-    title: 'Responsive Development',
+    title: 'Responsive on Every Device',
     summary:
-      'Pixel-precise layouts that adapt dynamically to any viewport. No broken horizontal scrolls, no illegible text on mobile.',
+      'Your website will look and work smoothly across phones, tablets, laptops, and desktop screens.',
   },
   {
+    number: '02',
     icon: Zap,
     title: 'Performance Optimization',
     summary:
-      'Optimized image compression, clean code splitting, and sub-second initial load times that keep visitors engaged.',
+      'Optimized for fast loading, smooth interactions, and a better experience for your visitors.',
   },
   {
+    number: '03',
     icon: Search,
     title: 'SEO Foundations',
     summary:
-      'Semantic HTML5 structure, structured metadata, canonical tags, automated XML sitemaps, and robots.txt setup.',
+      'Built with a strong SEO foundation so search engines can understand and index your website properly.',
   },
   {
+    number: '04',
     icon: ShieldCheck,
-    title: 'Accessibility (a11y)',
+    title: 'Accessible & Easy to Use',
     summary:
-      'High-contrast color palettes, accessible focus states, keyboard navigation support, and clean ARIA labels.',
+      'Clear layouts, readable content, keyboard-friendly navigation, and accessible interactions for more visitors.',
   },
   {
+    number: '05',
     icon: Layers,
-    title: 'Modern CMS Setup',
+    title: 'Easy Content Management',
     summary:
-      'A user-friendly visual editor configured around your exact content structure so your team can make updates without risk.',
+      'Update your text, images, pages, and blog content without needing a developer for every small change.',
   },
   {
+    number: '06',
     icon: LineChart,
     title: 'Analytics & Tracking',
     summary:
-      'Complete integration with Google Analytics 4, Plausible, or PostHog, including custom conversion event triggers.',
+      'Understand how visitors find and use your website, with tracking set up around the actions that matter to your business.',
   },
   {
+    number: '07',
     icon: Sliders,
-    title: 'Third-Party Integrations',
+    title: 'Business Integrations',
     summary:
-      'Seamless wiring with booking forms, newsletter subscriptions, payment gateways, and CRM lead capture.',
+      'Connect your website with forms, bookings, payments, email tools, CRM systems, and other services you use.',
   },
   {
+    number: '08',
     icon: Cpu,
-    title: 'Edge Deployment',
+    title: 'Secure & Reliable Hosting',
     summary:
-      'Global cloud deployment on fast edge networks (Vercel/AWS) with automated backup, SSL encryption, and high uptime.',
+      'Your website is deployed on reliable infrastructure with SSL, backups, and the setup needed for a secure online presence.',
   },
 ]
 
@@ -220,227 +235,77 @@ const PROCESS_STAGES = [
   {
     step: '01',
     title: 'Discovery',
-    body: 'We study your business model, target market, audience pain points, and current technical assets to define clear requirements and measurable KPIs.',
+    body: 'We learn about your business, your customers, your goals, and what your website needs to achieve.',
   },
   {
     step: '02',
-    title: 'Planning & Architecture',
-    body: 'We establish the sitemap, determine content hierarchy, select the right CMS configuration, and produce interactive wireframes to validate layout flow.',
+    title: 'Planning',
+    body: 'We plan the website structure, content, features, and the best approach for building everything smoothly.',
   },
   {
     step: '03',
-    title: 'Design & Prototyping',
-    body: 'We design bespoke desktop and mobile Figma prototypes, applying your brand identity with typography, responsive spacing, and micro-interactions.',
+    title: 'Design & Review',
+    body: 'We create the visual direction and page designs, then refine them with your feedback before development begins.',
   },
   {
     step: '04',
-    title: 'Production Development',
-    body: 'We turn approved designs into clean, modular code using Next.js and Tailwind CSS, wire up the CMS, and integrate all required third-party APIs.',
+    title: 'Development',
+    body: 'We turn the approved designs into a fast, responsive website and build the features your business needs.',
   },
   {
     step: '05',
-    title: 'Rigorous Testing & QA',
-    body: 'We execute comprehensive cross-browser testing, mobile device audits, form validation checks, accessibility reviews, and Core Web Vitals speed tuning.',
+    title: 'Testing & Refinement',
+    body: 'We test the website across devices and browsers, fix issues, and make sure everything works as expected.',
   },
   {
     step: '06',
     title: 'Launch & Handoff',
-    body: 'We deploy to production, verify DNS and SSL certificates, test analytics and sitemap indexing, and train your team on day-to-day content updates.',
+    body: 'We take your website live, complete the final checks, and show you how to manage your website going forward.',
   },
 ]
 
-const AUDIENCE_SECTORS = [
-  {
-    sector: 'Startups & Ventures',
-    summary:
-      'Fast-moving founders who need a polished digital front to build credibility with investors and convert early adopters.',
-  },
-  {
-    sector: 'Professional Services',
-    summary:
-      'Law firms, accounting practices, and consultancies where professional reputation and high-trust lead capture are critical.',
-  },
-  {
-    sector: 'Hospitality & Restaurants',
-    summary:
-      'Venues and dining groups requiring atmospheric visual storytelling, seamless menu viewing, and reservation bookings.',
-  },
-  {
-    sector: 'SaaS & Tech Products',
-    summary:
-      'Software companies needing clear product storytelling, feature breakdowns, transparent pricing tables, and demo requests.',
-  },
-  {
-    sector: 'Agencies & Studios',
-    summary:
-      'Creative firms and marketing agencies that require bespoke case studies, interactive project showcases, and editorial flair.',
-  },
-  {
-    sector: 'E-Commerce Brands',
-    summary:
-      'Direct-to-consumer businesses needing fast, distraction-free product discovery, custom filtering, and high-converting checkout.',
-  },
-  {
-    sector: 'Local Businesses',
-    summary:
-      'High-quality local contractors, clinics, and specialists that want to outperform competitors on Google Search.',
-  },
-  {
-    sector: 'Established Rebuilds',
-    summary:
-      'Companies with slow, legacy WordPress sites that need a clean modernization without losing hard-earned SEO authority.',
-  },
-]
 
 const TECH_STACK = [
   {
     tech: 'Next.js',
-    tagline: 'Server-Side Rendering & Speed',
+    tagline: 'FAST, MODERN WEBSITES',
     benefit:
-      'Provides pre-rendered HTML for instant search engine indexing and lightning-fast page changes without jarring full-page refreshes.',
+      'Helps create fast-loading pages and a smooth experience across your website.',
   },
   {
     tech: 'React',
-    tagline: 'Component-Driven Architecture',
+    tagline: 'FLEXIBLE USER INTERFACES',
     benefit:
-      'Enables modular, reusable user interface components that reduce development time, prevent styling bugs, and scale cleanly.',
+      'Makes it easier to build interactive website features that can grow with your business.',
   },
   {
     tech: 'TypeScript',
-    tagline: 'Type-Safe Reliability',
+    tagline: 'RELIABLE DEVELOPMENT',
     benefit:
-      'Catches errors before code reaches production, resulting in higher application stability, fewer bugs, and easier future updates.',
+      'Helps us catch development issues early and keep your website easier to maintain.',
   },
   {
     tech: 'Tailwind CSS',
-    tagline: 'Ultra-Lean Styling',
+    tagline: 'CLEAN, RESPONSIVE DESIGN',
     benefit:
-      'Generates only the CSS your site actually uses, eliminating heavy stylesheet bloat and ensuring fast mobile rendering.',
+      'Helps us create consistent layouts that work smoothly across different screen sizes.',
   },
   {
     tech: 'Node.js',
-    tagline: 'High-Throughput Backend',
+    tagline: 'POWERFUL WEBSITE FEATURES',
     benefit:
-      'Powers serverless API routes, form processing, secure authentication, and real-time data sync with high performance.',
+      'Supports forms, integrations, accounts, and other features that need reliable server-side functionality.',
   },
   {
     tech: 'Headless CMS',
-    tagline: 'Effortless Publishing',
+    tagline: 'EASY CONTENT MANAGEMENT',
     benefit:
-      'Separates content management from code, allowing non-technical staff to publish updates safely without risking site downtime.',
+      'Lets your team update website content without needing a developer for every change.',
   },
 ]
 
-const PERFORMANCE_METRICS = [
-  {
-    metric: 'LCP',
-    title: 'Largest Contentful Paint',
-    what: 'How fast the main headline and hero visual become visible.',
-    how: 'We optimize critical render paths, pre-load essential typography, and serve modern WebP/AVIF images to achieve sub-second LCP.',
-  },
-  {
-    metric: 'INP',
-    title: 'Interaction to Next Paint',
-    what: 'How instantaneously buttons, toggles, and menus respond when clicked.',
-    how: 'We eliminate long JavaScript execution bottlenecks so user taps and clicks yield instant visual feedback with zero perceptible delay.',
-  },
-  {
-    metric: 'CLS',
-    title: 'Cumulative Layout Shift',
-    what: 'How stable the page layout remains as images and fonts load.',
-    how: 'We enforce explicit aspect ratios on all media and reserve font display space, eliminating frustrating content jumping.',
-  },
-  {
-    metric: 'IMG',
-    title: 'Modern Image Optimization',
-    what: 'Serving right-sized images for each individual screen.',
-    how: 'Images are automatically compressed and delivered in next-gen formats, reducing mobile page weight by up to 70%.',
-  },
-  {
-    metric: 'CODE',
-    title: 'Clean, Unbloated Architecture',
-    what: 'Zero redundant plugins, unused scripts, or bloated libraries.',
-    how: 'By writing clean custom components, we avoid the 40+ third-party scripts typical of WordPress themes, saving battery and bandwidth.',
-  },
-  {
-    metric: 'SEO',
-    title: 'Technical Search Architecture',
-    what: 'Ensuring search spiders can parse and index every word.',
-    how: 'Server-side rendered HTML guarantees search engines see clean content immediately without relying on client JavaScript execution.',
-  },
-]
 
-const COST_DRIVERS = [
-  {
-    factor: 'Page Count & Content Depth',
-    detail:
-      'A focused 5-page marketing site requires significantly less architectural effort than a 30-page corporate hub with distinct layout templates.',
-  },
-  {
-    factor: 'Design Complexity & Craft',
-    detail:
-      'Bespoke editorial layouts with interactive visual storytelling require custom Figma design systems compared to standardized structures.',
-  },
-  {
-    factor: 'Content Management Architecture',
-    detail:
-      'Configuring a simple blog requires minimal setup. Tailoring an enterprise headless CMS with multiple content models requires custom schema modeling.',
-  },
-  {
-    factor: 'Third-Party & API Integrations',
-    detail:
-      'Basic contact forms are simple. Secure integration with CRM pipelines, real-time inventory systems, or custom API endpoints adds engineering depth.',
-  },
-  {
-    factor: 'E-Commerce & Transactions',
-    detail:
-      'Implementing payment gateways, variant selectors, multi-currency support, shipping rules, and tax compliance expands development scope.',
-  },
-  {
-    factor: 'Custom Interactivity & Micro-Motion',
-    detail:
-      'Interactive product configurators, calculators, and fluid scroll-linked animations require careful mathematical physics and performance tuning.',
-  },
-  {
-    factor: 'Content Migration & SEO Preservation',
-    detail:
-      'Migrating hundreds of existing blog posts, images, and customer accounts while safeguarding organic rankings with 301 redirects requires diligent QA.',
-  },
-  {
-    factor: 'Security & Compliance Needs',
-    detail:
-      'GDPR/CCPA compliant cookie consent, custom access roles, multi-factor authentication, and data privacy hardening increase configuration time.',
-  },
-  {
-    factor: 'Ongoing Support & SLA',
-    detail:
-      'Post-launch agreements, scheduled performance reviews, continuous dependency upgrades, and prioritized bug fixes provide ongoing peace of mind.',
-  },
-]
 
-const FEATURED_PROJECTS = [
-  {
-    name: 'SAVOR',
-    type: 'Restaurant Website',
-    desc: 'A premium culinary platform focused on atmosphere, storytelling, and effortless online table reservations.',
-    image: '/projects/project1.png',
-    alt: 'Savor Restaurant Website Design & Development by Stack',
-  },
-  {
-    name: 'VELORA',
-    type: 'E-Commerce Platform',
-    desc: 'A modern direct-to-consumer store built for fast product browsing, simplified filtering, and higher conversion.',
-    image: '/projects/project2.png',
-    alt: 'Velora E-Commerce Store Design & Development by Stack',
-  },
-  {
-    name: 'MOBL',
-    type: 'Product & Tech Website',
-    desc: 'A bold, high-performance product website engineered to showcase hardware innovation and engage global customers.',
-    image: '/projects/project3.png',
-    alt: 'Mobl Product Website Engineering by Stack',
-  },
-]
 
 export default function WebDevelopmentPage() {
   return (
@@ -476,18 +341,17 @@ export default function WebDevelopmentPage() {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
-              Websites built to{' '}
+              Websites built to<br />
               <span className="font-serif italic font-normal text-[#9E6941]">
-                perform.
+                work for your business.
               </span>
             </h1>
 
             {/* Supporting Copy */}
             <p className="mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
-              Stack designs and develops fast, responsive, scalable websites for
-              businesses that want a stronger online presence. Every site is
-              custom-engineered for sub-second speeds, intuitive usability, and
-              measurable growth.
+              We design and develop fast, responsive websites that look professional,
+              work smoothly, and help your business grow. From the first idea to
+              launch, we build every website around your goals and your customers.
             </p>
 
             {/* Visual Asset: Sized and centered with annotation */}
@@ -515,14 +379,18 @@ export default function WebDevelopmentPage() {
             </div>
 
             {/* Quick Trust Meta */}
-            <div className="mt-5 pt-4 border-t border-black/[0.06] flex items-center justify-between gap-x-4 text-xs text-neutral-700 font-medium">
-              <div className="flex items-center gap-1.5">
+            <div className="mt-5 pt-4 border-t border-black/[0.06] flex items-center justify-between text-[11px] sm:text-xs text-neutral-700 font-medium">
+              <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
-                <span>Mobile-First Responsive</span>
+                <span>Mobile-Friendly</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
-                <span>Custom Next.js & CMS</span>
+                <span>Fast &amp; Reliable</span>
+              </div>
+              <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#9E6941] shrink-0" />
+                <span>Easy to Manage</span>
               </div>
             </div>
 
@@ -546,15 +414,14 @@ export default function WebDevelopmentPage() {
                 {/* Main Headline */}
                 <h1 className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
                   Websites built to<br />
-                  <span className="font-serif italic font-normal text-[#9E6941]">perform.</span>
+                  <span className="font-serif italic font-normal text-[#9E6941]">work for your business.</span>
                 </h1>
 
                 {/* Supporting Copy */}
                 <p className="mt-5 sm:mt-6 text-neutral-600 text-base sm:text-lg lg:text-[19px] leading-relaxed max-w-xl font-normal">
-                  Stack designs and develops fast, responsive, scalable websites
-                  for businesses that want a stronger online presence. Every site
-                  is custom-engineered for sub-second speeds, intuitive usability,
-                  and measurable growth.
+                  We design and develop fast, responsive websites that look professional,
+                  work smoothly, and help your business grow. From the first idea to
+                  launch, we build every website around your goals and your customers.
                 </p>
 
                 {/* CTAs */}
@@ -580,15 +447,15 @@ export default function WebDevelopmentPage() {
                 <div className="mt-12 pt-6 border-t border-black/[0.06] flex flex-wrap items-center gap-6 sm:gap-8 text-xs text-neutral-600 font-medium">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Mobile-First Responsive</span>
+                    <span>Mobile-Friendly</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Core Web Vitals Optimized</span>
+                    <span>Fast &amp; Reliable</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#9E6941]" />
-                    <span>Custom Next.js & CMS Solutions</span>
+                    <span>Easy to Manage</span>
                   </div>
                 </div>
               </div>
@@ -616,20 +483,18 @@ export default function WebDevelopmentPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-snug">
-                Everything required to bring your digital presence to life.
+                What we can build for you.
               </h2>
               <p className="mt-3.5 text-neutral-600 text-sm leading-relaxed font-normal">
-                We don&apos;t just write code; we solve commercial challenges.
-                Whether you need a brand-new marketing platform or a complete
-                technical overhaul, our web development service handles the full
-                lifecycle from architecture to post-launch support.
+                From business websites to custom integrations, we build the web
+                experiences your business needs to grow.
               </p>
               <div className="mt-5 mb-8">
                 <Link
                   href="/#contact"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                 >
-                  <span>Discuss your project requirements</span>
+                  <span>Tell us what you need</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -672,26 +537,24 @@ export default function WebDevelopmentPage() {
                   <div className="w-8 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-neutral-950 tracking-tight leading-tight">
-                  Everything required to bring your digital presence to life.
+                  What we can build for you.
                 </h2>
                 <p className="mt-4 sm:mt-5 text-neutral-600 text-base sm:text-lg leading-relaxed font-normal">
-                  We don&apos;t just write code; we solve commercial challenges.
-                  Whether you need a brand-new marketing platform or a complete
-                  technical overhaul, our web development service handles the full
-                  lifecycle from architecture to post-launch support.
+                  From business websites to custom integrations, we build the web
+                  experiences your business needs to grow.
                 </p>
                 <div className="mt-6 sm:mt-8">
                   <Link
                     href="/#contact"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                   >
-                    <span>Discuss your project requirements</span>
+                    <span>Tell us what you need</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
 
-              {/* Right Column: 8 Core Areas (Written for Business Owners) */}
+              {/* Right Column: 6 Core Areas (Written for Business Owners) */}
               <div className="col-span-7 grid grid-cols-2 gap-6 sm:gap-7">
                 {SCOPE_ITEMS.map((item, idx) => (
                   <div
@@ -729,7 +592,7 @@ export default function WebDevelopmentPage() {
                 What you get with every website.
               </h2>
               <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                We believe core standards like speed, security, and responsive craft should not be expensive add-ons. Here is what comes standard in every project we build.
+                Every website we build comes with the essentials for a fast, secure, and reliable online experience — included as standard.
               </p>
             </div>
 
@@ -742,8 +605,13 @@ export default function WebDevelopmentPage() {
                     className="p-3.5 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
                   >
                     <div>
-                      <div className="w-7 h-7 rounded-lg bg-[#FAF7F2] border border-black/[0.06] flex items-center justify-center mb-2.5">
-                        <IconComp className="w-3.5 h-3.5 text-[#9E6941]" />
+                      <div className="flex items-center justify-between mb-2.5">
+                        <div className="w-7 h-7 rounded-lg bg-[#FAF7F2] border border-black/[0.06] flex items-center justify-center">
+                          <IconComp className="w-3.5 h-3.5 text-[#9E6941]" />
+                        </div>
+                        <span className="text-[10px] font-mono font-bold text-neutral-400">
+                          {cap.number}
+                        </span>
                       </div>
                       <h3 className="text-xs sm:text-[13px] font-semibold text-neutral-950 mb-1 leading-snug">
                         {cap.title}
@@ -772,9 +640,7 @@ export default function WebDevelopmentPage() {
                 What you get with every website.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                We believe core standards like speed, security, and responsive
-                craft should not be expensive add-ons. Here is what comes standard
-                in every project we build.
+                Every website we build comes with the essentials for a fast, secure, and reliable online experience — included as standard.
               </p>
             </div>
 
@@ -788,8 +654,13 @@ export default function WebDevelopmentPage() {
                     className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs hover:border-black/[0.2] transition-colors duration-200"
                   >
                     <div>
-                      <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] border border-black/[0.06] flex items-center justify-center mb-4">
-                        <IconComp className="w-5 h-5 text-[#9E6941]" />
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="w-10 h-10 rounded-lg bg-[#FAF7F2] border border-black/[0.06] flex items-center justify-center">
+                          <IconComp className="w-5 h-5 text-[#9E6941]" />
+                        </div>
+                        <span className="text-[11px] font-mono font-semibold text-neutral-400">
+                          {cap.number}
+                        </span>
                       </div>
                       <h3 className="text-base font-semibold text-neutral-950 mb-2">
                         {cap.title}
@@ -820,7 +691,7 @@ export default function WebDevelopmentPage() {
                 Our development process.
               </h2>
               <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                Structured, transparent, and collaborative. We guide you through each stage with clear milestones and no technical jargon.
+                From the first conversation to launch, we keep the process clear, organized, and easy to follow — with regular updates at every stage.
               </p>
             </div>
 
@@ -860,9 +731,7 @@ export default function WebDevelopmentPage() {
                 Our development process.
               </h2>
               <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Structured, transparent, and collaborative. We guide you through
-                each stage with clear milestones, regular progress reviews, and no
-                technical jargon.
+                From the first conversation to launch, we keep the process clear, organized, and easy to follow — with regular updates at every stage.
               </p>
             </div>
 
@@ -890,86 +759,8 @@ export default function WebDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 5. BUILT FOR REAL BUSINESSES ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40">
-          {/* MOBILE (< lg) */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-2.5">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  AUDIENCE & FIT
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-tight">
-                Built for businesses with real commercial goals.
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                We do not build vanity projects or template clones. Our web development services are engineered for organisations where digital trust and lead quality directly impact the bottom line.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-              {AUDIENCE_SECTORS.map((item) => (
-                <div
-                  key={item.sector}
-                  className="p-3.5 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <h3 className="text-xs sm:text-[13px] font-bold text-neutral-950 mb-1 leading-snug">
-                      {item.sector}
-                    </h3>
-                    <p className="text-[11px] text-neutral-600 leading-snug font-normal">
-                      {item.summary}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* DESKTOP (lg+) - 100% UNCHANGED */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  AUDIENCE & FIT
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Built for businesses with real commercial goals.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                We do not build vanity projects or template clones. Our web
-                development services are engineered for organisations where
-                digital trust, reliability, and lead quality directly impact the
-                bottom line.
-              </p>
-            </div>
-
-            {/* Audience Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-              {AUDIENCE_SECTORS.map((item) => (
-                <div
-                  key={item.sector}
-                  className="p-5 sm:p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {item.sector}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-neutral-600 leading-relaxed font-normal">
-                      {item.summary}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. TECHNOLOGY (CLIENT-CENTRIC) ─── */}
+        {/* ─── 5. TECHNOLOGY (CLIENT-CENTRIC) ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]">
           {/* MOBILE (< lg) */}
           <div className="block lg:hidden w-full px-5 sm:px-8">
@@ -981,18 +772,18 @@ export default function WebDevelopmentPage() {
                 <div className="w-8 h-[1.5px] bg-[#9E6941]" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-tight">
-                Modern tools chosen for real business advantages.
+                Technology built around your needs.
               </h2>
               <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                We don&apos;t chase fleeting software trends. We build exclusively with modern, battle-tested technologies that deliver measurable business outcomes.
+                We use modern, reliable technologies to build websites that are fast, flexible, secure, and easy to maintain.
               </p>
 
               <div className="mt-3.5 p-3 rounded-lg bg-[#FAF7F2] border border-black/[0.06]">
                 <p className="text-[10px] font-semibold uppercase tracking-wider text-neutral-500 mb-1">
-                  What this means for your business:
+                  WHAT THIS MEANS FOR YOU:
                 </p>
                 <p className="text-xs text-neutral-700 leading-relaxed">
-                  Zero reliance on fragile third-party plugins, instant page transitions, and clean code that any competent engineer can maintain for years to come.
+                  You get a website built on a modern foundation, without unnecessary tools or technical complexity.
                 </p>
               </div>
             </div>
@@ -1031,23 +822,19 @@ export default function WebDevelopmentPage() {
                   <div className="w-8 h-[1.5px] bg-[#9E6941]" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-tight">
-                  Modern tools chosen for real business advantages.
+                  Technology built around your needs.
                 </h2>
                 <p className="mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
-                  We don&apos;t chase fleeting software trends. We build
-                  exclusively with modern, battle-tested technologies that deliver
-                  measurable business outcomes: faster load times, superior
-                  search indexing, rock-solid security, and low ongoing maintenance
-                  costs.
+                  We use modern, reliable technologies to build websites that are
+                  fast, flexible, secure, and easy to maintain.
                 </p>
                 <div className="mt-6 pt-6 border-t border-black/[0.06]">
                   <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
-                    What this means for your business:
+                    WHAT THIS MEANS FOR YOU:
                   </p>
                   <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed">
-                    Zero reliance on fragile third-party page builder plugins,
-                    instant page transitions, and clean code that any competent
-                    engineer can maintain for years to come.
+                    You get a website built on a modern foundation, without
+                    unnecessary tools or technical complexity.
                   </p>
                 </div>
               </div>
@@ -1079,109 +866,8 @@ export default function WebDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 7. WEBSITE PERFORMANCE & CORE WEB VITALS ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">
-          {/* MOBILE (< lg) */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-2.5">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  ENGINEERING RIGOR
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-tight">
-                Website performance is not a luxury — it is your bottom line.
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                Google explicitly penalizes sluggish websites, and over 50% of mobile visitors abandon pages that take longer than 3 seconds to load. We treat performance as a foundational engineering requirement.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {PERFORMANCE_METRICS.map((item) => (
-                <div
-                  key={item.title}
-                  className="p-3.5 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="px-2 py-0.5 rounded bg-[#FAF7F2] border border-black/[0.08] text-[11px] font-mono font-bold text-neutral-900">
-                        {item.metric}
-                      </span>
-                      <span className="text-[10px] font-medium text-emerald-700 flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Target: Top 10%
-                      </span>
-                    </div>
-                    <h3 className="text-xs sm:text-sm font-bold text-neutral-950 mb-0.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] text-neutral-500 mb-2 font-normal">
-                      {item.what}
-                    </p>
-                    <p className="text-[11px] sm:text-xs text-neutral-700 leading-relaxed font-normal pt-2 border-t border-black/[0.05]">
-                      {item.how}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* DESKTOP (lg+) - 100% UNCHANGED */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  ENGINEERING RIGOR
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                Website performance is not a luxury — it is your bottom line.
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Google explicitly penalizes sluggish websites, and over 50% of
-                mobile visitors abandon pages that take longer than 3 seconds to
-                load. We treat performance as a foundational engineering requirement.
-              </p>
-            </div>
-
-            {/* Performance Breakdown Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-              {PERFORMANCE_METRICS.map((item) => (
-                <div
-                  key={item.title}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="px-2.5 py-1 rounded bg-[#FAF7F2] border border-black/[0.08] text-xs font-mono font-bold text-neutral-900">
-                        {item.metric}
-                      </span>
-                      <span className="text-[11px] font-medium text-emerald-700 flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Target: Top 10%
-                      </span>
-                    </div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-neutral-500 mb-3 font-normal">
-                      {item.what}
-                    </p>
-                    <p className="text-xs sm:text-[13px] text-neutral-700 leading-relaxed font-normal pt-3 border-t border-black/[0.05]">
-                      {item.how}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 8. WEB DEVELOPMENT VS WEBSITE BUILDER ─── */}
+        {/* ─── 6. WEB DEVELOPMENT VS WEBSITE BUILDER ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]">
           {/* MOBILE (< lg) */}
           <div className="block lg:hidden w-full px-5 sm:px-8">
@@ -1229,287 +915,11 @@ export default function WebDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 9. WHAT AFFECTS WEBSITE DEVELOPMENT COST ─── */}
-        <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/40">
-          {/* MOBILE (< lg) */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-2.5">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  TRANSPARENT PRICING DRIVERS
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-tight">
-                What actually determines website development cost?
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                Agencies that quote flat rates before understanding your requirements either cut corners or overcharge. Real development pricing is determined by scope, technical complexity, and commercial requirements.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {COST_DRIVERS.map((item, idx) => (
-                <div
-                  key={item.factor}
-                  className="p-3.5 rounded-xl border border-black/[0.07] bg-white flex flex-col justify-between shadow-xs"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="text-xs sm:text-[13px] font-bold text-neutral-950">
-                        {item.factor}
-                      </h3>
-                      <span className="text-[10px] font-mono font-semibold text-[#9E6941]">
-                        0{idx + 1}
-                      </span>
-                    </div>
-                    <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed font-normal">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* ─── 8. OUR RECENT WORK (MATCHES HOMEPAGE) ─── */}
+        <WorkSection id="portfolio" />
 
-            {/* Mobile Quote Guidance Box */}
-            <div className="mt-6 p-4 rounded-xl border border-black/[0.08] bg-white flex flex-col gap-3.5 shadow-xs">
-              <div>
-                <h3 className="text-sm font-bold text-neutral-950 mb-1">
-                  Need an accurate estimate for your website?
-                </h3>
-                <p className="text-xs text-neutral-600 leading-relaxed">
-                  Tell us about your project scope, timeline, and goals. We provide clear, transparent, fixed-fee proposals with zero hidden fees.
-                </p>
-              </div>
-              <a
-                href="mailto:hello@stack.studio?subject=Request%20a%20Quote"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#111111] hover:bg-black text-white text-xs font-medium transition-colors"
-              >
-                <span>Request a Proposal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
-          {/* DESKTOP (lg+) - 100% UNCHANGED */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            <div className="max-w-3xl mb-12 sm:mb-16">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  TRANSPARENT PRICING DRIVERS
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                What actually determines website development cost?
-              </h2>
-              <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                Agencies that quote flat rates before understanding your
-                requirements either cut corners or overcharge. Real development
-                pricing is determined by scope, technical complexity, and
-                commercial requirements.
-              </p>
-            </div>
-
-            {/* Cost Drivers Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {COST_DRIVERS.map((item) => (
-                <div
-                  key={item.factor}
-                  className="p-6 rounded-xl border border-black/[0.08] bg-white flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-base font-bold text-neutral-950 mb-2">
-                      {item.factor}
-                    </h3>
-                    <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed font-normal">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Quote Guidance Box */}
-            <div className="mt-12 p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-white max-w-4xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div>
-                <h3 className="text-lg font-bold text-neutral-950 mb-1">
-                  Need an accurate estimate for your website?
-                </h3>
-                <p className="text-xs sm:text-sm text-neutral-600">
-                  Tell us about your project scope, timeline, and goals. We
-                  provide clear, transparent, fixed-fee proposals with zero
-                  hidden fees.
-                </p>
-              </div>
-              <a
-                href="mailto:hello@stack.studio?subject=Request%20a%20Quote"
-                className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#111111] hover:bg-black text-white text-xs sm:text-sm font-medium transition-colors"
-              >
-                <span>Request a Proposal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 10. REAL PORTFOLIO ─── */}
-        <section
-          id="portfolio"
-          className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06]"
-        >
-          {/* MOBILE (< lg) */}
-          <div className="block lg:hidden w-full px-5 sm:px-8">
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-2.5">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                  FEATURED WORK
-                </span>
-                <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight leading-tight">
-                Real projects engineered by Stack.
-              </h2>
-              <p className="mt-2 text-neutral-600 text-xs sm:text-sm leading-relaxed">
-                Explore websites we have designed and developed for ambitious clients across hospitality, commerce, and consumer tech.
-              </p>
-              <div className="mt-3">
-                <Link
-                  href="/#work"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 underline underline-offset-4 decoration-neutral-300"
-                >
-                  <span>Explore all case studies</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {FEATURED_PROJECTS.map((project) => (
-                <div
-                  key={project.name}
-                  className="rounded-xl border border-black/[0.08] bg-white overflow-hidden shadow-xs"
-                >
-                  <div className="relative aspect-[16/10] w-full bg-neutral-100 overflow-hidden border-b border-black/[0.06]">
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, 450px"
-                    />
-                  </div>
-                  <div className="p-4 flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-semibold tracking-wider uppercase text-[#9E6941] mb-1 block">
-                        {project.type}
-                      </span>
-                      <h3 className="text-lg font-bold text-neutral-950 mb-1.5">
-                        {project.name}
-                      </h3>
-                      <p className="text-xs text-neutral-600 leading-relaxed">
-                        {project.desc}
-                      </p>
-                    </div>
-                    <div className="mt-4 pt-3.5 border-t border-black/[0.06] flex items-center justify-between">
-                      <Link
-                        href="/#work"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-neutral-900 hover:text-[#9E6941] transition-colors"
-                      >
-                        <span>View Project</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                      <span className="text-[10px] font-mono text-neutral-400">
-                        Next.js
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* DESKTOP (lg+) - 100% UNCHANGED */}
-          <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-              <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-800">
-                    FEATURED WORK
-                  </span>
-                  <div className="w-8 h-[1.5px] bg-[#9E6941]" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight">
-                  Real projects engineered by Stack.
-                </h2>
-                <p className="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                  Explore websites we have designed and developed for ambitious
-                  clients across hospitality, commerce, and consumer tech.
-                </p>
-              </div>
-
-              <Link
-                href="/#work"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-900 hover:text-black underline underline-offset-4 decoration-neutral-300 transition-colors"
-              >
-                <span>Explore all case studies</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* 3 Real Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-              {FEATURED_PROJECTS.map((project) => (
-                <div
-                  key={project.name}
-                  className="group flex flex-col justify-between rounded-2xl border border-black/[0.08] bg-white overflow-hidden shadow-xs hover:border-black/[0.25] transition-all duration-300"
-                >
-                  {/* Real Project Image */}
-                  <div className="relative aspect-[16/10] w-full bg-neutral-100 overflow-hidden border-b border-black/[0.06]">
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 450px"
-                    />
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
-                    <div>
-                      <span className="text-[11px] font-semibold tracking-wider uppercase text-[#9E6941] mb-2 block">
-                        {project.type}
-                      </span>
-                      <h3 className="text-xl font-bold text-neutral-950 mb-2">
-                        {project.name}
-                      </h3>
-                      <p className="text-xs sm:text-[13.5px] text-neutral-600 leading-relaxed">
-                        {project.desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-6 pt-5 border-t border-black/[0.06] flex items-center justify-between">
-                      <Link
-                        href="/#work"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#9E6941] transition-colors"
-                      >
-                        <span>View Project</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                      </Link>
-                      <span className="text-[11px] font-mono text-neutral-400">
-                        Next.js
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 11. FAQ SECTION ─── */}
+        {/* ─── 9. FAQ SECTION ─── */}
         <section className="relative w-full py-12 sm:py-16 lg:py-24 border-b border-black/[0.06] bg-[#F5F1EA]/50">
           {/* MOBILE (< lg) */}
           <div className="block lg:hidden w-full px-5 sm:px-8">
@@ -1594,7 +1004,7 @@ export default function WebDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── 12. FINAL CALL TO ACTION ─── */}
+        {/* ─── 10. FINAL CALL TO ACTION ─── */}
         <section className="relative w-full py-16 sm:py-20 lg:py-32 bg-[#FAF7F2] text-center overflow-hidden">
           {/* Subtle warm center radial wash */}
           <div
@@ -1613,13 +1023,12 @@ export default function WebDevelopmentPage() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-tight">
-              Ready to build your <span className="text-[#9E6941]">website?</span>
+              Ready to build something<br />
+              <span className="text-[#9E6941]">for your business?</span>
             </h2>
 
             <p className="mt-3.5 text-neutral-600 text-sm leading-relaxed max-w-md mx-auto">
-              Tell us about your project, timeline, and commercial goals. We will
-              schedule a brief discovery call and provide a transparent,
-              fixed-price proposal.
+              Tell us what you&apos;re looking to build. Whether it&apos;s a website, online store, or mobile app, we&apos;ll help turn your idea into a polished digital experience.
             </p>
 
             <div className="mt-7 flex flex-col items-center gap-3 w-full max-w-xs mx-auto">
@@ -1640,7 +1049,7 @@ export default function WebDevelopmentPage() {
             </div>
 
             <p className="mt-6 text-xs text-neutral-500">
-              We respond within 24 hours. No obligation.
+              We usually respond within 24 hours. No obligation.
             </p>
           </div>
 
@@ -1654,14 +1063,13 @@ export default function WebDevelopmentPage() {
 
             {/* Headline */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-950 tracking-tight leading-[1.1]">
-              Ready to build your <span className="text-[#9E6941]">website?</span>
+              Ready to build something<br />
+              <span className="text-[#9E6941]">for your business?</span>
             </h2>
 
             {/* Body */}
             <p className="mt-5 sm:mt-6 text-neutral-600 text-base sm:text-lg leading-relaxed font-normal max-w-xl mx-auto">
-              Tell us about your project, timeline, and commercial goals. We will
-              schedule a brief discovery call and provide a transparent,
-              fixed-price proposal.
+              Tell us what you&apos;re looking to build. Whether it&apos;s a website, online store, or mobile app, we&apos;ll help turn your idea into a polished digital experience.
             </p>
 
             {/* Primary Action Button */}
@@ -1684,7 +1092,7 @@ export default function WebDevelopmentPage() {
 
             {/* Meta response notice */}
             <p className="mt-8 text-xs text-neutral-500">
-              We respond within 24 hours. No obligation.
+              We usually respond within 24 hours. No obligation.
             </p>
           </div>
         </section>

@@ -14,14 +14,14 @@ import OfficeMapCard from '@/components/contact/OfficeMapCard'
 export const metadata: Metadata = {
   title: 'Contact Us — Let’s Build Something Great Together | Stack',
   description:
-    'Have a project in mind or want to explore working with Stack? Send us a message, email our team, or visit our Bengaluru studio. We reply within 24 hours.',
+    'Have a project in mind or want to explore working with Stack? Send us a message, email our team, or visit our Delhi studio. We reply within 24 hours.',
   alternates: {
     canonical: 'https://stack.studio/contact',
   },
   openGraph: {
     title: 'Contact Us — Let’s Build Something Great Together | Stack',
     description:
-      'Have a project in mind or want to explore working with Stack? Get in touch with our team in Bengaluru. We engineer fast, high-converting digital products.',
+      'Have a project in mind or want to explore working with Stack? Get in touch with our team in Delhi. We engineer fast, high-converting digital products.',
     url: 'https://stack.studio/contact',
     siteName: 'Stack Studio',
     type: 'website',
@@ -54,12 +54,14 @@ const LOCAL_BUSINESS_SCHEMA = {
   name: 'Stack Studio',
   image: 'https://stack.studio/contact.png',
   url: 'https://stack.studio/contact',
-  telephone: '+919876543210',
+  telephone: '+918860979255',
   email: 'hello@stack.studio',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Bengaluru',
-    addressRegion: 'Karnataka',
+    streetAddress: 'C 319 Street No 11 Ganga Vihar',
+    addressLocality: 'Delhi',
+    addressRegion: 'Delhi',
+    postalCode: '110094',
     addressCountry: 'IN',
   },
   openingHours: 'Mo-Sa 10:00-18:00',
@@ -144,7 +146,7 @@ export default function ContactPage() {
 
                   {/* Channel 2: Phone */}
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+918860979255"
                     className="group bg-white rounded-2xl p-4 sm:p-4.5 border border-black/[0.06] shadow-xs hover:shadow-md hover:border-[#9E6941]/30 transition-all text-center flex flex-col items-center"
                   >
                     <div className="w-10 h-10 rounded-full bg-[#9E6941] text-white flex items-center justify-center mb-2.5 transition-transform group-hover:scale-105 shadow-xs">
@@ -152,22 +154,27 @@ export default function ContactPage() {
                     </div>
                     <h4 className="text-xs sm:text-sm font-bold text-neutral-900">Call Us</h4>
                     <p className="text-[11px] sm:text-xs font-semibold text-neutral-700 group-hover:text-[#9E6941] transition-colors mt-0.5">
-                      +91 98765 43210
+                      +91 88609 79255
                     </p>
                     <span className="text-[10px] text-neutral-400 mt-1">Mon - Sat, 10AM - 6PM</span>
                   </a>
 
                   {/* Channel 3: Office */}
-                  <div className="bg-white rounded-2xl p-4 sm:p-4.5 border border-black/[0.06] shadow-xs text-center flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full bg-[#9E6941] text-white flex items-center justify-center mb-2.5 shadow-xs">
+                  <a
+                    href="https://maps.google.com/?q=C+319+Street+No+11+Ganga+Vihar+Delhi+110094"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group bg-white rounded-2xl p-4 sm:p-4.5 border border-black/[0.06] shadow-xs hover:shadow-md hover:border-[#9E6941]/30 transition-all text-center flex flex-col items-center"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-[#9E6941] text-white flex items-center justify-center mb-2.5 transition-transform group-hover:scale-105 shadow-xs">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <h4 className="text-xs sm:text-sm font-bold text-neutral-900">Our Office</h4>
-                    <p className="text-[11px] sm:text-xs font-semibold text-neutral-700 mt-0.5">
-                      Bengaluru, India
+                    <p className="text-[11px] sm:text-xs font-semibold text-neutral-700 group-hover:text-[#9E6941] transition-colors mt-0.5">
+                      Delhi, India
                     </p>
-                    <span className="text-[10px] text-neutral-400 mt-1">Visit by appointment</span>
-                  </div>
+                    <span className="text-[10px] text-neutral-400 mt-1">Ganga Vihar, 110094</span>
+                  </a>
 
                   {/* Channel 4: Live Chat */}
                   <div className="bg-white rounded-2xl p-4 sm:p-4.5 border border-black/[0.06] shadow-xs text-center flex flex-col items-center">
@@ -185,26 +192,6 @@ export default function ContactPage() {
                 {/* Office Location Map Preview Card */}
                 <div className="mt-6">
                   <OfficeMapCard />
-                </div>
-
-                {/* Metrics Bar */}
-                <div className="mt-10 pt-6 border-t border-black/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-6 select-none">
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">250+</div>
-                    <div className="text-xs text-neutral-500 font-medium mt-0.5">Projects Delivered</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">100+</div>
-                    <div className="text-xs text-neutral-500 font-medium mt-0.5">Happy Clients</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">4+</div>
-                    <div className="text-xs text-neutral-500 font-medium mt-0.5">Years of Experience</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">98%</div>
-                    <div className="text-xs text-neutral-500 font-medium mt-0.5">Client Satisfaction</div>
-                  </div>
                 </div>
               </div>
 

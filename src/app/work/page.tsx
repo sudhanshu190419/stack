@@ -58,9 +58,9 @@ export default function WorkPage() {
           <div className="w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0">
               {/* Left Column: Eyebrow, H1, Copy, Metrics (Shifted Up & Shifted Right) */}
-              <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-start self-start px-8 sm:pl-14 lg:pl-20 xl:pl-28 2xl:pl-36 lg:pr-6 max-w-[720px] lg:max-w-none mx-auto lg:mx-0 pt-2 sm:pt-3 lg:pt-4 pb-8 sm:pb-12">
+              <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-start items-start text-left px-5 sm:px-8 sm:pl-14 lg:pl-20 xl:pl-28 2xl:pl-36 lg:pr-6 max-w-[720px] lg:max-w-none mx-auto lg:mx-0 pt-2 sm:pt-3 lg:pt-4 pb-6 sm:pb-12">
                 {/* Eyebrow */}
-                <div className="flex items-center gap-3 mb-4 sm:mb-5">
+                <div className="flex items-center gap-3 mb-3.5 sm:mb-5">
                   <span className="text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-neutral-800 select-none">
                     OUR WORK
                   </span>
@@ -68,60 +68,60 @@ export default function WorkPage() {
                 </div>
 
                 {/* Main Headline */}
-                <h1 className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
+                <h1 className="text-3xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-bold text-neutral-950 tracking-tight leading-[1.08]">
                   Websites built<br />
                   to make <span className="text-[#9E6941]">an impact.</span>
                 </h1>
 
                 {/* Supporting Copy */}
-                <p className="mt-5 sm:mt-6 text-neutral-600 text-base sm:text-lg lg:text-[19px] leading-relaxed max-w-xl font-normal">
+                <p className="mt-4 sm:mt-6 text-neutral-600 text-sm sm:text-lg lg:text-[19px] leading-relaxed max-w-xl font-normal">
                   A selection of websites and digital experiences designed and
                   developed by Stack for businesses, products, and ideas that aim
                   higher.
                 </p>
 
                 {/* Bottom 3 Metrics Row */}
-                <div className="mt-10 sm:mt-12 flex items-center gap-6 sm:gap-9 pt-4 select-none">
+                <div className="w-full mt-8 sm:mt-12 flex items-center justify-center lg:justify-start gap-5 sm:gap-9 pt-2 sm:pt-4 select-none">
                   {/* Metric 1 */}
-                  <div>
-                    <div className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-950 tracking-tight leading-none">
+                  <div className="text-center lg:text-left">
+                    <div className="text-2xl sm:text-4xl lg:text-[40px] font-bold text-neutral-950 tracking-tight leading-none">
                       5
                     </div>
-                    <div className="text-xs sm:text-[13px] text-neutral-500 font-medium mt-1.5">
+                    <div className="text-[11px] sm:text-[13px] text-neutral-500 font-medium mt-1 sm:mt-1.5">
                       Projects
                     </div>
                   </div>
 
                   {/* Divider 1 */}
-                  <div className="h-10 w-px bg-black/[0.1]" />
+                  <div className="h-8 sm:h-10 w-px bg-black/[0.1]" />
 
                   {/* Metric 2 */}
-                  <div>
-                    <div className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-950 tracking-tight leading-none">
+                  <div className="text-center lg:text-left">
+                    <div className="text-2xl sm:text-4xl lg:text-[40px] font-bold text-neutral-950 tracking-tight leading-none">
                       4
                     </div>
-                    <div className="text-xs sm:text-[13px] text-neutral-500 font-medium mt-1.5">
+                    <div className="text-[11px] sm:text-[13px] text-neutral-500 font-medium mt-1 sm:mt-1.5">
                       Industries
                     </div>
                   </div>
 
                   {/* Divider 2 */}
-                  <div className="h-10 w-px bg-black/[0.1]" />
+                  <div className="h-8 sm:h-10 w-px bg-black/[0.1]" />
 
                   {/* Metric 3 */}
-                  <div>
-                    <div className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-950 tracking-tight leading-none">
+                  <div className="text-center lg:text-left">
+                    <div className="text-2xl sm:text-4xl lg:text-[40px] font-bold text-neutral-950 tracking-tight leading-none">
                       100%
                     </div>
-                    <div className="text-xs sm:text-[13px] text-neutral-500 font-medium mt-1.5">
+                    <div className="text-[11px] sm:text-[13px] text-neutral-500 font-medium mt-1 sm:mt-1.5">
                       Client Focused
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Work Hero Visual flush to right edge and grounded at the bottom */}
-              <div className="lg:col-span-5 xl:col-span-5 flex justify-end items-end w-full pr-0 self-end">
+              {/* Right Column: Work Hero Visual flush to right edge on desktop, centered on mobile */}
+              <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end items-end w-full pr-0 self-end">
                 <WorkHeroVisual />
               </div>
             </div>
