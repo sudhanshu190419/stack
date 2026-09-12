@@ -28,9 +28,9 @@ const STATUS_LOADING = 1
 const STATUS_READY = 2
 const STATUS_ERROR = 3
 
-// Bounded concurrency tuning: 8 workers on desktop for high-throughput HTTP/2 streaming; 4 on mobile
+// Bounded concurrency tuning: 8 workers on desktop for high-throughput HTTP/2 streaming; 6 on mobile
 const DESKTOP_MAX_CONCURRENT = 8
-const MOBILE_MAX_CONCURRENT = 4
+const MOBILE_MAX_CONCURRENT = 6
 
 // Sliding cache window tuning (aligned with scheduler lookahead to prevent eviction thrashing)
 const DESKTOP_CACHE_WINDOW_BACKWARD = 90
@@ -41,7 +41,7 @@ const MOBILE_CACHE_WINDOW_FORWARD = 60
 
 // Initial warmup frames
 const DESKTOP_INITIAL_WARMUP_FRAMES = 45
-const MOBILE_INITIAL_WARMUP_FRAMES = 35
+const MOBILE_INITIAL_WARMUP_FRAMES = 45
 
 export type RenderableFrame = ImageBitmap | HTMLImageElement
 
@@ -618,8 +618,8 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       if (!hasUnrequested) return
 
       // Don't flood queue if priority queue already has enough active work:
-      // Mobile: max 2 queued items; Desktop: max 8 queued items
-      const maxQueueBuffer = forMobile ? 2 : maxWorkers
+      // Mobile: max 6 queued items; Desktop: max 8 queued items
+      const maxQueueBuffer = forMobile ? 6 : maxWorkers
       if (priorityQueueRef.current.length >= maxQueueBuffer) return
 
       const scheduleIdle =
@@ -634,8 +634,8 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         idlePreloadHandleRef.current = null
         if (isDestroyedRef.current || isUserScrollingRef.current) return
 
-        // Conservative batch size: 2 frames on mobile; 4 on desktop
-        const BATCH_SIZE = forMobile ? 2 : 4
+        // Conservative batch size: 4 frames on mobile; 4 on desktop
+        const BATCH_SIZE = forMobile ? 4 : 4
         let count = 0
         const current = currentFrameRef.current
         const runwayAhead = forMobile ? 40 : 50
@@ -737,8 +737,8 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         const scoreFrame = (idx: number): number => {
           if (idx === current && lastRendered === current) return 10000
 
-          const forwardLookahead = forMobile ? 25 : 50
-          const extendedLookahead = forMobile ? 50 : 80
+          const forwardLookahead = forMobile ? 40 : 50
+          const extendedLookahead = forMobile ? 70 : 80
           const safetyBuffer = forMobile ? 6 : 15
 
           if (dir >= 0) {
@@ -795,7 +795,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         // 2. Add candidates spanning the bridge between lastRendered and current, plus lookahead
         const minBound = Math.min(lastRendered, current)
         const maxBound = Math.max(lastRendered, current)
-        const forwardScan = forMobile ? 35 : 70
+        const forwardScan = forMobile ? 45 : 70
         const backwardScan = forMobile ? 6 : 20
         const scanStart = Math.max(0, minBound - (dir >= 0 ? backwardScan : forwardScan))
         const scanEnd = Math.min(total - 1, maxBound + (dir >= 0 ? forwardScan : backwardScan))

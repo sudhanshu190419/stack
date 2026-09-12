@@ -235,7 +235,7 @@ export default function Hero() {
         pin: pinTarget,
         start: 'top top',
         end: initialMobile ? '+=2500' : '+=3500', // Responsive scrub length (2500px mobile for 2 clips, 3500px desktop)
-        scrub: initialMobile ? true : 0.1, // 1:1 instant touch tracking on mobile, 0.1s lerp on desktop
+        scrub: 0.1, // Smooth 0.1s lerp for both mobile and desktop
         refreshPriority: 1,
         onUpdate: handleScrollTriggerUpdate,
       })
@@ -283,7 +283,7 @@ export default function Hero() {
             pin: pinTarget,
             start: 'top top',
             end: currentMobile ? '+=2500' : '+=3500',
-            scrub: currentMobile ? true : 0.1,
+            scrub: 0.1,
             refreshPriority: 1,
             onUpdate: handleScrollTriggerUpdate,
           })
