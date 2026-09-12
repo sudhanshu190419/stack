@@ -1,0 +1,826 @@
+{
+  "canvasDims": {
+    "w": 780,
+    "h": 1688,
+    "cssW": 390,
+    "cssH": 844,
+    "dpr": 3
+  },
+  "trials": [
+    {
+      "cfg": {
+        "id": 1,
+        "mode": "slow",
+        "startY": 0,
+        "endY": 1250,
+        "step": 12,
+        "delay": 20
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 69,
+        "avgIntervalMs": 7.411434977578475,
+        "p95IntervalMs": 7.100000000000364,
+        "maxIntervalMs": 62.5,
+        "stalls40ms": 3,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.01594202900710313,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 12.137254901960784,
+        "p95ScrollDelta": 12,
+        "maxScrollDelta": 24,
+        "scrollEventCount": 103
+      }
+    },
+    {
+      "cfg": {
+        "id": 2,
+        "mode": "normal",
+        "startY": 0,
+        "endY": 2500,
+        "step": 35,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 69,
+        "avgIntervalMs": 7.331358885017423,
+        "p95IntervalMs": 13.799999999999272,
+        "maxIntervalMs": 21.299999999999272,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.014492753731167835,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 34.71830985915493,
+        "p95ScrollDelta": 35,
+        "maxScrollDelta": 35,
+        "scrollEventCount": 72
+      }
+    },
+    {
+      "cfg": {
+        "id": 3,
+        "mode": "fast_swipe",
+        "startY": 0,
+        "endY": 2500,
+        "step": 75,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 23,
+        "avgIntervalMs": 8.401398601398599,
+        "p95IntervalMs": 13.799999999999272,
+        "maxIntervalMs": 145.90000000000146,
+        "stalls40ms": 1,
+        "stalls100ms": 1,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.026086956586526787,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.20000000298023224,
+        "avgScrollDelta": 75.78125,
+        "p95ScrollDelta": 75,
+        "maxScrollDelta": 100,
+        "scrollEventCount": 33
+      }
+    },
+    {
+      "cfg": {
+        "id": 4,
+        "mode": "long_flick",
+        "startY": 0,
+        "endY": 2500,
+        "step": 150,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 9,
+        "avgIntervalMs": 7.012871287128705,
+        "p95IntervalMs": 7,
+        "maxIntervalMs": 14,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.033333333830038704,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 146.875,
+        "p95ScrollDelta": 150,
+        "maxScrollDelta": 150,
+        "scrollEventCount": 17
+      }
+    },
+    {
+      "cfg": {
+        "id": 5,
+        "mode": "rapid_swipes",
+        "startY": 0,
+        "endY": 2500,
+        "step": 90,
+        "delay": 12
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 11,
+        "avgIntervalMs": 6.944859813084099,
+        "p95IntervalMs": 7.100000000000364,
+        "maxIntervalMs": 7.5,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.036363636228171264,
+        "p95DrawMs": 0.19999999552965164,
+        "maxDrawMs": 0.19999999552965164,
+        "avgScrollDelta": 89.25925925925925,
+        "p95ScrollDelta": 90,
+        "maxScrollDelta": 90,
+        "scrollEventCount": 28
+      }
+    },
+    {
+      "cfg": {
+        "id": 6,
+        "mode": "reverse",
+        "startY": 2500,
+        "endY": 0,
+        "step": -40,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 24,
+        "avgIntervalMs": 7.100967741935482,
+        "p95IntervalMs": 7.100000000000364,
+        "maxIntervalMs": 14.100000000000364,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.03749999962747097,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 39.67741935483871,
+        "p95ScrollDelta": 40,
+        "maxScrollDelta": 40,
+        "scrollEventCount": 63
+      }
+    },
+    {
+      "cfg": {
+        "id": 7,
+        "mode": "clip1_only",
+        "startY": 0,
+        "endY": 1250,
+        "step": 30,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 12,
+        "avgIntervalMs": 7.039545454545458,
+        "p95IntervalMs": 7.100000000002183,
+        "maxIntervalMs": 14,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.033333333830038704,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 29.75609756097561,
+        "p95ScrollDelta": 30,
+        "maxScrollDelta": 30,
+        "scrollEventCount": 42
+      }
+    },
+    {
+      "cfg": {
+        "id": 8,
+        "mode": "clip2_only",
+        "startY": 1250,
+        "endY": 2500,
+        "step": 30,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 21,
+        "avgIntervalMs": 7.0712328767123225,
+        "p95IntervalMs": 7.100000000002183,
+        "maxIntervalMs": 14,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.014285714143798464,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 29.75609756097561,
+        "p95ScrollDelta": 30,
+        "maxScrollDelta": 30,
+        "scrollEventCount": 42
+      }
+    },
+    {
+      "cfg": {
+        "id": 9,
+        "mode": "boundary_transition",
+        "startY": 1100,
+        "endY": 1400,
+        "step": 15,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 20,
+        "avgIntervalMs": 6.999193548387108,
+        "p95IntervalMs": 7.099999999998545,
+        "maxIntervalMs": 13.899999999997817,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.010000000149011612,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 15,
+        "p95ScrollDelta": 15,
+        "maxScrollDelta": 15,
+        "scrollEventCount": 20
+      }
+    },
+    {
+      "cfg": {
+        "id": 10,
+        "mode": "full_run",
+        "startY": 0,
+        "endY": 2500,
+        "step": 40,
+        "delay": 16
+      },
+      "data": {
+        "deliveredFps": 0,
+        "uniqueFrames": 0,
+        "totalDraws": 25,
+        "avgIntervalMs": 6.988535031847126,
+        "p95IntervalMs": 7.099999999998545,
+        "maxIntervalMs": 14,
+        "stalls40ms": 0,
+        "stalls100ms": 0,
+        "avgLagFrames": 0,
+        "p95LagFrames": 0,
+        "maxLagFrames": 0,
+        "avgDrawMs": 0.024000000059604645,
+        "p95DrawMs": 0.10000000149011612,
+        "maxDrawMs": 0.10000000149011612,
+        "avgScrollDelta": 39.67741935483871,
+        "p95ScrollDelta": 40,
+        "maxScrollDelta": 40,
+        "scrollEventCount": 63
+      }
+    }
+  ],
+  "microBenchmark": {
+    "clip1": {
+      "fetch": {
+        "avg": 400.8949999997765,
+        "median": 394.8999999985099,
+        "p95": 602.7000000029802,
+        "max": 1051.6000000014901,
+        "min": 4.899999998509884
+      },
+      "decode": {
+        "avg": 22.979000000059603,
+        "median": 21.600000001490116,
+        "p95": 35.20000000298023,
+        "max": 38.899999998509884,
+        "min": 12.5
+      },
+      "draw": {
+        "avg": 0.023000000044703484,
+        "median": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.20000000298023224,
+        "min": 0
+      },
+      "size": {
+        "avg": 87.58591796875,
+        "median": 89.48046875,
+        "p95": 97.201171875,
+        "max": 98.3671875,
+        "min": 67.98828125
+      }
+    },
+    "clip2": {
+      "fetch": {
+        "avg": 432.589999999702,
+        "median": 423.1000000014901,
+        "p95": 727.1000000014901,
+        "max": 889.5,
+        "min": 111.29999999701977
+      },
+      "decode": {
+        "avg": 25.70600000016391,
+        "median": 25.399999998509884,
+        "p95": 38.5,
+        "max": 44.399999998509884,
+        "min": 12.299999997019768
+      },
+      "draw": {
+        "avg": 0.027999999970197677,
+        "median": 0,
+        "p95": 0.10000000149011612,
+        "max": 0.19999999552965164,
+        "min": 0
+      },
+      "size": {
+        "avg": 94.64943359375,
+        "median": 91.66015625,
+        "p95": 105.158203125,
+        "max": 105.736328125,
+        "min": 82.595703125
+      }
+    },
+    "heaviestFrames": [
+      {
+        "globalIndex": 109,
+        "clipIdx": 2,
+        "frameIdx": 10,
+        "filename": "frame-010.webp",
+        "sizeKb": 105.736328125,
+        "fetchDur": 111.29999999701977,
+        "decodeDur": 38.20000000298023,
+        "drawDur": 0,
+        "totalTurnaround": 149.5
+      },
+      {
+        "globalIndex": 110,
+        "clipIdx": 2,
+        "frameIdx": 11,
+        "filename": "frame-011.webp",
+        "sizeKb": 104.806640625,
+        "fetchDur": 520.2000000029802,
+        "decodeDur": 16.399999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 536.6000000014901
+      },
+      {
+        "globalIndex": 111,
+        "clipIdx": 2,
+        "frameIdx": 12,
+        "filename": "frame-012.webp",
+        "sizeKb": 102.62890625,
+        "fetchDur": 417,
+        "decodeDur": 17.799999997019768,
+        "drawDur": 0.10000000149011612,
+        "totalTurnaround": 434.8999999985099
+      },
+      {
+        "globalIndex": 112,
+        "clipIdx": 2,
+        "frameIdx": 13,
+        "filename": "frame-013.webp",
+        "sizeKb": 105.4609375,
+        "fetchDur": 438.70000000298023,
+        "decodeDur": 35.79999999701977,
+        "drawDur": 0.10000000149011612,
+        "totalTurnaround": 474.6000000014901
+      },
+      {
+        "globalIndex": 113,
+        "clipIdx": 2,
+        "frameIdx": 14,
+        "filename": "frame-014.webp",
+        "sizeKb": 103.056640625,
+        "fetchDur": 391.29999999701977,
+        "decodeDur": 44.399999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 435.69999999552965
+      },
+      {
+        "globalIndex": 114,
+        "clipIdx": 2,
+        "frameIdx": 15,
+        "filename": "frame-015.webp",
+        "sizeKb": 103.310546875,
+        "fetchDur": 430.90000000596046,
+        "decodeDur": 20,
+        "drawDur": 0,
+        "totalTurnaround": 450.90000000596046
+      },
+      {
+        "globalIndex": 115,
+        "clipIdx": 2,
+        "frameIdx": 16,
+        "filename": "frame-016.webp",
+        "sizeKb": 105.26953125,
+        "fetchDur": 455.29999999701977,
+        "decodeDur": 40,
+        "drawDur": 0,
+        "totalTurnaround": 495.29999999701977
+      },
+      {
+        "globalIndex": 116,
+        "clipIdx": 2,
+        "frameIdx": 17,
+        "filename": "frame-017.webp",
+        "sizeKb": 103.244140625,
+        "fetchDur": 768.6000000014901,
+        "decodeDur": 16.799999997019768,
+        "drawDur": 0.10000000149011612,
+        "totalTurnaround": 785.5
+      },
+      {
+        "globalIndex": 117,
+        "clipIdx": 2,
+        "frameIdx": 18,
+        "filename": "frame-018.webp",
+        "sizeKb": 102.958984375,
+        "fetchDur": 498.79999999701977,
+        "decodeDur": 26.100000001490116,
+        "drawDur": 0,
+        "totalTurnaround": 524.8999999985099
+      },
+      {
+        "globalIndex": 118,
+        "clipIdx": 2,
+        "frameIdx": 19,
+        "filename": "frame-019.webp",
+        "sizeKb": 102.935546875,
+        "fetchDur": 390.3999999985099,
+        "decodeDur": 18.5,
+        "drawDur": 0,
+        "totalTurnaround": 408.8999999985099
+      },
+      {
+        "globalIndex": 119,
+        "clipIdx": 2,
+        "frameIdx": 20,
+        "filename": "frame-020.webp",
+        "sizeKb": 105.158203125,
+        "fetchDur": 424.70000000298023,
+        "decodeDur": 30.19999999552965,
+        "drawDur": 0,
+        "totalTurnaround": 454.8999999985099
+      },
+      {
+        "globalIndex": 120,
+        "clipIdx": 2,
+        "frameIdx": 21,
+        "filename": "frame-021.webp",
+        "sizeKb": 103.9921875,
+        "fetchDur": 390,
+        "decodeDur": 12.900000005960464,
+        "drawDur": 0.09999999403953552,
+        "totalTurnaround": 403
+      },
+      {
+        "globalIndex": 121,
+        "clipIdx": 2,
+        "frameIdx": 22,
+        "filename": "frame-022.webp",
+        "sizeKb": 104.833984375,
+        "fetchDur": 421.70000000298023,
+        "decodeDur": 12.299999997019768,
+        "drawDur": 0,
+        "totalTurnaround": 434
+      },
+      {
+        "globalIndex": 122,
+        "clipIdx": 2,
+        "frameIdx": 23,
+        "filename": "frame-023.webp",
+        "sizeKb": 103.599609375,
+        "fetchDur": 393.1000000014901,
+        "decodeDur": 19.600000001490116,
+        "drawDur": 0,
+        "totalTurnaround": 412.70000000298023
+      },
+      {
+        "globalIndex": 123,
+        "clipIdx": 2,
+        "frameIdx": 24,
+        "filename": "frame-024.webp",
+        "sizeKb": 104.513671875,
+        "fetchDur": 457.79999999701977,
+        "decodeDur": 20.100000001490116,
+        "drawDur": 0,
+        "totalTurnaround": 477.8999999985099
+      },
+      {
+        "globalIndex": 124,
+        "clipIdx": 2,
+        "frameIdx": 25,
+        "filename": "frame-025.webp",
+        "sizeKb": 103.91796875,
+        "fetchDur": 401.6000000014901,
+        "decodeDur": 16.799999997019768,
+        "drawDur": 0,
+        "totalTurnaround": 418.3999999985099
+      },
+      {
+        "globalIndex": 125,
+        "clipIdx": 2,
+        "frameIdx": 26,
+        "filename": "frame-026.webp",
+        "sizeKb": 105.73046875,
+        "fetchDur": 125.30000000447035,
+        "decodeDur": 34.399999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 159.70000000298023
+      },
+      {
+        "globalIndex": 126,
+        "clipIdx": 2,
+        "frameIdx": 27,
+        "filename": "frame-027.webp",
+        "sizeKb": 102.826171875,
+        "fetchDur": 392.3999999985099,
+        "decodeDur": 23.399999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 415.79999999701977
+      },
+      {
+        "globalIndex": 127,
+        "clipIdx": 2,
+        "frameIdx": 28,
+        "filename": "frame-028.webp",
+        "sizeKb": 103.5234375,
+        "fetchDur": 486.70000000298023,
+        "decodeDur": 21.19999999552965,
+        "drawDur": 0,
+        "totalTurnaround": 507.8999999985099
+      },
+      {
+        "globalIndex": 128,
+        "clipIdx": 2,
+        "frameIdx": 29,
+        "filename": "frame-029.webp",
+        "sizeKb": 105.099609375,
+        "fetchDur": 379.5,
+        "decodeDur": 22.80000000447035,
+        "drawDur": 0,
+        "totalTurnaround": 402.30000000447035
+      },
+      {
+        "globalIndex": 129,
+        "clipIdx": 2,
+        "frameIdx": 30,
+        "filename": "frame-030.webp",
+        "sizeKb": 102.466796875,
+        "fetchDur": 401.19999999552965,
+        "decodeDur": 29.200000002980232,
+        "drawDur": 0.10000000149011612,
+        "totalTurnaround": 430.5
+      },
+      {
+        "globalIndex": 130,
+        "clipIdx": 2,
+        "frameIdx": 31,
+        "filename": "frame-031.webp",
+        "sizeKb": 103.103515625,
+        "fetchDur": 373.5,
+        "decodeDur": 20.899999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 394.3999999985099
+      },
+      {
+        "globalIndex": 131,
+        "clipIdx": 2,
+        "frameIdx": 32,
+        "filename": "frame-032.webp",
+        "sizeKb": 102.9375,
+        "fetchDur": 380.8999999985099,
+        "decodeDur": 20.30000000447035,
+        "drawDur": 0,
+        "totalTurnaround": 401.20000000298023
+      },
+      {
+        "globalIndex": 132,
+        "clipIdx": 2,
+        "frameIdx": 33,
+        "filename": "frame-033.webp",
+        "sizeKb": 102.455078125,
+        "fetchDur": 385.3999999985099,
+        "decodeDur": 28.600000001490116,
+        "drawDur": 0,
+        "totalTurnaround": 414
+      },
+      {
+        "globalIndex": 133,
+        "clipIdx": 2,
+        "frameIdx": 34,
+        "filename": "frame-034.webp",
+        "sizeKb": 101.287109375,
+        "fetchDur": 392.79999999701977,
+        "decodeDur": 27.100000001490116,
+        "drawDur": 0.10000000149011612,
+        "totalTurnaround": 420
+      },
+      {
+        "globalIndex": 134,
+        "clipIdx": 2,
+        "frameIdx": 35,
+        "filename": "frame-035.webp",
+        "sizeKb": 103.998046875,
+        "fetchDur": 378.69999999552965,
+        "decodeDur": 17.899999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 396.59999999403954
+      },
+      {
+        "globalIndex": 135,
+        "clipIdx": 2,
+        "frameIdx": 36,
+        "filename": "frame-036.webp",
+        "sizeKb": 100.123046875,
+        "fetchDur": 375.6000000014901,
+        "decodeDur": 21.399999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 397
+      },
+      {
+        "globalIndex": 136,
+        "clipIdx": 2,
+        "frameIdx": 37,
+        "filename": "frame-037.webp",
+        "sizeKb": 102.2734375,
+        "fetchDur": 437.20000000298023,
+        "decodeDur": 19.899999998509884,
+        "drawDur": 0.10000000149011612,
+        "totalTurnaround": 457.20000000298023
+      },
+      {
+        "globalIndex": 137,
+        "clipIdx": 2,
+        "frameIdx": 38,
+        "filename": "frame-038.webp",
+        "sizeKb": 101.576171875,
+        "fetchDur": 644.6999999955297,
+        "decodeDur": 20.5,
+        "drawDur": 0.10000000149011612,
+        "totalTurnaround": 665.2999999970198
+      },
+      {
+        "globalIndex": 138,
+        "clipIdx": 2,
+        "frameIdx": 39,
+        "filename": "frame-039.webp",
+        "sizeKb": 101.427734375,
+        "fetchDur": 460.29999999701977,
+        "decodeDur": 40.399999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 500.69999999552965
+      },
+      {
+        "globalIndex": 139,
+        "clipIdx": 2,
+        "frameIdx": 40,
+        "filename": "frame-040.webp",
+        "sizeKb": 102.17578125,
+        "fetchDur": 402.70000000298023,
+        "decodeDur": 30.899999998509884,
+        "drawDur": 0,
+        "totalTurnaround": 433.6000000014901
+      },
+      {
+        "globalIndex": 140,
+        "clipIdx": 2,
+        "frameIdx": 41,
+        "filename": "frame-041.webp",
+        "sizeKb": 98.490234375,
+        "fetchDur": 431,
+        "decodeDur": 34.20000000298023,
+        "drawDur": 0,
+        "totalTurnaround": 465.20000000298023
+      },
+      {
+        "globalIndex": 141,
+        "clipIdx": 2,
+        "frameIdx": 42,
+        "filename": "frame-042.webp",
+        "sizeKb": 99.765625,
+        "fetchDur": 747.1999999955297,
+        "decodeDur": 33.400000005960464,
+        "drawDur": 0.09999999403953552,
+        "totalTurnaround": 780.6999999955297
+      },
+      {
+        "globalIndex": 142,
+        "clipIdx": 2,
+        "frameIdx": 43,
+        "filename": "frame-043.webp",
+        "sizeKb": 96.970703125,
+        "fetchDur": 424.5,
+        "decodeDur": 23,
+        "drawDur": 0,
+        "totalTurnaround": 447.5
+      },
+      {
+        "globalIndex": 143,
+        "clipIdx": 2,
+        "frameIdx": 44,
+        "filename": "frame-044.webp",
+        "sizeKb": 99.048828125,
+        "fetchDur": 866,
+        "decodeDur": 19.400000005960464,
+        "drawDur": 0,
+        "totalTurnaround": 885.4000000059605
+      },
+      {
+        "globalIndex": 144,
+        "clipIdx": 2,
+        "frameIdx": 45,
+        "filename": "frame-045.webp",
+        "sizeKb": 96.662109375,
+        "fetchDur": 889.5,
+        "decodeDur": 21.799999997019768,
+        "drawDur": 0,
+        "totalTurnaround": 911.2999999970198
+      }
+    ]
+  },
+  "coldMetrics": {
+    "fps": 14.228430992109688,
+    "uniqueFrames": 33,
+    "avgIntervalMs": 7.070516717325229,
+    "p95IntervalMs": 7.100000000000364,
+    "maxIntervalMs": 20.90000000000009,
+    "stalls40ms": 0,
+    "stalls100ms": 0,
+    "avgLag": 25.70516717325228,
+    "p95Lag": 97,
+    "maxLag": 109
+  },
+  "warmMetrics": {
+    "fps": 28.244092608799413,
+    "uniqueFrames": 71,
+    "avgIntervalMs": 6.982548476454296,
+    "p95IntervalMs": 7.099999999998545,
+    "maxIntervalMs": 21.099999999998545,
+    "stalls40ms": 0,
+    "stalls100ms": 0,
+    "avgLag": 0.5484764542936288,
+    "p95Lag": 3,
+    "maxLag": 3
+  },
+  "boundaryCrossings": {
+    "avgMaxDelta": 8.559999999999127,
+    "totalDrops": 0,
+    "boundaryCrossings": [
+      {
+        "maxDelta": 7.19999999999709,
+        "dropped": 0,
+        "sampleCount": 117
+      },
+      {
+        "maxDelta": 7.200000000000728,
+        "dropped": 0,
+        "sampleCount": 117
+      },
+      {
+        "maxDelta": 7.299999999999272,
+        "dropped": 0,
+        "sampleCount": 117
+      },
+      {
+        "maxDelta": 13.899999999997817,
+        "dropped": 0,
+        "sampleCount": 114
+      },
+      {
+        "maxDelta": 7.200000000000728,
+        "dropped": 0,
+        "sampleCount": 116
+      }
+    ]
+  }
+}

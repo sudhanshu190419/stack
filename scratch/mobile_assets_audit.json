@@ -1,0 +1,1574 @@
+{
+  "c1": {
+    "clipName": "clip-01",
+    "count": 100,
+    "totalMb": 8.553312301635742,
+    "avgKb": 87.58591796875,
+    "medianKb": 89.48046875,
+    "p95Kb": 97.201171875,
+    "maxKb": 98.3671875,
+    "minKb": 67.98828125,
+    "sampleDims": "926x1920",
+    "top10": [
+      {
+        "filename": "frame-097.webp",
+        "sizeBytes": 100728,
+        "sizeKb": 98.3671875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-099.webp",
+        "sizeBytes": 100614,
+        "sizeKb": 98.255859375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-100.webp",
+        "sizeBytes": 100614,
+        "sizeKb": 98.255859375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-088.webp",
+        "sizeBytes": 100136,
+        "sizeKb": 97.7890625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-081.webp",
+        "sizeBytes": 99534,
+        "sizeKb": 97.201171875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-089.webp",
+        "sizeBytes": 99304,
+        "sizeKb": 96.9765625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-096.webp",
+        "sizeBytes": 99180,
+        "sizeKb": 96.85546875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-083.webp",
+        "sizeBytes": 98774,
+        "sizeKb": 96.458984375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-093.webp",
+        "sizeBytes": 98692,
+        "sizeKb": 96.37890625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-098.webp",
+        "sizeBytes": 98534,
+        "sizeKb": 96.224609375,
+        "width": 926,
+        "height": 1920
+      }
+    ],
+    "details": [
+      {
+        "filename": "frame-001.webp",
+        "sizeBytes": 92584,
+        "sizeKb": 90.4140625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-002.webp",
+        "sizeBytes": 92584,
+        "sizeKb": 90.4140625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-003.webp",
+        "sizeBytes": 91456,
+        "sizeKb": 89.3125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-004.webp",
+        "sizeBytes": 92848,
+        "sizeKb": 90.671875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-005.webp",
+        "sizeBytes": 92054,
+        "sizeKb": 89.896484375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-006.webp",
+        "sizeBytes": 94500,
+        "sizeKb": 92.28515625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-007.webp",
+        "sizeBytes": 92132,
+        "sizeKb": 89.97265625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-008.webp",
+        "sizeBytes": 92928,
+        "sizeKb": 90.75,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-009.webp",
+        "sizeBytes": 91912,
+        "sizeKb": 89.7578125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-010.webp",
+        "sizeBytes": 96336,
+        "sizeKb": 94.078125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-011.webp",
+        "sizeBytes": 90122,
+        "sizeKb": 88.009765625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-012.webp",
+        "sizeBytes": 91322,
+        "sizeKb": 89.181640625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-013.webp",
+        "sizeBytes": 93438,
+        "sizeKb": 91.248046875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-014.webp",
+        "sizeBytes": 92420,
+        "sizeKb": 90.25390625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-015.webp",
+        "sizeBytes": 92232,
+        "sizeKb": 90.0703125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-016.webp",
+        "sizeBytes": 92542,
+        "sizeKb": 90.373046875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-017.webp",
+        "sizeBytes": 89986,
+        "sizeKb": 87.876953125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-018.webp",
+        "sizeBytes": 90986,
+        "sizeKb": 88.853515625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-019.webp",
+        "sizeBytes": 91564,
+        "sizeKb": 89.41796875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-020.webp",
+        "sizeBytes": 91504,
+        "sizeKb": 89.359375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-021.webp",
+        "sizeBytes": 91024,
+        "sizeKb": 88.890625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-022.webp",
+        "sizeBytes": 90322,
+        "sizeKb": 88.205078125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-023.webp",
+        "sizeBytes": 89810,
+        "sizeKb": 87.705078125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-024.webp",
+        "sizeBytes": 88600,
+        "sizeKb": 86.5234375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-025.webp",
+        "sizeBytes": 87620,
+        "sizeKb": 85.56640625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-026.webp",
+        "sizeBytes": 92740,
+        "sizeKb": 90.56640625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-027.webp",
+        "sizeBytes": 89622,
+        "sizeKb": 87.521484375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-028.webp",
+        "sizeBytes": 89664,
+        "sizeKb": 87.5625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-029.webp",
+        "sizeBytes": 89740,
+        "sizeKb": 87.63671875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-030.webp",
+        "sizeBytes": 91768,
+        "sizeKb": 89.6171875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-031.webp",
+        "sizeBytes": 86772,
+        "sizeKb": 84.73828125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-032.webp",
+        "sizeBytes": 87328,
+        "sizeKb": 85.28125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-033.webp",
+        "sizeBytes": 83770,
+        "sizeKb": 81.806640625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-034.webp",
+        "sizeBytes": 83770,
+        "sizeKb": 81.806640625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-035.webp",
+        "sizeBytes": 84002,
+        "sizeKb": 82.033203125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-036.webp",
+        "sizeBytes": 84404,
+        "sizeKb": 82.42578125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-037.webp",
+        "sizeBytes": 83732,
+        "sizeKb": 81.76953125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-038.webp",
+        "sizeBytes": 81592,
+        "sizeKb": 79.6796875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-039.webp",
+        "sizeBytes": 85250,
+        "sizeKb": 83.251953125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-040.webp",
+        "sizeBytes": 83314,
+        "sizeKb": 81.361328125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-041.webp",
+        "sizeBytes": 81632,
+        "sizeKb": 79.71875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-042.webp",
+        "sizeBytes": 79656,
+        "sizeKb": 77.7890625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-043.webp",
+        "sizeBytes": 78112,
+        "sizeKb": 76.28125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-044.webp",
+        "sizeBytes": 78270,
+        "sizeKb": 76.435546875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-045.webp",
+        "sizeBytes": 75484,
+        "sizeKb": 73.71484375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-046.webp",
+        "sizeBytes": 76560,
+        "sizeKb": 74.765625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-047.webp",
+        "sizeBytes": 72484,
+        "sizeKb": 70.78515625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-048.webp",
+        "sizeBytes": 69620,
+        "sizeKb": 67.98828125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-049.webp",
+        "sizeBytes": 70786,
+        "sizeKb": 69.126953125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-050.webp",
+        "sizeBytes": 71982,
+        "sizeKb": 70.294921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-051.webp",
+        "sizeBytes": 71128,
+        "sizeKb": 69.4609375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-052.webp",
+        "sizeBytes": 70702,
+        "sizeKb": 69.044921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-053.webp",
+        "sizeBytes": 74254,
+        "sizeKb": 72.513671875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-054.webp",
+        "sizeBytes": 75378,
+        "sizeKb": 73.611328125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-055.webp",
+        "sizeBytes": 79912,
+        "sizeKb": 78.0390625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-056.webp",
+        "sizeBytes": 78028,
+        "sizeKb": 76.19921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-057.webp",
+        "sizeBytes": 80998,
+        "sizeKb": 79.099609375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-058.webp",
+        "sizeBytes": 81940,
+        "sizeKb": 80.01953125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-059.webp",
+        "sizeBytes": 85556,
+        "sizeKb": 83.55078125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-060.webp",
+        "sizeBytes": 83476,
+        "sizeKb": 81.51953125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-061.webp",
+        "sizeBytes": 88890,
+        "sizeKb": 86.806640625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-062.webp",
+        "sizeBytes": 88696,
+        "sizeKb": 86.6171875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-063.webp",
+        "sizeBytes": 88778,
+        "sizeKb": 86.697265625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-064.webp",
+        "sizeBytes": 90128,
+        "sizeKb": 88.015625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-065.webp",
+        "sizeBytes": 90518,
+        "sizeKb": 88.396484375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-066.webp",
+        "sizeBytes": 91822,
+        "sizeKb": 89.669921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-067.webp",
+        "sizeBytes": 91822,
+        "sizeKb": 89.669921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-068.webp",
+        "sizeBytes": 91628,
+        "sizeKb": 89.48046875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-069.webp",
+        "sizeBytes": 94524,
+        "sizeKb": 92.30859375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-070.webp",
+        "sizeBytes": 94054,
+        "sizeKb": 91.849609375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-071.webp",
+        "sizeBytes": 96202,
+        "sizeKb": 93.947265625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-072.webp",
+        "sizeBytes": 94588,
+        "sizeKb": 92.37109375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-073.webp",
+        "sizeBytes": 96482,
+        "sizeKb": 94.220703125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-074.webp",
+        "sizeBytes": 95664,
+        "sizeKb": 93.421875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-075.webp",
+        "sizeBytes": 95966,
+        "sizeKb": 93.716796875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-076.webp",
+        "sizeBytes": 95216,
+        "sizeKb": 92.984375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-077.webp",
+        "sizeBytes": 97272,
+        "sizeKb": 94.9921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-078.webp",
+        "sizeBytes": 96786,
+        "sizeKb": 94.517578125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-079.webp",
+        "sizeBytes": 97746,
+        "sizeKb": 95.455078125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-080.webp",
+        "sizeBytes": 98220,
+        "sizeKb": 95.91796875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-081.webp",
+        "sizeBytes": 99534,
+        "sizeKb": 97.201171875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-082.webp",
+        "sizeBytes": 98132,
+        "sizeKb": 95.83203125,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-083.webp",
+        "sizeBytes": 98774,
+        "sizeKb": 96.458984375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-084.webp",
+        "sizeBytes": 95934,
+        "sizeKb": 93.685546875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-085.webp",
+        "sizeBytes": 97454,
+        "sizeKb": 95.169921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-086.webp",
+        "sizeBytes": 95950,
+        "sizeKb": 93.701171875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-087.webp",
+        "sizeBytes": 97306,
+        "sizeKb": 95.025390625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-088.webp",
+        "sizeBytes": 100136,
+        "sizeKb": 97.7890625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-089.webp",
+        "sizeBytes": 99304,
+        "sizeKb": 96.9765625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-090.webp",
+        "sizeBytes": 96492,
+        "sizeKb": 94.23046875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-091.webp",
+        "sizeBytes": 96912,
+        "sizeKb": 94.640625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-092.webp",
+        "sizeBytes": 96686,
+        "sizeKb": 94.419921875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-093.webp",
+        "sizeBytes": 98692,
+        "sizeKb": 96.37890625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-094.webp",
+        "sizeBytes": 98286,
+        "sizeKb": 95.982421875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-095.webp",
+        "sizeBytes": 98282,
+        "sizeKb": 95.978515625,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-096.webp",
+        "sizeBytes": 99180,
+        "sizeKb": 96.85546875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-097.webp",
+        "sizeBytes": 100728,
+        "sizeKb": 98.3671875,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-098.webp",
+        "sizeBytes": 98534,
+        "sizeKb": 96.224609375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-099.webp",
+        "sizeBytes": 100614,
+        "sizeKb": 98.255859375,
+        "width": 926,
+        "height": 1920
+      },
+      {
+        "filename": "frame-100.webp",
+        "sizeBytes": 100614,
+        "sizeKb": 98.255859375,
+        "width": 926,
+        "height": 1920
+      }
+    ]
+  },
+  "c2": {
+    "clipName": "clip-02",
+    "count": 100,
+    "totalMb": 9.243108749389648,
+    "avgKb": 94.64943359375,
+    "medianKb": 91.66015625,
+    "p95Kb": 105.158203125,
+    "maxKb": 105.736328125,
+    "minKb": 82.595703125,
+    "sampleDims": "910x1920",
+    "top10": [
+      {
+        "filename": "frame-010.webp",
+        "sizeBytes": 108274,
+        "sizeKb": 105.736328125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-026.webp",
+        "sizeBytes": 108268,
+        "sizeKb": 105.73046875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-013.webp",
+        "sizeBytes": 107992,
+        "sizeKb": 105.4609375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-016.webp",
+        "sizeBytes": 107796,
+        "sizeKb": 105.26953125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-020.webp",
+        "sizeBytes": 107682,
+        "sizeKb": 105.158203125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-029.webp",
+        "sizeBytes": 107622,
+        "sizeKb": 105.099609375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-022.webp",
+        "sizeBytes": 107350,
+        "sizeKb": 104.833984375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-011.webp",
+        "sizeBytes": 107322,
+        "sizeKb": 104.806640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-024.webp",
+        "sizeBytes": 107022,
+        "sizeKb": 104.513671875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-035.webp",
+        "sizeBytes": 106494,
+        "sizeKb": 103.998046875,
+        "width": 910,
+        "height": 1920
+      }
+    ],
+    "details": [
+      {
+        "filename": "frame-001.webp",
+        "sizeBytes": 104078,
+        "sizeKb": 101.638671875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-002.webp",
+        "sizeBytes": 103888,
+        "sizeKb": 101.453125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-003.webp",
+        "sizeBytes": 104366,
+        "sizeKb": 101.919921875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-004.webp",
+        "sizeBytes": 105108,
+        "sizeKb": 102.64453125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-005.webp",
+        "sizeBytes": 105104,
+        "sizeKb": 102.640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-006.webp",
+        "sizeBytes": 106406,
+        "sizeKb": 103.912109375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-007.webp",
+        "sizeBytes": 105688,
+        "sizeKb": 103.2109375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-008.webp",
+        "sizeBytes": 104310,
+        "sizeKb": 101.865234375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-009.webp",
+        "sizeBytes": 104568,
+        "sizeKb": 102.1171875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-010.webp",
+        "sizeBytes": 108274,
+        "sizeKb": 105.736328125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-011.webp",
+        "sizeBytes": 107322,
+        "sizeKb": 104.806640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-012.webp",
+        "sizeBytes": 105092,
+        "sizeKb": 102.62890625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-013.webp",
+        "sizeBytes": 107992,
+        "sizeKb": 105.4609375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-014.webp",
+        "sizeBytes": 105530,
+        "sizeKb": 103.056640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-015.webp",
+        "sizeBytes": 105790,
+        "sizeKb": 103.310546875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-016.webp",
+        "sizeBytes": 107796,
+        "sizeKb": 105.26953125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-017.webp",
+        "sizeBytes": 105722,
+        "sizeKb": 103.244140625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-018.webp",
+        "sizeBytes": 105430,
+        "sizeKb": 102.958984375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-019.webp",
+        "sizeBytes": 105406,
+        "sizeKb": 102.935546875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-020.webp",
+        "sizeBytes": 107682,
+        "sizeKb": 105.158203125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-021.webp",
+        "sizeBytes": 106488,
+        "sizeKb": 103.9921875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-022.webp",
+        "sizeBytes": 107350,
+        "sizeKb": 104.833984375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-023.webp",
+        "sizeBytes": 106086,
+        "sizeKb": 103.599609375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-024.webp",
+        "sizeBytes": 107022,
+        "sizeKb": 104.513671875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-025.webp",
+        "sizeBytes": 106412,
+        "sizeKb": 103.91796875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-026.webp",
+        "sizeBytes": 108268,
+        "sizeKb": 105.73046875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-027.webp",
+        "sizeBytes": 105294,
+        "sizeKb": 102.826171875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-028.webp",
+        "sizeBytes": 106008,
+        "sizeKb": 103.5234375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-029.webp",
+        "sizeBytes": 107622,
+        "sizeKb": 105.099609375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-030.webp",
+        "sizeBytes": 104926,
+        "sizeKb": 102.466796875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-031.webp",
+        "sizeBytes": 105578,
+        "sizeKb": 103.103515625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-032.webp",
+        "sizeBytes": 105408,
+        "sizeKb": 102.9375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-033.webp",
+        "sizeBytes": 104914,
+        "sizeKb": 102.455078125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-034.webp",
+        "sizeBytes": 103718,
+        "sizeKb": 101.287109375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-035.webp",
+        "sizeBytes": 106494,
+        "sizeKb": 103.998046875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-036.webp",
+        "sizeBytes": 102526,
+        "sizeKb": 100.123046875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-037.webp",
+        "sizeBytes": 104728,
+        "sizeKb": 102.2734375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-038.webp",
+        "sizeBytes": 104014,
+        "sizeKb": 101.576171875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-039.webp",
+        "sizeBytes": 103862,
+        "sizeKb": 101.427734375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-040.webp",
+        "sizeBytes": 104628,
+        "sizeKb": 102.17578125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-041.webp",
+        "sizeBytes": 100854,
+        "sizeKb": 98.490234375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-042.webp",
+        "sizeBytes": 102160,
+        "sizeKb": 99.765625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-043.webp",
+        "sizeBytes": 99298,
+        "sizeKb": 96.970703125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-044.webp",
+        "sizeBytes": 101426,
+        "sizeKb": 99.048828125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-045.webp",
+        "sizeBytes": 98982,
+        "sizeKb": 96.662109375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-046.webp",
+        "sizeBytes": 99362,
+        "sizeKb": 97.033203125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-047.webp",
+        "sizeBytes": 98344,
+        "sizeKb": 96.0390625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-048.webp",
+        "sizeBytes": 95648,
+        "sizeKb": 93.40625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-049.webp",
+        "sizeBytes": 94580,
+        "sizeKb": 92.36328125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-050.webp",
+        "sizeBytes": 92482,
+        "sizeKb": 90.314453125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-051.webp",
+        "sizeBytes": 92578,
+        "sizeKb": 90.408203125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-052.webp",
+        "sizeBytes": 90200,
+        "sizeKb": 88.0859375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-053.webp",
+        "sizeBytes": 93242,
+        "sizeKb": 91.056640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-054.webp",
+        "sizeBytes": 91798,
+        "sizeKb": 89.646484375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-055.webp",
+        "sizeBytes": 93418,
+        "sizeKb": 91.228515625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-056.webp",
+        "sizeBytes": 92180,
+        "sizeKb": 90.01953125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-057.webp",
+        "sizeBytes": 89616,
+        "sizeKb": 87.515625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-058.webp",
+        "sizeBytes": 87636,
+        "sizeKb": 85.58203125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-059.webp",
+        "sizeBytes": 89630,
+        "sizeKb": 87.529296875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-060.webp",
+        "sizeBytes": 87030,
+        "sizeKb": 84.990234375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-061.webp",
+        "sizeBytes": 89676,
+        "sizeKb": 87.57421875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-062.webp",
+        "sizeBytes": 84578,
+        "sizeKb": 82.595703125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-063.webp",
+        "sizeBytes": 87788,
+        "sizeKb": 85.73046875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-064.webp",
+        "sizeBytes": 85248,
+        "sizeKb": 83.25,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-065.webp",
+        "sizeBytes": 86274,
+        "sizeKb": 84.251953125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-066.webp",
+        "sizeBytes": 86218,
+        "sizeKb": 84.197265625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-067.webp",
+        "sizeBytes": 86882,
+        "sizeKb": 84.845703125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-068.webp",
+        "sizeBytes": 87372,
+        "sizeKb": 85.32421875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-069.webp",
+        "sizeBytes": 87034,
+        "sizeKb": 84.994140625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-070.webp",
+        "sizeBytes": 89096,
+        "sizeKb": 87.0078125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-071.webp",
+        "sizeBytes": 86936,
+        "sizeKb": 84.8984375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-072.webp",
+        "sizeBytes": 89798,
+        "sizeKb": 87.693359375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-073.webp",
+        "sizeBytes": 88138,
+        "sizeKb": 86.072265625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-074.webp",
+        "sizeBytes": 92814,
+        "sizeKb": 90.638671875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-075.webp",
+        "sizeBytes": 90864,
+        "sizeKb": 88.734375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-076.webp",
+        "sizeBytes": 90674,
+        "sizeKb": 88.548828125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-077.webp",
+        "sizeBytes": 89340,
+        "sizeKb": 87.24609375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-078.webp",
+        "sizeBytes": 87326,
+        "sizeKb": 85.279296875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-079.webp",
+        "sizeBytes": 92344,
+        "sizeKb": 90.1796875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-080.webp",
+        "sizeBytes": 89474,
+        "sizeKb": 87.376953125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-081.webp",
+        "sizeBytes": 91478,
+        "sizeKb": 89.333984375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-082.webp",
+        "sizeBytes": 89828,
+        "sizeKb": 87.72265625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-083.webp",
+        "sizeBytes": 89434,
+        "sizeKb": 87.337890625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-084.webp",
+        "sizeBytes": 92054,
+        "sizeKb": 89.896484375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-085.webp",
+        "sizeBytes": 90610,
+        "sizeKb": 88.486328125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-086.webp",
+        "sizeBytes": 91234,
+        "sizeKb": 89.095703125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-087.webp",
+        "sizeBytes": 92498,
+        "sizeKb": 90.330078125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-088.webp",
+        "sizeBytes": 90670,
+        "sizeKb": 88.544921875,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-089.webp",
+        "sizeBytes": 87968,
+        "sizeKb": 85.90625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-090.webp",
+        "sizeBytes": 87620,
+        "sizeKb": 85.56640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-091.webp",
+        "sizeBytes": 87606,
+        "sizeKb": 85.552734375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-092.webp",
+        "sizeBytes": 93860,
+        "sizeKb": 91.66015625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-093.webp",
+        "sizeBytes": 93456,
+        "sizeKb": 91.265625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-094.webp",
+        "sizeBytes": 88634,
+        "sizeKb": 86.556640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-095.webp",
+        "sizeBytes": 89402,
+        "sizeKb": 87.306640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-096.webp",
+        "sizeBytes": 93252,
+        "sizeKb": 91.06640625,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-097.webp",
+        "sizeBytes": 89122,
+        "sizeKb": 87.033203125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-098.webp",
+        "sizeBytes": 89382,
+        "sizeKb": 87.287109375,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-099.webp",
+        "sizeBytes": 88962,
+        "sizeKb": 86.876953125,
+        "width": 910,
+        "height": 1920
+      },
+      {
+        "filename": "frame-100.webp",
+        "sizeBytes": 89796,
+        "sizeKb": 87.69140625,
+        "width": 910,
+        "height": 1920
+      }
+    ]
+  },
+  "totalMb": 17.79642105102539,
+  "avgKb": 91.11767578125
+}

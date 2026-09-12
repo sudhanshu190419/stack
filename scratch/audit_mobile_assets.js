@@ -1,77 +1,75 @@
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 
-function getWebpDimensions(buffer) {
-  if (buffer.length < 30) return null;
-  const riff = buffer.toString('ascii', 0, 4);
-  const webp = buffer.toString('ascii', 8, 12);
-  if (riff !== 'RIFF' || webp !== 'WEBP') return null;
+const baseDir = path.join(__dirname, '..', 'public', 'hero_mobile');
 
-  const chunkType = buffer.toString('ascii', 12, 16);
-  if (chunkType === 'VP8 ') {
-    const keyframe = buffer.readUInt8(23) === 0x9d && buffer.readUInt8(24) === 0x01 && buffer.readUInt8(25) === 0x2a;
-    if (keyframe) {
-      const width = buffer.readUInt16LE(26) & 0x3fff;
-      const height = buffer.readUInt16LE(28) & 0x3fff;
-      return { width, height, format: 'VP8' };
-    }
-  } else if (chunkType === 'VP8L') {
-    const b0 = buffer.readUInt8(21);
-    const b1 = buffer.readUInt8(22);
-    const b2 = buffer.readUInt8(23);
-    const b3 = buffer.readUInt8(24);
-    const width = 1 + (((b1 & 0x3f) << 8) | b0);
-    const height = 1 + (((b3 & 0x0f) << 10) | (b2 << 2) | ((b1 & 0xc0) >> 6));
-    return { width, height, format: 'VP8L' };
-  } else if (chunkType === 'VP8X') {
-    const width = 1 + buffer.readUIntLE(24, 3);
-    const height = 1 + buffer.readUIntLE(27, 3);
-    return { width, height, format: 'VP8X' };
-  }
-  return null;
-}
+async function auditClip(clipName) {
+  const dir = path.join(baseDir, clipName);
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.webp')).sort();
 
-const mobileDir = path.join(__dirname, '..', 'public', 'hero_mobile');
-const clips = fs.readdirSync(mobileDir).filter(f => fs.statSync(path.join(mobileDir, f)).isDirectory());
-
-console.log('Found clips:', clips);
-
-const audit = {};
-let grandTotalBytes = 0;
-let grandTotalFrames = 0;
-
-for (const clip of clips) {
-  const cDir = path.join(mobileDir, clip);
-  const files = fs.readdirSync(cDir).filter(f => f.endsWith('.webp')).sort();
-  let clipBytes = 0;
-  const dimCounts = {};
-
+  const details = [];
   for (const f of files) {
-    const fPath = path.join(cDir, f);
+    const fPath = path.join(dir, f);
     const stat = fs.statSync(fPath);
-    clipBytes += stat.size;
-    grandTotalBytes += stat.size;
-    grandTotalFrames++;
-
-    const buf = fs.readFileSync(fPath);
-    const dim = getWebpDimensions(buf);
-    const key = dim ? `${dim.width}x${dim.height} (${dim.format})` : 'unknown';
-    dimCounts[key] = (dimCounts[key] || 0) + 1;
+    const meta = await sharp(fPath).metadata();
+    details.push({
+      filename: f,
+      sizeBytes: stat.size,
+      sizeKb: stat.size / 1024,
+      width: meta.width,
+      height: meta.height
+    });
   }
 
-  audit[clip] = {
-    frameCount: files.length,
-    firstFile: files[0],
-    lastFile: files[files.length - 1],
-    totalBytes: clipBytes,
-    totalMB: (clipBytes / (1024 * 1024)).toFixed(2),
-    avgKB: (clipBytes / files.length / 1024).toFixed(1),
-    dimensions: dimCounts
+  const sizes = details.map(d => d.sizeKb).sort((a,b)=>a-b);
+  const totalMb = sizes.reduce((a,b)=>a+b,0) / 1024;
+  const avgKb = sizes.reduce((a,b)=>a+b,0) / sizes.length;
+  const medianKb = sizes[Math.floor(sizes.length * 0.5)];
+  const p95Kb = sizes[Math.floor(sizes.length * 0.95)];
+  const maxKb = sizes[sizes.length - 1];
+  const minKb = sizes[0];
+
+  // Top 10 heaviest
+  const top10 = [...details].sort((a,b)=>b.sizeKb - a.sizeKb).slice(0, 10);
+
+  return {
+    clipName,
+    count: files.length,
+    totalMb,
+    avgKb,
+    medianKb,
+    p95Kb,
+    maxKb,
+    minKb,
+    sampleDims: `${details[0].width}x${details[0].height}`,
+    top10,
+    details
   };
 }
 
-console.log('--- MOBILE HERO ASSET AUDIT ---');
-console.log(JSON.stringify(audit, null, 2));
-console.log(`\nGrand Total Frames: ${grandTotalFrames}`);
-console.log(`Grand Total Size: ${(grandTotalBytes / (1024 * 1024)).toFixed(2)} MB (${grandTotalBytes} bytes)`);
-console.log(`Average File Size: ${(grandTotalBytes / grandTotalFrames / 1024).toFixed(1)} KB`);
+async function run() {
+  console.log('=== AUDITING MOBILE HERO ASSETS ===');
+  const c1 = await auditClip('clip-01');
+  const c2 = await auditClip('clip-02');
+
+  const totalMb = c1.totalMb + c2.totalMb;
+  const avgKb = (c1.totalMb * 1024 + c2.totalMb * 1024) / (c1.count + c2.count);
+
+  console.log('\n--- MOBILE CLIP AUDIT TABLE ---');
+  console.log('| Clip | Frame Count | Total MB | Avg KB/frame | Median KB | P95 KB | Max KB | Min KB | Dimensions |');
+  console.log('|---|---|---|---|---|---|---|---|---|');
+  console.log(`| **Clip 1** | ${c1.count} | ${c1.totalMb.toFixed(2)} MB | ${c1.avgKb.toFixed(1)} KB | ${c1.medianKb.toFixed(1)} KB | ${c1.p95Kb.toFixed(1)} KB | ${c1.maxKb.toFixed(1)} KB | ${c1.minKb.toFixed(1)} KB | ${c1.sampleDims} |`);
+  console.log(`| **Clip 2** | ${c2.count} | ${c2.totalMb.toFixed(2)} MB | ${c2.avgKb.toFixed(1)} KB | ${c2.medianKb.toFixed(1)} KB | ${c2.p95Kb.toFixed(1)} KB | ${c2.maxKb.toFixed(1)} KB | ${c2.minKb.toFixed(1)} KB | ${c2.sampleDims} |`);
+  console.log(`| **Total**  | ${c1.count + c2.count} | ${totalMb.toFixed(2)} MB | ${avgKb.toFixed(1)} KB | — | — | — | — | — |`);
+
+  console.log('\n--- TOP 10 HEAVIEST FRAMES IN CLIP 1 ---');
+  c1.top10.forEach((t, i) => console.log(`  ${i+1}. ${t.filename}: ${t.sizeKb.toFixed(1)} KB`));
+
+  console.log('\n--- TOP 10 HEAVIEST FRAMES IN CLIP 2 ---');
+  c2.top10.forEach((t, i) => console.log(`  ${i+1}. ${t.filename}: ${t.sizeKb.toFixed(1)} KB`));
+
+  fs.writeFileSync(path.join(__dirname, 'mobile_assets_audit.json'), JSON.stringify({ c1, c2, totalMb, avgKb }, null, 2));
+}
+
+run().catch(console.error);

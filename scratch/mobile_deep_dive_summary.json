@@ -1,0 +1,74 @@
+{
+  "deviceResults": {
+    "iPhone 15 Pro": {
+      "canvasInfo": {
+        "cssWidth": 393,
+        "cssHeight": 852,
+        "backingWidth": 300,
+        "backingHeight": 150,
+        "backingMegapixels": "0.04",
+        "dpr": 3
+      },
+      "avgRaf": 14.18815789471723,
+      "p95Raf": 62.20000000000073,
+      "maxRaf": 145.80000000000018,
+      "stalls25ms": 10
+    },
+    "Modern Android (Pixel 7)": {
+      "canvasInfo": {
+        "cssWidth": 412,
+        "cssHeight": 915,
+        "backingWidth": 824,
+        "backingHeight": 1830,
+        "backingMegapixels": "1.51",
+        "dpr": 2.625
+      },
+      "avgRaf": 7.280916030568476,
+      "p95Raf": 7.100000000000364,
+      "maxRaf": 41.69999999999982,
+      "stalls25ms": 1
+    },
+    "Mid/Low-end Android": {
+      "canvasInfo": {
+        "cssWidth": 360,
+        "cssHeight": 740,
+        "backingWidth": 720,
+        "backingHeight": 1480,
+        "backingMegapixels": "1.07",
+        "dpr": 2
+      },
+      "avgRaf": 6.9036231883841985,
+      "p95Raf": 7,
+      "maxRaf": 7.299999999999727,
+      "stalls25ms": 0
+    }
+  },
+  "touchDeltaAnalysis": [
+    {
+      "type": "Slow Finger Drag",
+      "avgDeltaPx": "11.0",
+      "maxDeltaPx": "14.0",
+      "avgFramesCrossed": "0.9",
+      "maxFramesCrossed": "1.1"
+    },
+    {
+      "type": "Normal Swipe",
+      "avgDeltaPx": "33.4",
+      "maxDeltaPx": "52.0",
+      "avgFramesCrossed": "2.7",
+      "maxFramesCrossed": "4.2"
+    },
+    {
+      "type": "Fast Flick / Momentum",
+      "avgDeltaPx": "106.8",
+      "maxDeltaPx": "210.0",
+      "avgFramesCrossed": "8.5",
+      "maxFramesCrossed": "16.8"
+    }
+  ],
+  "throttledTiming": {
+    "sizeKb": "105.7",
+    "durationMs": "12333.1",
+    "effectiveThroughputKbps": "70"
+  }
+}

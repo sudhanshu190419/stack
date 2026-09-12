@@ -1,0 +1,1837 @@
+{
+  "s1": {
+    "count": 100,
+    "totalOrigMb": 8.553312301635742,
+    "totalNewMb": 7.409458160400391,
+    "avgKb": 75.8728515625,
+    "medianKb": 77.505859375,
+    "p95Kb": 78.513671875,
+    "maxKb": 78.724609375,
+    "minKb": 71.505859375,
+    "reductionPercent": 13.37323016975073
+  },
+  "s2": {
+    "count": 100,
+    "totalOrigMb": 9.243108749389648,
+    "totalNewMb": 7.733917236328125,
+    "avgKb": 79.1953125,
+    "medianKb": 78.271484375,
+    "p95Kb": 84.4453125,
+    "maxKb": 84.81640625,
+    "minKb": 72.615234375,
+    "reductionPercent": 16.327748098400118
+  },
+  "sTotal": {
+    "count": 200,
+    "totalOrigMb": 17.79642105102539,
+    "totalNewMb": 15.143375396728516,
+    "avgKb": 77.53408203125,
+    "maxKb": 84.81640625,
+    "minKb": 71.505859375,
+    "reductionPercent": 14.90774828652423
+  },
+  "c1Results": [
+    {
+      "clipName": "clip-01",
+      "filename": "frame-001.webp",
+      "origKb": 90.4140625,
+      "newKb": 78.37109375,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-002.webp",
+      "origKb": 90.4140625,
+      "newKb": 78.37109375,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-003.webp",
+      "origKb": 89.3125,
+      "newKb": 77.822265625,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-004.webp",
+      "origKb": 90.671875,
+      "newKb": 78.509765625,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-005.webp",
+      "origKb": 89.896484375,
+      "newKb": 78.48828125,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-006.webp",
+      "origKb": 92.28515625,
+      "newKb": 77.521484375,
+      "quality": 74,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-007.webp",
+      "origKb": 89.97265625,
+      "newKb": 78.017578125,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-008.webp",
+      "origKb": 90.75,
+      "newKb": 77.40234375,
+      "quality": 75,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-009.webp",
+      "origKb": 89.7578125,
+      "newKb": 78.16015625,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-010.webp",
+      "origKb": 94.078125,
+      "newKb": 77.22265625,
+      "quality": 75,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-011.webp",
+      "origKb": 88.009765625,
+      "newKb": 77.98046875,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-012.webp",
+      "origKb": 89.181640625,
+      "newKb": 78.703125,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-013.webp",
+      "origKb": 91.248046875,
+      "newKb": 78.712890625,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-014.webp",
+      "origKb": 90.25390625,
+      "newKb": 78.365234375,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-015.webp",
+      "origKb": 90.0703125,
+      "newKb": 77.908203125,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-016.webp",
+      "origKb": 90.373046875,
+      "newKb": 77.59765625,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-017.webp",
+      "origKb": 87.876953125,
+      "newKb": 78.513671875,
+      "quality": 79,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-018.webp",
+      "origKb": 88.853515625,
+      "newKb": 78.103515625,
+      "quality": 78,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-019.webp",
+      "origKb": 89.41796875,
+      "newKb": 77.849609375,
+      "quality": 79,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-020.webp",
+      "origKb": 89.359375,
+      "newKb": 78.0546875,
+      "quality": 79,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-021.webp",
+      "origKb": 88.890625,
+      "newKb": 77.62109375,
+      "quality": 79,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-022.webp",
+      "origKb": 88.205078125,
+      "newKb": 78.12890625,
+      "quality": 78,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-023.webp",
+      "origKb": 87.705078125,
+      "newKb": 78.486328125,
+      "quality": 80,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-024.webp",
+      "origKb": 86.5234375,
+      "newKb": 77.390625,
+      "quality": 80,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-025.webp",
+      "origKb": 85.56640625,
+      "newKb": 72.859375,
+      "quality": 78,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-026.webp",
+      "origKb": 90.56640625,
+      "newKb": 71.505859375,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-027.webp",
+      "origKb": 87.521484375,
+      "newKb": 74.232421875,
+      "quality": 79,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-028.webp",
+      "origKb": 87.5625,
+      "newKb": 73.51953125,
+      "quality": 79,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-029.webp",
+      "origKb": 87.63671875,
+      "newKb": 72.796875,
+      "quality": 79,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-030.webp",
+      "origKb": 89.6171875,
+      "newKb": 71.625,
+      "quality": 78,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-031.webp",
+      "origKb": 84.73828125,
+      "newKb": 73.505859375,
+      "quality": 80,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-032.webp",
+      "origKb": 85.28125,
+      "newKb": 72.46484375,
+      "quality": 80,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-033.webp",
+      "origKb": 81.806640625,
+      "newKb": 72.349609375,
+      "quality": 81,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-034.webp",
+      "origKb": 81.806640625,
+      "newKb": 72.349609375,
+      "quality": 81,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-035.webp",
+      "origKb": 82.033203125,
+      "newKb": 73.330078125,
+      "quality": 81,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-036.webp",
+      "origKb": 82.42578125,
+      "newKb": 73.55859375,
+      "quality": 82,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-037.webp",
+      "origKb": 81.76953125,
+      "newKb": 72.759765625,
+      "quality": 82,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-038.webp",
+      "origKb": 79.6796875,
+      "newKb": 73.4140625,
+      "quality": 83,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-039.webp",
+      "origKb": 83.251953125,
+      "newKb": 73.529296875,
+      "quality": 82,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-040.webp",
+      "origKb": 81.361328125,
+      "newKb": 71.822265625,
+      "quality": 83,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-041.webp",
+      "origKb": 79.71875,
+      "newKb": 72.59765625,
+      "quality": 84,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-042.webp",
+      "origKb": 77.7890625,
+      "newKb": 73.021484375,
+      "quality": 85,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-043.webp",
+      "origKb": 76.28125,
+      "newKb": 72.919921875,
+      "quality": 86,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-044.webp",
+      "origKb": 76.435546875,
+      "newKb": 73.404296875,
+      "quality": 87,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-045.webp",
+      "origKb": 73.71484375,
+      "newKb": 71.921875,
+      "quality": 88,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-046.webp",
+      "origKb": 74.765625,
+      "newKb": 73.572265625,
+      "quality": 89,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-047.webp",
+      "origKb": 70.78515625,
+      "newKb": 73.296875,
+      "quality": 90,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-048.webp",
+      "origKb": 67.98828125,
+      "newKb": 72.337890625,
+      "quality": 91,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-049.webp",
+      "origKb": 69.126953125,
+      "newKb": 73.056640625,
+      "quality": 91,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-050.webp",
+      "origKb": 70.294921875,
+      "newKb": 73.9296875,
+      "quality": 91,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-051.webp",
+      "origKb": 69.4609375,
+      "newKb": 73.47265625,
+      "quality": 91,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-052.webp",
+      "origKb": 69.044921875,
+      "newKb": 72.818359375,
+      "quality": 90,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-053.webp",
+      "origKb": 72.513671875,
+      "newKb": 72.69140625,
+      "quality": 88,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-054.webp",
+      "origKb": 73.611328125,
+      "newKb": 72.642578125,
+      "quality": 87,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-055.webp",
+      "origKb": 78.0390625,
+      "newKb": 72.560546875,
+      "quality": 85,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-056.webp",
+      "origKb": 76.19921875,
+      "newKb": 73.16796875,
+      "quality": 85,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-057.webp",
+      "origKb": 79.099609375,
+      "newKb": 73.853515625,
+      "quality": 84,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-058.webp",
+      "origKb": 80.01953125,
+      "newKb": 72.53125,
+      "quality": 83,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-059.webp",
+      "origKb": 83.55078125,
+      "newKb": 72.234375,
+      "quality": 81,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-060.webp",
+      "origKb": 81.51953125,
+      "newKb": 72.04296875,
+      "quality": 81,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-061.webp",
+      "origKb": 86.806640625,
+      "newKb": 73.34375,
+      "quality": 80,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-062.webp",
+      "origKb": 86.6171875,
+      "newKb": 71.90234375,
+      "quality": 78,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-063.webp",
+      "origKb": 86.697265625,
+      "newKb": 72.517578125,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-064.webp",
+      "origKb": 88.015625,
+      "newKb": 73.134765625,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-065.webp",
+      "origKb": 88.396484375,
+      "newKb": 73.73828125,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-066.webp",
+      "origKb": 89.669921875,
+      "newKb": 77.0703125,
+      "quality": 78,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-067.webp",
+      "origKb": 89.669921875,
+      "newKb": 77.0703125,
+      "quality": 78,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-068.webp",
+      "origKb": 89.48046875,
+      "newKb": 77.392578125,
+      "quality": 77,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-069.webp",
+      "origKb": 92.30859375,
+      "newKb": 77.431640625,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-070.webp",
+      "origKb": 91.849609375,
+      "newKb": 77.755859375,
+      "quality": 76,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-071.webp",
+      "origKb": 93.947265625,
+      "newKb": 77.89453125,
+      "quality": 75,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-072.webp",
+      "origKb": 92.37109375,
+      "newKb": 77.8203125,
+      "quality": 73,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-073.webp",
+      "origKb": 94.220703125,
+      "newKb": 77.701171875,
+      "quality": 72,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-074.webp",
+      "origKb": 93.421875,
+      "newKb": 78.142578125,
+      "quality": 73,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-075.webp",
+      "origKb": 93.716796875,
+      "newKb": 77.78515625,
+      "quality": 72,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-076.webp",
+      "origKb": 92.984375,
+      "newKb": 78.09375,
+      "quality": 71,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-077.webp",
+      "origKb": 94.9921875,
+      "newKb": 78.185546875,
+      "quality": 69,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-078.webp",
+      "origKb": 94.517578125,
+      "newKb": 78.0546875,
+      "quality": 69,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-079.webp",
+      "origKb": 95.455078125,
+      "newKb": 77.859375,
+      "quality": 68,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-080.webp",
+      "origKb": 95.91796875,
+      "newKb": 77.701171875,
+      "quality": 67,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-081.webp",
+      "origKb": 97.201171875,
+      "newKb": 78.375,
+      "quality": 67,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-082.webp",
+      "origKb": 95.83203125,
+      "newKb": 78.0078125,
+      "quality": 67,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-083.webp",
+      "origKb": 96.458984375,
+      "newKb": 78.724609375,
+      "quality": 68,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-084.webp",
+      "origKb": 93.685546875,
+      "newKb": 77.494140625,
+      "quality": 67,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-085.webp",
+      "origKb": 95.169921875,
+      "newKb": 78.5234375,
+      "quality": 66,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-086.webp",
+      "origKb": 93.701171875,
+      "newKb": 77.814453125,
+      "quality": 66,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-087.webp",
+      "origKb": 95.025390625,
+      "newKb": 78.2890625,
+      "quality": 66,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-088.webp",
+      "origKb": 97.7890625,
+      "newKb": 78.361328125,
+      "quality": 66,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-089.webp",
+      "origKb": 96.9765625,
+      "newKb": 77.97265625,
+      "quality": 64,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-090.webp",
+      "origKb": 94.23046875,
+      "newKb": 77.630859375,
+      "quality": 65,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-091.webp",
+      "origKb": 94.640625,
+      "newKb": 77.759765625,
+      "quality": 65,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-092.webp",
+      "origKb": 94.419921875,
+      "newKb": 77.529296875,
+      "quality": 65,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-093.webp",
+      "origKb": 96.37890625,
+      "newKb": 78.189453125,
+      "quality": 64,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-094.webp",
+      "origKb": 95.982421875,
+      "newKb": 77.900390625,
+      "quality": 65,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-095.webp",
+      "origKb": 95.978515625,
+      "newKb": 77.505859375,
+      "quality": 64,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-096.webp",
+      "origKb": 96.85546875,
+      "newKb": 78.009765625,
+      "quality": 64,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-097.webp",
+      "origKb": 98.3671875,
+      "newKb": 77.458984375,
+      "quality": 62,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-098.webp",
+      "origKb": 96.224609375,
+      "newKb": 78.224609375,
+      "quality": 63,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-099.webp",
+      "origKb": 98.255859375,
+      "newKb": 77.958984375,
+      "quality": 62,
+      "width": 926,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-01",
+      "filename": "frame-100.webp",
+      "origKb": 98.255859375,
+      "newKb": 77.958984375,
+      "quality": 62,
+      "width": 926,
+      "height": 1920
+    }
+  ],
+  "c2Results": [
+    {
+      "clipName": "clip-02",
+      "filename": "frame-001.webp",
+      "origKb": 101.638671875,
+      "newKb": 77.892578125,
+      "quality": 56,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-002.webp",
+      "origKb": 101.453125,
+      "newKb": 78.107421875,
+      "quality": 56,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-003.webp",
+      "origKb": 101.919921875,
+      "newKb": 78.107421875,
+      "quality": 56,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-004.webp",
+      "origKb": 102.64453125,
+      "newKb": 77.73828125,
+      "quality": 55,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-005.webp",
+      "origKb": 102.640625,
+      "newKb": 77.95703125,
+      "quality": 55,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-006.webp",
+      "origKb": 103.912109375,
+      "newKb": 77.978515625,
+      "quality": 54,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-007.webp",
+      "origKb": 103.2109375,
+      "newKb": 78.41796875,
+      "quality": 54,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-008.webp",
+      "origKb": 101.865234375,
+      "newKb": 77.7734375,
+      "quality": 53,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-009.webp",
+      "origKb": 102.1171875,
+      "newKb": 77.833984375,
+      "quality": 52,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-010.webp",
+      "origKb": 105.736328125,
+      "newKb": 83.9609375,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-011.webp",
+      "origKb": 104.806640625,
+      "newKb": 84.017578125,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-012.webp",
+      "origKb": 102.62890625,
+      "newKb": 84.220703125,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-013.webp",
+      "origKb": 105.4609375,
+      "newKb": 83.802734375,
+      "quality": 59,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-014.webp",
+      "origKb": 103.056640625,
+      "newKb": 84.125,
+      "quality": 59,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-015.webp",
+      "origKb": 103.310546875,
+      "newKb": 84.6171875,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-016.webp",
+      "origKb": 105.26953125,
+      "newKb": 84.81640625,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-017.webp",
+      "origKb": 103.244140625,
+      "newKb": 84.01171875,
+      "quality": 59,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-018.webp",
+      "origKb": 102.958984375,
+      "newKb": 84.080078125,
+      "quality": 59,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-019.webp",
+      "origKb": 102.935546875,
+      "newKb": 83.486328125,
+      "quality": 58,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-020.webp",
+      "origKb": 105.158203125,
+      "newKb": 84.162109375,
+      "quality": 59,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-021.webp",
+      "origKb": 103.9921875,
+      "newKb": 84.181640625,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-022.webp",
+      "origKb": 104.833984375,
+      "newKb": 84.12890625,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-023.webp",
+      "origKb": 103.599609375,
+      "newKb": 83.859375,
+      "quality": 61,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-024.webp",
+      "origKb": 104.513671875,
+      "newKb": 84.0546875,
+      "quality": 62,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-025.webp",
+      "origKb": 103.91796875,
+      "newKb": 83.34375,
+      "quality": 60,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-026.webp",
+      "origKb": 105.73046875,
+      "newKb": 84.013671875,
+      "quality": 59,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-027.webp",
+      "origKb": 102.826171875,
+      "newKb": 84.005859375,
+      "quality": 62,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-028.webp",
+      "origKb": 103.5234375,
+      "newKb": 83.70703125,
+      "quality": 62,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-029.webp",
+      "origKb": 105.099609375,
+      "newKb": 84.380859375,
+      "quality": 61,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-030.webp",
+      "origKb": 102.466796875,
+      "newKb": 83.623046875,
+      "quality": 62,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-031.webp",
+      "origKb": 103.103515625,
+      "newKb": 83.541015625,
+      "quality": 62,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-032.webp",
+      "origKb": 102.9375,
+      "newKb": 84.181640625,
+      "quality": 63,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-033.webp",
+      "origKb": 102.455078125,
+      "newKb": 84.609375,
+      "quality": 63,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-034.webp",
+      "origKb": 101.287109375,
+      "newKb": 84.041015625,
+      "quality": 63,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-035.webp",
+      "origKb": 103.998046875,
+      "newKb": 83.7421875,
+      "quality": 65,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-036.webp",
+      "origKb": 100.123046875,
+      "newKb": 83.953125,
+      "quality": 65,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-037.webp",
+      "origKb": 102.2734375,
+      "newKb": 83.982421875,
+      "quality": 63,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-038.webp",
+      "origKb": 101.576171875,
+      "newKb": 84.4453125,
+      "quality": 67,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-039.webp",
+      "origKb": 101.427734375,
+      "newKb": 83.787109375,
+      "quality": 67,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-040.webp",
+      "origKb": 102.17578125,
+      "newKb": 83.908203125,
+      "quality": 67,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-041.webp",
+      "origKb": 98.490234375,
+      "newKb": 83.802734375,
+      "quality": 71,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-042.webp",
+      "origKb": 99.765625,
+      "newKb": 84.14453125,
+      "quality": 73,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-043.webp",
+      "origKb": 96.970703125,
+      "newKb": 83.8125,
+      "quality": 75,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-044.webp",
+      "origKb": 99.048828125,
+      "newKb": 84.556640625,
+      "quality": 76,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-045.webp",
+      "origKb": 96.662109375,
+      "newKb": 83.162109375,
+      "quality": 76,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-046.webp",
+      "origKb": 97.033203125,
+      "newKb": 78.41796875,
+      "quality": 75,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-047.webp",
+      "origKb": 96.0390625,
+      "newKb": 78.275390625,
+      "quality": 75,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-048.webp",
+      "origKb": 93.40625,
+      "newKb": 78.337890625,
+      "quality": 75,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-049.webp",
+      "origKb": 92.36328125,
+      "newKb": 79.234375,
+      "quality": 77,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-050.webp",
+      "origKb": 90.314453125,
+      "newKb": 72.615234375,
+      "quality": 76,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-051.webp",
+      "origKb": 90.408203125,
+      "newKb": 74.515625,
+      "quality": 77,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-052.webp",
+      "origKb": 88.0859375,
+      "newKb": 74.625,
+      "quality": 78,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-053.webp",
+      "origKb": 91.056640625,
+      "newKb": 75.501953125,
+      "quality": 78,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-054.webp",
+      "origKb": 89.646484375,
+      "newKb": 73.59765625,
+      "quality": 78,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-055.webp",
+      "origKb": 91.228515625,
+      "newKb": 74.56640625,
+      "quality": 78,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-056.webp",
+      "origKb": 90.01953125,
+      "newKb": 73.8203125,
+      "quality": 79,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-057.webp",
+      "origKb": 87.515625,
+      "newKb": 74.921875,
+      "quality": 79,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-058.webp",
+      "origKb": 85.58203125,
+      "newKb": 74.029296875,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-059.webp",
+      "origKb": 87.529296875,
+      "newKb": 73.259765625,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-060.webp",
+      "origKb": 84.990234375,
+      "newKb": 74.869140625,
+      "quality": 82,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-061.webp",
+      "origKb": 87.57421875,
+      "newKb": 74.08984375,
+      "quality": 82,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-062.webp",
+      "origKb": 82.595703125,
+      "newKb": 73.876953125,
+      "quality": 82,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-063.webp",
+      "origKb": 85.73046875,
+      "newKb": 73.91015625,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-064.webp",
+      "origKb": 83.25,
+      "newKb": 75.09765625,
+      "quality": 82,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-065.webp",
+      "origKb": 84.251953125,
+      "newKb": 74.26171875,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-066.webp",
+      "origKb": 84.197265625,
+      "newKb": 73.634765625,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-067.webp",
+      "origKb": 84.845703125,
+      "newKb": 73.59375,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-068.webp",
+      "origKb": 85.32421875,
+      "newKb": 74.669921875,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-069.webp",
+      "origKb": 84.994140625,
+      "newKb": 74.1640625,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-070.webp",
+      "origKb": 87.0078125,
+      "newKb": 75.041015625,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-071.webp",
+      "origKb": 84.8984375,
+      "newKb": 73.8984375,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-072.webp",
+      "origKb": 87.693359375,
+      "newKb": 73.439453125,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-073.webp",
+      "origKb": 86.072265625,
+      "newKb": 73.642578125,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-074.webp",
+      "origKb": 90.638671875,
+      "newKb": 74.650390625,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-075.webp",
+      "origKb": 88.734375,
+      "newKb": 75.544921875,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-076.webp",
+      "origKb": 88.548828125,
+      "newKb": 77.05078125,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-077.webp",
+      "origKb": 87.24609375,
+      "newKb": 77.64453125,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-078.webp",
+      "origKb": 85.279296875,
+      "newKb": 76.62109375,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-079.webp",
+      "origKb": 90.1796875,
+      "newKb": 78.697265625,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-080.webp",
+      "origKb": 87.376953125,
+      "newKb": 78.31640625,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-081.webp",
+      "origKb": 89.333984375,
+      "newKb": 77.904296875,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-082.webp",
+      "origKb": 87.72265625,
+      "newKb": 78.4375,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-083.webp",
+      "origKb": 87.337890625,
+      "newKb": 78.49609375,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-084.webp",
+      "origKb": 89.896484375,
+      "newKb": 78.271484375,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-085.webp",
+      "origKb": 88.486328125,
+      "newKb": 77.458984375,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-086.webp",
+      "origKb": 89.095703125,
+      "newKb": 77.541015625,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-087.webp",
+      "origKb": 90.330078125,
+      "newKb": 77.400390625,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-088.webp",
+      "origKb": 88.544921875,
+      "newKb": 77.046875,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-089.webp",
+      "origKb": 85.90625,
+      "newKb": 79.283203125,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-090.webp",
+      "origKb": 85.56640625,
+      "newKb": 79.302734375,
+      "quality": 81,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-091.webp",
+      "origKb": 85.552734375,
+      "newKb": 77.560546875,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-092.webp",
+      "origKb": 91.66015625,
+      "newKb": 79.064453125,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-093.webp",
+      "origKb": 91.265625,
+      "newKb": 79.00390625,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-094.webp",
+      "origKb": 86.556640625,
+      "newKb": 77.53125,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-095.webp",
+      "origKb": 87.306640625,
+      "newKb": 77.685546875,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-096.webp",
+      "origKb": 91.06640625,
+      "newKb": 76.984375,
+      "quality": 79,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-097.webp",
+      "origKb": 87.033203125,
+      "newKb": 77.7265625,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-098.webp",
+      "origKb": 87.287109375,
+      "newKb": 78.150390625,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-099.webp",
+      "origKb": 86.876953125,
+      "newKb": 78.060546875,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    },
+    {
+      "clipName": "clip-02",
+      "filename": "frame-100.webp",
+      "origKb": 87.69140625,
+      "newKb": 78.111328125,
+      "quality": 80,
+      "width": 910,
+      "height": 1920
+    }
+  ]
+}

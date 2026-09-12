@@ -1,0 +1,65 @@
+{
+  "timestamp": "2026-09-12T17:39:45.666Z",
+  "assetReport": {
+    "errors": 0,
+    "c1": {
+      "count": 100,
+      "totalMb": 7.409458160400391,
+      "avgKb": 75.8728515625,
+      "medianKb": 77.505859375,
+      "p95Kb": 78.513671875,
+      "maxKb": 78.724609375,
+      "minKb": 71.505859375
+    },
+    "c2": {
+      "count": 100,
+      "totalMb": 7.733917236328125,
+      "avgKb": 79.1953125,
+      "medianKb": 78.271484375,
+      "p95Kb": 84.4453125,
+      "maxKb": 84.81640625,
+      "minKb": 72.615234375
+    },
+    "all": {
+      "count": 200,
+      "totalMb": 15.143375396728516,
+      "avgKb": 77.53408203125,
+      "medianKb": 77.78515625,
+      "p95Kb": 84.162109375,
+      "maxKb": 84.81640625,
+      "minKb": 71.505859375
+    }
+  },
+  "perfReport": {
+    "coldMetrics": {
+      "fps": 26.216801550210878,
+      "uniqueFrames": 69,
+      "totalDraws": 69,
+      "avgIntervalMs": 8.403821656050956,
+      "p95IntervalMs": 13.900000000000546,
+      "maxIntervalMs": 62.5,
+      "stalls40ms": 4,
+      "stalls100ms": 0,
+      "avgLag": 0.7579617834394905,
+      "p95Lag": 4,
+      "maxLag": 7
+    },
+    "warmMetrics": {
+      "fps": 32.56283250779671,
+      "uniqueFrames": 71,
+      "totalDraws": 71,
+      "avgIntervalMs": 7.893165467625903,
+      "p95IntervalMs": 13.899999999999636,
+      "maxIntervalMs": 48.599999999998545,
+      "stalls40ms": 1,
+      "stalls100ms": 0,
+      "avgLag": 4.669064748201439,
+      "p95Lag": 54,
+      "maxLag": 64
+    },
+    "boundaryCrossings": {
+      "avgMaxDelta": 8.520000000001527,
+      "totalDrops": 0
+    }
+  }
+}
