@@ -34,8 +34,21 @@ export default function Hero() {
   const scrollIndicatorRef = useRef<HTMLDivElement>(null)
 
   const [initialFrameReady, setInitialFrameReady] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return (
+        window.innerWidth < 768 ||
+        (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+      )
+    }
+    return false
+  })
   const isMobileRef = useRef(false)
+  if (typeof window !== 'undefined' && !isMobileRef.current) {
+    isMobileRef.current =
+      window.innerWidth < 768 ||
+      (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+  }
 
   // Desktop Frame-Synchronized Hero Boundary Gate:
   // Holds the Hero visually full-bleed until Clip 4 (frame 239) has actually rendered to Canvas
@@ -488,7 +501,7 @@ export default function Hero() {
               suppressHydrationWarning
               className="text-[10px] font-mono text-white/60 tracking-wider"
             >
-              001 / 240
+              {isMobile ? `001 / ${MOBILE_TOTAL_FRAMES}` : `001 / ${TOTAL_FRAMES}`}
             </span>
           </div>
         </div>

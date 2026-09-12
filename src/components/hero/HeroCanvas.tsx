@@ -521,6 +521,10 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         const nextIdx = priorityQueueRef.current.shift()!
         queuedSetRef.current.delete(nextIdx)
 
+        // Bounds safety check: Ensure nextIdx is within total frames for the active mode
+        const total = forMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
+        if (nextIdx >= total) continue
+
         // Skip if already in flight or already decoded
         if (status[nextIdx] !== STATUS_UNREQUESTED) continue
 
@@ -888,13 +892,40 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       const cssHeight = Math.round(rect.height)
 
       const detectedMobile =
-        typeof isMobileProp === 'boolean'
-          ? isMobileProp
-          : window.innerWidth < 768 ||
+        typeof window !== 'undefined'
+          ? window.innerWidth < 768 ||
             (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+          : (typeof isMobileProp === 'boolean' ? isMobileProp : false)
 
       const modeChanged = isMobileRef.current !== detectedMobile
       isMobileRef.current = detectedMobile
+
+      if (modeChanged) {
+        // Mode switch between desktop and mobile: purge obsolete queue items from previous mode
+        priorityQueueRef.current = []
+        queuedSetRef.current.clear()
+        lastRenderedFrameRef.current = -1
+
+        // Pre-fetch anchor frame for the new mode if not already in cache
+        const maxFrames = detectedMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
+        const targetAnchor = Math.min(maxFrames - 1, Math.max(0, currentFrameRef.current))
+        const status = detectedMobile ? mobileStatus.current : desktopStatus.current
+        const cache = detectedMobile ? mobileFrameCache.current : desktopFrameCache.current
+
+        if (status[targetAnchor] !== STATUS_READY || !cache[targetAnchor]) {
+          const url = detectedMobile ? getMobileFramePath(targetAnchor) : getFramePath(targetAnchor)
+          status[targetAnchor] = STATUS_LOADING
+          fetchAndDecodeFrame(url, detectedMobile).then((bitmap) => {
+            if (isDestroyedRef.current) {
+              releaseFrame(bitmap)
+              return
+            }
+            cache[targetAnchor] = bitmap
+            status[targetAnchor] = STATUS_READY
+            renderFrame(targetAnchor)
+          })
+        }
+      }
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       const maxSourceWidth = detectedMobile ? MOBILE_FRAME_WIDTH : FRAME_WIDTH
@@ -918,6 +949,8 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     useEffect(() => {
       if (typeof isMobileProp === 'boolean' && isMobileProp !== isMobileRef.current) {
         isMobileRef.current = isMobileProp
+        priorityQueueRef.current = []
+        queuedSetRef.current.clear()
         lastRenderedFrameRef.current = -1
         handleResize()
         requestScheduleUpdate()
@@ -930,11 +963,10 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     useEffect(() => {
       isDestroyedRef.current = false
       const initialMobile =
-        typeof isMobileProp === 'boolean'
-          ? isMobileProp
-          : typeof window !== 'undefined' &&
-            (window.innerWidth < 768 ||
-              (window.innerWidth < 1024 && window.innerHeight > window.innerWidth))
+        typeof window !== 'undefined'
+          ? window.innerWidth < 768 ||
+            (window.innerWidth < 1024 && window.innerHeight > window.innerWidth)
+          : (typeof isMobileProp === 'boolean' ? isMobileProp : false)
 
       isMobileRef.current = initialMobile
       handleResize()
