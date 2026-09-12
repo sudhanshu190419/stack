@@ -32,12 +32,12 @@ const STATUS_ERROR = 3
 const DESKTOP_MAX_CONCURRENT = 8
 const MOBILE_MAX_CONCURRENT = 4
 
-// Sliding cache window tuning
-const DESKTOP_CACHE_WINDOW_BACKWARD = 50
-const DESKTOP_CACHE_WINDOW_FORWARD = 70
+// Sliding cache window tuning (aligned with scheduler lookahead to prevent eviction thrashing)
+const DESKTOP_CACHE_WINDOW_BACKWARD = 90
+const DESKTOP_CACHE_WINDOW_FORWARD = 90
 
-const MOBILE_CACHE_WINDOW_BACKWARD = 20
-const MOBILE_CACHE_WINDOW_FORWARD = 35
+const MOBILE_CACHE_WINDOW_BACKWARD = 60
+const MOBILE_CACHE_WINDOW_FORWARD = 60
 
 // Initial warmup frames
 const DESKTOP_INITIAL_WARMUP_FRAMES = 45
@@ -99,6 +99,16 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
     useEffect(() => {
       onFinalFrameRenderedRef.current = onFinalFrameRendered
     }, [onFinalFrameRendered])
+
+    const onInitialFrameLoadedRef = useRef(onInitialFrameLoaded)
+    useEffect(() => {
+      onInitialFrameLoadedRef.current = onInitialFrameLoaded
+    }, [onInitialFrameLoaded])
+
+    const onProgressUpdateRef = useRef(onProgressUpdate)
+    useEffect(() => {
+      onProgressUpdateRef.current = onProgressUpdate
+    }, [onProgressUpdate])
 
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -165,15 +175,19 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       const minBound = Math.min(lastRendered, centerFrame)
       const maxBound = Math.max(lastRendered, centerFrame)
 
-      const windowBackward = forMobile ? MOBILE_CACHE_WINDOW_BACKWARD : DESKTOP_CACHE_WINDOW_BACKWARD
-      const windowForward = forMobile ? MOBILE_CACHE_WINDOW_FORWARD : DESKTOP_CACHE_WINDOW_FORWARD
+      const dir = scrollDirectionRef.current
+      const windowBehind = forMobile ? MOBILE_CACHE_WINDOW_BACKWARD : DESKTOP_CACHE_WINDOW_BACKWARD
+      const windowAhead = forMobile ? MOBILE_CACHE_WINDOW_FORWARD : DESKTOP_CACHE_WINDOW_FORWARD
 
-      const minRetain = Math.max(0, minBound - windowBackward)
-      const maxRetain = Math.min(total - 1, maxBound + windowForward)
+      const backwardRetain = dir < 0 ? windowAhead : windowBehind
+      const forwardRetain = dir < 0 ? windowBehind : windowAhead
+
+      const minRetain = Math.max(0, minBound - backwardRetain)
+      const maxRetain = Math.min(total - 1, maxBound + forwardRetain)
 
       for (let i = 0; i < total; i++) {
-        // NEVER evict the currently displayed frame on canvas
-        if (i === lastRenderedFrameRef.current) continue
+        // NEVER evict the currently displayed frame on canvas or frames in flight/queued
+        if (i === lastRenderedFrameRef.current || queuedSetRef.current.has(i)) continue
 
         if ((i < minRetain || i > maxRetain) && cache[i]) {
           releaseFrame(cache[i])
@@ -471,9 +485,9 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         const clipIndex = forMobile
           ? Math.floor(clamped / MOBILE_FRAMES_PER_CLIP) + 1
           : Math.floor(clamped / FRAMES_PER_CLIP) + 1
-        onProgressUpdate?.(clamped, clipIndex)
+        onProgressUpdateRef.current?.(clamped, clipIndex)
       },
-      [drawFrameToCanvas, onProgressUpdate]
+      [drawFrameToCanvas]
     )
 
     /**
@@ -648,13 +662,21 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           candidateIndices.push(i)
         }
 
-        // 4. Distant future frames
-        for (let i = forwardEnd + 1; i < total; i++) {
+        // 4. Extended forward frames within cache window
+        const forwardMax = Math.min(
+          total - 1,
+          current + (forMobile ? MOBILE_CACHE_WINDOW_FORWARD : DESKTOP_CACHE_WINDOW_FORWARD)
+        )
+        for (let i = forwardEnd + 1; i <= forwardMax; i++) {
           candidateIndices.push(i)
         }
 
-        // 5. Distant past frames
-        for (let i = backwardEnd - 1; i >= 1; i--) {
+        // 5. Extended backward frames within cache window
+        const backwardMin = Math.max(
+          0,
+          current - (forMobile ? MOBILE_CACHE_WINDOW_BACKWARD : DESKTOP_CACHE_WINDOW_BACKWARD)
+        )
+        for (let i = backwardEnd - 1; i >= backwardMin; i--) {
           candidateIndices.push(i)
         }
 
@@ -849,6 +871,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       [setFrameProgress]
     )
 
+
     /**
      * Responsive Canvas Resize Handler:
      * Caps DPR to prevent allocating a massive 3840px / 2880px backing buffer for 1920px source assets.
@@ -930,12 +953,22 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
       const total = initialMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
       let initialProgress = 0
       if (typeof window !== 'undefined') {
-        const heroST = (window as unknown as { ScrollTrigger?: { getById: (id: string) => { progress: number } | null } }).ScrollTrigger?.getById('hero-scroll-trigger')
-        if (heroST && typeof heroST.progress === 'number') {
-          initialProgress = heroST.progress
+        const isReturningToServices =
+          sessionStorage.getItem('stack_return_to_services') === 'true' ||
+          window.location.hash === '#services'
+
+        if (isReturningToServices) {
+          initialProgress = 1.0
         } else {
-          const travel = initialMobile ? 2500 : 3500
-          initialProgress = Math.max(0, Math.min(1, window.scrollY / travel))
+          const heroST = (window as unknown as { ScrollTrigger?: { getById: (id: string) => { progress: number } | null } }).ScrollTrigger?.getById('hero-scroll-trigger')
+          if (heroST && typeof heroST.progress === 'number') {
+            initialProgress = heroST.progress
+          } else {
+            const travel = initialMobile ? 2500 : 3500
+            const savedHomeY = parseFloat(sessionStorage.getItem('stack_home_scroll_y') || '0')
+            const effectiveY = window.scrollY > 0 ? window.scrollY : savedHomeY
+            initialProgress = Math.max(0, Math.min(1, effectiveY / travel))
+          }
         }
       }
 
@@ -961,7 +994,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
           }
           cache[initialAnchor] = anchorBitmap
           status[initialAnchor] = STATUS_READY
-          onInitialFrameLoaded?.()
+          onInitialFrameLoadedRef.current?.()
           renderFrame(initialAnchor)
 
           // 3. Initial Warmup Runway:
@@ -1005,9 +1038,11 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         isDestroyedRef.current = true
         if (activeRafIdRef.current) {
           cancelAnimationFrame(activeRafIdRef.current)
+          activeRafIdRef.current = null
         }
         if (scheduleRafRef.current) {
           cancelAnimationFrame(scheduleRafRef.current)
+          scheduleRafRef.current = null
         }
         if (idlePreloadHandleRef.current !== null) {
           if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
@@ -1021,6 +1056,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         }
         if (scrollTimeoutRef.current) {
           clearTimeout(scrollTimeoutRef.current)
+          scrollTimeoutRef.current = null
         }
         window.removeEventListener('resize', handleResize)
         if (resizeObserver) {
@@ -1033,7 +1069,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         mobileFrameCache.current.forEach((f) => releaseFrame(f))
         mobileFrameCache.current.fill(null)
       }
-    }, [fetchAndDecodeFrame, handleResize, onInitialFrameLoaded, renderFrame, drainSchedulerQueue, triggerIdlePreload])
+    }, [])
 
     return (
       <div

@@ -81,6 +81,11 @@ export default function ServicesSection() {
         setActiveIndex(nextIndex)
         activeIndexRef.current = nextIndex
 
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('stack_return_to_services', 'true')
+          sessionStorage.setItem('stack_return_service_idx', String(nextIndex))
+        }
+
         const st = stRef.current
         if (st) {
           const targetY = getDesktopScrollY(nextIndex, st)
@@ -96,6 +101,10 @@ export default function ServicesSection() {
         isLockedRef.current = false
         observerRef.current?.disable()
         isTransitioningRef.current = false
+        if (typeof window !== 'undefined') {
+          sessionStorage.removeItem('stack_return_to_services')
+          sessionStorage.removeItem('stack_return_service_idx')
+        }
         const st = stRef.current
         if (st) {
           window.scrollTo({ top: st.start + 1820, behavior: 'instant' })
@@ -106,6 +115,10 @@ export default function ServicesSection() {
         isLockedRef.current = false
         observerRef.current?.disable()
         isTransitioningRef.current = false
+        if (typeof window !== 'undefined') {
+          sessionStorage.removeItem('stack_return_to_services')
+          sessionStorage.removeItem('stack_return_service_idx')
+        }
         const st = stRef.current
         if (st) {
           window.scrollTo({ top: Math.max(0, st.start - 20), behavior: 'instant' })
@@ -117,6 +130,11 @@ export default function ServicesSection() {
         isTransitioningRef.current = true
         setActiveIndex(initialIndex)
         activeIndexRef.current = initialIndex
+
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('stack_return_to_services', 'true')
+          sessionStorage.setItem('stack_return_service_idx', String(initialIndex))
+        }
 
         if (typeof targetScrollY === 'number') {
           window.scrollTo({ top: targetScrollY, behavior: 'instant' })
@@ -188,6 +206,18 @@ export default function ServicesSection() {
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
           if (heroST && heroST.progress < 0.98) return
           if (isLockedRef.current) return
+          const isReturning =
+            typeof window !== 'undefined' &&
+            (sessionStorage.getItem('stack_return_to_services') === 'true' ||
+              window.location.hash === '#services')
+          if (isReturning) return
+
+          const savedHomeY =
+            typeof window !== 'undefined'
+              ? parseFloat(sessionStorage.getItem('stack_home_scroll_y') || '0')
+              : 0
+          if (savedHomeY >= self.end - 50) return
+
           desktopLockSection(0, self.start + 20)
         },
         onLeave: () => {
@@ -202,6 +232,18 @@ export default function ServicesSection() {
         onUpdate: (self) => {
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
           if (heroST && heroST.progress < 0.98) return
+          const isReturning =
+            typeof window !== 'undefined' &&
+            (sessionStorage.getItem('stack_return_to_services') === 'true' ||
+              window.location.hash === '#services')
+          if (isReturning) return
+
+          const savedHomeY =
+            typeof window !== 'undefined'
+              ? parseFloat(sessionStorage.getItem('stack_home_scroll_y') || '0')
+              : 0
+          if (savedHomeY >= self.end - 50 && self.scroll() >= self.end - 50) return
+
           const currentY = self.scroll()
           const service4Y = self.start + 1800
           if (self.direction === -1 && currentY <= service4Y && !isLockedRef.current && currentY > self.start + 50) {
@@ -238,6 +280,11 @@ export default function ServicesSection() {
         setActiveIndex(nextIndex)
         activeIndexRef.current = nextIndex
 
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('stack_return_to_services', 'true')
+          sessionStorage.setItem('stack_return_service_idx', String(nextIndex))
+        }
+
         const st = stRef.current
         if (st) {
           const targetY = getMobileScrollY(nextIndex, st)
@@ -254,6 +301,10 @@ export default function ServicesSection() {
         isLockedRef.current = false
         observerRef.current?.disable()
         isTransitioningRef.current = false
+        if (typeof window !== 'undefined') {
+          sessionStorage.removeItem('stack_return_to_services')
+          sessionStorage.removeItem('stack_return_service_idx')
+        }
         const st = stRef.current
         if (st) {
           window.scrollTo({ top: st.start + 1220, behavior: 'instant' })
@@ -264,6 +315,10 @@ export default function ServicesSection() {
         isLockedRef.current = false
         observerRef.current?.disable()
         isTransitioningRef.current = false
+        if (typeof window !== 'undefined') {
+          sessionStorage.removeItem('stack_return_to_services')
+          sessionStorage.removeItem('stack_return_service_idx')
+        }
         const st = stRef.current
         if (st) {
           window.scrollTo({ top: Math.max(0, st.start - 20), behavior: 'instant' })
@@ -275,6 +330,11 @@ export default function ServicesSection() {
         isTransitioningRef.current = true
         setActiveIndex(initialIndex)
         activeIndexRef.current = initialIndex
+
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('stack_return_to_services', 'true')
+          sessionStorage.setItem('stack_return_service_idx', String(initialIndex))
+        }
 
         if (typeof targetScrollY === 'number') {
           window.scrollTo({ top: targetScrollY, behavior: 'instant' })
@@ -350,6 +410,18 @@ export default function ServicesSection() {
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
           if (heroST && heroST.progress < 0.98) return
           if (isLockedRef.current) return
+          const isReturning =
+            typeof window !== 'undefined' &&
+            (sessionStorage.getItem('stack_return_to_services') === 'true' ||
+              window.location.hash === '#services')
+          if (isReturning) return
+
+          const savedHomeY =
+            typeof window !== 'undefined'
+              ? parseFloat(sessionStorage.getItem('stack_home_scroll_y') || '0')
+              : 0
+          if (savedHomeY >= self.end - 50) return
+
           mobileLockSection(0, self.start + 20)
         },
         onLeave: () => {
@@ -364,6 +436,18 @@ export default function ServicesSection() {
         onUpdate: (self) => {
           const heroST = ScrollTrigger.getById('hero-scroll-trigger')
           if (heroST && heroST.progress < 0.98) return
+          const isReturning =
+            typeof window !== 'undefined' &&
+            (sessionStorage.getItem('stack_return_to_services') === 'true' ||
+              window.location.hash === '#services')
+          if (isReturning) return
+
+          const savedHomeY =
+            typeof window !== 'undefined'
+              ? parseFloat(sessionStorage.getItem('stack_home_scroll_y') || '0')
+              : 0
+          if (savedHomeY >= self.end - 50 && self.scroll() >= self.end - 50) return
+
           const currentY = self.scroll()
           const service4Y = self.start + 1200
           if (self.direction === -1 && currentY <= service4Y && !isLockedRef.current && currentY > self.start + 50) {
@@ -405,11 +489,6 @@ export default function ServicesSection() {
           : ScrollTrigger.getById('services-scroll-trigger-mobile'))
 
       if (st && st.start > 0) {
-        setTimeout(() => {
-          sessionStorage.removeItem('stack_return_to_services')
-          sessionStorage.removeItem('stack_return_service_idx')
-        }, 1200)
-
         const desktopStepOffsets = [20, 600, 1200, 1800]
         const mobileStepOffsets = [20, 400, 800, 1200]
         const targetY = isDesktop
@@ -417,6 +496,11 @@ export default function ServicesSection() {
           : st.start + (mobileStepOffsets[safeIdx] ?? safeIdx * 400)
 
         lockSectionRef.current(safeIdx, targetY)
+
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('stack_return_to_services', 'true')
+          sessionStorage.setItem('stack_return_service_idx', String(safeIdx))
+        }
 
         window.scrollTo({ top: targetY, behavior: 'instant' })
         document.documentElement.scrollTop = targetY
@@ -542,7 +626,6 @@ export default function ServicesSection() {
                         if (typeof window !== 'undefined') {
                           sessionStorage.setItem('stack_return_to_services', 'true')
                           sessionStorage.setItem('stack_return_service_idx', String(activeIndex))
-                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
                         }
                       }}
                       className="group/title inline-flex items-center gap-2"
@@ -560,7 +643,6 @@ export default function ServicesSection() {
                         if (typeof window !== 'undefined') {
                           sessionStorage.setItem('stack_return_to_services', 'true')
                           sessionStorage.setItem('stack_return_service_idx', String(activeIndex))
-                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
                         }
                       }}
                       aria-label={`Open ${activeService.title} service page`}
@@ -740,7 +822,6 @@ export default function ServicesSection() {
                                   if (typeof window !== 'undefined') {
                                     sessionStorage.setItem('stack_return_to_services', 'true')
                                     sessionStorage.setItem('stack_return_service_idx', String(index))
-                                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
                                   }
                                 }}
                                 aria-label={`Open ${service.title} service page`}

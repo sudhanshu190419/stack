@@ -187,9 +187,15 @@ export default function Hero() {
           (sessionStorage.getItem('stack_return_to_services') === 'true' ||
             window.location.hash === '#services')
 
+        const savedHomeY =
+          typeof window !== 'undefined'
+            ? parseFloat(sessionStorage.getItem('stack_home_scroll_y') || '0')
+            : 0
+        const isReturningDownstream = isReturningToServices || savedHomeY >= 3400
+
         const isAtEnd = self.scroll() >= self.end || progress >= 1.0
 
-        if (isAtEnd && !isReturningToServices && self.scroll() <= self.end + 50) {
+        if (isAtEnd && !isReturningDownstream && self.scroll() <= self.end + 50) {
           const isFinalRendered = canvasHandleRef.current?.isFinalFrameRendered() ?? false
           if (!isFinalRendered) {
             // Cold start fast scroll reached end before frame 239 was rendered: activate gate

@@ -77,7 +77,18 @@ export default function Navbar() {
       <nav className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
         <div className="flex items-center justify-between h-[72px] lg:h-[80px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link
+            href="/"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                sessionStorage.removeItem('stack_return_to_services')
+                sessionStorage.removeItem('stack_return_service_idx')
+                sessionStorage.removeItem('stack_home_scroll_y')
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+              }
+            }}
+            className="flex items-center group"
+          >
             <Image
               src="/logo.png"
               alt="Stack Logo"
