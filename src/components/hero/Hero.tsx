@@ -224,8 +224,21 @@ export default function Hero() {
 
     // 3. Immediately refresh ScrollTrigger so downstream sections calculate correct pin offsets
     ScrollTrigger.refresh()
+
+    // Explicitly synchronize Canvas and UI with the restored scroll position on mount
+    const heroST = ScrollTrigger.getById('hero-scroll-trigger')
+    if (heroST) {
+      const initialProgress = heroST.progress
+      canvasHandleRef.current?.setFrameProgress(initialProgress, true)
+      updateUIOnScroll(initialProgress)
+    }
+
     const rafId = requestAnimationFrame(() => {
       ScrollTrigger.refresh()
+      const st = ScrollTrigger.getById('hero-scroll-trigger')
+      if (st && st.progress > 0) {
+        updateUIOnScroll(st.progress)
+      }
     })
 
     let lastWidth = typeof window !== 'undefined' ? window.innerWidth : 0

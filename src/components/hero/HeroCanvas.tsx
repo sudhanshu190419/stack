@@ -70,7 +70,7 @@ export function getMobileFramePath(globalIndex: number): string {
 }
 
 export interface HeroCanvasHandle {
-  setFrameProgress: (progress: number) => void
+  setFrameProgress: (progress: number, isInitialSync?: boolean) => void
   getCurrentFrame: () => number
   getLastRenderedFrame: () => number
   isFinalFrameRendered: () => boolean
@@ -435,11 +435,17 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
               renderedIndex = lastRendered
             }
           } else {
-            // Target is >= lastRendered (small backward twitch or equality)
-            if (cache[clamped] && status[clamped] === STATUS_READY) {
-              frameToRender = cache[clamped]
-              renderedIndex = clamped
-            } else if (cache[lastRendered] && status[lastRendered] === STATUS_READY) {
+            // Target is >= lastRendered during backward scroll (e.g. after a route remount, jump, or desync)
+            // Resilient search: find highest ready frame <= clamped
+            for (let i = clamped; i >= 0; i--) {
+              if (status[i] === STATUS_READY && cache[i]) {
+                frameToRender = cache[i]
+                renderedIndex = i
+                break
+              }
+            }
+            // If genuinely no frame <= clamped is ready yet, preserve current valid lastRendered
+            if (!frameToRender && cache[lastRendered] && status[lastRendered] === STATUS_READY) {
               frameToRender = cache[lastRendered]
               renderedIndex = lastRendered
             }
@@ -792,7 +798,7 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
      * Imperative scroll progress interface (0..1)
      */
     const setFrameProgress = useCallback(
-      (progress: number) => {
+      (progress: number, isInitialSync?: boolean) => {
         const forMobile = isMobileRef.current
         const total = forMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
         const clampedProgress = Math.max(0, Math.min(1, progress))
@@ -802,20 +808,25 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         )
 
         const prevFrame = currentFrameRef.current
-        if (targetFrame !== prevFrame) {
+        if (isInitialSync) {
+          currentFrameRef.current = targetFrame
+          scrollDirectionRef.current = targetFrame > total / 2 ? -1 : 1
+        } else if (targetFrame !== prevFrame) {
           scrollDirectionRef.current = targetFrame >= prevFrame ? 1 : -1
           currentFrameRef.current = targetFrame
         }
 
-        // Flag active user scrolling to yield idle preloader immediately
-        isUserScrollingRef.current = true
-        if (scrollTimeoutRef.current) {
-          clearTimeout(scrollTimeoutRef.current)
+        // Flag active user scrolling to yield idle preloader immediately (only during user interaction)
+        if (!isInitialSync) {
+          isUserScrollingRef.current = true
+          if (scrollTimeoutRef.current) {
+            clearTimeout(scrollTimeoutRef.current)
+          }
+          scrollTimeoutRef.current = setTimeout(() => {
+            isUserScrollingRef.current = false
+            triggerIdlePreload()
+          }, forMobile ? 400 : 350)
         }
-        scrollTimeoutRef.current = setTimeout(() => {
-          isUserScrollingRef.current = false
-          triggerIdlePreload()
-        }, forMobile ? 400 : 350)
 
         scheduleRender()
         requestScheduleUpdate()
@@ -915,45 +926,79 @@ const HeroCanvas = forwardRef<HeroCanvasHandle, HeroCanvasProps>(
         resizeObserver.observe(containerRef.current)
       }
 
-      // 1. Critical Priority: Load & decode frame 0 immediately
-      const frame0Url = initialMobile ? getMobileFramePath(0) : getFramePath(0)
+      // 1. Determine restored scroll progress and anchor frame on mount
+      const total = initialMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES
+      let initialProgress = 0
+      if (typeof window !== 'undefined') {
+        const heroST = (window as unknown as { ScrollTrigger?: { getById: (id: string) => { progress: number } | null } }).ScrollTrigger?.getById('hero-scroll-trigger')
+        if (heroST && typeof heroST.progress === 'number') {
+          initialProgress = heroST.progress
+        } else {
+          const travel = initialMobile ? 2500 : 3500
+          initialProgress = Math.max(0, Math.min(1, window.scrollY / travel))
+        }
+      }
+
+      const initialAnchor = Math.min(
+        total - 1,
+        Math.max(0, Math.floor(initialProgress * (total - 0.001)))
+      )
+
+      currentFrameRef.current = initialAnchor
+      scrollDirectionRef.current = initialAnchor > total / 2 ? -1 : 1
+
+      // 2. Critical Priority: Load & decode initial anchor frame immediately
+      const anchorUrl = initialMobile ? getMobileFramePath(initialAnchor) : getFramePath(initialAnchor)
       const cache = initialMobile ? mobileFrameCache.current : desktopFrameCache.current
       const status = initialMobile ? mobileStatus.current : desktopStatus.current
 
-      status[0] = STATUS_LOADING
-      fetchAndDecodeFrame(frame0Url, initialMobile)
-        .then((f0) => {
+      status[initialAnchor] = STATUS_LOADING
+      fetchAndDecodeFrame(anchorUrl, initialMobile)
+        .then((anchorBitmap) => {
           if (isDestroyedRef.current) {
-            releaseFrame(f0)
+            releaseFrame(anchorBitmap)
             return
           }
-          cache[0] = f0
-          status[0] = STATUS_READY
+          cache[initialAnchor] = anchorBitmap
+          status[initialAnchor] = STATUS_READY
           onInitialFrameLoaded?.()
-          renderFrame(0)
+          renderFrame(initialAnchor)
 
-          // 2. Initial Warmup Runway:
+          // 3. Initial Warmup Runway:
           // Desktop: frames 1 to 45 (DESKTOP_INITIAL_WARMUP_FRAMES)
           // Mobile: frames 1 to 35 (MOBILE_INITIAL_WARMUP_FRAMES)
           const warmupBurst = Math.min(
             initialMobile ? MOBILE_INITIAL_WARMUP_FRAMES : DESKTOP_INITIAL_WARMUP_FRAMES,
-            (initialMobile ? MOBILE_TOTAL_FRAMES : TOTAL_FRAMES) - 1
+            total - 1
           )
           const warmupQueue: number[] = []
-          for (let i = 1; i <= warmupBurst; i++) {
-            if (status[i] === STATUS_UNREQUESTED) {
-              warmupQueue.push(i)
-              queuedSetRef.current.add(i)
+
+          if (initialAnchor > total / 2) {
+            // Mounted near end (e.g. Back navigation): warmup backward towards beginning
+            for (let i = initialAnchor - 1; i >= Math.max(0, initialAnchor - warmupBurst); i--) {
+              if (status[i] === STATUS_UNREQUESTED) {
+                warmupQueue.push(i)
+                queuedSetRef.current.add(i)
+              }
+            }
+          } else {
+            // Mounted near top (e.g. fresh visit): warmup forward
+            for (let i = initialAnchor + 1; i <= Math.min(total - 1, initialAnchor + warmupBurst); i++) {
+              if (status[i] === STATUS_UNREQUESTED) {
+                warmupQueue.push(i)
+                queuedSetRef.current.add(i)
+              }
             }
           }
+
           priorityQueueRef.current = warmupQueue
           drainSchedulerQueue()
 
-          // 3. Start progressive idle background preloader for both desktop and mobile
+          // 4. Start progressive idle background preloader for both desktop and mobile
           triggerIdlePreload()
         })
         .catch(() => {
-          status[0] = STATUS_ERROR
+          status[initialAnchor] = STATUS_ERROR
         })
 
       return () => {
