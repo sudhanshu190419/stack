@@ -292,8 +292,8 @@ const CONTACT_DETAILS = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@stack.agency",
-    href: "mailto:hello@stack.agency",
+    value: "contact@stackstich.online",
+    href: "mailto:contact@stackstich.online",
   },
   {
     icon: MapPin,

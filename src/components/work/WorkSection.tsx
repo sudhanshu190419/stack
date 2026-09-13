@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import LaptopMockup from './LaptopMockup'
 
 interface Project {
@@ -195,8 +196,8 @@ export default function WorkSection({ id = 'work' }: WorkSectionProps = {}) {
           <p className="text-xs sm:text-sm text-neutral-600 mb-2.5">
             Want something like this for your business?
           </p>
-          <a
-            href="/#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-neutral-900 hover:bg-black transition-all duration-200 shadow-sm hover:shadow-md active:scale-98"
           >
             Start a Project
@@ -211,7 +212,7 @@ export default function WorkSection({ id = 'work' }: WorkSectionProps = {}) {
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -338,13 +338,13 @@ export default function AppDevelopmentPage() {
 
             {/* Mobile Touch-Friendly Action Buttons */}
             <div className="flex flex-col gap-3 w-full">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20an%20App%20Project"
+              <Link
+                href="/contact"
                 className="group w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#111111] active:bg-black text-white font-medium text-sm shadow-sm transition-all duration-150"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
               <Link
                 href="/#work"
@@ -372,11 +372,16 @@ export default function AppDevelopmentPage() {
           </div>
 
           {/* ========================================================================= */}
-          {/* DESKTOP HERO COMPOSITION (>= lg) - 100% PRESERVED EXACT ORIGINAL LAYOUT  */}
+          {/* DESKTOP HERO COMPOSITION (>= lg)                                          */}
           {/* ========================================================================= */}
           <div className="hidden lg:block max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
             <div className="grid grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
-              {/* Left Column: Heading & Narrative */}
+              {/* Left Column: Hero Visual */}
+              <div className="col-span-6 2xl:col-span-6">
+                <AppHeroVisual />
+              </div>
+
+              {/* Right Column: Heading & Narrative */}
               <div className="col-span-6 2xl:col-span-6 flex flex-col justify-center">
                 {/* Eyebrow */}
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
@@ -401,13 +406,13 @@ export default function AppDevelopmentPage() {
 
                 {/* Action Buttons */}
                 <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4">
-                  <a
-                    href="mailto:hello@stack.studio?subject=Start%20an%20App%20Project"
+                  <Link
+                    href="/contact"
                     className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
                   >
                     <span>Start a Project</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </a>
+                  </Link>
 
                   <Link
                     href="/#work"
@@ -441,11 +446,6 @@ export default function AppDevelopmentPage() {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Right Column: Hero Visual */}
-              <div className="col-span-6 2xl:col-span-6">
-                <AppHeroVisual />
               </div>
             </div>
           </div>
@@ -935,10 +935,10 @@ export default function AppDevelopmentPage() {
                 Speak directly with an engineering lead.
               </p>
               <a
-                href="mailto:hello@stack.studio?subject=Question%20about%20App%20Development"
+                href="mailto:contact@stackstich.online?subject=Question%20about%20App%20Development"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9E6941] active:text-[#7d502e] transition-colors"
               >
-                <span>hello@stack.studio</span>
+                <span>contact@stackstich.online</span>
                 <span>→</span>
               </a>
             </div>
@@ -974,10 +974,10 @@ export default function AppDevelopmentPage() {
                       Speak directly with an engineering lead.
                     </p>
                     <a
-                      href="mailto:hello@stack.studio?subject=Question%20about%20App%20Development"
+                      href="mailto:contact@stackstich.online?subject=Question%20about%20App%20Development"
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                     >
-                      <span>hello@stack.studio</span>
+                      <span>contact@stackstich.online</span>
                       <span>→</span>
                     </a>
                   </div>
@@ -1024,20 +1024,22 @@ export default function AppDevelopmentPage() {
             </p>
 
             <div className="mt-6 flex flex-col items-stretch gap-3 max-w-xs mx-auto">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20an%20App%20Project"
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#111111] active:bg-black text-white font-medium text-sm shadow-sm transition-all duration-200"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
 
-              <Link
-                href="/#contact"
+              <a
+                href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20app%20development%20service.%20I'd%20like%20to%20discuss%20my%20idea."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-900 text-sm font-medium underline underline-offset-[5px] decoration-neutral-400 py-1"
               >
                 Or contact us online
-              </Link>
+              </a>
             </div>
 
             <p className="mt-6 text-[11px] text-neutral-500">
@@ -1070,20 +1072,22 @@ export default function AppDevelopmentPage() {
 
             {/* Primary Action Button */}
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20an%20App%20Project"
+              <Link
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 px-8 sm:px-9 py-4 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
-              <Link
-                href="/#contact"
+              <a
+                href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20app%20development%20service.%20I'd%20like%20to%20discuss%20my%20idea."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-900 hover:text-black font-medium text-sm sm:text-base underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
               >
                 Or contact us online
-              </Link>
+              </a>
             </div>
 
             {/* Meta response notice */}

@@ -361,13 +361,13 @@ export default function WebDevelopmentPage() {
 
             {/* Mobile Actions Stack */}
             <div className="mt-5 space-y-2.5">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20a%20Web%20Project"
+              <Link
+                href="/contact"
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-[#111111] active:bg-black text-white font-medium text-sm shadow-sm transition-all"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
 
               <Link
                 href="#portfolio"
@@ -426,13 +426,13 @@ export default function WebDevelopmentPage() {
 
                 {/* CTAs */}
                 <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
-                  <a
-                    href="mailto:hello@stack.studio?subject=Start%20a%20Web%20Project"
+                  <Link
+                    href="/contact"
                     className="group inline-flex items-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm sm:text-[15px] shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
                   >
                     <span>Start a Project</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </a>
+                  </Link>
 
                   <Link
                     href="#portfolio"
@@ -948,10 +948,10 @@ export default function WebDevelopmentPage() {
                 We are always happy to discuss technical requirements.
               </p>
               <a
-                href="mailto:hello@stack.studio?subject=Question%20about%20Web%20Development"
+                href="mailto:contact@stackstich.online?subject=Question%20about%20Web%20Development"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
               >
-                <span>hello@stack.studio</span>
+                <span>contact@stackstich.online</span>
                 <span>→</span>
               </a>
             </div>
@@ -986,10 +986,10 @@ export default function WebDevelopmentPage() {
                       We are always happy to discuss technical requirements.
                     </p>
                     <a
-                      href="mailto:hello@stack.studio?subject=Question%20about%20Web%20Development"
+                      href="mailto:contact@stackstich.online?subject=Question%20about%20Web%20Development"
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                     >
-                      <span>hello@stack.studio</span>
+                      <span>contact@stackstich.online</span>
                       <span>→</span>
                     </a>
                   </div>
@@ -1032,20 +1032,22 @@ export default function WebDevelopmentPage() {
             </p>
 
             <div className="mt-7 flex flex-col items-center gap-3 w-full max-w-xs mx-auto">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20a%20Web%20Project"
+              <Link
+                href="/contact"
                 className="w-full flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm shadow-sm transition-all duration-200 active:scale-[0.98]"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
 
-              <Link
-                href="/#contact"
+              <a
+                href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20web%20development%20service.%20I'd%20like%20to%20discuss%20my%20project."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-900 hover:text-black font-medium text-sm underline underline-offset-[5px] decoration-neutral-400 transition-colors"
               >
                 Or contact us online
-              </Link>
+              </a>
             </div>
 
             <p className="mt-6 text-xs text-neutral-500">
@@ -1074,20 +1076,22 @@ export default function WebDevelopmentPage() {
 
             {/* Primary Action Button */}
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20a%20Web%20Project"
+              <Link
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 px-8 sm:px-9 py-4 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
-              <Link
-                href="/#contact"
+              <a
+                href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20web%20development%20service.%20I'd%20like%20to%20discuss%20my%20project."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-900 hover:text-black font-medium text-sm sm:text-base underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
               >
                 Or contact us online
-              </Link>
+              </a>
             </div>
 
             {/* Meta response notice */}

@@ -48,63 +48,34 @@ export default function Footer() {
             We design and build websites, online stores, and mobile apps that help businesses grow.
           </p>
 
-          {/* Social Icons */}
-          <div className="mt-6 flex items-center gap-5 text-neutral-900">
-            {/* Instagram */}
+          {/* Social: Instagram */}
+          <div className="mt-6 flex items-center">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/stackstich.online/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-neutral-900 hover:text-neutral-600 active:scale-95 transition-all"
+              aria-label="Follow us on Instagram"
+              className="group inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full border border-neutral-300/80 bg-white/70 hover:bg-neutral-950 hover:border-neutral-950 hover:text-white active:scale-95 transition-all text-neutral-800 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
             >
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-              </svg>
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-neutral-900 hover:text-neutral-600 active:scale-95 transition-all"
-            >
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-              </svg>
-            </a>
-
-            {/* X (formerly Twitter) */}
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X (Twitter)"
-              className="text-neutral-900 hover:text-neutral-600 active:scale-95 transition-all"
-            >
-              <svg
-                className="w-[18px] h-[18px]"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
+              <span className="text-xs font-normal text-neutral-600 group-hover:text-neutral-300 transition-colors">
+                Follow us on
+              </span>
+              <div className="flex items-center gap-1.5 font-semibold text-neutral-950 group-hover:text-white transition-colors">
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:scale-110"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+                <span className="text-xs">Instagram</span>
+              </div>
             </a>
           </div>
         </div>
@@ -162,11 +133,11 @@ export default function Footer() {
 
           <div className="mt-4">
             <a
-              href="mailto:hello@stack.studio?subject=Project%20Inquiry"
+              href="mailto:contact@stackstich.online?subject=Project%20Inquiry"
               className="group inline-flex items-center gap-2 text-base font-semibold text-[#9E6941] hover:text-[#83522e] transition-colors"
             >
               <span className="underline underline-offset-[5px] decoration-[#9E6941]/60 group-hover:decoration-[#9E6941]">
-                hello@stack.studio
+                contact@stackstich.online
               </span>
               <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-normal">
                 &rarr;
@@ -238,63 +209,34 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Social Icons */}
-            <div className="mt-8 sm:mt-10 flex items-center gap-5 text-neutral-900">
-              {/* Instagram */}
+            {/* Social: Instagram */}
+            <div className="mt-8 sm:mt-10 flex items-center">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/stackstich.online/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-neutral-900 hover:text-neutral-600 transition-colors"
+                aria-label="Follow us on Instagram"
+                className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-neutral-300/80 bg-white/70 hover:bg-neutral-950 hover:border-neutral-950 hover:text-white active:scale-95 transition-all text-neutral-800 shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
               >
-                <svg
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                </svg>
-              </a>
-
-              {/* LinkedIn */}
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-neutral-900 hover:text-neutral-600 transition-colors"
-              >
-                <svg
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                </svg>
-              </a>
-
-              {/* X (formerly Twitter) */}
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X (Twitter)"
-                className="text-neutral-900 hover:text-neutral-600 transition-colors"
-              >
-                <svg
-                  className="w-[18px] h-[18px]"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
+                <span className="text-xs sm:text-[13px] font-normal text-neutral-600 group-hover:text-neutral-300 transition-colors">
+                  Follow us on
+                </span>
+                <div className="flex items-center gap-1.5 font-semibold text-neutral-950 group-hover:text-white transition-colors">
+                  <svg
+                    className="w-4 h-4 transition-transform group-hover:scale-110"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                  <span className="text-xs sm:text-[13px]">Instagram</span>
+                </div>
               </a>
             </div>
           </div>
@@ -352,11 +294,11 @@ export default function Footer() {
             {/* Terracotta/Brown Email Link with Arrow */}
             <div className="mt-5 sm:mt-6">
               <a
-                href="mailto:hello@stack.studio?subject=Project%20Inquiry"
+                href="mailto:contact@stackstich.online?subject=Project%20Inquiry"
                 className="group inline-flex items-center gap-2 text-base sm:text-[17px] font-semibold text-[#9E6941] hover:text-[#83522e] transition-colors"
               >
                 <span className="underline underline-offset-[5px] decoration-[#9E6941]/60 group-hover:decoration-[#9E6941]">
-                  hello@stack.studio
+                  contact@stackstich.online
                 </span>
                 <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 font-normal">
                   &rarr;

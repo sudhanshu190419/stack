@@ -190,15 +190,15 @@ export default function TestimonialsSection() {
       {/* ========================================================================= */}
       {/* MOBILE COMPOSITION (< lg) - DUAL AUTO-MOVING HORIZONTAL MARQUEE           */}
       {/* ========================================================================= */}
-      <div className="block lg:hidden relative w-full overflow-hidden flex flex-col gap-4">
+      <div className="block lg:hidden relative w-full overflow-hidden flex flex-col gap-4 py-1.5">
         {/* Soft edge fade masks for mobile (compact width to keep quotes legible) */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-14 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent z-20" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-14 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent z-20" />
 
         {/* ROW 1: Auto moves Right to Left */}
-        <div className="group overflow-hidden">
+        <div className="group overflow-hidden py-1">
           <div
-            className="flex w-max animate-marquee gap-4 active:[animation-play-state:paused] hover:[animation-play-state:paused] motion-reduce:animate-none"
+            className="flex w-max animate-marquee gap-4 py-1 active:[animation-play-state:paused] hover:[animation-play-state:paused] motion-reduce:animate-none"
             style={{ animationDuration: '34s', animationDelay: '-17s' }}
           >
             {ROW_ONE_TESTIMONIALS.map((t, idx) => (
@@ -211,9 +211,9 @@ export default function TestimonialsSection() {
         </div>
 
         {/* ROW 2: Auto moves Left to Right */}
-        <div className="group overflow-hidden">
+        <div className="group overflow-hidden py-1">
           <div
-            className="flex w-max animate-marquee-reverse gap-4 active:[animation-play-state:paused] hover:[animation-play-state:paused] motion-reduce:animate-none"
+            className="flex w-max animate-marquee-reverse gap-4 py-1 active:[animation-play-state:paused] hover:[animation-play-state:paused] motion-reduce:animate-none"
             style={{ animationDuration: '30s', animationDelay: '-10s' }}
           >
             {ROW_TWO_TESTIMONIALS.map((t, idx) => (
@@ -231,7 +231,7 @@ export default function TestimonialsSection() {
       {/* ========================================================================= */}
       <div className="hidden lg:block">
         {/* 2-Line Infinite Auto Carousel Container (Matches ggmtechnologies.com motion) */}
-        <div className="relative w-full overflow-hidden flex flex-col gap-6">
+        <div className="relative w-full overflow-hidden flex flex-col gap-6 py-2">
           {/* Scoped CSS Keyframes to guarantee 100% reliable 60fps/120fps hardware-accelerated movement */}
           <style>{`
             @keyframes marquee {
@@ -265,9 +265,9 @@ export default function TestimonialsSection() {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 lg:w-40 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent z-20" />
 
           {/* LINE 1: Moves RIGHT TO LEFT continuously (auto carousel, low speed, offset delay) */}
-          <div className="group overflow-hidden">
+          <div className="group overflow-hidden py-1">
             <div
-              className="flex w-max animate-marquee gap-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+              className="flex w-max animate-marquee gap-6 py-1.5 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
               style={{ animationDuration: '38s', animationDelay: '-19s' }}
             >
               {/* First sequence */}
@@ -282,9 +282,9 @@ export default function TestimonialsSection() {
           </div>
 
           {/* LINE 2: Moves LEFT TO RIGHT continuously (auto carousel, left-to-right direction, offset delay) */}
-          <div className="group overflow-hidden">
+          <div className="group overflow-hidden py-1">
             <div
-              className="flex w-max animate-marquee-reverse gap-6 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+              className="flex w-max animate-marquee-reverse gap-6 py-1.5 group-hover:[animation-play-state:paused] motion-reduce:animate-none"
               style={{ animationDuration: '34s', animationDelay: '-11s' }}
             >
               {/* First sequence */}

@@ -108,8 +108,8 @@ export default function CtaSection() {
 
           {/* CTA Buttons Row - Placed directly below the image */}
           <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-6">
-            <a
-              href="mailto:hello@stack.studio?subject=Start%20a%20Project"
+            <Link
+              href="/contact"
               className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm shadow-sm transition-all duration-200 active:scale-[0.98]"
             >
               <span>Start a Project</span>
@@ -125,10 +125,12 @@ export default function CtaSection() {
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
               </svg>
-            </a>
+            </Link>
 
             <a
-              href="mailto:hello@stack.studio?subject=Hello%20Stack"
+              href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-neutral-900 hover:text-black font-medium text-sm underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
             >
               Or just say hello
@@ -197,8 +199,8 @@ export default function CtaSection() {
             {/* CTA Buttons Row */}
             <div className="mt-10 flex flex-wrap items-center gap-7">
               {/* Primary Pill Button */}
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20a%20Project"
+              <Link
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-[15px] shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
               >
                 <span>Start a Project</span>
@@ -214,11 +216,13 @@ export default function CtaSection() {
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
 
               {/* Secondary Underlined Text Link */}
               <a
-                href="mailto:hello@stack.studio?subject=Hello%20Stack"
+                href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-900 hover:text-black font-medium text-[15px] underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
               >
                 Or just say hello

@@ -38,6 +38,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/navbar/Navbar";
 import ScrollToTop from "@/components/common/ScrollToTop";
+import FloatingWhatsApp from "@/components/common/FloatingWhatsApp";
 
 export default function RootLayout({
   children,
@@ -54,6 +55,7 @@ export default function RootLayout({
         <ScrollToTop />
         <Navbar />
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

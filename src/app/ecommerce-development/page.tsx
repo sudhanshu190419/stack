@@ -286,13 +286,13 @@ export default function EcommerceDevelopmentPage() {
                   We design and build modern online stores that make it easy for customers to discover products, shop confidently, and complete their purchase on any device.
                 </p>
                 <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
-                  <a
-                    href="mailto:hello@stack.studio?subject=Start%20an%20E-Commerce%20Project"
+                  <Link
+                    href="/contact"
                     className="group inline-flex items-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm sm:text-[15px] shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
                   >
                     <span>Start a Project</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </a>
+                  </Link>
                   <Link
                     href="#ecom-portfolio"
                     className="inline-flex items-center gap-1.5 text-neutral-800 hover:text-black font-medium text-sm sm:text-[15px] underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
@@ -343,13 +343,13 @@ export default function EcommerceDevelopmentPage() {
 
             {/* Mobile Actions Stack */}
             <div className="space-y-2.5">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20an%20E-Commerce%20Project"
+              <Link
+                href="/contact"
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-[#111111] active:bg-black text-white font-medium text-sm shadow-sm transition-all"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
 
               <Link
                 href="#ecom-portfolio"
@@ -1031,10 +1031,10 @@ export default function EcommerceDevelopmentPage() {
                       Discuss your product catalog with our team.
                     </p>
                     <a
-                      href="mailto:hello@stack.studio?subject=Question%20about%20E-Commerce"
+                      href="mailto:contact@stackstich.online?subject=Question%20about%20E-Commerce"
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9E6941] hover:text-[#7d502e] transition-colors"
                     >
-                      <span>hello@stack.studio</span>
+                      <span>contact@stackstich.online</span>
                       <span>→</span>
                     </a>
                   </div>
@@ -1074,10 +1074,10 @@ export default function EcommerceDevelopmentPage() {
                 Discuss your product catalog with our team.
               </p>
               <a
-                href="mailto:hello@stack.studio?subject=Question%20about%20E-Commerce"
+                href="mailto:contact@stackstich.online?subject=Question%20about%20E-Commerce"
                 className="inline-flex items-center gap-1 text-xs font-semibold text-[#9E6941]"
               >
-                <span>hello@stack.studio</span>
+                <span>contact@stackstich.online</span>
                 <span>→</span>
               </a>
             </div>
@@ -1114,20 +1114,22 @@ export default function EcommerceDevelopmentPage() {
             </p>
 
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20an%20E-Commerce%20Project"
+              <Link
+                href="/contact"
                 className="group inline-flex items-center gap-2.5 px-8 sm:px-9 py-4 rounded-full bg-[#111111] hover:bg-black text-white font-medium text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 active:scale-[0.98]"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
-              <Link
-                href="/#contact"
+              <a
+                href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20building%20an%20online%20store.%20I'd%20like%20to%20discuss%20my%20requirements."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-900 hover:text-black font-medium text-sm sm:text-base underline underline-offset-[6px] decoration-neutral-400 hover:decoration-neutral-950 transition-colors duration-150"
               >
                 Or contact us online
-              </Link>
+              </a>
             </div>
 
             <p className="mt-8 text-xs text-neutral-500">
@@ -1152,20 +1154,22 @@ export default function EcommerceDevelopmentPage() {
             </p>
 
             <div className="mt-6 space-y-2.5 max-w-xs mx-auto">
-              <a
-                href="mailto:hello@stack.studio?subject=Start%20an%20E-Commerce%20Project"
+              <Link
+                href="/contact"
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-[#111111] active:bg-black text-white font-medium text-sm shadow-sm transition-all"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
 
-              <Link
-                href="/#contact"
+              <a
+                href="https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20building%20an%20online%20store.%20I'd%20like%20to%20discuss%20my%20requirements."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-center text-xs text-neutral-800 underline underline-offset-4 decoration-neutral-300 py-1"
               >
                 Or contact us online
-              </Link>
+              </a>
             </div>
 
             <p className="mt-4 text-[11px] text-neutral-500">
