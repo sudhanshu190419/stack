@@ -27,26 +27,28 @@ import { APP_FAQ_DATA } from '@/components/appdev/appFaqData'
 import AppVsWebComparison from '@/components/appdev/AppVsWebComparison'
 
 export const metadata: Metadata = {
-  title: 'Mobile App Development Services — iOS & Android Apps | Stack',
+  title: 'Mobile App Development Services — iOS & Android Apps | StackStich',
   description:
-    'Stack designs and develops high-performance mobile applications for iOS and Android. Cross-platform React Native engineering, biometric security, offline sync, and App Store deployment.',
+    'StackStich designs and develops high-performance mobile applications for iOS and Android. Cross-platform React Native engineering, biometric security, offline sync, and App Store deployment.',
   alternates: {
-    canonical: 'https://stack.studio/app-development',
+    canonical: 'https://www.stackstich.online/app-development',
   },
   openGraph: {
-    title: 'Mobile App Development Services — iOS & Android Apps | Stack',
+    title: 'Mobile App Development Services — iOS & Android Apps | StackStich',
     description:
-      'Stack designs and develops high-performance mobile applications for iOS and Android. Built around the way your customers interact with your business.',
-    url: 'https://stack.studio/app-development',
-    siteName: 'Stack Studio',
+      'StackStich designs and develops high-performance mobile applications for iOS and Android. Built around the way your customers interact with your business.',
+    url: 'https://www.stackstich.online/app-development',
+    siteName: 'StackStich',
     type: 'website',
     locale: 'en_US',
+    images: ['/hero.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mobile App Development Services — iOS & Android Apps | Stack',
+    title: 'Mobile App Development Services — iOS & Android Apps | StackStich',
     description:
-      'Custom iOS and Android mobile app engineering for ambitious businesses. Built by Stack.',
+      'Custom iOS and Android mobile app engineering for ambitious businesses. Built by StackStich.',
+    images: ['/hero.png'],
   },
 }
 
@@ -59,13 +61,13 @@ const BREADCRUMB_SCHEMA = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://stack.studio',
+      item: 'https://www.stackstich.online',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Mobile App Development',
-      item: 'https://stack.studio/app-development',
+      item: 'https://www.stackstich.online/app-development',
     },
   ],
 }
@@ -77,8 +79,8 @@ const SERVICE_SCHEMA = {
   serviceType: 'Mobile Application Development',
   provider: {
     '@type': 'Organization',
-    name: 'Stack Studio',
-    url: 'https://stack.studio',
+    name: 'StackStich',
+    url: 'https://www.stackstich.online',
   },
   description:
     'Custom mobile application design and development for iOS and Android platforms. Specializing in cross-platform React Native architecture, offline synchronization, secure APIs, and App Store publishing.',
@@ -319,10 +321,10 @@ export default function AppDevelopmentPage() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
+            <p className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
               Mobile apps built for<br />
               <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
-            </h1>
+            </p>
 
             {/* Supporting Copy */}
             <p className="mt-3.5 sm:mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">

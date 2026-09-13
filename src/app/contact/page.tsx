@@ -10,19 +10,27 @@ import ContactForm from '@/components/contact/ContactForm'
 import OfficeMapCard from '@/components/contact/OfficeMapCard'
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Let’s Build Something Great Together | Stack',
+  title: 'Contact Us — Let’s Build Something Great Together | StackStich',
   description:
-    'Have a project in mind or want to explore working with Stack? Send us a message, email our team, or visit our Delhi studio. We reply within 24 hours.',
+    'Have a project in mind or want to explore working with StackStich? Send us a message, email our team, or visit our Delhi studio. We reply within 24 hours.',
   alternates: {
-    canonical: 'https://stack.studio/contact',
+    canonical: 'https://www.stackstich.online/contact',
   },
   openGraph: {
-    title: 'Contact Us — Let’s Build Something Great Together | Stack',
+    title: 'Contact Us — Let’s Build Something Great Together | StackStich',
     description:
-      'Have a project in mind or want to explore working with Stack? Get in touch with our team in Delhi. We engineer fast, high-converting digital products.',
-    url: 'https://stack.studio/contact',
-    siteName: 'Stack Studio',
+      'Have a project in mind or want to explore working with StackStich? Get in touch with our team in Delhi. We engineer fast, high-converting digital products.',
+    url: 'https://www.stackstich.online/contact',
+    siteName: 'StackStich',
     type: 'website',
+    images: ['/hero.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us — Let’s Build Something Great Together | StackStich',
+    description:
+      'Have a project in mind or want to explore working with StackStich? Get in touch with our team in Delhi. We engineer fast, high-converting digital products.',
+    images: ['/hero.png'],
   },
 }
 
@@ -35,13 +43,13 @@ const BREADCRUMB_SCHEMA = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://stack.studio',
+      item: 'https://www.stackstich.online',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Contact Us',
-      item: 'https://stack.studio/contact',
+      item: 'https://www.stackstich.online/contact',
     },
   ],
 }
@@ -49,9 +57,9 @@ const BREADCRUMB_SCHEMA = {
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'Stack Studio',
-  image: 'https://stack.studio/contact.png',
-  url: 'https://stack.studio/contact',
+  name: 'StackStich',
+  image: 'https://www.stackstich.online/contact.png',
+  url: 'https://www.stackstich.online/contact',
   telephone: '+918860979255',
   email: 'contact@stackstich.online',
   address: {
@@ -86,7 +94,7 @@ export default function ContactPage() {
           <div className="absolute top-0 right-0 w-full lg:w-[46%] xl:w-[43%] h-full pointer-events-none select-none hidden lg:block overflow-hidden -z-0">
             <Image
               src="/contact.png"
-              alt="Stack Studio Creative Workspace"
+              alt="StackStich Creative Workspace"
               fill
               priority
               quality={95}

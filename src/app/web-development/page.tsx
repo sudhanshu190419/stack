@@ -26,26 +26,28 @@ import ComparisonTable from '@/components/webdev/ComparisonTable'
 import WorkSection from '@/components/work/WorkSection'
 
 export const metadata: Metadata = {
-  title: 'Web Development Services — Websites Built to Work for Your Business | Stack',
+  title: 'Web Development Services — Websites Built to Work for Your Business | StackStich',
   description:
-    'Stack designs and develops fast, responsive, scalable custom websites for growing businesses. Engineered with Next.js, TypeScript, modern CMS platforms, and Core Web Vitals excellence.',
+    'StackStich designs and develops fast, responsive, scalable custom websites for growing businesses. Engineered with Next.js, TypeScript, modern CMS platforms, and Core Web Vitals excellence.',
   alternates: {
-    canonical: 'https://stack.studio/web-development',
+    canonical: 'https://www.stackstich.online/web-development',
   },
   openGraph: {
-    title: 'Web Development Services — Websites Built to Work for Your Business | Stack',
+    title: 'Web Development Services — Websites Built to Work for Your Business | StackStich',
     description:
-      'Stack designs and develops fast, responsive, scalable custom websites for growing businesses. Engineered with Next.js, modern CMS platforms, and Core Web Vitals excellence.',
-    url: 'https://stack.studio/web-development',
-    siteName: 'Stack Studio',
+      'StackStich designs and develops fast, responsive, scalable custom websites for growing businesses. Engineered with Next.js, modern CMS platforms, and Core Web Vitals excellence.',
+    url: 'https://www.stackstich.online/web-development',
+    siteName: 'StackStich',
     type: 'website',
     locale: 'en_US',
+    images: ['/hero.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web Development Services — Websites Built to Work for Your Business | Stack',
+    title: 'Web Development Services — Websites Built to Work for Your Business | StackStich',
     description:
-      'Fast, responsive, and scalable custom websites for modern businesses. Built by Stack.',
+      'Fast, responsive, and scalable custom websites for modern businesses. Built by StackStich.',
+    images: ['/hero.png'],
   },
 }
 
@@ -58,13 +60,13 @@ const BREADCRUMB_SCHEMA = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://stack.studio',
+      item: 'https://www.stackstich.online',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Web Development Services',
-      item: 'https://stack.studio/web-development',
+      item: 'https://www.stackstich.online/web-development',
     },
   ],
 }
@@ -76,8 +78,8 @@ const SERVICE_SCHEMA = {
   serviceType: 'Web Development',
   provider: {
     '@type': 'Organization',
-    name: 'Stack Studio',
-    url: 'https://stack.studio',
+    name: 'StackStich',
+    url: 'https://www.stackstich.online',
   },
   description:
     'Design and development of custom, responsive, high-performance web applications, marketing websites, and CMS-powered platforms.',
@@ -340,12 +342,12 @@ export default function WebDevelopmentPage() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
+            <p className="text-3xl sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
               Websites built to<br />
               <span className="font-serif italic font-normal text-[#9E6941]">
                 work for your business.
               </span>
-            </h1>
+            </p>
 
             {/* Supporting Copy */}
             <p className="mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">

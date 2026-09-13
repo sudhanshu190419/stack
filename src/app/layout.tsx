@@ -25,14 +25,36 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Stack — App & Web Development Agency",
+  metadataBase: new URL("https://www.stackstich.online"),
+  title: "StackStich — App & Web Development Agency",
   description:
     "From startup MVPs to enterprise software, we design, develop and launch high-performance mobile apps, web applications, AI solutions, and custom software.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Stack — App & Web Development Agency",
+    title: "StackStich — App & Web Development Agency",
     description:
       "We build apps & websites that grow businesses. From MVPs to enterprise software.",
+    url: "https://www.stackstich.online",
+    siteName: "StackStich",
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/hero.png",
+        width: 1200,
+        height: 630,
+        alt: "StackStich — App & Web Development Agency",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StackStich — App & Web Development Agency",
+    description:
+      "We build apps & websites that grow businesses. From MVPs to enterprise software.",
+    images: ["/hero.png"],
   },
 };
 

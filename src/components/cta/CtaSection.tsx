@@ -98,7 +98,7 @@ export default function CtaSection() {
             <div className="relative w-full max-w-[440px] sm:max-w-[500px]">
               <Image
                 src={ctaMockup}
-                alt="Stack Studio Website Mockup on Tablet and Modern Web Books"
+                alt="StackStich Website Mockup on Tablet and Modern Web Books"
                 priority
                 quality={95}
                 className="w-full h-auto object-contain object-bottom drop-shadow-xl select-none"
@@ -320,7 +320,7 @@ export default function CtaSection() {
               {/* High-res Tablet Mockup (public/cta.png) flush to the right */}
               <Image
                 src={ctaMockup}
-                alt="Stack Studio Website Mockup on Tablet and Modern Web Books"
+                alt="StackStich Website Mockup on Tablet and Modern Web Books"
                 priority
                 quality={95}
                 className="w-full h-auto object-contain object-right-bottom drop-shadow-xl select-none"

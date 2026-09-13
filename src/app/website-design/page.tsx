@@ -30,26 +30,28 @@ import ResponsiveDeviceShowcase from '@/components/webdesign/ResponsiveDeviceSho
 import WorkSection from '@/components/work/WorkSection'
 
 export const metadata: Metadata = {
-  title: 'Website Design & UI/UX Studio Services | Stack',
+  title: 'Website Design & UI/UX Studio Services | StackStich',
   description:
-    'Stack crafts custom website designs, responsive layouts, and UI/UX systems built to establish brand credibility, communicate clearly, and turn visitors into clients.',
+    'StackStich crafts custom website designs, responsive layouts, and UI/UX systems built to establish brand credibility, communicate clearly, and turn visitors into clients.',
   alternates: {
-    canonical: 'https://stack.studio/website-design',
+    canonical: 'https://www.stackstich.online/website-design',
   },
   openGraph: {
-    title: 'Website Design & UI/UX Studio Services | Stack',
+    title: 'Website Design & UI/UX Studio Services | StackStich',
     description:
       'Websites designed to make the right first impression. Bespoke visual identity, intuitive UX, responsive design systems, and conversion-focused layouts.',
-    url: 'https://stack.studio/website-design',
-    siteName: 'Stack Studio',
+    url: 'https://www.stackstich.online/website-design',
+    siteName: 'StackStich',
     type: 'website',
     locale: 'en_US',
+    images: ['/hero.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Website Design & UI/UX Studio Services | Stack',
+    title: 'Website Design & UI/UX Studio Services | StackStich',
     description:
-      'Custom website design and UI/UX systems engineered for clarity, credibility, and commercial growth. Built by Stack.',
+      'Custom website design and UI/UX systems engineered for clarity, credibility, and commercial growth. Built by StackStich.',
+    images: ['/hero.png'],
   },
 }
 
@@ -62,13 +64,13 @@ const BREADCRUMB_SCHEMA = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://stack.studio',
+      item: 'https://www.stackstich.online',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Website Design Services',
-      item: 'https://stack.studio/website-design',
+      item: 'https://www.stackstich.online/website-design',
     },
   ],
 }
@@ -80,8 +82,8 @@ const SERVICE_SCHEMA = {
   serviceType: 'Website Design',
   provider: {
     '@type': 'Organization',
-    name: 'Stack Studio',
-    url: 'https://stack.studio',
+    name: 'StackStich',
+    url: 'https://www.stackstich.online',
   },
   description:
     'Strategic website design, UI/UX architecture, responsive design systems, landing page design, and website redesigns for modern businesses.',
@@ -352,10 +354,10 @@ export default function WebsiteDesignPage() {
               <div className="w-12 sm:w-16 h-[1.5px] bg-[#9E6941]" />
             </div>
 
-            <h1 className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
+            <p className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
               Websites designed for<br />
               <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
-            </h1>
+            </p>
 
             <p className="mt-3.5 sm:mt-4 text-neutral-600 text-sm sm:text-base leading-relaxed font-normal">
               We create modern website designs that clearly communicate your brand, make it easy for customers to find what they need, and guide them toward taking action.

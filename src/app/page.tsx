@@ -7,18 +7,57 @@ import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
 import CtaSection from "@/components/cta/CtaSection";
 import Footer from "@/components/footer/Footer";
 
+const HOMEPAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.stackstich.online/#organization",
+      name: "StackStich",
+      url: "https://www.stackstich.online",
+      logo: "https://www.stackstich.online/logo.png",
+      sameAs: [
+        "https://www.instagram.com/stackstich.online/",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+918860979255",
+        contactType: "customer service",
+        email: "contact@stackstich.online",
+        availableLanguage: ["English", "Hindi"],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stackstich.online/#website",
+      url: "https://www.stackstich.online",
+      name: "StackStich",
+      description:
+        "From startup MVPs to enterprise software, we design, develop and launch high-performance mobile apps, web applications, AI solutions, and custom software.",
+      publisher: {
+        "@id": "https://www.stackstich.online/#organization",
+      },
+    },
+  ],
+};
+
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <ServicesSection />
-      <WorkSection />
-      <WorkProcessDivider />
-      <ProcessSection />
-      <TestimonialsSection />
-      <CtaSection />
-      <Footer />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOMEPAGE_SCHEMA) }}
+      />
+      <main>
+        <Hero />
+        <ServicesSection />
+        <WorkSection />
+        <WorkProcessDivider />
+        <ProcessSection />
+        <TestimonialsSection />
+        <CtaSection />
+        <Footer />
+      </main>
+    </>
   );
 }
-

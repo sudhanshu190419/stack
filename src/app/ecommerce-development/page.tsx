@@ -14,26 +14,28 @@ import PlatformOptionsTable from '@/components/ecommerce/PlatformOptionsTable'
 import EcomVsBizTable from '@/components/ecommerce/EcomVsBizTable'
 
 export const metadata: Metadata = {
-  title: 'E-Commerce Website Development Services | Stack',
+  title: 'E-Commerce Website Development Services | StackStich',
   description:
-    'Stack designs and develops high-converting, fast, and scalable online stores. Custom Shopify, headless commerce, mobile checkout optimization, and technical e-commerce SEO.',
+    'StackStich designs and develops high-converting, fast, and scalable online stores. Custom Shopify, headless commerce, mobile checkout optimization, and technical e-commerce SEO.',
   alternates: {
-    canonical: 'https://stack.studio/ecommerce-development',
+    canonical: 'https://www.stackstich.online/ecommerce-development',
   },
   openGraph: {
-    title: 'E-Commerce Website Development Services | Stack',
+    title: 'E-Commerce Website Development Services | StackStich',
     description:
-      'Online stores built to turn browsers into buyers. Stack designs and develops modern e-commerce experiences across desktop and mobile.',
-    url: 'https://stack.studio/ecommerce-development',
-    siteName: 'Stack Studio',
+      'Online stores built to turn browsers into buyers. StackStich designs and develops modern e-commerce experiences across desktop and mobile.',
+    url: 'https://www.stackstich.online/ecommerce-development',
+    siteName: 'StackStich',
     type: 'website',
     locale: 'en_US',
+    images: ['/hero.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'E-Commerce Website Development Services | Stack',
+    title: 'E-Commerce Website Development Services | StackStich',
     description:
-      'High-converting online stores and custom e-commerce architecture. Built by Stack.',
+      'High-converting online stores and custom e-commerce architecture. Built by StackStich.',
+    images: ['/hero.png'],
   },
 }
 
@@ -46,13 +48,13 @@ const BREADCRUMB_SCHEMA = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://stack.studio',
+      item: 'https://www.stackstich.online',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'E-Commerce Development Services',
-      item: 'https://stack.studio/ecommerce-development',
+      item: 'https://www.stackstich.online/ecommerce-development',
     },
   ],
 }
@@ -64,8 +66,8 @@ const SERVICE_SCHEMA = {
   serviceType: 'E-Commerce Development',
   provider: {
     '@type': 'Organization',
-    name: 'Stack Studio',
-    url: 'https://stack.studio',
+    name: 'StackStich',
+    url: 'https://www.stackstich.online',
   },
   description:
     'Design, engineering, and optimization of custom online stores, Shopify platforms, headless commerce systems, and conversion-focused checkout funnels.',
@@ -327,10 +329,10 @@ export default function EcommerceDevelopmentPage() {
               <div className="w-8 h-[1.5px] bg-[#9E6941]" />
             </div>
 
-            <h1 className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
+            <p className="text-[32px] sm:text-4xl font-bold text-neutral-950 tracking-tight leading-[1.12]">
               Online stores built for<br />
               <span className="font-serif italic font-normal text-[#9E6941]">your business.</span>
-            </h1>
+            </p>
 
             <p className="mt-3 text-neutral-600 text-sm leading-relaxed font-normal">
               We design and build modern online stores that make it easy for customers to discover products, shop confidently, and complete their purchase on any device.

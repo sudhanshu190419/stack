@@ -7,19 +7,27 @@ import FeaturedProjectSection from '@/components/work/FeaturedProjectSection'
 import ProjectsGridSection from '@/components/work/ProjectsGridSection'
 
 export const metadata: Metadata = {
-  title: 'Our Work — Websites Built to Make an Impact | Stack',
+  title: 'Our Work — Websites Built to Make an Impact | StackStich',
   description:
-    'A selection of websites, mobile apps, and digital experiences designed and developed by Stack for businesses, products, and ideas that aim higher.',
+    'A selection of websites, mobile apps, and digital experiences designed and developed by StackStich for businesses, products, and ideas that aim higher.',
   alternates: {
-    canonical: 'https://stack.studio/work',
+    canonical: 'https://www.stackstich.online/work',
   },
   openGraph: {
-    title: 'Our Work — Websites Built to Make an Impact | Stack',
+    title: 'Our Work — Websites Built to Make an Impact | StackStich',
     description:
-      'A selection of websites, mobile apps, and digital experiences designed and developed by Stack for businesses, products, and ideas that aim higher.',
-    url: 'https://stack.studio/work',
-    siteName: 'Stack Studio',
+      'A selection of websites, mobile apps, and digital experiences designed and developed by StackStich for businesses, products, and ideas that aim higher.',
+    url: 'https://www.stackstich.online/work',
+    siteName: 'StackStich',
     type: 'website',
+    images: ['/hero.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Work — Websites Built to Make an Impact | StackStich',
+    description:
+      'A selection of websites, mobile apps, and digital experiences designed and developed by StackStich for businesses, products, and ideas that aim higher.',
+    images: ['/hero.png'],
   },
 }
 
@@ -32,13 +40,13 @@ const BREADCRUMB_SCHEMA = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://stack.studio',
+      item: 'https://www.stackstich.online',
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: 'Our Work',
-      item: 'https://stack.studio/work',
+      item: 'https://www.stackstich.online/work',
     },
   ],
 }
