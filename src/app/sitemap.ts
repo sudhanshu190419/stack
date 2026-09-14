@@ -14,6 +14,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/work`,
       lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/work/edjoys`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/work/animalsathi`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/work/mobl`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/work/tripleone`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/work/nexora`,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },

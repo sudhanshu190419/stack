@@ -3,6 +3,7 @@ const http = require('http');
 const testRoutes = [
   '/',
   '/work',
+  '/work/edjoys',
   '/contact',
   '/web-development',
   '/website-design',

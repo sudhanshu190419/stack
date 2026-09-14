@@ -2,19 +2,20 @@
 
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 const FEATURED_PROJECT = {
   number: '01',
-  title: 'Mobl',
-  subtitle: 'E-commerce Website',
+  title: 'Edjoys',
+  subtitle: 'Education Platform',
   description:
-    'A modern e-commerce store for discovering and shopping mobile accessories with ease.',
-  tags: ['Design', 'Development', 'E-commerce'],
-  liveUrl: 'https://mobile-accessories-xi.vercel.app/',
-  caseStudyUrl: '#case-study',
+    'A modern education platform designed to make learning simple, engaging, and accessible.',
+  tags: ['Design', 'Development', 'Education'],
+  liveUrl: 'https://edjoys.com/',
+  caseStudyUrl: '/work/edjoys',
   imageSrc: '/work/project1.png',
-  imageAlt: 'Mobl E-commerce Website by Stack',
+  imageAlt: 'Edjoys Education Platform by StackStich',
 }
 
 export default function FeaturedProjectSection() {
@@ -80,12 +81,12 @@ export default function FeaturedProjectSection() {
                 <span>View Live Site</span>
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </a>
-              <a
+              <Link
                 href={project.caseStudyUrl}
                 className="cursor-pointer bg-white hover:bg-neutral-50 text-neutral-800 text-xs sm:text-sm font-medium px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-full border border-black/[0.12] flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 shadow-xs transition-colors"
               >
                 View Case Study
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -93,7 +94,7 @@ export default function FeaturedProjectSection() {
           <div className="lg:col-span-7 xl:col-span-8 relative aspect-[16/11] xs:aspect-[16/10] sm:aspect-auto sm:min-h-[460px] lg:min-h-[520px] xl:min-h-[580px] w-full overflow-hidden bg-[#E8E2D8]">
             <Image
               src="/work/project1.png"
-              alt="VELORA E-commerce Website by Stack"
+              alt={project.imageAlt}
               fill
               priority
               quality={95}

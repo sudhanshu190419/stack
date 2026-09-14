@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 export interface GridProject {
@@ -20,63 +21,63 @@ export interface GridProject {
 
 const ROW_ONE_PROJECTS: GridProject[] = [
   {
-    id: 'edjoys',
-    number: '02',
-    title: 'Edjoys',
-    category: 'Education Platform',
-    description:
-      'A modern education platform designed to make learning simple, engaging, and accessible.',
-    tags: ['Design', 'Development', 'Education'],
-    badgeType: 'live',
-    actionText: 'View Live Site',
-    href: 'https://edjoys.com/',
-    imageSrc: '/work/project2.png',
-    imageAlt: 'Edjoys Education Platform by Stack',
-  },
-  {
     id: 'animalsathi',
-    number: '03',
+    number: '02',
     title: 'Animalsathi',
     category: 'Animal Care Platform',
     description:
       'A digital platform connecting pet owners with veterinary care, services, and support.',
     tags: ['Design', 'Development', 'Platform'],
-    badgeType: 'preview',
-    actionText: 'View Project',
-    href: 'https://animalsathi.com/',
+    badgeType: 'live',
+    actionText: 'View Case Study',
+    href: '/work/animalsathi',
+    imageSrc: '/work/project2.png',
+    imageAlt: 'Animalsathi Animal Care Platform by StackStich',
+  },
+  {
+    id: 'mobl',
+    number: '03',
+    title: 'Mobl',
+    category: 'E-commerce Website',
+    description:
+      'A modern e-commerce store for discovering and shopping mobile accessories with ease.',
+    tags: ['Design', 'Development', 'E-commerce'],
+    badgeType: 'live',
+    actionText: 'View Case Study',
+    href: '/work/mobl',
     imageSrc: '/work/project3.png',
-    imageAlt: 'Animalsathi Animal Care Platform by Stack',
+    imageAlt: 'Mobl E-commerce Website by StackStich',
   },
 ]
 
 const ROW_TWO_PROJECTS: GridProject[] = [
   {
-    id: 'prepmate',
+    id: 'tripleone',
     number: '04',
-    title: 'PrepMate',
-    category: 'EdTech Platform',
+    title: 'TripleOne',
+    category: 'Travel & Stay Booking',
     description:
-      'A mock test platform designed to help students prepare smarter and perform better.',
+      'A modern accommodation platform designed to help travelers discover, compare, and book comfortable stays with ease.',
     tags: ['Design', 'Development', 'Platform'],
     badgeType: 'preview',
-    actionText: 'View Project',
-    href: 'https://animalsathi.com/',
+    actionText: 'View Case Study',
+    href: '/work/tripleone',
     imageSrc: '/work/project4.png',
-    imageAlt: 'PrepMate EdTech Platform by Stack',
+    imageAlt: 'TripleOne Travel & Stay Booking by StackStich',
   },
   {
     id: 'nexora',
     number: '05',
     title: 'Nexora',
-    category: 'Architecture Website',
+    category: 'Creative Agency Website',
     description:
-      'A clean and modern website for an architecture studio focused on timeless design.',
-    tags: ['Design', 'Development', 'Responsive'],
+      'A modern agency website designed to showcase services, build trust, and turn visitors into potential clients.',
+    tags: ['Design', 'Development', 'Creative'],
     badgeType: 'preview',
-    actionText: 'View Project',
-    href: 'https://animalsathi.com/',
+    actionText: 'View Case Study',
+    href: '/work/nexora',
     imageSrc: '/work/project5.png',
-    imageAlt: 'Nexora Architecture Website by Stack',
+    imageAlt: 'Nexora Creative Agency Website by StackStich',
   },
 ]
 
@@ -154,25 +155,45 @@ function ProjectCard({ project }: { project: GridProject }) {
 
         {/* Bottom Actions Row */}
         <div className="flex items-center justify-between mt-4 sm:mt-6 pt-1">
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-950 group-hover:text-[#9E6941] transition-colors"
-          >
-            <span>{project.actionText}</span>
-            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          {project.href.startsWith('/') ? (
+            <Link
+              href={project.href}
+              className="cursor-pointer inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-950 group-hover:text-[#9E6941] transition-colors"
+            >
+              <span>{project.actionText}</span>
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          ) : (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-950 group-hover:text-[#9E6941] transition-colors"
+            >
+              <span>{project.actionText}</span>
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          )}
 
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${project.actionText} for ${project.title}`}
-            className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-black/[0.12] group-hover:border-black/[0.3] group-hover:bg-white bg-transparent flex items-center justify-center text-neutral-700 group-hover:text-neutral-950 transition-all"
-          >
-            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
+          {project.href.startsWith('/') ? (
+            <Link
+              href={project.href}
+              aria-label={`${project.actionText} for ${project.title}`}
+              className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-black/[0.12] group-hover:border-black/[0.3] group-hover:bg-white bg-transparent flex items-center justify-center text-neutral-700 group-hover:text-neutral-950 transition-all"
+            >
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          ) : (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.actionText} for ${project.title}`}
+              className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-black/[0.12] group-hover:border-black/[0.3] group-hover:bg-white bg-transparent flex items-center justify-center text-neutral-700 group-hover:text-neutral-950 transition-all"
+            >
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          )}
         </div>
       </div>
     </article>
