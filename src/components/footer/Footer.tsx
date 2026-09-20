@@ -7,10 +7,12 @@ import { MapPin, Clock } from 'lucide-react'
 
 const NAVIGATION_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Work', href: '#work' },
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#process' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Work', href: '/work' },
+  { label: 'Services', href: '/#services' },
+  { label: 'About', href: '/#process' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
 ]
 
 const SERVICES_LINKS = [
@@ -172,8 +174,22 @@ export default function Footer() {
             <span>BUILT FOR BOLDER BRANDS</span>
           </div>
 
-          <div className="text-neutral-500 text-[11px] mt-1">
-            &copy; 2024 Stack. All rights reserved.
+          <div className="flex flex-wrap items-center justify-center gap-2.5 text-neutral-500 text-[11px] mt-1">
+            <span>&copy; 2024 Stack. All rights reserved.</span>
+            <span className="text-neutral-300">•</span>
+            <Link
+              href="/terms-and-conditions"
+              className="text-neutral-600 hover:text-neutral-950 underline underline-offset-4 transition-colors"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <span className="text-neutral-300">•</span>
+            <Link
+              href="/privacy-policy"
+              className="text-neutral-600 hover:text-neutral-950 underline underline-offset-4 transition-colors"
+            >
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>
@@ -325,9 +341,23 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-6 sm:pt-7 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-neutral-500">
-          {/* Left: Copyright */}
-          <div className="text-center sm:text-left text-neutral-500 text-xs">
-            &copy; 2024 Stack. All rights reserved.
+          {/* Left: Copyright & Legal */}
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-center sm:text-left text-neutral-500 text-xs">
+            <span>&copy; 2024 Stack. All rights reserved.</span>
+            <span className="hidden sm:inline text-neutral-300">•</span>
+            <Link
+              href="/terms-and-conditions"
+              className="text-neutral-600 hover:text-neutral-950 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 transition-colors"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <span className="hidden sm:inline text-neutral-300">•</span>
+            <Link
+              href="/privacy-policy"
+              className="text-neutral-600 hover:text-neutral-950 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-700 transition-colors"
+            >
+              Privacy Policy
+            </Link>
           </div>
 
           {/* Center: IDEAS -> WEBSITES -> GROWTH */}

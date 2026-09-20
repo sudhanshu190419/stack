@@ -3,9 +3,8 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, ArrowRight, Sparkles } from 'lucide-react'
+import { ChevronDown, ArrowRight, Phone } from 'lucide-react'
 
 const SERVICES_MENU = [
   {
@@ -39,28 +38,11 @@ const NAV_LINKS = [
 ]
 
 export default function Navbar() {
-  const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-
-  const getWhatsAppUrl = () => {
-    if (pathname === '/web-development') {
-      return "https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20web%20development%20service.%20I'd%20like%20to%20discuss%20my%20project."
-    }
-    if (pathname === '/website-design') {
-      return "https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20website%20design%20service.%20I'd%20like%20to%20discuss%20a%20project."
-    }
-    if (pathname === '/ecommerce-development') {
-      return "https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20building%20an%20online%20store.%20I'd%20like%20to%20discuss%20my%20requirements."
-    }
-    if (pathname === '/app-development') {
-      return "https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20app%20development%20service.%20I'd%20like%20to%20discuss%20my%20idea."
-    }
-    return "https://wa.me/918860979255?text=Hi%20StackStich%2C%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -210,25 +192,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop Phone / CTA */}
           <a
-            href={getWhatsAppUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium text-white bg-neutral-900 hover:bg-black transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
+            href="tel:+918860979255"
+            aria-label="Call +918860979255"
+            className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white bg-neutral-900 hover:bg-black transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
           >
-            <span>Get in Touch</span>
-            <svg
-              className="w-3.5 h-3.5 ml-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <Phone className="w-3.5 h-3.5" />
+            <span>+918860979255</span>
           </a>
 
           {/* Mobile hamburger */}
@@ -330,24 +301,13 @@ export default function Navbar() {
 
               <div className="pt-2">
                 <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="tel:+918860979255"
+                  aria-label="Call +918860979255"
                   className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full text-sm font-medium text-white bg-neutral-900 hover:bg-black transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Get in Touch
-                  <svg
-                    className="w-3.5 h-3.5 ml-0.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                  <Phone className="w-4 h-4" />
+                  <span>+918860979255</span>
                 </a>
               </div>
             </div>

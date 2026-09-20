@@ -1,6 +1,7 @@
 import Hero from "@/components/hero/Hero";
 import ServicesSection from "@/components/services/ServicesSection";
 import WorkSection from "@/components/work/WorkSection";
+import OfferSection from "@/components/offer/OfferSection";
 import WorkProcessDivider from "@/components/ui/WorkProcessDivider";
 import ProcessSection from "@/components/process/ProcessSection";
 import TestimonialsSection from "@/components/testimonials/TestimonialsSection";
@@ -52,6 +53,7 @@ export default function Home() {
         <Hero />
         <ServicesSection />
         <WorkSection />
+        <OfferSection />
         <WorkProcessDivider />
         <ProcessSection />
         <TestimonialsSection />
